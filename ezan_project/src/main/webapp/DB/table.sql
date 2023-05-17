@@ -1,4 +1,18 @@
 
+/* Drop Triggers */
+
+DROP TRIGGER TRI_address_addrseq;
+DROP TRIGGER TRI_admin_aseq;
+DROP TRIGGER TRI_cart_cartseq;
+DROP TRIGGER TRI_content_cseq;
+DROP TRIGGER TRI_grade_gseq;
+DROP TRIGGER TRI_member_mseq;
+DROP TRIGGER TRI_NEW_TABLE_cartseq;
+DROP TRIGGER TRI_order_detail_odseq;
+DROP TRIGGER TRI_order_oseq;
+DROP TRIGGER TRI_qna_board_qseq;
+DROP TRIGGER TRI_review_board_rseq;
+DROP TRIGGER TRI_success_board_sseq;
 
 
 
@@ -28,7 +42,7 @@ DROP SEQUENCE SEQ_grade_gseq;
 DROP SEQUENCE SEQ_member_mseq;
 DROP SEQUENCE SEQ_NEW_TABLE_cartseq;
 DROP SEQUENCE SEQ_order_detail_odseq;
-DROP SEQUENCE SEQ_order_oseq;
+DROP SEQUENCE SEQ_orders_oseq;
 DROP SEQUENCE SEQ_qna_board_qseq;
 DROP SEQUENCE SEQ_review_board_rseq;
 DROP SEQUENCE SEQ_success_board_sseq;
@@ -66,7 +80,6 @@ CREATE TABLE address
 	detail varchar2(30),
 	PRIMARY KEY (addrseq)
 );
-
 
 CREATE TABLE admin
 (
@@ -257,7 +270,7 @@ ALTER TABLE success_board
 
 ALTER TABLE order_detail
 	ADD FOREIGN KEY (oseq)
-	REFERENCES order (oseq)
+	REFERENCES orders (oseq)
 ;
 
 
