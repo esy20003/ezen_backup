@@ -41,11 +41,11 @@
 		<suspend_validator>false</suspend_validator>
 		<export_setting>
 			<export_ddl_setting>
-				<output_path></output_path>
-				<encoding></encoding>
-				<line_feed></line_feed>
+				<output_path>src\main\webapp\DB\table.sql</output_path>
+				<encoding>UTF-8</encoding>
+				<line_feed>CR+LF</line_feed>
 				<is_open_after_saved>true</is_open_after_saved>
-				<environment_id>null</environment_id>
+				<environment_id>0</environment_id>
 				<category_id>null</category_id>
 				<ddl_target>
 					<create_comment>true</create_comment>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2023-05-17 11:41:53</creation_date>
-			<updated_date>2023-05-17 15:30:57</updated_date>
+			<updated_date>2023-05-17 16:09:16</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -2906,7 +2906,7 @@
 			<connections>
 				<relation>
 					<id>1</id>
-					<source>6</source>
+					<source>10</source>
 					<target>5</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2928,7 +2928,7 @@
 				</relation>
 				<relation>
 					<id>2</id>
-					<source>10</source>
+					<source>6</source>
 					<target>5</target>
 						<source_xp>-1</source_xp>
 						<source_yp>-1</source_yp>
@@ -2992,7 +2992,7 @@
 				<normal_column>
 					<id>45</id>
 					<referenced_column>49</referenced_column>
-					<relation>1</relation>
+					<relation>2</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3026,7 +3026,7 @@
 				<normal_column>
 					<id>46</id>
 					<referenced_column>76</referenced_column>
-					<relation>2</relation>
+					<relation>1</relation>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
@@ -3169,8 +3169,8 @@
 					<referenced_complex_unique_key>null</referenced_complex_unique_key>
 				</relation>
 			</connections>
-			<physical_name>order</physical_name>
-			<logical_name>order</logical_name>
+			<physical_name>orders</physical_name>
+			<logical_name>orders</logical_name>
 			<description></description>
 			<constraint></constraint>
 			<primary_key_name></primary_key_name>
@@ -4762,6 +4762,21 @@
 	</test_data_list>
 	<sequence_set>
 		<sequence>
+			<name>SEQ_address_addrseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
 			<name>SEQ_admin_aseq</name>
 			<schema></schema>
 			<increment>1</increment>
@@ -4777,7 +4792,7 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_member_mseq</name>
+			<name>SEQ_cart_cartseq</name>
 			<schema></schema>
 			<increment>1</increment>
 			<min_value></min_value>
@@ -4807,97 +4822,22 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_qna_board_qseq</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_success_board_sseq</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_review_board_rseq</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_address_addrseq</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_order_oseq</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
-			<name>SEQ_order_detail_odseq</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
-		<sequence>
 			<name>SEQ_grade_gseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
+			<name>SEQ_member_mseq</name>
 			<schema></schema>
 			<increment>1</increment>
 			<min_value></min_value>
@@ -4927,7 +4867,82 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
-			<name>SEQ_cart_cartseq</name>
+			<name>SEQ_order_detail_odseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
+			<name>SEQ_order_oseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
+			<name>SEQ_qna_board_qseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
+			<name>SEQ_review_board_rseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
+			<name>SEQ_success_board_sseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
+			<name>SEQ_orders_oseq</name>
 			<schema></schema>
 			<increment>1</increment>
 			<min_value></min_value>
@@ -4944,15 +4959,21 @@
 	</sequence_set>
 	<trigger_set>
 		<trigger>
+			<name>TRI_address_addrseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON address&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_address_addrseq.nextval&#x0D;&#x0A;&#x09;INTO :new.addrseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
 			<name>TRI_admin_aseq</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON admin&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_admin_aseq.nextval&#x0D;&#x0A;&#x09;INTO :new.aseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_member_mseq</name>
+			<name>TRI_cart_cartseq</name>
 			<schema></schema>
-			<sql>BEFORE INSERT ON member&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_member_mseq.nextval&#x0D;&#x0A;&#x09;INTO :new.mseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<sql>BEFORE INSERT ON cart&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_cart_cartseq.nextval&#x0D;&#x0A;&#x09;INTO :new.cartseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
@@ -4962,45 +4983,15 @@
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_qna_board_qseq</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON qna_board&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_qna_board_qseq.nextval&#x0D;&#x0A;&#x09;INTO :new.qseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_success_board_sseq</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON success_board&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_success_board_sseq.nextval&#x0D;&#x0A;&#x09;INTO :new.sseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_review_board_rseq</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON review_board&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_review_board_rseq.nextval&#x0D;&#x0A;&#x09;INTO :new.rseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_address_addrseq</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON address&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_address_addrseq.nextval&#x0D;&#x0A;&#x09;INTO :new.addrseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_order_oseq</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON order&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_order_oseq.nextval&#x0D;&#x0A;&#x09;INTO :new.oseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_order_detail_odseq</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON order_detail&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_order_detail_odseq.nextval&#x0D;&#x0A;&#x09;INTO :new.odseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
 			<name>TRI_grade_gseq</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON grade&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_grade_gseq.nextval&#x0D;&#x0A;&#x09;INTO :new.gseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_member_mseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON member&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_member_mseq.nextval&#x0D;&#x0A;&#x09;INTO :new.mseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
@@ -5010,9 +5001,39 @@
 			<description></description>
 		</trigger>
 		<trigger>
-			<name>TRI_cart_cartseq</name>
+			<name>TRI_order_detail_odseq</name>
 			<schema></schema>
-			<sql>BEFORE INSERT ON cart&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_cart_cartseq.nextval&#x0D;&#x0A;&#x09;INTO :new.cartseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<sql>BEFORE INSERT ON order_detail&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_order_detail_odseq.nextval&#x0D;&#x0A;&#x09;INTO :new.odseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_order_oseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON order&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_order_oseq.nextval&#x0D;&#x0A;&#x09;INTO :new.oseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_qna_board_qseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON qna_board&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_qna_board_qseq.nextval&#x0D;&#x0A;&#x09;INTO :new.qseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_review_board_rseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON review_board&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_review_board_rseq.nextval&#x0D;&#x0A;&#x09;INTO :new.rseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_success_board_sseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON success_board&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_success_board_sseq.nextval&#x0D;&#x0A;&#x09;INTO :new.sseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_orders_oseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON orders&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_orders_oseq.nextval&#x0D;&#x0A;&#x09;INTO :new.oseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 	</trigger_set>
