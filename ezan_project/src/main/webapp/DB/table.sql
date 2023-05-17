@@ -2,20 +2,6 @@
 
 
 
-/* Drop Tables */
-
-DROP TABLE address CASCADE CONSTRAINTS;
-DROP TABLE admin CASCADE CONSTRAINTS;
-DROP TABLE cart CASCADE CONSTRAINTS;
-DROP TABLE order_detail CASCADE CONSTRAINTS;
-DROP TABLE content CASCADE CONSTRAINTS;
-DROP TABLE grade CASCADE CONSTRAINTS;
-DROP TABLE orders CASCADE CONSTRAINTS;
-DROP TABLE qna_board CASCADE CONSTRAINTS;
-DROP TABLE review_board CASCADE CONSTRAINTS;
-DROP TABLE success_board CASCADE CONSTRAINTS;
-DROP TABLE member CASCADE CONSTRAINTS;
-
 
 
 /* Drop Sequences */
@@ -27,6 +13,7 @@ DROP SEQUENCE SEQ_content_cseq;
 DROP SEQUENCE SEQ_grade_gseq;
 DROP SEQUENCE SEQ_member_mseq;
 DROP SEQUENCE SEQ_NEW_TABLE_cartseq;
+DROP SEQUENCE SEQ_orders_oseq;
 DROP SEQUENCE SEQ_order_detail_odseq;
 DROP SEQUENCE SEQ_order_oseq;
 DROP SEQUENCE SEQ_qna_board_qseq;
@@ -45,8 +32,9 @@ CREATE SEQUENCE SEQ_content_cseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_grade_gseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_member_mseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_NEW_TABLE_cartseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_order_detail_odseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_orders_oseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_order_detail_odseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_order_oseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_success_board_sseq INCREMENT BY 1 START WITH 1;
@@ -140,6 +128,7 @@ CREATE TABLE member
 	success number(5,0) DEFAULT 0,
 	indate date DEFAULT sysdate,
 	useyn char(1) DEFAULT '1',
+	 ,
 	PRIMARY KEY (mseq)
 );
 
@@ -175,7 +164,7 @@ CREATE TABLE qna_board
 	content varchar2(1000) NOT NULL,
 	reply  varchar2(500),
 	repyn char DEFAULT 'N',
-	image varchar2(100),
+	image varchar2(0),
 	PRIMARY KEY (qseq)
 );
 
@@ -190,7 +179,7 @@ CREATE TABLE review_board
 	content varchar2(1000) NOT NULL,
 	reply  varchar2(500),
 	repyn char DEFAULT 'N',
-	image varchar2(100),
+	image varchar2(0),
 	PRIMARY KEY (rseq)
 );
 
@@ -205,7 +194,7 @@ CREATE TABLE success_board
 	content varchar2(1000) NOT NULL,
 	reply  varchar2(500),
 	repyn char DEFAULT 'N',
-	image varchar2(100),
+	image varchar2(0),
 	PRIMARY KEY (sseq)
 );
 
@@ -257,7 +246,7 @@ ALTER TABLE success_board
 
 ALTER TABLE order_detail
 	ADD FOREIGN KEY (oseq)
-	REFERENCES order (oseq)
+	REFERENCES orders (oseq)
 ;
 
 
@@ -329,6 +318,16 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_NEW_TABLE_cartseq.nextval
 	INTO :new.cartseq
+	FROM dual;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TRI_orders_oseq BEFORE INSERT ON orders
+FOR EACH ROW
+BEGIN
+	SELECT SEQ_orders_oseq.nextval
+	INTO :new.oseq
 	FROM dual;
 END;
 

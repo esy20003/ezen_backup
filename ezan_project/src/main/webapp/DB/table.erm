@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2023-05-17 11:41:53</creation_date>
-			<updated_date>2023-05-17 16:09:16</updated_date>
+			<updated_date>2023-05-17 16:40:15</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -1316,7 +1316,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>25</word_id>
+					<word_id>26</word_id>
 					<id>1</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1382,7 +1382,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>37</word_id>
+					<word_id>36</word_id>
 					<id>3</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1972,7 +1972,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>27</word_id>
+					<word_id>24</word_id>
 					<id>19</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2038,7 +2038,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>36</word_id>
+					<word_id>37</word_id>
 					<id>21</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -2651,7 +2651,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>26</word_id>
+					<word_id>27</word_id>
 					<id>37</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3244,7 +3244,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>24</word_id>
+					<word_id>25</word_id>
 					<id>51</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3277,7 +3277,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>33</word_id>
+					<word_id>31</word_id>
 					<id>52</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3430,7 +3430,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>26</word_id>
+					<word_id>27</word_id>
 					<id>55</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3496,7 +3496,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>31</word_id>
+					<word_id>33</word_id>
 					<id>57</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -3781,7 +3781,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>26</word_id>
+					<word_id>27</word_id>
 					<id>64</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -4867,6 +4867,21 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
+			<name>SEQ_orders_oseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
 			<name>SEQ_order_detail_odseq</name>
 			<schema></schema>
 			<increment>1</increment>
@@ -4941,21 +4956,6 @@
 			<data_type></data_type>
 			<decimal_size>0</decimal_size>
 		</sequence>
-		<sequence>
-			<name>SEQ_orders_oseq</name>
-			<schema></schema>
-			<increment>1</increment>
-			<min_value></min_value>
-			<max_value></max_value>
-			<start>1</start>
-			<cache></cache>
-			<nocache>false</nocache>
-			<cycle>false</cycle>
-			<order>false</order>
-			<description></description>
-			<data_type></data_type>
-			<decimal_size>0</decimal_size>
-		</sequence>
 	</sequence_set>
 	<trigger_set>
 		<trigger>
@@ -5001,6 +5001,12 @@
 			<description></description>
 		</trigger>
 		<trigger>
+			<name>TRI_orders_oseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON orders&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_orders_oseq.nextval&#x0D;&#x0A;&#x09;INTO :new.oseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
 			<name>TRI_order_detail_odseq</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON order_detail&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_order_detail_odseq.nextval&#x0D;&#x0A;&#x09;INTO :new.odseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
@@ -5028,12 +5034,6 @@
 			<name>TRI_success_board_sseq</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON success_board&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_success_board_sseq.nextval&#x0D;&#x0A;&#x09;INTO :new.sseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
-			<description></description>
-		</trigger>
-		<trigger>
-			<name>TRI_orders_oseq</name>
-			<schema></schema>
-			<sql>BEFORE INSERT ON orders&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_orders_oseq.nextval&#x0D;&#x0A;&#x09;INTO :new.oseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 	</trigger_set>
