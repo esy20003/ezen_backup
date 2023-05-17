@@ -15,7 +15,6 @@ DROP TRIGGER TRI_review_board_rseq;
 DROP TRIGGER TRI_success_board_sseq;
 
 
-
 /* Drop Tables */
 
 DROP TABLE address CASCADE CONSTRAINTS;
@@ -41,6 +40,7 @@ DROP SEQUENCE SEQ_content_cseq;
 DROP SEQUENCE SEQ_grade_gseq;
 DROP SEQUENCE SEQ_member_mseq;
 DROP SEQUENCE SEQ_NEW_TABLE_cartseq;
+DROP SEQUENCE SEQ_orders_oseq;
 DROP SEQUENCE SEQ_order_detail_odseq;
 DROP SEQUENCE SEQ_orders_oseq;
 DROP SEQUENCE SEQ_qna_board_qseq;
@@ -59,8 +59,8 @@ CREATE SEQUENCE SEQ_content_cseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_grade_gseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_member_mseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_NEW_TABLE_cartseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_order_detail_odseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_orders_oseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_order_detail_odseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_success_board_sseq INCREMENT BY 1 START WITH 1;
@@ -218,7 +218,7 @@ CREATE TABLE success_board
 	content varchar2(1000) NOT NULL,
 	reply  varchar2(500),
 	repyn char DEFAULT 'N',
-	image varchar2(100),
+	image varchar2(10),
 	PRIMARY KEY (sseq)
 );
 
@@ -273,129 +273,6 @@ ALTER TABLE order_detail
 	REFERENCES orders (oseq)
 ;
 
-
-
-/* Create Triggers */
-
-CREATE OR REPLACE TRIGGER TRI_address_addrseq BEFORE INSERT ON address
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_address_addrseq.nextval
-	INTO :new.addrseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_admin_aseq BEFORE INSERT ON admin
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_admin_aseq.nextval
-	INTO :new.aseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_cart_cartseq BEFORE INSERT ON cart
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_cart_cartseq.nextval
-	INTO :new.cartseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_content_cseq BEFORE INSERT ON content
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_content_cseq.nextval
-	INTO :new.cseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_grade_gseq BEFORE INSERT ON grade
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_grade_gseq.nextval
-	INTO :new.gseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_member_mseq BEFORE INSERT ON member
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_member_mseq.nextval
-	INTO :new.mseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_NEW_TABLE_cartseq BEFORE INSERT ON NEW_TABLE
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_NEW_TABLE_cartseq.nextval
-	INTO :new.cartseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_order_detail_odseq BEFORE INSERT ON order_detail
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_order_detail_odseq.nextval
-	INTO :new.odseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_order_oseq BEFORE INSERT ON order
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_order_oseq.nextval
-	INTO :new.oseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_qna_board_qseq BEFORE INSERT ON qna_board
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_qna_board_qseq.nextval
-	INTO :new.qseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_review_board_rseq BEFORE INSERT ON review_board
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_review_board_rseq.nextval
-	INTO :new.rseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_success_board_sseq BEFORE INSERT ON success_board
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_success_board_sseq.nextval
-	INTO :new.sseq
-	FROM dual;
-END;
-
-/
 
 
 

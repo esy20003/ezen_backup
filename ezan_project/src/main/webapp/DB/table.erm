@@ -135,7 +135,11 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2023-05-17 11:41:53</creation_date>
+<<<<<<< HEAD
 			<updated_date>2023-05-17 16:32:01</updated_date>
+=======
+			<updated_date>2023-05-17 16:37:10</updated_date>
+>>>>>>> refs/remotes/origin/J
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>
@@ -4867,6 +4871,21 @@
 			<decimal_size>0</decimal_size>
 		</sequence>
 		<sequence>
+			<name>SEQ_orders_oseq</name>
+			<schema></schema>
+			<increment>1</increment>
+			<min_value></min_value>
+			<max_value></max_value>
+			<start>1</start>
+			<cache></cache>
+			<nocache>false</nocache>
+			<cycle>false</cycle>
+			<order>false</order>
+			<description></description>
+			<data_type></data_type>
+			<decimal_size>0</decimal_size>
+		</sequence>
+		<sequence>
 			<name>SEQ_order_detail_odseq</name>
 			<schema></schema>
 			<increment>1</increment>
@@ -4983,6 +5002,12 @@
 			<name>TRI_NEW_TABLE_cartseq</name>
 			<schema></schema>
 			<sql>BEFORE INSERT ON NEW_TABLE&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_NEW_TABLE_cartseq.nextval&#x0D;&#x0A;&#x09;INTO :new.cartseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
+			<description></description>
+		</trigger>
+		<trigger>
+			<name>TRI_orders_oseq</name>
+			<schema></schema>
+			<sql>BEFORE INSERT ON orders&#x0D;&#x0A;FOR EACH ROW&#x0D;&#x0A;BEGIN&#x0D;&#x0A;&#x09;SELECT SEQ_orders_oseq.nextval&#x0D;&#x0A;&#x09;INTO :new.oseq&#x0D;&#x0A;&#x09;FROM dual;&#x0D;&#x0A;END</sql>
 			<description></description>
 		</trigger>
 		<trigger>
