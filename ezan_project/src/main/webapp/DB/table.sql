@@ -186,7 +186,7 @@ CREATE TABLE qna_board
 	title varchar2(50) NOT NULL,
 	indate date DEFAULT sysdate,
 	content varchar2(1000) NOT NULL,
-	reply  varchar2(500),
+	reply varchar2(500),
 	repyn char DEFAULT 'N',
 	image varchar2(100),
 	PRIMARY KEY (qseq)
