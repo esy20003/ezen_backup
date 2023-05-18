@@ -89,11 +89,7 @@ CREATE TABLE seat
 	PRIMARY KEY (seatseq)
 );
 
-<<<<<<< HEAD
 CREATE TABLE grade
-=======
-CREATE TABLE admin
->>>>>>> refs/heads/main
 (
 	gseq number(5,0) NOT NULL,
 	gname varchar2(10) DEFAULT '일반',
