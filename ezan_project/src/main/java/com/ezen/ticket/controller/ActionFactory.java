@@ -2,6 +2,7 @@ package com.ezen.ticket.controller;
 
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.IndexAction;
+import com.ezen.ticket.controller.action.member.LoginFormAction;
 
 public class ActionFactory {
 
@@ -14,7 +15,7 @@ public class ActionFactory {
 		Action ac = null;
 		
 		if(command.equals("index")) ac = new IndexAction();
-		
+		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		return ac;
 	}
 
