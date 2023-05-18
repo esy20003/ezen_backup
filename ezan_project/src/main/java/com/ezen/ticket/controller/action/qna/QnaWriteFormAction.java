@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ezen.ticket.controller.action.Action;
+import com.ezen.ticket.dto.MemberVO;
 
 public class QnaWriteFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
