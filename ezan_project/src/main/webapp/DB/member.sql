@@ -10,7 +10,6 @@ select * from review_board;
 select * from success_board;
 select * from member;
 
-alter table CONTENT add age number(5) not null default '0'; --ORA-30649: missing DIRECTORY keyword 오류
 ALTER TABLE member ADD gender number(1) default 0 not null;
 select * from user_sequences;
 
