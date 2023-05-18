@@ -1,5 +1,18 @@
 
+/* Drop Triggers */
 
+DROP TRIGGER TRI_address_addrseq;
+DROP TRIGGER TRI_admin_aseq;
+DROP TRIGGER TRI_cart_cartseq;
+DROP TRIGGER TRI_content_cseq;
+DROP TRIGGER TRI_grade_gseq;
+DROP TRIGGER TRI_member_mseq;
+DROP TRIGGER TRI_NEW_TABLE_cartseq;
+DROP TRIGGER TRI_order_detail_odseq;
+DROP TRIGGER TRI_order_oseq;
+DROP TRIGGER TRI_qna_board_qseq;
+DROP TRIGGER TRI_review_board_rseq;
+DROP TRIGGER TRI_success_board_sseq;
 
 
 
@@ -15,7 +28,7 @@ DROP SEQUENCE SEQ_member_mseq;
 DROP SEQUENCE SEQ_NEW_TABLE_cartseq;
 DROP SEQUENCE SEQ_orders_oseq;
 DROP SEQUENCE SEQ_order_detail_odseq;
-DROP SEQUENCE SEQ_order_oseq;
+DROP SEQUENCE SEQ_orders_oseq;
 DROP SEQUENCE SEQ_qna_board_qseq;
 DROP SEQUENCE SEQ_review_board_rseq;
 DROP SEQUENCE SEQ_success_board_sseq;
@@ -34,7 +47,10 @@ CREATE SEQUENCE SEQ_member_mseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_NEW_TABLE_cartseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_orders_oseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_order_detail_odseq INCREMENT BY 1 START WITH 1;
+<<<<<<< HEAD
 CREATE SEQUENCE SEQ_order_oseq INCREMENT BY 1 START WITH 1;
+=======
+>>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 CREATE SEQUENCE SEQ_qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_success_board_sseq INCREMENT BY 1 START WITH 1;
@@ -54,7 +70,6 @@ CREATE TABLE address
 	detail varchar2(30),
 	PRIMARY KEY (addrseq)
 );
-
 
 CREATE TABLE admin
 (
@@ -194,7 +209,11 @@ CREATE TABLE success_board
 	content varchar2(1000) NOT NULL,
 	reply  varchar2(500),
 	repyn char DEFAULT 'N',
+<<<<<<< HEAD
 	image varchar2(0),
+=======
+	image varchar2(10),
+>>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 	PRIMARY KEY (sseq)
 );
 
@@ -251,6 +270,7 @@ ALTER TABLE order_detail
 
 
 
+<<<<<<< HEAD
 /* Create Triggers */
 
 CREATE OR REPLACE TRIGGER TRI_address_addrseq BEFORE INSERT ON address
@@ -384,5 +404,7 @@ END;
 /
 
 
+=======
+>>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 
 
