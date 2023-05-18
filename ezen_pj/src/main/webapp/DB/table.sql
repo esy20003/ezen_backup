@@ -1,21 +1,4 @@
 
-/* Drop Triggers */
-
-DROP TRIGGER TRI_address_addrseq;
-DROP TRIGGER TRI_admin_aseq;
-DROP TRIGGER TRI_cart_cartseq;
-DROP TRIGGER TRI_content_cseq;
-DROP TRIGGER TRI_grade_gseq;
-DROP TRIGGER TRI_member_mseq;
-DROP TRIGGER TRI_NEW_TABLE_cartseq;
-DROP TRIGGER TRI_order_detail_odseq;
-DROP TRIGGER TRI_order_oseq;
-DROP TRIGGER TRI_qna_board_qseq;
-DROP TRIGGER TRI_review_board_rseq;
-DROP TRIGGER TRI_success_board_sseq;
-
-<<<<<<< HEAD
-=======
 /* Drop Tables */
 
 DROP TABLE address CASCADE CONSTRAINTS;
@@ -29,7 +12,8 @@ DROP TABLE qna_board CASCADE CONSTRAINTS;
 DROP TABLE review_board CASCADE CONSTRAINTS;
 DROP TABLE success_board CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
+DROP TABLE seat CASCADE CONSTRAINTS;
+
 
 
 
@@ -49,7 +33,7 @@ DROP SEQUENCE SEQ_qna_board_qseq;
 DROP SEQUENCE SEQ_review_board_rseq;
 DROP SEQUENCE SEQ_success_board_sseq;
 DROP SEQUENCE SEQ_seat_seatseq;
-=======
+
 DROP SEQUENCE address_addrseq;
 DROP SEQUENCE admin_aseq;
 DROP SEQUENCE cart_cartseq;
@@ -59,8 +43,10 @@ DROP SEQUENCE orders_oseq;
 DROP SEQUENCE order_detail_odseq;
 DROP SEQUENCE orders_oseq;
 DROP SEQUENCE success_board_sseq;
+DROP SEQUENCE grade_gseq;
+DROP SEQUENCE qna_board_qseq;
+DROP SEQUENCE review_board_rseq;
 
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 
 DROP SEQUENCE grade_seq;
 DROP SEQUENCE qna_board_seq;
@@ -82,40 +68,7 @@ CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE success_board_sseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE seat_seatseq INCREMENT BY 1 START WITH 1;
-=======
-<<<<<<< HEAD
-CREATE SEQUENCE SEQ_address_addrseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_admin_aseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_cart_cartseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_content_cseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_grade_gseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_member_mseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_NEW_TABLE_cartseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_orders_oseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_order_detail_odseq INCREMENT BY 1 START WITH 1;
-<<<<<<< HEAD
-CREATE SEQUENCE SEQ_order_oseq INCREMENT BY 1 START WITH 1;
-=======
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
-CREATE SEQUENCE SEQ_qna_board_qseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_review_board_rseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_success_board_sseq INCREMENT BY 1 START WITH 1;
-=======
-CREATE SEQUENCE address_addrseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE admin_aseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE cart_cartseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE content_cseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE member_mseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE orders_oseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE order_detail_odseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE success_board_sseq INCREMENT BY 1 START WITH 1;
 
-
-CREATE SEQUENCE grade_gseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 
 
 
@@ -131,7 +84,7 @@ CREATE TABLE seat
 	price2 number(15),
 	name3 varchar2(10),
 	price3 number(15),
-	name4 varchar2(10),
+	name4 varchar2(30),
 	price4 number(15),
 	name5 varchar2(10),
 	price5 number(15),
@@ -162,6 +115,7 @@ CREATE TABLE content
 	image varchar2(100) NOT NULL,
 	content varchar2(1000) NOT NULL,
 	category varchar2(10) NOT NULL,
+	age number(5) default 0 not null,
 	bestyn char(1) DEFAULT 'N',
 	PRIMARY KEY (cseq)
 );
@@ -265,54 +219,26 @@ CREATE TABLE qna_board
 
 CREATE TABLE review_board
 (
-<<<<<<< HEAD
-	rseq number(5) NOT NULL,
-	mseq number(5,0) NOT NULL,
-	id varchar2(20) NOT NULL,
-	title varchar2(50) NOT NULL,
-	indate date DEFAULT sysdate,
-	content varchar2(1000) NOT NULL,
-	reply  varchar2(500),
-	repyn char DEFAULT 'N',
-	image varchar2(0),
-	PRIMARY KEY (rseq)
-=======
+
    rseq number(5) NOT NULL,
    mseq number(5,0) NOT NULL,
    id varchar2(20) NOT NULL,
    title varchar2(50) NOT NULL,
    indate date DEFAULT sysdate,
    content varchar2(1000) NOT NULL,
-   reply  varchar2(500),
+   reply varchar2(500),
    repyn char DEFAULT 'N',
    image varchar2(100),
    PRIMARY KEY (rseq)
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 );
 
 
 CREATE TABLE success_board
 (
-<<<<<<< HEAD
-	sseq number(5) NOT NULL,
-	mseq number(5,0) NOT NULL,
-	id varchar2(20) NOT NULL,
-	title varchar2(50) NOT NULL,
-	indate date DEFAULT sysdate,
-	content varchar2(1000) NOT NULL,
-	reply  varchar2(500),
-	repyn char DEFAULT 'N',
-<<<<<<< HEAD
-	image varchar2(0),
-=======
-	image varchar2(10),
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
-	PRIMARY KEY (sseq)
-=======
    sseq number(5) NOT NULL,
    mseq number(5,0) NOT NULL,
    id varchar2(20) NOT NULL,
-   title varchar2(50) NOT NULL,
+   title varchar2(200) NOT NULL,
    indate date DEFAULT sysdate,
    content varchar2(1000) NOT NULL,
    reply  varchar2(500),
