@@ -35,6 +35,21 @@ DROP TABLE member CASCADE CONSTRAINTS;
 
 /* Drop Sequences */
 
+<<<<<<< HEAD
+DROP SEQUENCE SEQ_address_addrseq;
+DROP SEQUENCE SEQ_admin_aseq;
+DROP SEQUENCE SEQ_cart_cartseq;
+DROP SEQUENCE SEQ_content_cseq;
+DROP SEQUENCE SEQ_grade_gseq;
+DROP SEQUENCE SEQ_member_mseq;
+DROP SEQUENCE SEQ_orders_oseq;
+DROP SEQUENCE SEQ_order_detail_odseq;
+DROP SEQUENCE SEQ_orders_oseq;
+DROP SEQUENCE SEQ_qna_board_qseq;
+DROP SEQUENCE SEQ_review_board_rseq;
+DROP SEQUENCE SEQ_success_board_sseq;
+DROP SEQUENCE SEQ_seat_seatseq;
+=======
 DROP SEQUENCE address_addrseq;
 DROP SEQUENCE admin_aseq;
 DROP SEQUENCE cart_cartseq;
@@ -45,6 +60,7 @@ DROP SEQUENCE order_detail_odseq;
 DROP SEQUENCE orders_oseq;
 DROP SEQUENCE success_board_sseq;
 
+>>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 
 DROP SEQUENCE grade_seq;
 DROP SEQUENCE qna_board_seq;
@@ -53,6 +69,20 @@ DROP SEQUENCE review_board_seq;
 
 /* Create Sequences */
 
+<<<<<<< HEAD
+CREATE SEQUENCE address_addrseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE admin_aseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE cart_cartseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE content_cseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE grade_gseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE member_mseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE orders_oseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE order_detail_odseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE success_board_sseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE seat_seatseq INCREMENT BY 1 START WITH 1;
+=======
 <<<<<<< HEAD
 CREATE SEQUENCE SEQ_address_addrseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_admin_aseq INCREMENT BY 1 START WITH 1;
@@ -84,6 +114,7 @@ CREATE SEQUENCE success_board_sseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE grade_gseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
+>>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 >>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
 
 
