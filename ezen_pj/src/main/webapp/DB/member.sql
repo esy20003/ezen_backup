@@ -14,7 +14,7 @@ ALTER TABLE member ADD gender number(1) default 0 not null;
 select * from user_sequences;
 
 DROP SEQUENCE member_mseq;
-CREATE SEQUENCE member_mseq INCREMENT BY 1 START WITH 12;
+
 
 DROP SEQUENCE cart_seq;
 DROP SEQUENCE orders_seq;
