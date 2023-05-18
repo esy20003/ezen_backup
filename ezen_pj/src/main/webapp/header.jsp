@@ -9,6 +9,7 @@
 <link href="css/ticketing.css" rel="stylesheet" />
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
+<script src="apply_register/apply_register.js"></script>
 <style type="text/css">
 
 
