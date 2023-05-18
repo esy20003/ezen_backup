@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../header.jsp" %>
 
 	<section	class="body_Choose" style="width: 720px;">
@@ -17,7 +15,7 @@
 		<main>
 			<div>
 				<div class="mainArea_UserChoice">
-					<button type="button"	class="Button_apply">
+					<button type="button"	class="Button_apply" onClick="go_apply()">
 						<div class="box_apply">
 							<div class="box_applyImg">
 								<span
@@ -28,7 +26,7 @@
 							</span>
 						</div>
 					</button>
-					<button type="button"	class="Button_register">
+					<button type="button"	class="Button_register" onClick="go_register()">
 						<div class="box_register">
 							<div class="box_registerImg">
 								<span

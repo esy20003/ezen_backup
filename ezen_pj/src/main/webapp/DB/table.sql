@@ -206,28 +206,11 @@ CREATE TABLE cart
 
 CREATE TABLE member
 (
-<<<<<<< HEAD
-	mseq number(5,0) NOT NULL,
-	id varchar2(20) NOT NULL,
-	pwd varchar2(20) NOT NULL,
-	name varchar2(50) NOT NULL,
-	nickname varchar2(50) NOT NULL,
-	email varchar2(50) NOT NULL,
-	phone varchar2(20) NOT NULL,
-	zip_num varchar2(20) NOT NULL,
-	address1 varchar2(50) NOT NULL,
-	address2 varchar2(50) NOT NULL,
-	grade varchar2(20) DEFAULT '0',
-	success number(5,0) DEFAULT 0,
-	indate date DEFAULT sysdate,
-	useyn char(1) DEFAULT '1',
-	 ,
-	PRIMARY KEY (mseq)
-=======
    mseq number(5,0) NOT NULL,
    id varchar2(20) NOT NULL,
    pwd varchar2(20) NOT NULL,
    name varchar2(50) NOT NULL,
+   gender number(1,0) default 0,
    nickname varchar2(50) NOT NULL,
    email varchar2(50) NOT NULL,
    phone varchar2(20) NOT NULL,
@@ -239,7 +222,7 @@ CREATE TABLE member
    indate date DEFAULT sysdate,
    useyn char(1) DEFAULT '1',
    PRIMARY KEY (mseq)
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
+
 );
 
 
