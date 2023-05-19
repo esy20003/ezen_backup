@@ -6,14 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Ticket Shop</title>
-<link rel="stylesheet" href="css/ticketing.css?ver=1" />
+<link href="css/ticketing.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="css/ticketing.css?ver=1" /> -->
 <link rel="stylesheet" href="css/apply.css?ver=1" />
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
 <script src="apply_register/apply_register.js"></script>
 <style type="text/css">
-
 
 </style>
 </head>
