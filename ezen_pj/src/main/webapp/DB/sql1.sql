@@ -44,8 +44,8 @@ alter table CONTENT add age number(5) default '0' not null;
 select * from user_sequences;
 
 insert into seat (seatseq, hallname, name1, price1, name2, price2)
-values(seat_seatseq.nextVal, 'KBS부산홀', 'R석', 143000, 'S석', 132000);
-insert into seat (seatseq, hallname, name1, price1, name2, price2, name3, price3)
+values(seat_seatseq.nextVal, 'KBS부산홀' 'R석', 143000, 'S석', 132000);
+insert into seat (seatseq, hallname, nam,e1, price1, name2, price2, name3, price3)
 values(seat_seatseq.nextVal, '잠실 실내체육관', 'vip standing', 220000, 'vip seated', 220000, 'seated', 165000);
 insert into seat (seatseq, hallname, name1, price1, name2, price2)
 values(seat_seatseq.nextVal, '올림픽공원 올림픽홀', 'R석', 143000, 'S석', 121000);

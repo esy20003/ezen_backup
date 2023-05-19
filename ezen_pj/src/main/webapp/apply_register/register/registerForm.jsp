@@ -2,5 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../../header.jsp"%>
 
+<article>
+
+
+</article>
+
 
 <%@ include file="../../footer.jsp"%>
