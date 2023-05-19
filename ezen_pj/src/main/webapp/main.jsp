@@ -11,7 +11,7 @@
 		
 		<div class="view" style="height: 398px; width: 350px; border: 1px solid black; margin: 0 auto">
 	        <%-- <c:forEach items="${ bestContent }" var="contentVO"> --%>
-		        <div id="imgs">
+		        <div id="imgs" >
 		            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }"><img src="images/list1.png" style="width:350px; height:300px;"/>
 		            <%-- <img src="images/${ contentVO.cseq } style="width:350px; height:300px;"/> --%></a>
 		            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }"><img src="images/list2.png" style="width:350px; height:300px;"/>
