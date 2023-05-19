@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="../header.jsp"%>
 <%@ include file="sub_image_menu.jsp"%>
+<link rel="stylesheet" href="css/qna.css" />
 
 <article>
 <h2> 고객 게시판 </h2> <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3>
@@ -15,8 +16,8 @@
 	<tr><th>답변내용</th><td align="left" style="text-align:left;color:white;">${qnaVO.reply}</td></tr>
 </table><div class="clear"></div>
 <div id="buttons" style="float:right">
-	<input type="button" value="목록보기" class="submit" onclick="location.href='shop.do?command=qnaList'">
-	<input type="button" value="돌아가기" class="cancel" onclick="location.href='shop.do?command=index'">
+	<input type="button" value="목록보기" class="submit" onclick="location.href='ticket.do?command=qnaList'">
+	<input type="button" value="돌아가기" class="cancel" onclick="location.href='ticket.do?command=index'">
 </div>
 </form>
 </article>

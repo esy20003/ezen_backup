@@ -7,10 +7,34 @@
 <meta charset="UTF-8">
 <title>Ticket Shop</title>
 <link rel="stylesheet" href="css/ticketing.css?ver=1" />
+<link rel="stylesheet" href="css/apply.css?ver=1" />
+<link rel="stylesheet" href="css/qna.css?ver=1" />
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
 <script src="apply_register/apply_register.js"></script>
+
+<script type="text/javascript">
+var imgNum = 0;
+var dist = 0;
+function moveRight(){
+    /*if( flag == true ) return;
+    if(imgNum == 7) return;
+    imgNum++;
+    dist = imgNum * -600;
+    document.getElementById("imgs").style.left = dist + "px";*/
+    if(imgNum == 1){
+    	imgNum = 0;
+    	dist = imgNum * -600;
+    	document.getElementById("imgs").style.left = dist + "px";
+    }else{
+    	imgNum++;
+    	dist = imgNum * -350;
+    	document.getElementById("imgs").style.left = dist + "px";
+    }
+}
+</script>
+
 <style type="text/css">
 
 
@@ -38,7 +62,7 @@
 						</c:choose>
 					</ul>
 				</div>
-				<div class="top_header_inner">
+				<div class="top_header_inner" >
 					<div id="logo">
 						<a href="ticket.do?command=index"> <img src="images/logo.png" />
 						</a>
