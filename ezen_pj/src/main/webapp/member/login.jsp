@@ -57,6 +57,8 @@
 			</div>
 		</div>
 		</fieldset>
+		<div>&nbsp;&nbsp;&nbsp;${param.message}</div>
+		<div>&nbsp;&nbsp;&nbsp;${message}</div>
 	</form>
 	<hr/>
 	<hr/>
