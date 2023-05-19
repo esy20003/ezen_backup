@@ -6,8 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Ticket Shop</title>
-<link href="css/ticketing.css?ver=1" rel="stylesheet">
+
+<link href="css/ticketing.css" rel="stylesheet">
+
 <link rel="stylesheet" href="css/apply.css?ver=1" />
+<link rel="stylesheet" href="css/login.css?ver=1" />
 <link rel="stylesheet" href="css/qna.css?ver=1" />
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
@@ -56,7 +59,7 @@ function moveRight(){
 							<c:otherwise>
 								<li>${ loginUser.name }(${ loginUser.id })</li>
 								<li><a href="ticket.do?command=editForm">정보수정</a></li>
-								<li><a href="ticket.do?command=logOut">로그아웃</a></li>
+								<li><a href="ticket.do?command=logout">로그아웃</a></li>
 							</c:otherwise>
 						</c:choose>
 					</ul>

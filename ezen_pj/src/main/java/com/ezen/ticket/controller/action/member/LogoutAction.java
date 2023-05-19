@@ -14,12 +14,13 @@ public class LogoutAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
 		HttpSession session = request.getSession();
-        session.removeAttribute("loginUser");
-        
-        RequestDispatcher dp=request.getRequestDispatcher("ticket.do?command=index");
-        dp.forward(request, response);
-
+		session.removeAttribute("loginUser");
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("ticket.do?command=index");
+		dispatcher.forward(request, response);
+		
 	}
 
 }

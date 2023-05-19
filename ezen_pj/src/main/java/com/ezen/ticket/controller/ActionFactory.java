@@ -45,9 +45,6 @@ public class ActionFactory {
 		
 		// login
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
-
-		
-
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
 		 
@@ -56,6 +53,7 @@ public class ActionFactory {
 		else if(command.equals("contract")) ac = new ContractAction();
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
 	
+		
 		return ac;
 	}
 
