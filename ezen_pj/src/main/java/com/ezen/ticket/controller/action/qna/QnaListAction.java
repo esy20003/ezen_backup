@@ -19,7 +19,7 @@ public class QnaListAction implements Action {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if (mvo == null) {
-			url = "shop.do?command=loginForm";
+			url = "ticket.do?command=loginForm";
 		} else {
 			QnaDao qdao = QnaDao.getInstance();
 			int page = 1;
