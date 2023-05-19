@@ -14,7 +14,113 @@
 	<div class="title" style="height:190px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
 			font-weight:bold; background:#f3f3ff; color:red;">
 			<h1>Musical</h1>
-		</div>
+	</div>
+	<div class="panel" style="height:390px; width:1190px; margin : 0 auto;">
+		<%-- <c:forEach items="${ musical }" var="contentVO"> --%>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+		<%-- </c:forEach> --%>
+	</div>
 </div>
 
+<div id="concert" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
+	<div class="title" style="height:190px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
+			font-weight:bold; background:#f3f3ff; color:red;">
+			<h1>Concert</h1>
+	</div>
+	<div class="panel" style="height:390px; width:1190px; margin : 0 auto;">
+		<%-- <c:forEach items="${ musical }" var="contentVO"> --%>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; margin: 0 20px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
+					<%-- ${ contentVO.location } --%></h2>
+			</div>
+		<%-- </c:forEach> --%>
+	</div>
+</div>
+
+<div id="success" style="width: 1200px; height: 400px; margin: 0 auto; border: 1px solid black;">
+	
+</div>
+
+
 <%@ include file="footer.jsp" %>
+
+
+<%-- <h2>Best Item</h2>
+<div id="bestProduct">
+	<c:forEach items="${ bestList }" var="productVO">
+		<div id="item"><!-- 상품 한 개, 한칸 -->
+			<a href="shop.do?command=productDetail&pseq=${ productVO.pseq }">
+				<img src="product_images/${ productVO.image }"/>
+				<h3>${ productVO.name }
+					- <fmt:formatNumber value="${ productVO.price2 }" type="currency"/></h3>
+			</a>
+		</div>
+	</c:forEach>
+</div> --%>
