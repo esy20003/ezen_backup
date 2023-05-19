@@ -87,7 +87,7 @@
 			<h1>Concert</h1>
 	</div>
 	<div class="panel" style="height:390px; width:1190px; margin : 0 auto;">
-		<%-- <c:forEach items="${ musical }" var="contentVO"> --%>
+		<%-- <c:forEach items="${ concert }" var="contentVO"> --%>
 			<div id="item" style="float: left; margin: 0 20px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
@@ -134,6 +134,25 @@
 			<h1>성&nbsp;공&nbsp;내&nbsp;역</h1>
 	</div>
 	<div class="successtable" style="height:230px; width:1200px;">
+		<form name="formm" method="post" style="position:relative; left:250px; top:50px;">
+		<table id="cartList" style="text-align:center;">
+			<tr><th style="border: 1px solid black; width: 60px; height: 30px; line-height: 30px; font-weight: bold;">번호</th>
+				<th style="border: 1px solid black; width: 100px; height: 30px; line-height: 30px; font-weight: bold;">아이디</th>
+				<th style="border: 1px solid black; width: 400px; height: 30px; line-height: 30px; font-weight: bold;">제목</th>
+				<th style="border: 1px solid black; width: 150px; height: 30px; line-height: 30px; font-weight: bold;">날짜</th>
+			</tr>
+			<%-- <c:forEach items="${ successList }" var="successVO"> --%>
+				<tr><td style="border: 1px solid black"> <%-- ${ successVO.sseq } --%>1</td>
+					<td style="border: 1px solid black"><%-- ${ successVO.id } --%>이상준</td>
+					<td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
+					<%-- ${ successVO.title } --%>김호중 콘서트 티켓팅 성공했습니다</a></td>
+					<td style="border: 1px solid black"><%-- ${successVO.indate } --%>2023-05-19</td>
+				</tr>
+			<%-- </c:forEach> --%>
+		</table>
+		<div class="clear"></div>
+		
+	</form>
 		
 	</div>
 	
@@ -144,15 +163,52 @@
 
 
 
-<%-- <h2>Best Item</h2>
-<div id="bestProduct">
-	<c:forEach items="${ bestList }" var="productVO">
-		<div id="item"><!-- 상품 한 개, 한칸 -->
-			<a href="shop.do?command=productDetail&pseq=${ productVO.pseq }">
-				<img src="product_images/${ productVO.image }"/>
-				<h3>${ productVO.name }
-					- <fmt:formatNumber value="${ productVO.price2 }" type="currency"/></h3>
-			</a>
+<%-- <article>
+	<h2> 고객 게시판 </h2>
+	<h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3>
+	<form name="formm" method="post">
+		<table id="cartList">
+			<tr><th>번호</th><th>제목</th><th>등록일</th><th>답변 여부</th></tr>
+			<c:forEach items="${ qnaList }" var="qnaVO">
+				<tr><td> ${ qnaVO.qseq }</td>
+					<td><a href="shop.do?command=qnaView&qseq=${ qnaVO.qseq }">${qnaVO.subject }</a></td>
+					<td><fmt:formatDate value="${ qnaVO.indate }" type="date"/></td>
+					<td><c:choose>
+						<c:when test="${ qnaVO.rep == 1 }"> no </c:when>
+						<c:when test="${ qnaVO.rep == 2 }"> yes </c:when>
+					</c:choose></td>
+				</tr>
+			</c:forEach>
+		</table>
+		<div class="clear"></div>
+		<div id="paging" style="font-size:120%; font-weight:bold; margin-left:300px">
+			<c:url var="action" value="shop.do?command=qnaList"/>
+			<c:if test="${ paging.prev }">
+				<a href="${ action }&page=${ paging.beginPage-1 }">◀</a>&nbsp;
+			</c:if>
+			<c:forEach begin="${ paging.beginPage }" end="${ paging.endPage }" var="index">
+				<c:choose>
+					<c:when test="${ paging.page==index }">
+						[${ index }]
+					</c:when>
+					<c:otherwise>
+						<a href="${ action }&page=${ index }">${ index }</a>&nbsp;
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${ paging.next }">
+				<a href="${ action }&page=${ paging.endPage+1 }">▶</a>&nbsp;
+			</c:if>
 		</div>
-	</c:forEach>
-</div> --%>
+		
+		<div class="clear"></div><br/>
+		
+		<div id="buttons" style="float:right">
+			<input type="button" value="질문하기" class="submit"
+				onClick="location.href='shop.do?command=qnaWriteForm'"/>
+			<input type="button" value="쇼핑 계속하기" class="cancel"
+				onClick="location.href='shop.do?command=index'"/>
+		</div>
+		<div class="clear"></div><br/>
+	</form>
+</article> --%>
