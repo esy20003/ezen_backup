@@ -34,6 +34,7 @@ public class ActionFactory {
 		else if (command.equals("qnaWriteForm")) ac = new QnaWriteFormAction();
 		else if (command.equals("qnaWrite")) ac = new QnaWriteAction();
 		
+		//anr
 		else if (command.equals("applyAndRegister")) ac = new ApplyAndRegisterAction();
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("applyForm")) ac = new ApplyFormAction();
