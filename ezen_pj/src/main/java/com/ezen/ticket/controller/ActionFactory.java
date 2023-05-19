@@ -8,6 +8,7 @@ import com.ezen.ticket.controller.action.qna.QnaViewAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
 import com.ezen.ticket.controller.action.member.JoinFormAction;
+import com.ezen.ticket.controller.action.member.LoginAction;
 import com.ezen.ticket.controller.action.member.LoginFormAction;
 
 
@@ -33,6 +34,8 @@ public class ActionFactory {
 		
 
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
+		else if(command.equals("login")) ac = new LoginAction();
+		
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
 	
 		return ac;
