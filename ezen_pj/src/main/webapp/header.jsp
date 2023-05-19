@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Ticket Shop</title>
 <link rel="stylesheet" href="css/ticketing.css?ver=1" />
+<link rel="stylesheet" href="css/apply.css?ver=1" />
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
