@@ -14,8 +14,29 @@ public class MemberVO {
 	private String phone;
 	private String useyn;
 	private Timestamp indate;
+	private String nickname;
+	private String grade;
+	private int success;
 	
 	
+	public String getNickname() {
+		return nickname;
+	}
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+	public String getGrade() {
+		return grade;
+	}
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+	public int getSuccess() {
+		return success;
+	}
+	public void setSuccess(int success) {
+		this.success = success;
+	}
 	public String getId() {
 		return id;
 	}

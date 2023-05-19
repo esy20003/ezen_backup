@@ -60,3 +60,5 @@ values (member_mseq.nextVal,'java','1234','정철원',1,'javababo','javababo@gma
 insert into MEMBER(mseq,id,pwd, name,gender,nickname,email,phone,zip_num, address1, address2,grade, success) 
 values (member_mseq.nextVal,'nomoney','1234','정수빈',2,'gimmemoney','money@gmail.com','010-7777-7777',
 '269-823', '강원 철원군 철원읍 화지8리','1번지21호','1',2);
+
+select * from member;
