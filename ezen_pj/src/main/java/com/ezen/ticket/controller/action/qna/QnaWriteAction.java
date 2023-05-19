@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ezen.ticket.controller.action.Action;
+import com.ezen.ticket.dao.QnaDao;
 
 public class QnaWriteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
