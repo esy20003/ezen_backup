@@ -14,11 +14,11 @@ import com.ezen.ticket.dto.QnaVO;
 
 public class QnaWriteAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "shop.do?command=qnaList";
+		String url = "ticket.do?command=qnaList";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if (mvo == null) {
-			url = "shop.do?command=loginForm";
+			url = "ticket.do?command=loginForm";
 		} else {
 			QnaVO qvo = new QnaVO();
 			qvo.setId(mvo.getId());

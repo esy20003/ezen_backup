@@ -16,6 +16,8 @@ select * from user_sequences;
 DROP SEQUENCE member_mseq;
 
 
+
+
 DROP SEQUENCE cart_seq;
 DROP SEQUENCE orders_seq;
 DROP SEQUENCE order_detail_seq;

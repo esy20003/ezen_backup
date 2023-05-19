@@ -7,7 +7,7 @@
 <h2> 고객 게시판 </h2> <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3>
 <form>
 <table>
-	<tr><th>제목</th><td width="500" style="text-align:left;">${qnaVO.subject}</td></tr>
+	<tr><th>제목</th><td width="500" background="pink" style="text-align:left; ">${qnaVO.subject}</td></tr>
 	<tr><th>등록일</th><td align="left" style="text-align:left;">
 	<fmt:formatDate value="${qnaVO.indate}" type="date"/></td></tr>
 	<tr><th>질문내용</th>
