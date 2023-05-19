@@ -1,4 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ include file="/header.jsp" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +19,7 @@
 	#login_box .pwd_input_box .pwd_input {padding-left:20px; font-size:20px; color:#444; margin-top:18px; outline: none;}
 	
 	#login_box .btn_log {margin-top : 15px;}
-	#login_box .btn_log .login_btn { width:470px; height:60px; font-size:20px; font-weight:700; outline: none; border:none; text-align: center; color:#fff; background:#ff0000;}
+	#login_box .btn_log .login_btn { width:470px; height:60px; font-size:20px; font-weight:700; outline: none; border:none; text-align: center; color:#fff; background:#ff0000; cursor: pointer;}
 	
 	#login_box .login_wrap .login_option {width: 468px; height:50px; border:1px solid red; }
 	#login_box .login_wrap .login_option a {text-decoration: none; color:#444; width:80px; height:30px; line-height: 30px; text-align: center; margin-top: 10px;} 
@@ -43,10 +46,10 @@
 				<input type="password" name="pwd" class="pwd_input"  maxlength="20" placeholder="비밀번호">
 			</div>
 			<div class="btn_log">
-				<input type="submit" value="LOGIN" class="login_btn">
+				<input type="submit" value="LOGIN" class="login_btn" class="submit" onclick="return loginCheck();">
 			</div>
 			<div class="login_option">
-				<a href="#" class="go_main">메인으로</a>
+				<a href="ticket.do?command=index" class="go_main">메인으로</a>
 				<div class="login_option_detail">
 					<a href="#" class="check_idpw">아이디/비밀번호 찾기 &nbsp;|&nbsp; </a>
 					<a href="#" class="go_join">회원가입</a>
