@@ -46,7 +46,7 @@
 				<input type="password" name="pwd" class="pwd_input"  maxlength="20" placeholder="비밀번호">
 			</div>
 			<div class="btn_log">
-				<input type="submit" value="LOGIN" class="login_btn" class="submit" onclick="return loginCheck();">
+				<input type="submit" value="LOGIN" class="login_btn" onclick="return loginCheck();">
 			</div>
 			<div class="login_option">
 				<a href="ticket.do?command=index" class="go_main">메인으로</a>

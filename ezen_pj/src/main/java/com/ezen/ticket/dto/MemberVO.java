@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class MemberVO {
 	
+	private int mseq;
 	private String id;
 	private String pwd;
 	private String name;
@@ -17,7 +18,21 @@ public class MemberVO {
 	private String nickname;
 	private String grade;
 	private int success;
+	private int gender;
 	
+	
+	public int getGender() {
+		return gender;
+	}
+	public void setGender(int gender) {
+		this.gender = gender;
+	}
+	public int getMseq() {
+		return mseq;
+	}
+	public void setMseq(int mseq) {
+		this.mseq = mseq;
+	}
 	
 	public String getNickname() {
 		return nickname;
