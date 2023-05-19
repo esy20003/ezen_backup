@@ -17,8 +17,10 @@ public class ApplyAndRegisterAction implements Action {
 		
 		String url="apply_register/apply_Or_Register.jsp";
 		HttpSession session= request.getSession();
-		MemberVO avo =(MemberVO)session.getAttribute("loginUser");
-		if(avo==null) url="ticket.do?command=loginForm";
+
+		MemberVO mvo =(MemberVO)session.getAttribute("loginUser");
+		if(mvo==null) url="ticket.do?command=loginForm";
+
 		
 		request.getRequestDispatcher(url).forward(request, response);
 	}
