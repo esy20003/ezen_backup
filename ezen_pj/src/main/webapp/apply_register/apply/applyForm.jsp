@@ -10,7 +10,7 @@
 			<tr class="tableHead"><th>공연 종류</th><th>공연명</th><th>날짜</th><th>시간</th><th>상세 정보</th><th>좌석 구역</th></tr>
 			<tr>
 				<td class="category">
-		<!-- 공연 주제 -->
+					<!-- 공연 주제 -->
 					<div>전체</div>
 					<div>콘서트</div>
 					<div>뮤지컬</div>
