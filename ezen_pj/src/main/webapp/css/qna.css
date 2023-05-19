@@ -8,7 +8,7 @@
 	--mainColor5: #77777755; /* 공지, 인기글 hover */
 	--mainColor3: #77777733; /* 공지, 인기글 */
 	--mainColor2: #77777722; /* 트게더 메뉴, 게시글 hover */
-	--logoURL: url(여기에 로고 주소 입력);
+	--logoURL: "images/logo.png";
 	--logoWidth: 200px;	 /* 로고 너비 */
 	--before: ""; /* 접속자 수 앞 문구 */
 	--after: "";  /* 접속자 수 뒤 문구 */
