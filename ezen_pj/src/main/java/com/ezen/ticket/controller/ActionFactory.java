@@ -8,12 +8,8 @@ import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 
 
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
-<<<<<<< HEAD
-
-
-=======
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
->>>>>>> branch 'main' of https://github.com/chojeajun/ezen_project.git
+
 import com.ezen.ticket.controller.action.qna.QnaListAction;
 import com.ezen.ticket.controller.action.qna.QnaViewAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteAction;
