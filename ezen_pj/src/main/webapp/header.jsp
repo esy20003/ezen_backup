@@ -12,6 +12,28 @@
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
 <script src="apply_register/apply_register.js"></script>
+
+<script type="text/javascript">
+var imgNum = 0;
+var dist = 0;
+function moveRight(){
+    /*if( flag == true ) return;
+    if(imgNum == 7) return;
+    imgNum++;
+    dist = imgNum * -600;
+    document.getElementById("imgs").style.left = dist + "px";*/
+    if(imgNum == 1){
+    	imgNum = 0;
+    	dist = imgNum * -600;
+    	document.getElementById("imgs").style.left = dist + "px";
+    }else{
+    	imgNum++;
+    	dist = imgNum * -350;
+    	document.getElementById("imgs").style.left = dist + "px";
+    }
+}
+</script>
+
 <style type="text/css">
 
 
