@@ -48,7 +48,6 @@ private MemberDao() {
 				mvo.setGrade(rs.getString("grade"));
 				mvo.setSuccess(Integer.parseInt("success"));
 				mvo.setIndate(rs.getTimestamp("indate"));
-				
 			} 
 			
 		} catch (SQLException e) {e.printStackTrace();

@@ -38,7 +38,7 @@
 						</c:choose>
 					</ul>
 				</div>
-				<div class="top_header_inner">
+				<div class="top_header_inner" >
 					<div id="logo">
 						<a href="ticket.do?command=index"> <img src="images/logo.png" />
 						</a>
