@@ -25,12 +25,10 @@ public class LoginAction implements Action {
 		
 		String url = "member/login.jsp";
 		
-		if( mvo== null)
+		if( mvo == null)
 			request.setAttribute("message", "없는 아이디입니다");
-		/*
-		 * else if( mvo.getUseyn().equals("N")) request.setAttribute("message",
-		 * "회원 가입 후 탈퇴 이력이 있음. 관리자에게 문의하시오");
-		 */
+		else if( mvo.getUseyn().equals("N")) request.setAttribute("message",
+		  "회원 가입 후 탈퇴 이력이 있음. 관리자에게 문의하시오");
 		else if( mvo.getPwd()==null)
 			request.setAttribute("message", "DB오류. 관리자에게 문의하시오");
 		else if( !mvo.getPwd().equals(pwd))

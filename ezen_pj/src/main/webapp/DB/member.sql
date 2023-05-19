@@ -16,6 +16,10 @@ select * from user_sequences;
 DROP SEQUENCE member_mseq;
 
 
+insert into MEMBER(mseq,id,pwd, name,gender,nickname,email,phone,zip_num, address1, address2,grade, success) 
+values (member_mseq.nextVal,'test','1234','테스트', 2,'testtt','test@gmail.com','010-1234-9874',
+'269-823', '강원 철원군 철원읍 화지8리','1번지21호','1',2);
+
 
 
 DROP SEQUENCE cart_seq;
