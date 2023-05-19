@@ -3,8 +3,9 @@
 <%@ include file="../../header.jsp"%>
 
 
-<section name="applyBody">
-	<div 
+<section name="applyBody" id="bodyBox_apply">
+	<div class="headBox_apply" name>
+	</div> 
 </section>
 
 
