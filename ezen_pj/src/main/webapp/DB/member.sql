@@ -66,3 +66,5 @@ values (member_mseq.nextVal,'nomoney','1234','정수빈',2,'gimmemoney','money@g
 '269-823', '강원 철원군 철원읍 화지8리','1번지21호','1',2);
 
 select * from member;
+
+commit

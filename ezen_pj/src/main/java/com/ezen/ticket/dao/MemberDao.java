@@ -46,6 +46,7 @@ private MemberDao() {}
 				mvo.setSuccess(rs.getInt("success"));
 				mvo.setIndate(rs.getTimestamp("indate"));
 				mvo.setUseyn(rs.getString("useyn"));
+				mvo.setGender(rs.getInt("gender"));
 			} 
 			
 		} catch (SQLException e) {e.printStackTrace();
