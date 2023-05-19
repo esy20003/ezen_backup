@@ -6,8 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Ticket Shop</title>
-<link href="css/ticketing.css" rel="stylesheet">
-<!-- <link rel="stylesheet" href="css/ticketing.css?ver=1" /> -->
+<link href="css/ticketing.css?ver=1" rel="stylesheet">
 <link rel="stylesheet" href="css/apply.css?ver=1" />
 <link rel="stylesheet" href="css/qna.css?ver=1" />
 <script src="script/jquery-3.7.0.min.js"></script>
