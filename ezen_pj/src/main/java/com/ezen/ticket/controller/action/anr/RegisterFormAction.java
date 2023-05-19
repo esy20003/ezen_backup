@@ -15,11 +15,12 @@ public class RegisterFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String sql = "apply_register/register/registerFrom.jsp";
+		String url = "apply_register/register/registerFrom.jsp";
+		
 		HttpSession session=request.getSession();
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
 		if(mvo ==null) {
-			url="ticket.do?command=loginForm";
+			url ="ticket.do?command=loginForm";
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
