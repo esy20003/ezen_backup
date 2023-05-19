@@ -5,7 +5,7 @@
 
 
 <div id="bestContent" style="height: 600px; border: 3px solid pink; margin: 0 auto; width: 1200px;">
-		<div class="title" style="height:190px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
+		<div class="title" style="height:170px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
 			font-weight:bold; background:#f3f3ff; color:red;">
 			<h1>Best Content</h1>
 		</div>
@@ -18,9 +18,15 @@
 			            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }"><img src="images/list2.png" style="width:350px; height:300px; float:left;"/>
 			            <%-- <img src="images/${ contentVO.cseq } style="width:350px; height:300px;"/> --%></a>
 			        </div>
-			        <div class="title" style="width: 350px; height: 60px; line-height: 60px; font-size: 150%; font-weight: bold; text-align: center;
-			        	color: #724a4a; background: #fbe4f6; border-bottom: 3px dashed blue; position:absolute; top:300px;">
-		            	<h3><%-- ${ contentVO.title } --%>'세종문화회관 S씨어터'</h3>
+			        <div id="titles" style="width: 700px; height:60px; position:absolute; left:0; top:300px;">
+				        <div class="title" style="width: 350px; height: 60px; line-height: 60px; font-size: 150%; font-weight: bold; text-align: center;
+				        	color: #724a4a; background: #fbe4f6; border-bottom: 3px dashed blue; position:absolute; top:0;">
+			            	<h3><%-- ${ contentVO.title } --%>'세종문화회관 S씨어터'</h3>
+			            </div>
+			            <div class="title" style="width: 350px; height: 60px; line-height: 60px; font-size: 150%; font-weight: bold; text-align: center;
+				        	color: #724a4a; background: #fbe4f6; border-bottom: 3px dashed blue; position:absolute; top:0; left:350px;">
+			            	<h3><%-- ${ contentVO.title } --%>'이것도 해결해봅시다'</h3>
+			            </div>
 		            </div>
 				<%-- </c:forEach> --%>
 		        <div id="remote" style="position:absolute; bottom:0;">
@@ -34,99 +40,146 @@
     </div>
 </div>
 
-<div id="musical" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
-	<div class="title" style="height:190px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
-			font-weight:bold; background:#f3f3ff; color:red;">
-			<h1>Musical</h1>
+<div id="concert" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
+	<div class="title" style="height: 170px; text-align:center; margin: 5px 15px 5px 5px; width: 1190px;
+			font-size:300%; line-height:190px; font-weight:bold; background:#f3f3ff; color:red;">
+			<h1>Concert</h1>
 	</div>
-	<div class="panel" style="height:390px; width:1190px; margin : 0 auto;">
-		<%-- <c:forEach items="${ musical }" var="contentVO"> --%>
-			<div id="item" style="float: left; margin: 0 20px;">
+	<div class="panel" style="height:390px;width: 1200px;margin: 0 auto;margin-left: 45px;">
+		<%-- <c:forEach items="${ concert }" var="contentVO"> --%>
+			<div id="item" style="float: left; width: 250px; height: 390px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
-				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
 			</div>
-			<div id="item" style="float: left; margin: 0 20px;">
+			<div id="item" style="float: left; width: 250px; height: 390px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
-				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
 			</div>
-			<div id="item" style="float: left; margin: 0 20px;">
+			<div id="item" style="float: left; width: 250px; height: 390px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
-				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
 			</div>
-			<div id="item" style="float: left; margin: 0 20px;">
+			<div id="item" style="float: left; width: 250px; height: 390px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
-				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
 			</div>
 		<%-- </c:forEach> --%>
 	</div>
 </div>
 
-<div id="concert" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
+<div id="musical" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
+	<div class="title" style="height: 170px; text-align:center; margin: 5px 15px 5px 5px; width: 1190px;
+			font-size:300%; line-height:190px; font-weight:bold; background:#f3f3ff; color:red;">
+			<h1>Musical</h1>
+	</div>
+	<div class="panel" style="height:390px;width: 1200px;margin: 0 auto;margin-left: 45px;">
+		<%-- <c:forEach items="${ musical }" var="contentVO"> --%>
+			<div id="item" style="float: left; width: 250px; height: 390px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; width: 250px; height: 390px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; width: 250px; height: 390px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
+			</div>
+			<div id="item" style="float: left; width: 250px; height: 390px;">
+				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
+					<img src="images/list1.png" style="height:300px; width:250px;"/>
+				</a>
+				<h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
+    				font-weight: bold; color: #0014ff; background: #e4ffae;	margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+				<h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+				 서경대학교 공연예술센터 스콘2관 <%-- ${ contentVO.location } --%></h2>
+			</div>
+		<%-- </c:forEach> --%>
+	</div>
+</div>
+
+<%-- <div id="concert" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
 	<div class="title" style="height:190px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
 			font-weight:bold; background:#f3f3ff; color:red;">
 			<h1>Concert</h1>
 	</div>
 	<div class="panel" style="height:390px; width:1190px; margin : 0 auto;">
-		<%-- <c:forEach items="${ concert }" var="contentVO"> --%>
+		<c:forEach items="${ concert }" var="contentVO">
 			<div id="item" style="float: left; margin: 0 20px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
 				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
 				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+					${ contentVO.location }</h2>
 			</div>
 			<div id="item" style="float: left; margin: 0 20px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
 				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
 				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+					${ contentVO.location }</h2>
 			</div>
 			<div id="item" style="float: left; margin: 0 20px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
 				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
 				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+					${ contentVO.location }</h2>
 			</div>
 			<div id="item" style="float: left; margin: 0 20px;">
 				<a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
 					<img src="images/list1.png" style="height:300px; width:250px;"/>
 				</a>
 				<h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+    				background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
 				<h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-					<%-- ${ contentVO.location } --%></h2>
+					${ contentVO.location }</h2>
 			</div>
-		<%-- </c:forEach> --%>
+		</c:forEach>
 	</div>
-</div>
+</div> --%>
 
 <div id="success" style="width: 1200px; height: 400px; margin: 0 auto; border: 1px solid black;">
 	<div class="title" style="height:150px; text-align:center; width: 1200px; font-size:300%; line-height:150px;

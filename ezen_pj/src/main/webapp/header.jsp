@@ -30,10 +30,12 @@ function moveRight(){
     	imgNum = 0;
     	dist = imgNum * -600;
     	document.getElementById("imgs").style.left = dist + "px";
+    	document.getElementById("titles").style.left = dist + "px";
     }else{
     	imgNum++;
     	dist = imgNum * -350;
     	document.getElementById("imgs").style.left = dist + "px";
+    	document.getElementById("titles").style.left = dist + "px";
     }
 }
 </script>
@@ -75,11 +77,11 @@ function moveRight(){
 							<li><a href="ticket.do?command=proxyTicketingForm">대리
 									티켓팅</a>
 								<ul class="depth2_menu">
-									<li><a href="ticket.do?command=musicalForm">뮤지컬</a></li>
-									<li><a href="ticket.do?command=concertForm">콘서트</a></li>
+									<li><a href="ticket.do?command=musicalForm">콘서트</a></li>
+									<li><a href="ticket.do?command=concertForm">뮤지컬</a></li>
 									<li><a href="ticket.do?command=sportsForm">스포츠</a></li>
 									<li><a href="ticket.do?command=festivalForm">페스티벌</a></li>
-									<li><a href="ticket.do?command=exhibitionForm">전시행사</a></li>
+									<li><a href="ticket.do?command=exhibitionForm">전시/행사</a></li>
 								</ul></li>
 							<li><a
 								href="ticket.do?command=applyAndRegister">신청/등록</a></li>
