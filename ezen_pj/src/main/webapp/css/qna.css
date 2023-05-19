@@ -1,38 +1,35 @@
 
-@charset "UTF-8";
+h2{ display: inline-block;
 
+border-color:#ffbb00;
 
-/* 사용자 설정 부분 */
-:root {
-	   --bgColor: #f0f0f0;   /* 배경 색 */
-     --bgFrame: #ffffff;   /* 프레임 배경색 */
-	 --mainColor: #777777;   /* 메인 컬러 */
-	--mainColor5: #77777755; /* 공지, 인기글 hover */
-	--mainColor3: #77777733; /* 공지, 인기글 */
-	--mainColor2: #77777722; /* 트게더 메뉴, 게시글 hover */
-	--logoURL: "images/logo.png";
-	--logoWidth: 200px;	 /* 로고 너비 */
-	--before: ""; /* 접속자 수 앞 문구 */
-	--after: "";  /* 접속자 수 뒤 문구 */
+color:red;
+
+background: pink;
+
+font-size:350px;
+
 }
-/* 다크모드용 색 설정 */
-html.darkmode:root {
-	   --bgColor: #f0f0f0;   /* 배경 색 */
-     --bgFrame: #242424;   /* 프레임 배경색 */
-	 --mainColor: #777777;   /* 메인 컬러 */
-	--mainColor5: #77777755; /* 공지, 인기글 hover */
-	--mainColor3: #77777733; /* 공지, 인기글 */
-	--mainColor2: #77777722; /* 트게더 메뉴, 게시글 hover */
-	--logoURL: url(여기에 로고 주소 입력);
-	--logoWidth: 200px;	 /* 로고 너비 */
-}
+
 
 
 #maindiv{
-margin:auto;
-width:700px; }
 
-.listtop{width:800px;}
+margin:auto;
+
+width:700px;
+
+}
+
+​
+
+.listtop{
+
+width:800px;
+
+}
+
+​
 
 .listtable{
 
@@ -46,7 +43,7 @@ border-spacing:0px;
 
 }
 
-
+​
 
 .writerlong{
 
@@ -66,9 +63,9 @@ text-overflow:ellipsis;
 
 }
 
-
+​
 
-
+​
 
 .titlelong{
 
@@ -88,7 +85,7 @@ text-overflow:ellipsis;
 
 }
 
-
+​
 
 .search{
 
@@ -98,7 +95,7 @@ width:200px;
 
 }
 
-
+​
 
 .searchbar{
 
@@ -124,7 +121,7 @@ border-radius: 3px;
 
 }
 
-
+​
 
 .searchbt{
 
@@ -133,16 +130,13 @@ background-image: url('../img/search.png');
 background-repeat: no-repeat;
 
 width:32px;
-
 height:32px;
-
 border: 0px;
-
 outline: 0;
 
 }
 
-
+​
 
 .bt{
 
@@ -166,7 +160,7 @@ border-radius:3px;
 
 }
 
-
+​
 
 a:link {
 
@@ -200,7 +194,7 @@ text-decoration: none;
 
 }
 
-
+​
 
 .mouse:hover{
 
@@ -208,7 +202,7 @@ background-color:#fef5da;
 
 }
 
-
+​
 
 .line{
 
@@ -216,11 +210,11 @@ border-bottom:1px solid #ffbb00;
 
 }
 
-
+​
 
 .nogul{margin:auto;}
 
-
+​
 
 .listcolor{
 
@@ -231,4 +225,6 @@ border-bottom:1.5px solid #ffbb00;
 background-color:#ffd668;
 
 }
+
+
 
