@@ -30,7 +30,6 @@ public class ActionFactory {
 		
 		else if (command.equals("applyAndRegister")) ac = new ApplyAndRegisterAction();
 		
-		
 
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 
