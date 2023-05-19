@@ -50,9 +50,9 @@
 
 <div class="clear"></div><br>
 
-<div id="buttons" style="float:right">
+<div id="buttons" style="float:right" >
 	<input type="button" value="질문하기" class="submit" onclick="location.href='shop.do?command=qnaWriteForm'">
-	<input type="button" value="쇼핑계속하기" class="cancel" onclick="location.href='shop.do?command=index'">
+	<input type="button" value="돌아가기" class="cancel" onclick="location.href='shop.do?command=index'">
 </div>
 <div class="clear"></div><br>
 </form>
