@@ -38,7 +38,7 @@ public class LoginAction implements Action {
 	    else if( mvo.getPwd().equals(pwd)) {
 	    	HttpSession session = request.getSession();
 	    	session.setAttribute("loginUser", mvo);
-	    	url = "shop.do?command=index";
+	    	url = "ticket.do?command=index";
 	    }else
 	    	request.setAttribute("message", "로그인 실패. 관리자에게 문의하시오");
 		
