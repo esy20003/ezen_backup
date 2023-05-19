@@ -1,17 +1,4 @@
 
-/* Drop Triggers */
-
-DROP TRIGGER TRI_admin_aseq;
-DROP TRIGGER TRI_cart_cartseq;
-DROP TRIGGER TRI_content_cseq;
-DROP TRIGGER TRI_member_mseq;
-DROP TRIGGER TRI_orders_oseq;
-DROP TRIGGER TRI_order_detail_odseq;
-DROP TRIGGER TRI_qna_board_qseq;
-DROP TRIGGER TRI_qna_board_sucseq;
-DROP TRIGGER TRI_review_board_rseq;
-DROP TRIGGER TRI_seat_seatseq;
-DROP TRIGGER TRI_success_board_sucseq;
 
 
 
@@ -89,7 +76,7 @@ CREATE TABLE admin
 	name varchar2(50) NOT NULL,
 	phone varchar2(20) NOT NULL,
 	email varchar2(50),
-	adminyn char DEFAULT '''Y''',
+	adminyn char DEFAULT 'Y',
 	PRIMARY KEY (aseq)
 );
 
@@ -112,11 +99,11 @@ CREATE TABLE content
 	location varchar2(100) NOT NULL,
 	locationNum number(5,0) NOT NULL,
 	artist varchar2(100) NOT NULL,
-	image varchar2(1000) DEFAULT '''images/content/blankIMG.jpg''',
+	image varchar2(1000) DEFAULT 'images/content/blankIMG.jpg',
 	content varchar2(3000) NOT NULL,
 	category number(2,0) NOT NULL,
-	age varchar2(20) DEFAULT '''전체관람가''',
-	bestyn char(1) DEFAULT '''N''',
+	age varchar2(20) DEFAULT '전체관람가',
+	bestyn char(1) DEFAULT 'N',
 	PRIMARY KEY (cseq)
 );
 
@@ -158,7 +145,7 @@ CREATE TABLE contentTime
 CREATE TABLE grade
 (
 	gseq number(1) NOT NULL,
-	gname varchar2(10) DEFAULT '''일반''',
+	gname varchar2(10) DEFAULT '일반',
 	gprice number(10) DEFAULT 0,
 	PRIMARY KEY (gseq)
 );
@@ -181,7 +168,7 @@ CREATE TABLE member
 	grade number(1) DEFAULT 0,
 	success number(5,0) DEFAULT 0,
 	indate date DEFAULT sysdate,
-	useyn char(1) DEFAULT '''N''',
+	useyn char(1) DEFAULT 'N',
 	PRIMARY KEY (mseq)
 );
 
@@ -207,7 +194,7 @@ CREATE TABLE order_detail
 	-- 티켓팅 결과-티켓팅 했으면(성공했으면) Y
 	-- 티켓팅 날짜 전이면 N
 	-- 티켓팅을 했지만 대리인이 성공하지 못했다면 F(이건 사용자에게 환불해줘야하는 결과)
-	result char DEFAULT '''N''',
+	result char DEFAULT 'N',
 	PRIMARY KEY (odseq)
 );
 
@@ -222,8 +209,8 @@ CREATE TABLE qna_board
 	indate date DEFAULT sysdate,
 	content varchar2(3000) NOT NULL,
 	reply varchar2(1000),
-	repyn char(1) DEFAULT '''N''',
-	image varchar2(0),
+	repyn char(1) DEFAULT 'N',
+	image varchar2(1000),
 	PRIMARY KEY (qseq)
 );
 
@@ -238,8 +225,8 @@ CREATE TABLE review_board
 	indate date DEFAULT sysdate,
 	content varchar2(3000) NOT NULL,
 	reply varchar2(1000),
-	repyn char(1) DEFAULT '''N''',
-	image varchar2(0),
+	repyn char(1) DEFAULT 'N',
+	image varchar2(1000),
 	PRIMARY KEY (rseq)
 );
 
@@ -286,8 +273,8 @@ CREATE TABLE success_board
 	indate date DEFAULT sysdate,
 	content varchar2(3000) NOT NULL,
 	reply varchar2(1000),
-	repyn char(1) DEFAULT '''N''',
-	image varchar2(0),
+	repyn char(1) DEFAULT 'N',
+	image varchar2(1000),
 	PRIMARY KEY (sucseq)
 );
 
@@ -297,199 +284,83 @@ CREATE TABLE success_board
 
 ALTER TABLE cart
 	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq)
+	REFERENCES content (cseq) on delete cascade
 ;
 
 
 ALTER TABLE contentDate
 	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq)
+	REFERENCES content (cseq) on delete cascade
 ;
 
 
 ALTER TABLE contentTime
 	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq)
+	REFERENCES content (cseq) on delete cascade
 ;
 
 
 ALTER TABLE order_detail
 	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq)
+	REFERENCES content (cseq) on delete cascade
 ;
 
 
 ALTER TABLE cart
 	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	REFERENCES member (mseq) on delete cascade
 ;
 
 
 ALTER TABLE orders
 	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	REFERENCES member (mseq) on delete cascade
 ;
 
 
 ALTER TABLE order_detail
 	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	REFERENCES member (mseq) on delete cascade
 ;
 
 
 ALTER TABLE qna_board
 	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	REFERENCES member (mseq) on delete cascade
 ;
 
 
 ALTER TABLE review_board
 	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	REFERENCES member (mseq) on delete cascade
 ;
 
 
 ALTER TABLE success_board
 	ADD FOREIGN KEY (mseq)
-	REFERENCES member (mseq)
+	REFERENCES member (mseq) on delete cascade
 ;
 
 
 ALTER TABLE order_detail
 	ADD FOREIGN KEY (oseq)
-	REFERENCES orders (oseq)
+	REFERENCES orders (oseq) on delete cascade
 ;
 
 
 ALTER TABLE content
 	ADD FOREIGN KEY (locationNum)
-	REFERENCES seat (locationNum)
+	REFERENCES seat (locationNum) on delete cascade
 ;
 
 
 
-/* Create Triggers */
-
-CREATE OR REPLACE TRIGGER TRI_admin_aseq BEFORE INSERT ON admin
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_admin_aseq.nextval
-	INTO :new.aseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_cart_cartseq BEFORE INSERT ON cart
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_cart_cartseq.nextval
-	INTO :new.cartseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_content_cseq BEFORE INSERT ON content
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_content_cseq.nextval
-	INTO :new.cseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_member_mseq BEFORE INSERT ON member
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_member_mseq.nextval
-	INTO :new.mseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_orders_oseq BEFORE INSERT ON orders
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_orders_oseq.nextval
-	INTO :new.oseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_order_detail_odseq BEFORE INSERT ON order_detail
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_order_detail_odseq.nextval
-	INTO :new.odseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_qna_board_qseq BEFORE INSERT ON qna_board
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_qna_board_qseq.nextval
-	INTO :new.qseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_qna_board_sucseq BEFORE INSERT ON qna_board
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_qna_board_sucseq.nextval
-	INTO :new.sucseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_review_board_rseq BEFORE INSERT ON review_board
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_review_board_rseq.nextval
-	INTO :new.rseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_seat_seatseq BEFORE INSERT ON seat
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_seat_seatseq.nextval
-	INTO :new.seatseq
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_success_board_sucseq BEFORE INSERT ON success_board
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_success_board_sucseq.nextval
-	INTO :new.sucseq
-	FROM dual;
-END;
-
-/
 
 
 
 
-/* Comments */
 
-COMMENT ON COLUMN address.zip_num IS '우편번호';
-COMMENT ON COLUMN order_detail.mseq2 IS '매칭된 대리인 회원번호';
-COMMENT ON COLUMN order_detail.result IS '티켓팅 결과-티켓팅 했으면(성공했으면) Y
-티켓팅 날짜 전이면 N
-티켓팅을 했지만 대리인이 성공하지 못했다면 F(이건 사용자에게 환불해줘야하는 결과)';
+
 
 
 
