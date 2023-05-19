@@ -8,6 +8,25 @@
 			font-weight:bold; background:#f3f3ff; color:red;">
 			<h1>Best Content</h1>
 		</div>
+		
+		<div class="view" style="height: 398px; width: 350px; border: 1px solid black; margin: 0 auto">
+	        <%-- <c:forEach items="${ bestContent }" var="contentVO"> --%>
+		        <div id="imgs">
+		            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }"><img src="images/list1.png" style="width:350px; height:300px;"/>
+		            <%-- <img src="images/${ contentVO.cseq } style="width:350px; height:300px;"/> --%></a>
+		            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }"><img src="images/list2.png" style="width:350px; height:300px;"/>
+		            <%-- <img src="images/${ contentVO.cseq } style="width:350px; height:300px;"/> --%></a>
+		        </div>
+			<%-- </c:forEach> --%>
+	        <div id="remote" style="position:relative; width:350px; height:50px; border:1px solid white; margin:0 auto; top:350px; text-align:center;">
+	            <div class="title">
+	            	
+	            </div>
+	            <ul>
+	                <li id="btn" onClick="moveAuto();">▶</li>
+	            </ul>
+        </div>
+    </div>
 </div>
 
 <div id="musical" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
@@ -105,6 +124,10 @@
 </div>
 
 <div id="success" style="width: 1200px; height: 400px; margin: 0 auto; border: 1px solid black;">
+	<div class="title" style="height:150px; text-align:center; width: 1200px; font-size:300%; line-height:150px;
+			font-weight:bold; background:#f3f3ff; color:blue;">
+			<h1>성&nbsp;공&nbsp;내&nbsp;역</h1>
+	</div>
 	
 </div>
 
