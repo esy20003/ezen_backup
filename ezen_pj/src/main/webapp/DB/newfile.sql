@@ -11,6 +11,7 @@ DROP TRIGGER TRI_qna_board_qseq;
 DROP TRIGGER TRI_qna_board_sucseq;
 DROP TRIGGER TRI_review_board_rseq;
 DROP TRIGGER TRI_seat_seatseq;
+DROP TRIGGER TRI_success_board_sucseq;
 
 
 
@@ -19,15 +20,15 @@ DROP TRIGGER TRI_seat_seatseq;
 DROP TABLE address CASCADE CONSTRAINTS;
 DROP TABLE admin CASCADE CONSTRAINTS;
 DROP TABLE cart CASCADE CONSTRAINTS;
-DROP TABLE date CASCADE CONSTRAINTS;
+DROP TABLE contentDate CASCADE CONSTRAINTS;
+DROP TABLE contentTime CASCADE CONSTRAINTS;
 DROP TABLE order_detail CASCADE CONSTRAINTS;
-DROP TABLE time CASCADE CONSTRAINTS;
 DROP TABLE content CASCADE CONSTRAINTS;
 DROP TABLE grade CASCADE CONSTRAINTS;
 DROP TABLE orders CASCADE CONSTRAINTS;
 DROP TABLE qna_board CASCADE CONSTRAINTS;
-DROP TABLE qna_board CASCADE CONSTRAINTS;
 DROP TABLE review_board CASCADE CONSTRAINTS;
+DROP TABLE success_board CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
 DROP TABLE seat CASCADE CONSTRAINTS;
 
@@ -45,6 +46,7 @@ DROP SEQUENCE SEQ_qna_board_qseq;
 DROP SEQUENCE SEQ_qna_board_sucseq;
 DROP SEQUENCE SEQ_review_board_rseq;
 DROP SEQUENCE SEQ_seat_seatseq;
+DROP SEQUENCE SEQ_success_board_sucseq;
 
 
 
@@ -61,6 +63,7 @@ CREATE SEQUENCE SEQ_qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_qna_board_sucseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_seat_seatseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_success_board_sucseq INCREMENT BY 1 START WITH 1;
 
 
 
@@ -118,7 +121,7 @@ CREATE TABLE content
 );
 
 
-CREATE TABLE date
+CREATE TABLE contentDate
 (
 	cseq number(10,0) NOT NULL,
 	date1 date NOT NULL,
@@ -134,6 +137,21 @@ CREATE TABLE date
 	date11 date,
 	date12 date,
 	date13 date
+);
+
+
+CREATE TABLE contentTime
+(
+	cseq number(10,0) NOT NULL,
+	contentDate date NOT NULL,
+	time1 varchar2(10) NOT NULL,
+	time2 varchar2(10),
+	time3 varchar2(10),
+	time4 varchar2(10),
+	time5 varchar2(10),
+	time6 varchar2(10),
+	time7 varchar2(10),
+	time8 varchar2(10)
 );
 
 
@@ -210,22 +228,6 @@ CREATE TABLE qna_board
 );
 
 
-CREATE TABLE qna_board
-(
-	sucseq number(5) NOT NULL,
-	mseq number(5,0) NOT NULL,
-	id varchar2(50) NOT NULL,
-	pwd varchar2(30) NOT NULL,
-	title varchar2(200) NOT NULL,
-	indate date DEFAULT sysdate,
-	content varchar2(3000) NOT NULL,
-	reply varchar2(1000),
-	repyn char(1) DEFAULT '''N''',
-	image varchar2(0),
-	PRIMARY KEY (sucseq)
-);
-
-
 CREATE TABLE review_board
 (
 	rseq number(5) NOT NULL,
@@ -274,18 +276,19 @@ CREATE TABLE seat
 );
 
 
-CREATE TABLE time
+CREATE TABLE success_board
 (
-	cseq number(10,0) NOT NULL,
-	contentDate date NOT NULL,
-	time1 varchar2(10) NOT NULL,
-	time2 varchar2(10),
-	time3 varchar2(10),
-	time4 varchar2(10),
-	time5 varchar2(10),
-	time6 varchar2(10),
-	time7 varchar2(10),
-	time8 varchar2(10)
+	sucseq number(5) NOT NULL,
+	mseq number(5,0) NOT NULL,
+	id varchar2(50) NOT NULL,
+	pwd varchar2(30) NOT NULL,
+	title varchar2(200) NOT NULL,
+	indate date DEFAULT sysdate,
+	content varchar2(3000) NOT NULL,
+	reply varchar2(1000),
+	repyn char(1) DEFAULT '''N''',
+	image varchar2(0),
+	PRIMARY KEY (sucseq)
 );
 
 
@@ -298,19 +301,19 @@ ALTER TABLE cart
 ;
 
 
-ALTER TABLE date
+ALTER TABLE contentDate
+	ADD FOREIGN KEY (cseq)
+	REFERENCES content (cseq)
+;
+
+
+ALTER TABLE contentTime
 	ADD FOREIGN KEY (cseq)
 	REFERENCES content (cseq)
 ;
 
 
 ALTER TABLE order_detail
-	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq)
-;
-
-
-ALTER TABLE time
 	ADD FOREIGN KEY (cseq)
 	REFERENCES content (cseq)
 ;
@@ -340,13 +343,13 @@ ALTER TABLE qna_board
 ;
 
 
-ALTER TABLE qna_board
+ALTER TABLE review_board
 	ADD FOREIGN KEY (mseq)
 	REFERENCES member (mseq)
 ;
 
 
-ALTER TABLE review_board
+ALTER TABLE success_board
 	ADD FOREIGN KEY (mseq)
 	REFERENCES member (mseq)
 ;
@@ -462,6 +465,16 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_seat_seatseq.nextval
 	INTO :new.seatseq
+	FROM dual;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TRI_success_board_sucseq BEFORE INSERT ON success_board
+FOR EACH ROW
+BEGIN
+	SELECT SEQ_success_board_sucseq.nextval
+	INTO :new.sucseq
 	FROM dual;
 END;
 
