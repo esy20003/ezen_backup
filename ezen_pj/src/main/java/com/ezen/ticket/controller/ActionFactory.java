@@ -36,13 +36,13 @@ public class ActionFactory {
 		else if (command.equals("applyAndRegister")) ac = new ApplyAndRegisterAction();
 
 		else if (command.equals("registerView")) ac = new RegisterViewAction();
-
 		else if (command.equals("applyForm")) ac = new ApplyFormAction();
 		
 		
 
 
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
+		
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
 	
 		return ac;
