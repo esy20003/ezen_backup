@@ -22,7 +22,7 @@
 	</c:forEach>
 </table>
 <div class="clear"></div>
-<div id="paging" style="font-size:300%;font-weight:bold; margin-left:300px">
+<div id="paging" style="font-weight:bold; margin-left:300px">
 	<c:url var="action" value="ticket.do?command=qnaList"/>
 	
 	<c:if test="${paging.prev}">
@@ -51,8 +51,8 @@
 <div class="clear"></div><br>
 
 <div id="buttons" style="float:right">
-	<input type="button" value="질문하기" class="submit" onclick="location.href='ticket.do?command=qnaWriteForm'">
-	<input type="button" value="돌아가기" class="cancel" onclick="location.href='ticket.do?command=index'">
+	<input type="button" value="질문하기" class="submit" style="color:black;" onclick="location.href='ticket.do?command=qnaWriteForm'">
+	<input type="button" value="돌아가기" class="cancel" style="color:black;" onclick="location.href='ticket.do?command=index'">
 </div>
 <div class="clear"></div><br>
 </form>
