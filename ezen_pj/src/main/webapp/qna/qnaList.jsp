@@ -3,6 +3,7 @@
 <%@ include file ="../header.jsp"%>
 <%@ include file="sub_image_menu.jsp"%>
 
+
 <article>
 
 <h2> 고객 게시판 </h2>
@@ -12,7 +13,7 @@
 	<tr><th>번호</th><th>제목</th><th>등록일</th><th>답변여부</th></tr>
 	<c:forEach items="${qnaList }" var="qnaVO">
 		<tr><td>${qnaVO.qseq }</td>
-		<td><a href="shop.do?command=qnaView&qseq=${qnaVO.qseq}">${qnaVO.subject}</a>
+		<td><a href="ticket.do?command=qnaView&qseq=${qnaVO.qseq}">${qnaVO.title}</a>
 		<td><fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
 		<td><c:choose>
 			<c:when test="${qnaVO.rep=='1' }">no</c:when>
@@ -23,7 +24,7 @@
 </table>
 <div class="clear"></div>
 <div id="paging" style="font-size:120%;font-weight:bold; margin-left:300px">
-	<c:url var="action" value="shop.do?command=qnaList"/>
+	<c:url var="action" value="ticket.do?command=qnaList"/>
 	
 	<c:if test="${paging.prev}">
 		<a href="${action}&page=${paging.beginPage-1}">◀</a> &nbsp;
@@ -51,11 +52,12 @@
 <div class="clear"></div><br>
 
 <div id="buttons" style="float:right" >
-	<input type="button" value="질문하기" class="submit" onclick="location.href='shop.do?command=qnaWriteForm'">
-	<input type="button" value="돌아가기" class="cancel" onclick="location.href='shop.do?command=index'">
+	<input type="button" value="질문하기" class="submit" onclick="location.href='ticket.do?command=qnaWriteForm'">
+	<input type="button" value="돌아가기" class="cancel" onclick="location.href='ticket.do?command=index'">
 </div>
 <div class="clear"></div><br>
 </form>
 </article>
+
 
 <%@ include file ="../footer.jsp"%>

@@ -15,8 +15,8 @@
 	<tr><th>답변내용</th><td align="left" style="text-align:left;color:white;">${qnaVO.reply}</td></tr>
 </table><div class="clear"></div>
 <div id="buttons" style="float:right">
-	<input type="button" value="목록보기" class="submit" onclick="location.href='shop.do?command=qnaList'">
-	<input type="button" value="돌아가기" class="cancel" onclick="location.href='shop.do?command=index'">
+	<input type="button" value="목록보기" class="submit" onclick="location.href='ticket.do?command=qnaList'">
+	<input type="button" value="돌아가기" class="cancel" onclick="location.href='ticket.do?command=index'">
 </div>
 </form>
 </article>
