@@ -216,7 +216,7 @@ CREATE TABLE review_board
 CREATE TABLE seat
 (
 	locationNum number(5) NOT NULL,
-	area varchar2(10) NOT NULL,
+	area varchar2(50) NOT NULL,
 	price number(10,0),
 	PRIMARY KEY (locationNum, area)
 );
