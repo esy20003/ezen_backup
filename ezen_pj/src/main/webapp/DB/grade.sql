@@ -1,4 +1,4 @@
-delete from grade;
+select * from grade;
 
 insert into grade(gseq, gname, gprice)
 values(0,'Normal', 0);

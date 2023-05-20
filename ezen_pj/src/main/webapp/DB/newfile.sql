@@ -1,31 +1,27 @@
 
-
-
-
 /* Drop Tables */
 
 DROP TABLE address CASCADE CONSTRAINTS;
 DROP TABLE admin CASCADE CONSTRAINTS;
 DROP TABLE cart CASCADE CONSTRAINTS;
-DROP TABLE contentDate CASCADE CONSTRAINTS;
-DROP TABLE contentTime CASCADE CONSTRAINTS;
 DROP TABLE order_detail CASCADE CONSTRAINTS;
+DROP TABLE contentTime CASCADE CONSTRAINTS;
 DROP TABLE content CASCADE CONSTRAINTS;
 DROP TABLE grade CASCADE CONSTRAINTS;
+DROP TABLE seat CASCADE CONSTRAINTS;
+DROP TABLE locationNum CASCADE CONSTRAINTS;
 DROP TABLE orders CASCADE CONSTRAINTS;
 DROP TABLE qna_board CASCADE CONSTRAINTS;
 DROP TABLE review_board CASCADE CONSTRAINTS;
 DROP TABLE success_board CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
-DROP TABLE seat CASCADE CONSTRAINTS;
 
 
 
 /* Drop Sequences */
 
-DROP SEQUENCE admin_aseq;
-DROP SEQUENCE cart_cartseq;
 DROP SEQUENCE content_cseq;
+DROP SEQUENCE locationNum_locationNum;
 DROP SEQUENCE member_mseq;
 DROP SEQUENCE orders_oseq;
 DROP SEQUENCE order_detail_odseq;
@@ -40,16 +36,12 @@ DROP SEQUENCE success_board_sucseq;
 
 /* Create Sequences */
 
-CREATE SEQUENCE admin_aseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE cart_cartseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE content_cseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE member_mseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE orders_oseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE order_detail_odseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE qna_board_sucseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE seat_seatseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE success_board_sucseq INCREMENT BY 1 START WITH 1;
 
 
@@ -62,33 +54,36 @@ CREATE TABLE address
 	zip_num varchar2(10) NOT NULL,
 	sido varchar2(100) NOT NULL,
 	gugun varchar2(100) NOT NULL,
-	zip_code varchar2(100),
 	dong varchar2(100),
-	bunji varchar2(100)
+	bunji varchar2(100),
+	zip_code varchar2(100)
 );
 
 
 CREATE TABLE admin
 (
-	aseq number(3,0) NOT NULL,
 	id varchar2(50) NOT NULL,
 	pwd varchar2(30) NOT NULL,
 	name varchar2(50) NOT NULL,
 	phone varchar2(20) NOT NULL,
 	email varchar2(50),
 	adminyn char DEFAULT 'Y',
-	PRIMARY KEY (aseq)
+	PRIMARY KEY (id)
 );
 
 
 CREATE TABLE cart
 (
-	cartseq number(5,0) NOT NULL,
 	mseq number(5,0) NOT NULL,
 	cseq number(10,0) NOT NULL,
-	quantity number(5,0),
+	contentDate date NOT NULL,
+	contentTime varchar2(10) NOT NULL,
+	locationNum number(5) NOT NULL,
+	area varchar2(50) NOT NULL,
+	quantity number(5,0) default 0,
 	indate date DEFAULT sysdate,
-	PRIMARY KEY (cartseq)
+	buyyn char DEFAULT 'N',
+	PRIMARY KEY (mseq, cseq, contentDate, contentTime, locationNum, area)
 );
 
 
@@ -96,8 +91,7 @@ CREATE TABLE content
 (
 	cseq number(10,0) NOT NULL,
 	title varchar2(100) NOT NULL,
-	location varchar2(100) NOT NULL,
-	locationNum number(5,0) NOT NULL,
+	locationNum number(5) NOT NULL,
 	artist varchar2(100) NOT NULL,
 	image varchar2(1000) DEFAULT 'images/content/blankIMG.jpg',
 	content varchar2(3000) NOT NULL,
@@ -108,37 +102,12 @@ CREATE TABLE content
 );
 
 
-CREATE TABLE contentDate
-(
-	cseq number(10,0) NOT NULL,
-	date1 date NOT NULL,
-	date2 date,
-	date3 date,
-	date4 date,
-	date5 date,
-	date6 date,
-	date7 date,
-	date8 date,
-	date9 date,
-	date10 date,
-	date11 date,
-	date12 date,
-	date13 date
-);
-
-
 CREATE TABLE contentTime
 (
 	cseq number(10,0) NOT NULL,
 	contentDate date NOT NULL,
-	time1 varchar2(10) NOT NULL,
-	time2 varchar2(10),
-	time3 varchar2(10),
-	time4 varchar2(10),
-	time5 varchar2(10),
-	time6 varchar2(10),
-	time7 varchar2(10),
-	time8 varchar2(10)
+	contentTime varchar2(50) NOT NULL,
+	PRIMARY KEY (cseq, contentDate, contentTime)
 );
 
 
@@ -148,6 +117,14 @@ CREATE TABLE grade
 	gname varchar2(10) DEFAULT '일반',
 	gprice number(10) DEFAULT 0,
 	PRIMARY KEY (gseq)
+);
+
+
+CREATE TABLE locationNum
+(
+	locationNum number(5) NOT NULL,
+	locationName varchar2(50) NOT NULL UNIQUE,
+	PRIMARY KEY (locationNum)
 );
 
 
@@ -188,13 +165,18 @@ CREATE TABLE order_detail
 	oseq number(5,0) NOT NULL,
 	mseq number(5,0) NOT NULL,
 	cseq number(10,0) NOT NULL,
+	locationNum number(5) NOT NULL,
+	contentDate date NOT NULL,
+	contentTime varchar2(10) NOT NULL,
+	area varchar2(10) NOT NULL,
 	-- 매칭된 대리인 회원번호
-	mseq2 number(5),
-	quantity number(5,0),
+	mseq2 number(5) NOT NULL,
+	quantity number(5,0) DEFAULT 1,
 	-- 티켓팅 결과-티켓팅 했으면(성공했으면) Y
 	-- 티켓팅 날짜 전이면 N
 	-- 티켓팅을 했지만 대리인이 성공하지 못했다면 F(이건 사용자에게 환불해줘야하는 결과)
 	result char DEFAULT 'N',
+	indate date DEFAULT sysdate NOT NULL,
 	PRIMARY KEY (odseq)
 );
 
@@ -233,33 +215,10 @@ CREATE TABLE review_board
 
 CREATE TABLE seat
 (
-	locationNum number(5,0) NOT NULL,
-	hallname varchar2(100),
-	name1 varchar2(10),
-	price1 number(10,0),
-	name2 varchar2(10),
-	price2 number(10,0),
-	name3 varchar2(10),
-	price3 number(10,0),
-	name4 varchar2(10),
-	price4 number(10,0),
-	name5 varchar2(10),
-	price5 number(10,0),
-	name6 varchar2(10),
-	price6 number(10,0),
-	name7 varchar2(10),
-	price7 number(10,0),
-	name8 varchar2(10),
-	price8 number(10,0),
-	name9 varchar2(10),
-	price9 number(10,0),
-	name10 varchar2(10),
-	price10 number(10,0),
-	name11 varchar2(10),
-	price11 number(10,0),
-	name12 varchar2(10),
-	price12 number(10,0),
-	PRIMARY KEY (locationNum)
+	locationNum number(5) NOT NULL,
+	area varchar2(50) NOT NULL,
+	price number(10,0),
+	PRIMARY KEY (locationNum, area)
 );
 
 
@@ -282,27 +241,33 @@ CREATE TABLE success_board
 
 /* Create Foreign Keys */
 
-ALTER TABLE cart
-	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq) on delete cascade
-;
-
-
-ALTER TABLE contentDate
-	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq) on delete cascade
-;
-
-
 ALTER TABLE contentTime
 	ADD FOREIGN KEY (cseq)
 	REFERENCES content (cseq) on delete cascade
 ;
 
 
+ALTER TABLE cart
+	ADD FOREIGN KEY (cseq, contentDate, contentTime)
+	REFERENCES contentTime (cseq, contentDate, contentTime) on delete cascade
+;
+
+
 ALTER TABLE order_detail
-	ADD FOREIGN KEY (cseq)
-	REFERENCES content (cseq) on delete cascade
+	ADD FOREIGN KEY (cseq, contentDate, contentTime)
+	REFERENCES contentTime (cseq, contentDate, contentTime) on delete cascade
+;
+
+
+ALTER TABLE content
+	ADD FOREIGN KEY (locationNum)
+	REFERENCES locationNum (locationNum) on delete cascade
+;
+
+
+ALTER TABLE seat
+	ADD FOREIGN KEY (locationNum)
+	REFERENCES locationNum (locationNum) on delete cascade
 ;
 
 
@@ -348,17 +313,16 @@ ALTER TABLE order_detail
 ;
 
 
-ALTER TABLE content
-	ADD FOREIGN KEY (locationNum)
-	REFERENCES seat (locationNum) on delete cascade
+ALTER TABLE cart
+	ADD FOREIGN KEY (locationNum, area)
+	REFERENCES seat (locationNum, area) on delete cascade
 ;
 
 
-
-
-
-
-
+ALTER TABLE order_detail
+	ADD FOREIGN KEY (locationNum, area)
+	REFERENCES seat (locationNum, area) on delete cascade
+;
 
 
 
