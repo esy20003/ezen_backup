@@ -1,9 +1,18 @@
 select * from admin;
 
-insert into admin values('admin', 'admin', '김현우', '010-1564-7894', 'woo1@naver.com')
-insert into admin values('hana', '1234', '김하나', '010-1564-7894', 'hana@naver.com')
-insert into admin values('sung', '1111', '박성훈', '010-1564-7894', 'sung97@naver.com')
-insert into admin values('like', '4567', '김사랑', '010-1564-7894', 'love12@naver.com')
+--이거 꼭 해주세요
+alter table admin drop column aseq;
+DROP SEQUENCE admin_aseq;
+--------------
+
+insert into admin(id, pwd, name, phone, email) 
+values('admin', 'admin', '김현우', '010-1564-7894', 'woo1@naver.com');
+insert into admin(id, pwd, name, phone, email) 
+values('hana', '1234', '김하나', '010-1564-7894', 'hana@naver.com');
+insert into admin(id, pwd, name, phone, email) 
+values('sung', '1111', '박성훈', '010-1564-7894', 'sung97@naver.com');
+insert into admin(id, pwd, name, phone, email) 
+values('like', '4567', '김사랑', '010-1564-7894', 'love12@naver.com');
 
 select * from CONTENT;
 --콘서트
