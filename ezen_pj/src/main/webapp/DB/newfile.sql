@@ -106,7 +106,7 @@ CREATE TABLE contentTime
 (
 	cseq number(10,0) NOT NULL,
 	contentDate date NOT NULL,
-	contentTime varchar2(10) NOT NULL,
+	contentTime varchar2(50) NOT NULL,
 	PRIMARY KEY (cseq, contentDate, contentTime)
 );
 
