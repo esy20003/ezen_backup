@@ -1,9 +1,6 @@
 select * from admin;
 
---이거 꼭 해주세요
-alter table admin drop column aseq;
-DROP SEQUENCE admin_aseq;
---------------
+
 
 insert into admin(id, pwd, name, phone, email) 
 values('admin', 'admin', '김현우', '010-1564-7894', 'woo1@naver.com');

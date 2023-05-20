@@ -54,4 +54,5 @@ insert into MEMBER(mseq,id,pwd, name,gender,nickname,birth,email,phone,zip_num, 
 values (member_mseq.nextVal,'nomoney','1234','정수빈',2,'gimmemoney',to_date('19950515','yyyy-mm-dd'),'money@gmail.com','010-7777-7777',
 '269-823', '강원 철원군 철원읍 화지8리','1번지21호',1,2);
 
-to_date('2023.05.20', 'yyyy.mm.dd')
+
+select * from MEMBER;
