@@ -1,7 +1,4 @@
 
-
-
-
 /* Drop Tables */
 
 DROP TABLE address CASCADE CONSTRAINTS;
@@ -111,19 +108,7 @@ CREATE TABLE content
 CREATE TABLE contentDate
 (
 	cseq number(10,0) NOT NULL,
-	date1 date NOT NULL,
-	date2 date,
-	date3 date,
-	date4 date,
-	date5 date,
-	date6 date,
-	date7 date,
-	date8 date,
-	date9 date,
-	date10 date,
-	date11 date,
-	date12 date,
-	date13 date
+	contentDate date NOT NULL
 );
 
 
@@ -131,14 +116,7 @@ CREATE TABLE contentTime
 (
 	cseq number(10,0) NOT NULL,
 	contentDate date NOT NULL,
-	time1 varchar2(10) NOT NULL,
-	time2 varchar2(10),
-	time3 varchar2(10),
-	time4 varchar2(10),
-	time5 varchar2(10),
-	time6 varchar2(10),
-	time7 varchar2(10),
-	time8 varchar2(10)
+	contentTime varchar2(10) NOT NULL
 );
 
 
@@ -235,30 +213,8 @@ CREATE TABLE seat
 (
 	locationNum number(5,0) NOT NULL,
 	hallname varchar2(100),
-	name1 varchar2(10),
-	price1 number(10,0),
-	name2 varchar2(10),
-	price2 number(10,0),
-	name3 varchar2(10),
-	price3 number(10,0),
-	name4 varchar2(10),
-	price4 number(10,0),
-	name5 varchar2(10),
-	price5 number(10,0),
-	name6 varchar2(10),
-	price6 number(10,0),
-	name7 varchar2(10),
-	price7 number(10,0),
-	name8 varchar2(10),
-	price8 number(10,0),
-	name9 varchar2(10),
-	price9 number(10,0),
-	name10 varchar2(10),
-	price10 number(10,0),
-	name11 varchar2(10),
-	price11 number(10,0),
-	name12 varchar2(10),
-	price12 number(10,0),
+	area varchar2(10),
+	price number(10,0),
 	PRIMARY KEY (locationNum)
 );
 
@@ -352,15 +308,4 @@ ALTER TABLE content
 	ADD FOREIGN KEY (locationNum)
 	REFERENCES seat (locationNum) on delete cascade
 ;
-
-
-
-
-
-
-
-
-
-
-
 
