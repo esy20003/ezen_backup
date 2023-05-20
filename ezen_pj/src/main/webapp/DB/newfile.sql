@@ -79,8 +79,8 @@ CREATE TABLE cart
 	contentDate date NOT NULL,
 	contentTime varchar2(10) NOT NULL,
 	locationNum number(5) NOT NULL,
-	area varchar2(10) NOT NULL,
-	quantity number(5,0),
+	area varchar2(50) NOT NULL,
+	quantity number(5,0) default 0,
 	indate date DEFAULT sysdate,
 	buyyn char DEFAULT 'N',
 	PRIMARY KEY (mseq, cseq, contentDate, contentTime, locationNum, area)
