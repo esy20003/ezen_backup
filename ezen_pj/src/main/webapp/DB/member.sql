@@ -1,7 +1,6 @@
 select * from ADDRESS;
 select * from admin;
 select * from cart;
-select * from CONTENTDATE;
 select * from contentTime;
 select * from ORDER_DETAIL;
 select * from CONTENT;
@@ -11,8 +10,8 @@ select * from QNA_BOARD;
 select * from REVIEW_BOARD;
 select * from success_board;
 select * from SEAT;
-
 select * from MEMBER;
+
 
 select * from user_sequences;
 
