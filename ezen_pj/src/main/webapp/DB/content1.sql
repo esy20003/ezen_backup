@@ -31,6 +31,7 @@ values(content_cseq.nextVal, '2023 폴 아웃 보이(Fall Out Boy) 내한공연'
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '2023 테일러 스위프트(Taylor Swift) 내한공연',12,'테일러 스위프트(Taylor Swift)',
-'세계적인 락밴드 폴 아웃 보이(Fall Out Boy)의 최초 내한 콘서트!',1, '8세 이상');
+'테일러 스위프트, 13년만의 내한공연! 
+21세기의 음악 산업 그 자체, 싱어송라이터 테일러 스위프트가 오는 8월 서울을 찾는다',1, '8세 이상');
 
 	
