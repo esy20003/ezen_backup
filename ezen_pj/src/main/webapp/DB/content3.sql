@@ -1,4 +1,4 @@
---뮤지컬만 데이터 추가하는 페이지
+--스포츠만 데이터 추가하는 페이지
 --category==>콘서트=1, 뮤지컬=2, 스포츠=3, 페스티벌=4, 전시/행사=5
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY)

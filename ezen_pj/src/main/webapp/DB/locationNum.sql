@@ -17,6 +17,7 @@ insert into locationNum values(locationNum_seq.nextVal,'고척스카이돔');
 insert into locationNum values(locationNum_seq.nextVal,'삼성라이온즈파크');
 insert into locationNum values(locationNum_seq.nextVal,'샤롯데씨어터');
 insert into locationNum values(locationNum_seq.nextVal,'블루스퀘어 신한카드홀');
+insert into locationNum values(locationNum_seq.nextVal,'서울 올림픽 공원 88잔디마당');
 
 
 select * from locationNum;
