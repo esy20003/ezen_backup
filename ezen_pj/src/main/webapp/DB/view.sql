@@ -34,5 +34,5 @@ select*from content_time_view order by cseq;
 
 
 --3. cart+member+content 합친 뷰 만들기
-alter table cart modify quantity default 1;
+
 select * from CART;
