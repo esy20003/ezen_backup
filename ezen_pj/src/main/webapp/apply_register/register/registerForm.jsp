@@ -8,7 +8,7 @@
 		<div class="registerBox" name="registerboxform">
 			<table class="registerDate" name="registerDate">
 				<tr class="tableHead">
-					<th>날짜와 시간</th>
+					<th><h1>날짜와 시간</h1></th>
 				</tr>
 				<td class="date">
 					<div class="dateBox">

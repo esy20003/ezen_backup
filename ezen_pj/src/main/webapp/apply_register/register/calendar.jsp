@@ -44,7 +44,7 @@
   </script>
 </head>
 <body>
-  <h1>달력과 시간 선택</h1>
+  <h3>달력과 시간 선택</h3>
   <div class="input-group mb-3">
     <input type="text" id="datepicker" class="form-control" placeholder="날짜 선택">
     <button class="btn btn-outline-secondary" type="button" id="addDateTimeButton">날짜 추가</button>
@@ -52,7 +52,7 @@
   <div class="input-group mb-3">
     <input type="text" id="timepicker" class="form-control" placeholder="시간 선택">
   </div>
-  <h2>선택한 날짜 및 시간:</h2>
+  <h4>선택한 날짜 및 시간:</h4>
   <ul id="selected-date-times"></ul>
 </body>
 </html>
