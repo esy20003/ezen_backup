@@ -33,7 +33,7 @@ select * from MEMBER
 select * from qna_board
 select * from seat
 
-grant select on qna_board to babo
+grant select on qna_board to scott
 
 
 
