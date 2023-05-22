@@ -32,21 +32,45 @@ ON c.cseq=t.cseq;
 select*from content_time_view order by cseq;
 
 
+-- 3. member+ grade 합친 뷰
 
---3. cart+member+content 합친 뷰 만들기
+select * from member;
+select * from grade;
+select * from member_grade_view;
+
+CREATE OR REPLACE VIEW member_grade_view
+AS 
+SELECT  m.mseq, m.id, m.nickname,m.success, m.grade, g.gname, g.gprice
+FROM member m
+INNER JOIN grade g
+ON m.grade=g.gseq;
+
+--4. cart+member+content 합친 뷰 만들기
 
 select * from CART;
 
-alter table cart add column mseq2 varchar2(5);
 
 CREATE OR REPLACE VIEW cart_view
 AS 
-SELECT  c.cseq, c.title, t.contentDate, t.contentTime
-FROM content c
-INNER JOIN contentTime t
-ON c.cseq=t.cseq;
+SELECT  ca.mseq,ca.cseq, cv.title, ca.locationNum, cv.locationname, ca.area, 
+cv.price, ca.mseq2,ca.quantity, ca.indate, ca.buyyn 
+FROM cart ca
+INNER JOIN content_loc_seat_view cv
+ON ca.cseq=cv.cseq;
 
+select * from cart_view;
+---여기까지는 대리인 관련 정보 없음
 
+CREATE OR REPLACE VIEW cart_total_view
+AS 
+SELECT  ca.mseq,ca.cseq, ca.title, ca.locationNum, ca.locationname, ca.area,  m.nickname, m.gprice,
+ca.price, ca.mseq2,ca.quantity, ca.indate, ca.buyyn 
+FROM cart_view ca , member_grade_view m
+where ca.mseq2=m.mseq(+);
+
+select * from cart_total_view;
+
+---------------------------
 
 
 
