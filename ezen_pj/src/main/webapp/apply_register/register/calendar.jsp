@@ -51,55 +51,5 @@
         <p>날짜: <%= selectedDate %></p>
         <p>시간: <%= selectedTime %></p>
     <% } %>
-
-    <%-- 캘린더 출력 --%>
-    <table>
-        <tr>
-            <th colspan="7"><%= year %>년 <%= month %>월</th>
-        </tr>
-        <tr>
-            <th>일</th>
-            <th>월</th>
-            <th>화</th>
-            <th>수</th>
-            <th>목</th>
-            <th>금</th>
-            <th>토</th>
-        </tr>
-
-        <%-- 첫째 주의 시작 위치 계산 --%>
-        <% cal.set(year, month - 1, 1);
-           int startDay = cal.get(Calendar.DAY_OF_WEEK) - 1;
-           cal.add(Calendar.MONTH, 1);
-           cal.add(Calendar.DATE, -1);
-           int lastDay = cal.get(Calendar.DATE);
-        %>
-
-        <%-- 캘린더 날짜 출력 --%>
-        <tr>
-            <%-- 이전 달 날짜 출력 --%>
-            <% for (int i = startDay - 1; i >= 0; i--) { %>
-                <td></td>
-            <% } %>
-
-            <%-- 현재 달 날짜 출력 --%>
-            <% for (int i = 1; i <= lastDay; i++) { %>
-                <% if ((startDay + i - 1) % 7 == 0) { %>
-                    </tr><tr>
-                <% } %>
-                <% if (i == day) { %>
-                    <td style="background-color: yellow;"><%= i %></td>
-                <% } else { %>
-                    <td><%= i %></td>
-                <% } %>
-            <% } %>
-
-            <%-- 다음 달 날짜 출력 --%>
-            <% int remainingCells = 7 - ((startDay + lastDay) % 7);
-               for (int i = 0; i < remainingCells; i++) { %>
-                <td></td>
-            <% } %>
-        </tr>
-    </table>
 </body>
 </html>
