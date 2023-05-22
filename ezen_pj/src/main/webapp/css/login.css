@@ -115,7 +115,7 @@
 }
 
 .join_content ul li {position: relative; list-style:none; min-height: 60px; border-bottom: 1px solid #ececec; box-sizing:border-box;}
-.join_content input{height:40px; width:400px; float:right; margin-left:10px; margin-top: 10px; background: none; border:none; float:left; text-align:left;}
+.join_content input{height:40px; width:300px; float:right; margin-left:10px; margin-top: 10px; background: none; border:none; float:left;}
 .join_content label{height:40px; width:100px; font-weight:bold; font-size:120%; line-height: 50px;}
 .join_content span{color:rgb(255,0,0); font-size:70%; font-weight:bold; float:left;line-height:30px;}
 .join_content .gender{height:40px; width:400px; float:right; margin-right:10px; margin-top:10px;}
@@ -126,7 +126,6 @@
     box-sizing: border-box;
     background: #ddd;
     cursor: pointer;
-   
 }
 
 
