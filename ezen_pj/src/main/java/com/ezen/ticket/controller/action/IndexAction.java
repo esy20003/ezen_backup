@@ -28,6 +28,7 @@ public class IndexAction implements Action {
 		 * RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
 		 * dispatcher.forward(request, response);
 		 */
+		
 		// bestContent 받아오기
 		ContentDao cdao = ContentDao.getInstance();
 		ArrayList<ContentVO> bestContent = cdao.getBestContent();

@@ -4,41 +4,70 @@
 <%@ include file="header.jsp" %>
 
 
-<div id="bestContent" style="height: 600px; border: 3px solid pink; margin: 0 auto; width: 1200px;">
-		<div class="title" style="height:170px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
-			font-weight:bold; background:#f3f3ff; color:red;">
+<div id="bestContent" style="height: 600px; border: 3px solid black; margin: 0 auto; width: 1200px;">
+		<div class="title" style="height:170px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:130px;
+			font-weight:bold; background:#f3f3ff; color:red; border: 1px solid black;">
 			<h1>Best Content</h1>
 		</div>
-		<div class="bestcontentback" style="width:1190px; margin: 0 auto; height: 400px; background: #f7f0f0;">
-			<div class="view" style="height: 398px; width: 350px; border: 1px solid black; margin: 0 auto; overflow:hidden; border: 1px dashed #ffb3b3; position:relative;">
-		        <%-- <c:forEach items="${ bestContent }" var="contentVO"> --%>
-			        <div id="imgs" style="width: 700px; height: 300px; position:absolute; left:0; top:0;" >
-			            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }"><img src="images/list1.png" style="width:350px; height:300px; float:left;"/>
-			            <%-- <img src="images/${ contentVO.cseq } style="width:350px; height:300px;"/> --%></a>
-			            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }"><img src="images/list2.png" style="width:350px; height:300px; float:left;"/>
-			            <%-- <img src="images/${ contentVO.cseq } style="width:350px; height:300px;"/> --%></a>
-			        </div>
-			        <div id="titles" style="width: 700px; height:60px; position:absolute; left:0; top:300px;">
-				        <div class="title" style="width: 350px; height: 60px; line-height: 60px; font-size: 150%; font-weight: bold; text-align: center;
-				        	color: #724a4a; background: #fbe4f6; border-bottom: 3px dashed blue; position:absolute; top:0;">
-			            	<h3><%-- ${ contentVO.title } --%>'세종문화회관 S씨어터'</h3>
-			            </div>
-			            <div class="title" style="width: 350px; height: 60px; line-height: 60px; font-size: 150%; font-weight: bold; text-align: center;
-				        	color: #724a4a; background: #fbe4f6; border-bottom: 3px dashed blue; position:absolute; top:0; left:350px;">
-			            	<h3><%-- ${ contentVO.title } --%>'이것도 해결해봅시다'</h3>
-			            </div>
-		            </div>
-				<%-- </c:forEach> --%>
-		        <div id="remote" style="position:absolute; bottom:0;">
-		            <ul>
-		                <li id="btn" onClick="moveRight();" style="text-align: center; font-size: 150%; line-height: 35px; color: green;
-		                	cursor: pointer; background: #d6f4ff; width:350px;">▶</li>
-		            </ul>
-	        </div>
-	        <%-- </c:forEach> --%>
-	    </div>
+		<div id="bestcontentback" style="width: 1192px;margin: 0 auto;height: 400px;background: #f7f0f0;border: 1px solid black;">
+			<div class="imgview1" style="width: 1000px; height: 400px; background: #ffa0a0; margin: 0 auto;">
+				<div class="imgview2" style="position:relative;width:760px;height: 400px;background: white; /* overflow:hidden; */ margin: 0 auto; ">
+					<div class="imgview3" style="position:absolute; width: 1520px; height:380px; top: 0; left:0;">
+						<div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
+						 background:black; float:left">
+							<div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
+								<img src="images/list1.png" style="width:350px; height:300px;"/>
+							</div>
+							<div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
+								<h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
+							</div>
+						</div>
+						<div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
+						 background:black; float:left">
+							<div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
+								<img src="images/list2.png" style="width:350px; height:300px;"/>
+							</div>
+							<div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
+								<h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
+							</div>
+						</div>
+						<div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
+						 background:black; float:left">
+							<div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
+								<img src="images/list1.png" style="width:350px; height:300px;"/>
+							</div>
+							<div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
+								<h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
+							</div>
+						</div>
+						<div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
+						 background:black; float:left">
+							<div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
+								<img src="images/list2.png" style="width:350px; height:300px;"/>
+							</div>
+							<div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
+								<h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
+							</div>
+						</div>
+					</div>
+				</div>
+					<div id="remote1" style="position: relative;left: 915px;bottom: 207px;cursor: pointer;">
+						<ul>
+							<li id="btn2" onClick="moveRight();" style="text-align: center; font-size: 200%; line-height: 47px; color: black;
+							 background: white; width: 50px; border-radius: 50%; height: 50px;">▶</li>
+						</ul>
+	        		</div>
+	        		<div id="remote2" style="position: relative; left: 35px; bottom: 270px;">
+		        		<ul>
+		        			<li id="btn1" onClick="moveLeft();" style="text-align: center; font-size: 200%; line-height: 47px; color: black;
+		        			 background: white; width: 50px; border-radius: 50%; height: 50px;">◀</li>
+		        		</ul>
+	        		</div>
+			</div>
+			
+			</div>
+			
     </div>
-</div>
 
 <div id="concert" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
 	<div class="title" style="height: 170px; text-align:center; margin: 5px 15px 5px 5px; width: 1190px;
