@@ -15,7 +15,7 @@ select * from MEMBER;
 
 select * from user_sequences;
 
-
+delete from ADDRESS;
 
 
 
