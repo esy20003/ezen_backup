@@ -111,10 +111,10 @@ public class MemberVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	public char getUseyn() {
+	public String getUseyn() {
 		return useyn;
 	}
-	public void setUseyn(char useyn) {
+	public void setUseyn(String useyn) {
 		this.useyn = useyn;
 	}
 	

@@ -61,10 +61,10 @@ public class ContentVO {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	public char getBestyn() {
+	public String getBestyn() {
 		return bestyn;
 	}
-	public void setBestyn(char bestyn) {
+	public void setBestyn(String bestyn) {
 		this.bestyn = bestyn;
 	}
 	
