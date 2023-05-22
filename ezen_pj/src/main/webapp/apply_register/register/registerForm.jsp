@@ -8,24 +8,11 @@
 		<div class="registerBox" name="registerboxform">
 			<table class="registerDate" name="registerDate">
 				<tr class="tableHead">
-					<th>날짜</th>
-					<th>시간</th>
-					<th>콘텐츠</th>
+					<th>날짜와 시간</th>
 				</tr>
 				<td class="date">
 					<div class="dateBox">
 						<%@ include file="calendar.jsp" %>
-				<td class="time">
-					<div class="timeBox">
-						<c:forEach items="${date}" var="contentVO">
-							<ul>
-								<li><a href="#" onclick="return false">contentVO.?</a></li>
-							</ul>
-						</c:forEach>
-					</div>
-				</td>
-				<td class="content">
-					
 				</td>
 			</table>
 		</div>
