@@ -12,7 +12,7 @@
 		<div id="bestcontentback" style="width: 1192px;margin: 0 auto;height: 400px;background: #f7f0f0;border: 1px solid black;">
 			<div class="imgview1" style="width: 1000px; height: 400px; background: #ffa0a0; margin: 0 auto;">
 				<div class="imgview2" style="position:relative;width:760px;height: 400px;background: white; /* overflow:hidden; */ margin: 0 auto; ">
-					<div class="imgview3" style="position:absolute; width: 1520px; height:380px; top: 0; left:0;">
+					<div id="imgview3" style="position:absolute; width: 1520px; height:380px; top: 0; left:0;">
 						<div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
 						 background:black; float:left">
 							<div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
