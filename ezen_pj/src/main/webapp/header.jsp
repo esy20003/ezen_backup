@@ -26,16 +26,14 @@ function moveRight(){
     imgNum++;
     dist = imgNum * -600;
     document.getElementById("imgs").style.left = dist + "px";*/
-    if(imgNum == 1){
+    if(imgNum == 2){
     	imgNum = 0;
-    	dist = imgNum * -600;
-    	document.getElementById("imgs").style.left = dist + "px";
-    	document.getElementById("titles").style.left = dist + "px";
+    	dist = imgNum * -400;
+    	document.getElementByClassName("imgview3").style.left = dist + "px";
     }else{
     	imgNum++;
-    	dist = imgNum * -350;
-    	document.getElementById("imgs").style.left = dist + "px";
-    	document.getElementById("titles").style.left = dist + "px";
+    	dist = imgNum * -400;
+    	document.getElementByClassName("imgview3").style.left = dist + "px";
     }
 }
 </script>
