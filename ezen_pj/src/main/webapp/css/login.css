@@ -31,6 +31,8 @@
 	color: #444;
 	margin-top: 18px;
 	outline: none;
+	background:none;
+	border:none;
 }
 /* 로그인 폼 아이디 비밀번호 인풋  */
 #login_box .pwd_input_box {
@@ -45,6 +47,8 @@
 	color: #444;
 	margin-top: 18px;
 	outline: none;
+	background: none;
+    border: none;
 }
 
 #login_box .btn_log {
@@ -96,3 +100,32 @@
 	text-align: center;
 	border-top: 1px solid #ddd;
 }
+
+
+/*  회원가입 css  */
+
+#join_box{position:relative; text-align:center; width:100%;}
+#join_box .join_title{margin:40px 0 14px 0; color:#888;}
+#join_box .join_title span{font-size:25px; color:#000; margin-right:15px;}
+#join_box .join_content{
+	background: #FFF;
+    width: 600px;
+    border : 1px solid #d3d3d3;
+    margin : 0 auto 10px;
+}
+
+.join_content ul li {position: relative; list-style:none; min-height: 60px; border-bottom: 1px solid #ececec; box-sizing:border-box;}
+.join_content input{height:40px; width:300px; float:right; margin-left:10px; margin-top: 10px; background: none; border:none; float:left;}
+.join_content label{height:40px; width:100px; font-weight:bold; font-size:120%; line-height: 50px;}
+.join_content span{color:rgb(255,0,0); font-size:70%; font-weight:bold; float:left;line-height:30px;}
+.join_content .gender{height:40px; width:400px; float:right; margin-right:10px; margin-top:10px;}
+
+/*  중복체크 버튼 */
+.join_content input.chk_id {width: 80px;
+    border: 1px solid red;
+    box-sizing: border-box;
+    background: #ddd;
+    cursor: pointer;
+}
+
+
