@@ -147,7 +147,7 @@ CREATE TABLE member
 	grade number(1) DEFAULT 0,
 	success number(5,0) DEFAULT 0,
 	indate date DEFAULT sysdate,
-	useyn char(1) DEFAULT 'Y',
+	useyn char(1) DEFAULT 'N',
 	PRIMARY KEY (mseq)
 );
 

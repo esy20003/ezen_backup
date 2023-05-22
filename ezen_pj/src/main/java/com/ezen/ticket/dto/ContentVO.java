@@ -12,7 +12,7 @@ public class ContentVO {
 	private String content;
 	private int category;
 	private String age;
-	private char bestyn;
+	private String bestyn;
 	public int getCseq() {
 		return cseq;
 	}

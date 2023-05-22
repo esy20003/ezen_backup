@@ -26,7 +26,7 @@ public class ContentDao {
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, 2);
+			pstmt.setString(1, "Y");
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				cvo.setImage(rs.getString("image"));

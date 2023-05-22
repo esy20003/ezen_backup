@@ -19,7 +19,8 @@ public class MemberVO {
 	private String grade;
 	private int success;
 	private Timestamp indate;
-	private char useyn;
+	private String useyn;
+	
 	public int getMseq() {
 		return mseq;
 	}
