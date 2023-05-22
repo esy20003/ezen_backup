@@ -68,7 +68,7 @@ CREATE TABLE admin
 	name varchar2(50) NOT NULL,
 	phone varchar2(20) NOT NULL,
 	email varchar2(50),
-	adminyn char DEFAULT 'Y',
+	adminyn char DEFAULT 'N',
 	PRIMARY KEY (id)
 );
 
@@ -147,7 +147,7 @@ CREATE TABLE member
 	grade number(1) DEFAULT 0,
 	success number(5,0) DEFAULT 0,
 	indate date DEFAULT sysdate,
-	useyn char(1) DEFAULT 'N',
+	useyn char(1) DEFAULT 'Y',
 	PRIMARY KEY (mseq)
 );
 

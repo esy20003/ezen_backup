@@ -29,7 +29,7 @@ public class ContentDao {
 			pstmt.setInt(1, 2);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-				cvo.setImage(rs.getString("images"));
+				cvo.setImage(rs.getString("image"));
 				cvo.setTitle(rs.getString("title"));
 				bestList.add(cvo);
 			}
