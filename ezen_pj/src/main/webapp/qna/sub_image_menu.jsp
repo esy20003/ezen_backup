@@ -10,7 +10,7 @@
 
 <nav id="sub_menu">
 	<ul>
-			<li><a href="shop.do?command=qnaList">Q&amp;A 게시글 리스트</a></li>
-			<li><a href="shop.do?command=qnaWriteForm">Q&amp;A 게시글 쓰기</a></li>
+			<li><a href="ticket.do?command=qnaList">Q&amp;A 게시글 리스트</a></li>
+			<li><a href="ticket.do?command=qnaWriteForm">Q&amp;A 게시글 쓰기</a></li>
 		</ul>
 </nav>

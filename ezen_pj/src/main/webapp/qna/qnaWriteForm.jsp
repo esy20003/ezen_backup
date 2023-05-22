@@ -20,7 +20,7 @@
 	<div id="buttons" style="float:right">
 		<input type="submit" value="글쓰기" class="submit" style="color:black;">
 		<input type="reset" value="취소" class="cancel" style="color:black;">
-		<input type="button" value="돌아가기" class="submit" style="color:black;" onclick="location.href='ticket.do?command=index'">
+		<input type="button" value="돌아가기" class="submit" style="color:black;" onclick="location.href='ticket.do?command=index">
 	</div>
 	
 </form>
