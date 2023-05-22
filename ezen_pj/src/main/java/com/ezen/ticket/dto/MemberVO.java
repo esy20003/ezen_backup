@@ -19,7 +19,7 @@ public class MemberVO {
 	private String grade;
 	private int success;
 	private Timestamp indate;
-	private String useyn;
+	private char useyn;
 	
 	public int getMseq() {
 		return mseq;
@@ -111,12 +111,13 @@ public class MemberVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	public String getUseyn() {
+	public char getUseyn() {
 		return useyn;
 	}
-	public void setUseyn(String useyn) {
+	public void setUseyn(char useyn) {
 		this.useyn = useyn;
 	}
+
 	
 	
 

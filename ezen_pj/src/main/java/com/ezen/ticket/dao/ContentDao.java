@@ -22,11 +22,12 @@ public class ContentDao {
 	public ArrayList<ContentVO> getBestContent() {
 		ArrayList<ContentVO> bestList = null;
 		ContentVO cvo = new ContentVO();
-		String sql = "select * from content where bestyn=? ";
+		String sql = "select * from content";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "Y");
+			sql = "select * from content where bestyn=? ";
+			pstmt.setCharacterStream(1, 'Y');
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				cvo.setImage(rs.getString("image"));

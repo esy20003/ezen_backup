@@ -12,7 +12,7 @@ public class ContentVO {
 	private String content;
 	private int category;
 	private String age;
-	private String bestyn;
+	private char bestyn;
 	public int getCseq() {
 		return cseq;
 	}
@@ -61,12 +61,13 @@ public class ContentVO {
 	public void setAge(String age) {
 		this.age = age;
 	}
-	public String getBestyn() {
+	public char getBestyn() {
 		return bestyn;
 	}
-	public void setBestyn(String bestyn) {
+	public void setBestyn(char bestyn) {
 		this.bestyn = bestyn;
 	}
+
 	
 	
 }
