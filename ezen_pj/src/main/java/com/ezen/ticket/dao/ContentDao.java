@@ -27,12 +27,12 @@ public class ContentDao {
 		try {
 			pstmt = con.prepareStatement(sql);
 			sql = "select * from content where bestyn=? ";
-			pstmt.setCharacterStream(1, 'Y');
+			//pstmt.setCharacterStream(1, 'Y');
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
 				cvo.setImage(rs.getString("image"));
 				cvo.setTitle(rs.getString("title"));
-				bestList.add(cvo);
+				//bestList.add(cvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs); }
