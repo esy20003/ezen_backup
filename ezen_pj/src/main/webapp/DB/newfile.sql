@@ -43,6 +43,7 @@ CREATE SEQUENCE order_detail_odseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE success_board_sucseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE locationNum_seq INCREMENT BY 1 START WITH 1;
 
 
 
@@ -80,6 +81,7 @@ CREATE TABLE cart
 	contentTime varchar2(10) NOT NULL,
 	locationNum number(5) NOT NULL,
 	area varchar2(50) NOT NULL,
+	mseq2 number(5,0),
 	quantity number(5,0) default 1,
 	indate date DEFAULT sysdate,
 	buyyn char DEFAULT 'N',

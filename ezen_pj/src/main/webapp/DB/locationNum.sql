@@ -1,6 +1,6 @@
 select * from locationNum;
 
-CREATE SEQUENCE locationNum_seq INCREMENT BY 1 START WITH 1;
+
 
 insert into locationNum values(locationNum_seq.nextVal,'KBS부산홀');
 insert into locationNum values(locationNum_seq.nextVal,'잠실 실내체육관');

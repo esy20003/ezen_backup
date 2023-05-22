@@ -32,7 +32,72 @@ ON c.cseq=t.cseq;
 select*from content_time_view order by cseq;
 
 
+-- 3. member+ grade 합친 뷰
 
---3. cart+member+content 합친 뷰 만들기
+select * from member;
+select * from grade;
+select * from member_grade_view;
+
+CREATE OR REPLACE VIEW member_grade_view
+AS 
+SELECT  m.mseq, m.id, m.nickname,m.success, m.grade, g.gname, g.gprice
+FROM member m
+INNER JOIN grade g
+ON m.grade=g.gseq;
+
+--4. cart+member+content 합친 뷰 만들기
 
 select * from CART;
+
+
+CREATE OR REPLACE VIEW cart_view
+AS 
+SELECT  ca.mseq,ca.cseq, cv.title, ca.locationNum, cv.locationname, ca.area, 
+cv.price, ca.mseq2,ca.quantity, ca.indate, ca.buyyn 
+FROM cart ca
+INNER JOIN content_loc_seat_view cv
+ON ca.cseq=cv.cseq;
+
+select * from cart_view;
+---여기까지는 대리인 관련 정보 없음
+
+CREATE OR REPLACE VIEW cart_total_view
+AS 
+SELECT  ca.mseq,ca.cseq, ca.title, ca.locationNum, ca.locationname, ca.area,  m.nickname, m.gprice,
+ca.price, ca.mseq2,ca.quantity, ca.indate, ca.buyyn 
+FROM cart_view ca , member_grade_view m
+where ca.mseq2=m.mseq(+);
+
+select * from cart_total_view;
+
+---------------------------
+--orders+member+content_time_view+content_loc_seat_view+order_detail 합친 뷰
+select * from orders;
+select * from order_detail;
+select * from member;
+select * from content_time_view;
+select * from content_loc_seat_view;
+select *from member_grade_view;
+
+
+CREATE OR REPLACE VIEW order_view
+AS 
+SELECT  d.odseq, o.oseq, o.indate, o.mseq, 
+m.id, m.name as buyer_name, m.nickname as buyer_nickname, m.zip_num,m.address1, m.address2, m.phone,
+d.cseq, d.locationNum, clv.title,clv.locationName, clv.artist, d.contentDate, d.contentTime, clv.area, clv.price as content_price,
+d.mseq2, mgv.nickname as com_nickname, mgv.gname as com_grade, mgv.gprice as com_price,
+d.quantity,
+d.result 
+FROM orders o, order_detail d, member m, content_loc_seat_view clv, member_grade_view mgv 
+where o.oseq=d.oseq and o.mseq=m.mseq and d.cseq=clv.cseq and d.area=clv.area and d.mseq2=mgv.mseq;
+
+
+select*from order_view order by oseq;
+
+
+
+
+
+
+
+
