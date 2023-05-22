@@ -2,7 +2,39 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="../../header.jsp"%>
 
-<article>
+<style>
+.registerBox {
+  border: 1px solid #ccc;
+  padding: 20px;
+  background-color: #f86343;
+  border-radius: 5px;
+}
+
+.registerDate {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.tableHead {
+  background-color: #eee;
+}
+
+.tableHead th {
+  padding: 10px;
+  text-align: center;
+}
+
+.date {
+  padding: 10px;
+}
+
+.dateBox {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+}
+</style>
 
 	<section name="registerBody" id="bodybox_register">
 		<div class="registerBox" name="registerboxform">
@@ -18,7 +50,6 @@
 		</div>
 	</section>
 
-</article>
 
 
 <%@ include file="../../footer.jsp"%>
