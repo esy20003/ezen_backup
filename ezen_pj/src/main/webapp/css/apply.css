@@ -7,11 +7,8 @@
 .applyTitle li{border:1px solid black;}
 
 .applyBodyBox{background:coral; postion:relative; width:1000px; height:650px;}
-
-.applyContent{border:1px solid black; background: lightsalmon;}
-.categoryBox{border:1px solid black;}
-.contentNameBox{border:1px solid black;}
-.dateBox{border:1px solid black;}
-.timeBox{border:1px solid black;}
-.detailBox{border:1px solid black;}
-.seatingChartBox{border:1px solid black;}
+.categoryBox{border:1px solid black;postion:relative; float:left;}
+.dateBox{border:1px solid black;postion:relative; float:left;}
+.timeBox{border:1px solid black;postion:relative; float:left;}
+.detailBox{border:1px solid black;postion:relative; float:left;}
+.seatingChartBox{border:1px solid black;postion:relative; float:left;}

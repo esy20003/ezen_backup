@@ -2,25 +2,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ include file="../../header.jsp" %>
 
-<style type="text/css">
-#bodyBox_apply{border:1px solid black;}
-.applyBox{border:1px solid black; background:lightblue;}
-.applyContent{border:1px solid black; background: lightsalmon;}
-.applyTitleBox{border:1px solid blue;}
-.applyTitle{border:1px solid black;}
-.applyBodyBox{border:1px solid black; background:coral;}
-.categoryBox{border:1px solid black;}
-.contentNameBox{border:1px solid black;}
-.dateBox{border:1px solid black;}
-.timeBox{border:1px solid black;}
-.detailBox{border:1px solid black;}
-.seatingChartBox{border:1px solid black;}
-</style>
+
 
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
-		<div class="applyContent" name="applyContent">
+
 			<div class="applyTitleBox">
 				<ul class="applyTitle">
 					<li>공연 종류</li>
@@ -94,7 +81,7 @@
 				</div>
 
 				
-		</div>
+
 	</div>
 </section>
 	

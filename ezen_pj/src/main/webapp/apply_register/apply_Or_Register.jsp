@@ -3,7 +3,9 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../header.jsp" %>
 
-	<section class="body_Choose" style="width: 720px;" name="bodyChoose">
+<form name="frm" method="post">
+
+	<section class="body_Choose" style="width: 720px;">
 		<header class="">
 			<button type="button"	class="Button_close" name="closeButton">
 				<i aria-hidden="true" class="Icon_close"></i>
@@ -42,6 +44,6 @@
 			</div>
 		</main>
 	</section>
-
+</form>
 
 <%@ include file="../footer.jsp" %>
