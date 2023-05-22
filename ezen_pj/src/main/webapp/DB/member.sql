@@ -12,6 +12,7 @@ select * from success_board;
 select * from SEAT;
 select * from MEMBER;
 
+select * from member;
 
 select * from user_sequences;
 
