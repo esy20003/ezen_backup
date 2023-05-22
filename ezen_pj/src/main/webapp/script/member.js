@@ -43,7 +43,7 @@ window.open(url,"checkid",opt);
 
 
 /* 아이디 사용하기 버튼 클릭 */
-function idok(userid){	
+function idok(userid){
     opener.joinForm.id.value = userid;
     opener.joinForm.reid.value = userid;
     self.close();
