@@ -8,7 +8,7 @@
 </head>
 <body>
 	<h1>ID 중복확인</h1> 
-   <form method="post" name="idCheckForm" action="shop.do">
+   <form method="post" name="idCheckForm" action="ticket.do">
         <input type="hidden" name="command" value="idCheckForm">
         User ID : <input type="text" name= "id" value="${id}">
         <input type="submit" value="검색" class="submit"><br><br><br>
