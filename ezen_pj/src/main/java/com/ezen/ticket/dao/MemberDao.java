@@ -45,7 +45,7 @@ private MemberDao() {}
 				mvo.setGrade(rs.getString("grade"));
 				mvo.setSuccess(rs.getInt("success"));
 				mvo.setIndate(rs.getTimestamp("indate"));
-				mvo.setUseyn(rs.getString("useyn"));
+				mvo.setUseyn(rs.getString("useyn").charAt(0));
 				mvo.setGender(rs.getInt("gender"));
 			} 
 			
