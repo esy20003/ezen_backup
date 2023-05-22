@@ -1,5 +1,12 @@
 @charset "UTF-8";
 
+/* apply_Or_Register.jsp의 css */
+
+.body
+
+
+/* 여기부턴 applyForm.jsp의 css */
+
 #bodyBox_apply{border:1px solid black; height:700px; width:1200px; margin:0 auto;}
 .applyBox{border:1px solid black; background:lightblue;height:700px; width:1200px; margin:0 auto;}
 

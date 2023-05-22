@@ -5,14 +5,10 @@
 
 <form name="frm" method="post">
 
-	<section class="body_Choose" style="width: 720px;">
+	<section class="body_Choose">
 		<header class="">
-			<button type="button"	class="Button_close" name="closeButton">
-				<i aria-hidden="true" class="Icon_close"></i>
-				<span class="Typography_close">닫기</span>
-			</button>
 			<div class="titlearea_Choose" tabindex="-1">
-				<h1	class="title_Choose">안녕하세요! 티켓을 원하시는 분은 신청을, 티켓팅에 도전하실 분은 일정 등록을 해주세요.</h1>
+				<h3	class="title_Choose">안녕하세요! 티켓을 원하시는 분은 신청을, 티켓팅에 도전하실 분은 일정 등록을 해주세요.</h3>
 			</div>
 		</header>
 		<main>
