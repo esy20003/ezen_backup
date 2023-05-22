@@ -36,3 +36,27 @@ select*from content_time_view order by cseq;
 --3. cart+member+content 합친 뷰 만들기
 
 select * from CART;
+
+alter table cart add column mseq2 varchar2(5);
+
+CREATE OR REPLACE VIEW cart_view
+AS 
+SELECT  c.cseq, c.title, t.contentDate, t.contentTime
+FROM content c
+INNER JOIN contentTime t
+ON c.cseq=t.cseq;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
