@@ -1,11 +1,14 @@
 @charset "UTF-8";
 
-#bodyBox_apply{border:1px solid black;}
-.applyBox{border:1px solid black; background:lightblue;}
+#bodyBox_apply{border:1px solid black; height:100%; width:1000px; margin:0 auto;}
+.applyBox{border:1px solid black; background:lightblue;height:800px; width:1000px; margin:0 auto;}
+
+.applyTitleBox{position:relative; width:1000px; height:150px;}
+.applyTitle li{border:1px solid black;}
+
+.applyBodyBox{background:coral; postion:relative; width:1000px; height:650px;}
+
 .applyContent{border:1px solid black; background: lightsalmon;}
-.applyTitleBox{border:1px solid blue;}
-.applyTitle{border:1px solid black;}
-.applyBodyBox{border:1px solid black; background:coral;}
 .categoryBox{border:1px solid black;}
 .contentNameBox{border:1px solid black;}
 .dateBox{border:1px solid black;}
