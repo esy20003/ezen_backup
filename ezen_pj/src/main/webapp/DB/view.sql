@@ -71,11 +71,28 @@ where ca.mseq2=m.mseq(+);
 select * from cart_total_view;
 
 ---------------------------
+--orders+member+content_time_view+content_loc_seat_view+order_detail 합친 뷰
+select * from orders;
+select * from order_detail;
+select * from member;
+select * from content_time_view;
+select * from content_loc_seat_view;
+select *from member_grade_view;
 
 
+CREATE OR REPLACE VIEW order_view
+AS 
+SELECT  d.odseq, o.oseq, o.indate, o.mseq, 
+m.id, m.name as buyer_name, m.nickname as buyer_nickname, m.zip_num,m.address1, m.address2, m.phone,
+d.cseq, d.locationNum, clv.title,clv.locationName, clv.artist, d.contentDate, d.contentTime, clv.area, clv.price as content_price,
+d.mseq2, mgv.nickname as com_nickname, mgv.gname as com_grade, mgv.gprice as com_price,
+d.quantity,
+d.result 
+FROM orders o, order_detail d, member m, content_loc_seat_view clv, member_grade_view mgv 
+where o.oseq=d.oseq and o.mseq=m.mseq and d.cseq=clv.cseq and d.area=clv.area and d.mseq2=mgv.mseq;
 
 
-
+select*from order_view order by oseq;
 
 
 
