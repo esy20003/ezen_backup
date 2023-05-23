@@ -13,6 +13,7 @@ import com.ezen.ticket.controller.action.cart.CartListAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
 import com.ezen.ticket.controller.action.member.FindZipNumAction;
 import com.ezen.ticket.controller.action.member.IdCheckFormAction;
+import com.ezen.ticket.controller.action.member.JoinAction;
 import com.ezen.ticket.controller.action.member.JoinFormAction;
 import com.ezen.ticket.controller.action.member.LoginAction;
 import com.ezen.ticket.controller.action.member.LoginFormAction;
@@ -64,11 +65,15 @@ public class ActionFactory {
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
 		else if(command.equals("idCheckForm")) ac = new IdCheckFormAction();
 		else if(command.equals("findZipNum")) ac = new FindZipNumAction();
+
+		else if(command.equals("join")) ac = new JoinAction();
+
 		
 		
 		// cart
 		else if(command.equals("cartList")) ac = new CartListAction();
 		
+
 		return ac;
 	}
 

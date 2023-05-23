@@ -58,21 +58,19 @@ function post_zip(){
 }
 
 /* 검색값을 주소에 입력 */
-function result(zip_num,sido,gugun,dong){	
+function result(zip_num,sido,gugun,dong , bunji){	
 		// 함수 호출 형태 - result('123-123','서울시', '서대문구', '대현동' , '~~번지' )
 	    opener.document.joinForm.zip_num.value = zip_num;
-	    opener.document.joinForm.address1.value = sido+" " +gugun+" "+dong;
+	    opener.document.joinForm.address1.value = sido+" " +gugun+" "+dong + " "+ bunji;
 	    self.close();
 	}
 
 /* 생년월일 유효성체크 */
 function birthCheck() {
-	alert("123");
-	if(document.joinForm.birth.length > 4) {
-		alert("생년월일");
-		document.joinForm.birth.focus();		
-		return false;
-	}
+	if(document.joinForm.birth.value == "") {
+		alert("생년월일을 입력해 주세요.");
+       document.joinForm.id.focus();     
+	}	
 }
 
 
@@ -135,7 +133,7 @@ function join_insert(){
      }else if(document.joinForm.pwd.value == ""){	
 	  alert("비밀번호를 입력해 주세요.");
       document.joinForm.pwd.focus();	      
-     }else if(document.joinForm.pwdCheck.value != document.joinForm.pwdCheck.value){	
+     }else if(document.joinForm.pwd.value != document.joinForm.pwdCheck.value){	
 	  alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       document.joinForm.pwdCheck.focus();	      
      }else if(document.joinForm.name.value ==""){	
