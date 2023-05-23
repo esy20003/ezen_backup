@@ -11,7 +11,7 @@ import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.dao.MemberDao;
 import com.ezen.ticket.dto.MemberVO;
 
-public class IdCheckForm implements Action {
+public class IdCheckFormAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

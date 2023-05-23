@@ -3,20 +3,19 @@ package com.ezen.ticket.controller;
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.IndexAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
-import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
-
-import com.ezen.ticket.controller.action.qna.QnaListAction;
-import com.ezen.ticket.controller.action.qna.QnaViewAction;
-import com.ezen.ticket.controller.action.qna.QnaWriteAction;
-import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
-import com.ezen.ticket.controller.action.member.IdCheckForm;
+import com.ezen.ticket.controller.action.member.FindzipAction;
+import com.ezen.ticket.controller.action.member.IdCheckFormAction;
 import com.ezen.ticket.controller.action.member.JoinFormAction;
 import com.ezen.ticket.controller.action.member.LoginAction;
 import com.ezen.ticket.controller.action.member.LoginFormAction;
 import com.ezen.ticket.controller.action.member.LogoutAction;
+import com.ezen.ticket.controller.action.qna.QnaListAction;
+import com.ezen.ticket.controller.action.qna.QnaViewAction;
+import com.ezen.ticket.controller.action.qna.QnaWriteAction;
+import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
 
 
 public class ActionFactory {
@@ -53,8 +52,8 @@ public class ActionFactory {
 
 		else if(command.equals("contract")) ac = new ContractAction();
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
-		else if(command.equals("idCheckForm")) ac = new IdCheckForm();
-		
+		else if(command.equals("idCheckForm")) ac = new IdCheckFormAction();
+		else if(command.equals("findzip")) ac = new FindzipAction();
 		return ac;
 	}
 
