@@ -22,7 +22,7 @@ public class QnaWriteAction implements Action {
 		} else {
 			QnaVO qvo = new QnaVO();
 			qvo.setId(mvo.getId());
-			qvo.setSubject(request.getParameter("title"));
+			qvo.setTitle(request.getParameter("title"));
 			qvo.setContent(request.getParameter("content"));
 			QnaDao qdao = QnaDao.getInstance();
 			qdao.insertQna(qvo);
