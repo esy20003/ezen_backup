@@ -8,6 +8,7 @@ import com.ezen.ticket.controller.action.anr.RegisterAction;
 import com.ezen.ticket.controller.action.anr.CategorySelectAction;
 
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
+import com.ezen.ticket.controller.action.anr.TitleSelectAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
 import com.ezen.ticket.controller.action.member.FindZipNumAction;
 import com.ezen.ticket.controller.action.member.IdCheckFormAction;
@@ -40,12 +41,13 @@ public class ActionFactory {
 		
 		//anr
 		else if (command.equals("applyAndRegister")) ac = new ApplyAndRegisterAction();
-		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("applyForm")) ac = new ApplyFormAction();
+		else if (command.equals("categorySelect")) ac = new CategorySelectAction();
+		else if (command.equals("titleSelect")) ac = new TitleSelectAction();
 
+		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("register")) ac = new RegisterAction();
 
-		else if (command.equals("categorySelect")) ac = new CategorySelectAction();
 
 		
 

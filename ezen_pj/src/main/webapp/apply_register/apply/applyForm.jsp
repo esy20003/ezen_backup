@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ include file="../../header.jsp" %>
 
-
+<script src="apply_register/apply_register.js"></script>
 
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
@@ -32,7 +32,7 @@
 				<div class="contentNameBox bodyBox">
 					<c:forEach items="${contentList}" var="contentVO">
 						<ul>
-							<li><a href="#" onclick="return false">${contentVO.title}</a></li>
+							<li><a href="ticket.do?command=titleSelect&cseq=${contentVO.cseq}">${contentVO.title}</a></li>
 						</ul>
 					</c:forEach>
 				</div>
@@ -40,7 +40,7 @@
 						<c:forEach items="${contentList}" var="contentVO">
 							<ul>
 							<!-- 이거는 content_time_view를 불러야함 -->
-								<li><a href="#" onclick="return false">{contentVO.date}</a></li>
+								<li><a href="#" onclick="return false">${contentVO.contentDate}</a></li>
 							</ul>
 						</c:forEach>
 				</div>
@@ -48,7 +48,7 @@
 					<c:forEach items="${contentList}" var="contentVO">
 							<!-- 이거는 content_time_view를 불러야함 -->
 								<ul>
-									<li><a href="#" onclick="return false">contentVO.?</a></li>
+									<li><a href="#" onclick="return false">${contentVO.contentTime}</a></li>
 								</ul>
 					</c:forEach>
 				</div>
@@ -59,9 +59,9 @@
 							<img src="">
 						</div>
 						<div class="detail">
-							<span class="title">${contentList.title}</span>
-							<span class="location">{contentList.location}</span>
-							<span class="artist">${contentList.artist}</span>
+							<span class="title">${contentVO.title}</span>
+							<span class="location">${contentVO.locationName}</span>
+							<span class="artist">${contentVO.artist}</span>
 						</div>
 					</div>
 				</div>
@@ -75,7 +75,7 @@
 						<c:forEach  items="${contentList}" var="contentVO">
 							<div class="seatingChartAreaBox">
 								<ul>
-									<li><a href="#" onclick="return false">{contentVO.area}</a></li>
+									<li><a href="#" onclick="return false">${contentVO.area}</a></li>
 								</ul>
 							</div>
 						</c:forEach>

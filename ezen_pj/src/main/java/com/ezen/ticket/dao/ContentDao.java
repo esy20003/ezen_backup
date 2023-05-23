@@ -74,7 +74,7 @@ public class ContentDao {
 	public ArrayList<ContentVO> selectContent() {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		con=Dbman.getConnection();
-		String sql="select*from content";
+		String sql="select * from content";
 		ContentVO cvo=null;
 		try {
 			pstmt=con.prepareStatement(sql);
@@ -98,27 +98,22 @@ public class ContentDao {
 		return list;
 	}
 
-	public ArrayList<ContentVO> selectCategory(String category) {
+
+	public ArrayList<ContentVO> selectContentsByCategory(int category) {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
-		String sql="select * from content where category=?";
+		String sql="select cseq, category, title from content where category=?";
 		try {
 			
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, Integer.parseInt(category));
+			pstmt.setInt(1, category);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				cvo=new ContentVO();
 				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setTitle(rs.getString("title"));
 				cvo.setCategory(rs.getInt("category"));
-				cvo.setTitle(rs.getString(String.valueOf("title")));
-				cvo.setLocationNum(rs.getInt("locationNum"));
-				cvo.setArtist(rs.getString("artist"));
-				cvo.setContent(rs.getString("content"));
-				cvo.setImage(rs.getString("image"));
-				cvo.setAge(rs.getString("age"));
-				cvo.setBestyn(rs.getString("bestyn").charAt(0));
 				list.add(cvo);
 			}
 		} catch (SQLException e) {
@@ -126,6 +121,7 @@ public class ContentDao {
 		}finally {Dbman.close(con, pstmt, rs);}
 		return list;
 	}
+
 
 	public ArrayList<ContentVO> getMusical() {
 		ArrayList<ContentVO> list	=	new ArrayList<ContentVO>();
@@ -152,7 +148,57 @@ public class ContentDao {
 		} finally { Dbman.close(con, pstmt, rs); }
 		return list;
 	}
+
+	public ArrayList<ContentVO> selectContentByTitle(int cseq) {
+		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
+		ContentVO cvo=null;
+		con=Dbman.getConnection();
+		String sql="select * from content where cseq=?";
+			try {
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, cseq);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					cvo=new ContentVO();
+					cvo.setCseq(rs.getInt("cseq"));
+					cvo.setCategory(rs.getInt("category"));
+					cvo.setTitle(rs.getString("title"));
+					cvo.setArtist(rs.getString("artist"));
+					cvo.setLocationNum(rs.getInt("locationNum"));
+					cvo.setContent(rs.getString("content"));
+					cvo.setImage(rs.getString("image"));
+					cvo.setAge(rs.getString("age"));
+					cvo.setBestyn(rs.getString("bestyn").charAt(0));
+					list.add(cvo);
+				}
+				
+				sql="select * from content_loc_seat_view where locationNum=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1,cvo.getLocationNum());
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					cvo.setLocationName(rs.getString("locationName"));
+					cvo.setArea(rs.getString("area"));
+					cvo.setPrice(rs.getInt("price"));
+					cvo.setAreaImage(rs.getString("areaImage"));
+					list.add(cvo);
+				}
+				sql="select * from content_time_view where cseq=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1,cvo.getCseq());
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					cvo.setContentDate(rs.getTimestamp("contentDate"));
+					cvo.setContentTime(rs.getString("contentTime"));
+					list.add(cvo);
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {Dbman.close(con, pstmt, rs);}
+		
+		return list;
+	}
 	
-	
+
 	
 }
