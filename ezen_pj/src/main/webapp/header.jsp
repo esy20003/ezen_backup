@@ -95,14 +95,14 @@ $(function(){
                      <c:when test="${ empty loginUser }">
                         <li><a href="ticket.do?command=loginForm">로그인</a></li>
                         <li><a href="ticket.do?command=contract">회원가입</a></li>
-                 		 <li><a href="ticket.do?command=cartList">장바구니</a></li>
+                 		<li><a href="ticket.do?command=cartList">장바구니</a></li>
                         <li><a href="ticket.do?command=qnaList">1:1 문의하기</a></li>
                      </c:when>
                      <c:otherwise>
                         <li>${ loginUser.name }(${ loginUser.id })</li>
                         <li><a href="ticket.do?command=logout">로그아웃</a></li>
-                          <li><a href="ticket.do?command=mypage">마이페이지</a></li>
-                         <li><a href="ticket.do?command=cartList">장바구니</a></li>
+                        <li><a href="ticket.do?command=mypage">마이페이지</a></li>
+                        <li><a href="ticket.do?command=cartList">장바구니</a></li>
                         <li><a href="ticket.do?command=editForm">정보수정</a></li>
                         <li><a href="ticket.do?command=qnaList">1:1 문의하기</a></li>
                      </c:otherwise>

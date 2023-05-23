@@ -54,7 +54,7 @@
    <div class="panel">
       <c:forEach items="${ concert }" end="3" var="concertVO">
          <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ conCertVO.cseq }">
+            <a href="ticket.do?command=contentDetail&cseq=${ concertVO.cseq }">
                <img src="${ concertVO.image }"/>
             </a>
             <h1>${ concertVO.title }</h1>
@@ -99,32 +99,7 @@
 	                  </div>
 	              </div>
               </c:forEach>
-              <!-- <div class="successitem">
-                  <div class="successlisttitle">
-                     <h2>나는 행복합니다.</h2>
-                  </div>
-                  <div class="successlistid">
-                     <h2>김한화</h2>
-                  </div>
-               </div>
-               <div class="successitem">
-                  <div class="successlisttitle">
-                     <h2>삼성 대 두산 경기 티켓팅 성공했습니다.</h2>
-                  </div>
-                  <div class="successlistid">
-                     <h2>김지은</h2>
-                  </div>
-               </div>
-               <div class="successitem">
-                  <div class="successlisttitle">
-                     <h2>부산아이가</h2>
-                  </div>
-                  <div class="successlistid">
-                     <h2>조재준</h2>
-                  </div>
-               </div> -->
             </div>
-            
          </div>
          <div id="btn3">
                <ul>
