@@ -20,11 +20,6 @@ text-align: center; margin: 0 auto;}
       <td class="date">
         <div class="dateBox">
           <%@ include file="calendar.jsp" %>
-          <form action="registerAction" method="post" id="registerForm">
-            <input type="hidden" id="selectedDateTime" name="selectedDateTime">
-          </form>
-          <button onclick="submitDateTime()">등록</button>
-          <button onclick="resetDateTime()">다시 등록</button>
         </div>
       </td>
     </table>

@@ -27,28 +27,6 @@
  }
  
 
-function submitDateTime() {
-    var selectedDate = $("#datepicker").val();
-    var selectedTime = $("#timepicker").val();
-
-    // 빈 칸이 있는 경우 등록하지 않음
-    if (selectedDate.trim() === '' || selectedTime.trim() === '') {
-      return;
-    }
-
-    var dateTime = selectedDate + " " + selectedTime;
-    $("#selectedDateTime").val(dateTime);
-
-    // 선택한 날짜와 시간을 서버로 전송
-    document.getElementById("registerForm").submit();
-  }
-
-  function resetDateTime() {
-    // 선택한 날짜와 시간 입력 필드 초기화
-    $("#datepicker").val('');
-    $("#timepicker").val('');
-  }
-
 
  
  

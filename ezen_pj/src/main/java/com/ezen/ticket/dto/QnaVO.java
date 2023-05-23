@@ -11,6 +11,7 @@ public class QnaVO {
 	private String content;
 	private String reply;
 	private String id;
+	private String pwd;
 	private String repyn;
 	private Timestamp indate;
 	public Integer getQseq() {
@@ -66,6 +67,12 @@ public class QnaVO {
 	}
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
+	}
+	public String getPwd() {
+		return pwd;
+	}
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
 	}
 	
 	

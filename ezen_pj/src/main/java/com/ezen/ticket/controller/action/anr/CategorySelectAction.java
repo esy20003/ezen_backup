@@ -27,13 +27,8 @@ public class CategorySelectAction implements Action {
 			ArrayList<ContentVO> list =null;	
 			ContentDao cdao=ContentDao.getInstance();
 			int category=Integer.parseInt(request.getParameter("category"));
-				if(category==0) {
-					list = cdao.selectContent();
+					list = cdao.selectContent(category);
 					request.setAttribute("contentList", list);
-				}else {
-					list = cdao.selectContentsByCategory(category);
-					request.setAttribute("contentList", list);
-				}
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 
