@@ -41,11 +41,11 @@ public class ContentDao {
 	
 	public ArrayList<ContentVO> getConsert() {
 		ArrayList<ContentVO> concert = new ArrayList<ContentVO>();
-		String sql = "select * from concert where category='?'";
+		String sql = "select * from content where category=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, "콘서트");
+			pstmt.setInt(1, 1);
 			rs = pstmt.executeQuery();
 			
 		} catch (SQLException e) { e.printStackTrace();

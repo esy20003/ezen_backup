@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="script/member.js"></script>
 </head>
 <body>
 	<h1>ID 중복확인</h1> 
@@ -19,7 +20,7 @@
             </c:if>    
             <c:if test="${result==-1}">
                 ${id}는 사용 가능합니다
-                  <input type="button" value="사용" class="cancel" onclick="idok('${id}');">
+                  <input type="button" value="사용하기" class="cancel" onclick="idok('${id}');">
             </c:if>
        </div> 
    </form>
