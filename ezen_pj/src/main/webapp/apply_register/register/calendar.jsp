@@ -2,55 +2,145 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Calendar Example</title>
-  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/css/bootstrap-timepicker.min.css">
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-timepicker@0.5.2/js/bootstrap-timepicker.min.js"></script>
-  <script>
-    $(function() {
-      $("#datepicker").datepicker({
-        dateFormat: 'yy-mm-dd',
-        autoclose: true
-      });
-
-      $("#timepicker").timepicker({
-        showMeridian: false,
-        defaultTime: false
-      });
-
-      $("#addDateTimeButton").click(function() {
-        var selectedDate = $("#datepicker").val();
-        var selectedTime = $("#timepicker").val();
-
-        // 빈 칸이 있는 경우 추가하지 않음
-        if (selectedDate.trim() === '' || selectedTime.trim() === '') {
-          return;
+    <title>캘린더</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
         }
 
-        var dateTime = selectedDate + " " + selectedTime;
-        $("#selected-date-times").append("<li>" + dateTime + "</li>");
+        h1 {
+            color: #333;
+        }
 
-        // 선택한 날짜와 시간 입력 필드 초기화
-        $("#datepicker").val('');
-        $("#timepicker").val('');
-      });
-    });
-  </script>
+        input[type="text"] {
+            padding: 5px;
+            margin: 10px;
+            width: 200px;
+        }
+
+        #time-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        select {
+            padding: 5px;
+            margin: 10px;
+            width: 70px;
+        }
+
+        #datetime-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #datetime-list li {
+            margin-bottom: 10px;
+        }
+
+        #datetime-list li.checked {
+            background-color: #eee;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
 <body>
-  <h3><b>달력과 시간 선택</b></h3>
-  <div class="input-group mb-3">
-    <input type="text" id="datepicker" class="form-control" placeholder="날짜 선택">
-    <button class="btn btn-outline-secondary" type="button" id="addDateTimeButton">날짜 추가</button>
-  </div>
-  <div class="input-group mb-3">
-    <input type="text" id="timepicker" class="form-control" placeholder="시간 선택">
-  </div>
-  <h4>선택한 날짜 및 시간:</h4>
-  <ul id="selected-date-times"></ul>
+    <h1>캘린더</h1>
+    <label for="date">날짜:</label>
+    <input type="text" id="date" placeholder="날짜를 선택하세요" readonly>
+    <label for="time">시간:</label>
+    <div id="time-wrapper">
+        <select id="hour-select"></select>
+        <span>:</span>
+        <select id="minute-select"></select>
+    </div>
+    <button onclick="addDateTime()">추가</button>
+    <form id="register-form" action="registerEnd.jsp" method="post">
+        <input type="hidden" id="datetimeList" name="datetimeList" value="">
+        <button type="submit">등록</button>
+    </form>
+
+    <ul id="datetime-list"></ul>
+
+    <button onclick="deleteChecked()">선택 삭제</button>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#date").datepicker({
+                dateFormat: "yy-mm-dd"
+            });
+
+            populateHourSelect();
+            populateMinuteSelect();
+        });
+
+        function populateHourSelect() {
+            var hourSelect = $("#hour-select");
+            for (var i = 0; i <= 23; i++) {
+                var option = "<option value='" + i + "'>" + (i < 10 ? "0" + i : i) + "</option>";
+                hourSelect.append(option);
+            }
+        }
+
+        function populateMinuteSelect() {
+            var minuteSelect = $("#minute-select");
+            for (var i = 0; i <= 50; i += 10) {
+                var option = "<option value='" + i + "'>" + (i < 10 ? "0" + i : i) + "</option>";
+                minuteSelect.append(option);
+            }
+        }
+
+        function addDateTime() {
+            var selectedDate = $("#date").val();
+            var selectedHour = $("#hour-select").val();
+            var selectedMinute = $("#minute-select").val();
+
+            if (selectedDate !== "" && selectedHour !== "" && selectedMinute !== "") {
+                var datetime = selectedDate + " " + selectedHour + ":" + selectedMinute;
+                var datetimeItem = "<li>" + datetime + "<input type='checkbox'></li>";
+                $("#datetime-list").append(datetimeItem);
+
+                // 입력 필드 초기화
+                $("#date").val("");
+                $("#hour-select").val("");
+                $("#minute-select").val("");
+
+                // 등록할 날짜와 시간을 숨은 입력 필드에 설정
+                updateDatetimeList();
+            } else {
+                alert("날짜와 시간을 입력하세요.");
+            }
+        }
+
+        function deleteChecked() {
+            var checkedItems = $("#datetime-list input[type='checkbox']:checked").closest("li");
+            checkedItems.remove();
+            updateDatetimeList();
+        }
+
+        function updateDatetimeList() {
+            var datetimeList = [];
+            $("#datetime-list li").each(function() {
+                datetimeList.push($(this).text());
+            });
+            $("#datetimeList").val(datetimeList.join(","));
+        }
+    </script>
 </body>
 </html>

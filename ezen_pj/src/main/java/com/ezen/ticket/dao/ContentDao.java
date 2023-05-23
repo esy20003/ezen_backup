@@ -44,32 +44,6 @@ public class ContentDao {
 	      } finally { Dbman.close(con, pstmt, rs); }
 	      return list;
 	   }
-	
-	public ArrayList<ContentVO> getConsert() {
-		ArrayList<ContentVO> concert = new ArrayList<ContentVO>();
-		String sql = "select * from content where category=?";
-		con = Dbman.getConnection();
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, 1);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				ContentVO cvo = new ContentVO();
-				cvo.setCseq(rs.getInt("cseq"));
-				cvo.setTitle(rs.getString("title"));
-				cvo.setLocationNum(rs.getInt("locationnum"));
-				cvo.setArtist(rs.getString("artist"));
-				cvo.setImage(rs.getString("image"));
-				cvo.setContent(rs.getString("content"));
-				cvo.setCategory(rs.getInt("category"));
-				cvo.setAge(rs.getString("age"));
-				cvo.setBestyn(rs.getString("bestyn").charAt(0));
-				concert.add(cvo);
-			}
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs); }
-		return concert;
-	}
 
 	public ArrayList<ContentVO> selectContent(int category) {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
@@ -112,7 +86,7 @@ public class ContentDao {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
-		String sql="select cseq, category, title from content where category=?";
+		String sql="select cseq, category, title, image from content where category=?";
 		try {
 			
 			pstmt=con.prepareStatement(sql);
@@ -123,6 +97,7 @@ public class ContentDao {
 				cvo.setCseq(rs.getInt("cseq"));
 				cvo.setTitle(rs.getString("title"));
 				cvo.setCategory(rs.getInt("category"));
+				cvo.setImage(rs.getString("image"));
 				list.add(cvo);
 			}
 		} catch (SQLException e) {
@@ -130,6 +105,7 @@ public class ContentDao {
 		}finally {Dbman.close(con, pstmt, rs);}
 		return list;
 	}
+
 
 
 	public ArrayList<ContentVO> getMusical() {
@@ -159,6 +135,9 @@ public class ContentDao {
 	}
 
 	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
+
+	public ArrayList<ContentVO> selectContentByTitle(int cseq) {
+
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
