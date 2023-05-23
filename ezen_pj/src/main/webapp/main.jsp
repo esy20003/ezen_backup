@@ -4,70 +4,65 @@
 <%@ include file="header.jsp" %>
 
 
-<div id="bestContent" style="height: 600px; border: 3px solid black; margin: 0 auto; width: 1200px;">
-      <div class="title" style="height:170px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:130px;
-         font-weight:bold; background:#f3f3ff; color:red; border: 1px solid black;">
+<div id="bestContent">
+      <div class="title">
          <h1>Best Content</h1>
       </div>
-      <div id="bestcontentback" style="width: 1192px;margin: 0 auto;height: 400px;background: #f7f0f0;border: 1px solid black;">
-         <div class="imgview1" style="width: 1000px; height: 400px; background: #ffa0a0; margin: 0 auto;">
-            <div class="imgview2" style="position:relative;width:760px;height: 400px;background: white; overflow:hidden; margin: 0 auto; ">
-               <div id="imgview3" style="position:absolute; width: 1520px; height:380px; top: 0; left:0;">
-                  <div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
-                   background:black; float:left">
-                     <div id="img1" style="width:350px; height:250px; margin:5px 5px 5px 5px; background:white; float">
+      <div id="bestcontentback">
+         <div class="imgview1">
+            <div class="imgview2" >
+               <div id="imgview3">
+               	  <c:forEach items="${ bestContent }" begin="0" end="3" var="bestContentVO">
+                  <div class="imgview4">
+                     <div id="img1">
                         <a href="ticket.do?command=detailcontent">
-                           <img src="images/list1.png" style="width:350px; height:250px;"/>
+                           <img src="${ bestContentVO.image }"/>
                         </a>
                      </div>
-                     <div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
-                        <h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
+                     <div id="title1">
+                        <h3>'${ bestContentVO.title }'</h3>
                      </div>
-                     <div id="apply" style="width:350px; height:40px; margin: 5px 5px 5px 5px; background:white;">
+                     <div id="apply">
                         <a href="ticket.do?command=detail">
-                           <h3 style="line-height:40px; text-align:center; width:350px; font-size:120%; font-weight: bold;">신청하기</h3>
+                           <h3>신청하기</h3>
                         </a>
                      </div>
                   </div>
-                  <div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
-                   background:black; float:left">
-                     <div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
-                        <img src="images/list2.png" style="width:350px; height:300px;"/>
+                  </c:forEach>
+                  <div class="imgview4">
+                     <div id="img1">
+                        <img src="images/list2.png"/>
                      </div>
-                     <div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
-                        <h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
-                     </div>
-                  </div>
-                  <div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
-                   background:black; float:left">
-                     <div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
-                        <img src="images/list1.png" style="width:350px; height:300px;"/>
-                     </div>
-                     <div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
-                        <h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
+                     <div id="title1">
+                        <h3>'세종문화회관 S씨어터'</h3>
                      </div>
                   </div>
-                  <div class="imgview4" style="position:relative; width: 360px; height:360px; margin: 25px 10px 10px 10px;
-                   background:black; float:left">
-                     <div id="img1" style="width:350px; height:300px; margin:5px 5px 5px 5px; background:white; float">
-                        <img src="images/list2.png" style="width:350px; height:300px;"/>
+                  <div class="imgview4">
+                     <div id="img1">
+                        <img src="images/list1.png"/>
                      </div>
-                     <div id="title1" style="width:350px; height:40px; margin:5px 5px 5px 5px; background:white;">
-                        <h3 style="line-height: 40px; text-align: center; width: 350px; font-size: 120%; font-weight: bold;">'세종문화회관 S씨어터'</h3>
+                     <div id="title1">
+                        <h3>'세종문화회관 S씨어터'</h3>
+                     </div>
+                  </div>
+                  <div class="imgview4">
+                     <div id="img1">
+                        <img src="images/list2.png"/>
+                     </div>
+                     <div id="title1">
+                        <h3>'세종문화회관 S씨어터'</h3>
                      </div>
                   </div>
                </div>
             </div>
-               <div id="remote1" style="position: relative;left: 915px;bottom: 207px;cursor: pointer; width:50px; height:50px;">
-                  <ul style="width:50px; height:50px;">
-                     <li id="btn2" style="text-align: center; font-size: 200%; line-height: 47px; color: black;
-                      background: white; width: 50px; border-radius: 50%; height: 50px;">▶</li>
+               <div id="remote1">
+                  <ul>
+                     <li id="btn2">▶</li>
                   </ul>
                  </div>
-                 <div id="remote2" style="position: relative; left: 35px; bottom: 270px; width:50px; height:50px;">
-                    <ul style="width:50px; height:50px;">
-                       <li id="btn1" style="text-align: center; font-size: 200%; line-height: 47px; color: black;
-                        background: white; width: 50px; border-radius: 50%; height: 50px;">◀</li>
+                 <div id="remote2">
+                    <ul>
+                       <li id="btn1">◀</li>
                     </ul>
                  </div>
          </div>
@@ -76,269 +71,141 @@
          
     </div>
 
-<div id="concert" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
-   <div class="title" style="height: 170px; text-align:center; margin: 5px 15px 5px 5px; width: 1190px;
-         font-size:300%; line-height:190px; font-weight:bold; background:#f3f3ff; color:red;">
+<div id="concert">
+   <div class="title">
          <h1>Concert</h1>
    </div>
-   <div class="panel" style="height:390px;width: 1200px;margin: 0 auto;margin-left: 45px;">
+   <div class="panel">
       <%-- <c:forEach items="${ concert }" var="contentVO"> --%>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
       <%-- </c:forEach> --%>
    </div>
 </div>
 
-<div id="musical" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
-   <div class="title" style="height: 170px; text-align:center; margin: 5px 15px 5px 5px; width: 1190px;
-         font-size:300%; line-height:190px; font-weight:bold; background:#f3f3ff; color:red;">
+<div id="musical">
+   <div class="title">
          <h1>Musical</h1>
    </div>
-   <div class="panel" style="height:390px;width: 1200px;margin: 0 auto;margin-left: 45px;">
+   <div class="panel">
       <%-- <c:forEach items="${ musical }" var="contentVO"> --%>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
-         <div id="item" style="float: left; width: 250px; height: 390px;">
+         <div id="item">
             <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
+               <img src="images/list1.png"/>
             </a>
-            <h1 style="width: 258px; height: 43px; line-height: 43px; text-align: center; font-size: 16px;
-                font-weight: bold; color: #0014ff; background: #e4ffae;   margin: 0 auto;">뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2 style="width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;">
+            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h2>
              신청하기 <%-- ${ contentVO.location } --%></h2>
          </div>
       <%-- </c:forEach> --%>
    </div>
 </div>
 
-<%-- <div id="concert" style= "width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;">
-   <div class="title" style="height:190px; text-align:center; margin:5px 5px 5px 5px; width: 1190px; font-size:300%; line-height:190px;
-         font-weight:bold; background:#f3f3ff; color:red;">
-         <h1>Concert</h1>
-   </div>
-   <div class="panel" style="height:390px; width:1190px; margin : 0 auto;">
-      <c:forEach items="${ concert }" var="contentVO">
-         <div id="item" style="float: left; margin: 0 20px;">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
-            </a>
-            <h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-                background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
-            <h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-               ${ contentVO.location }</h2>
-         </div>
-         <div id="item" style="float: left; margin: 0 20px;">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
-            </a>
-            <h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-                background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
-            <h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-               ${ contentVO.location }</h2>
-         </div>
-         <div id="item" style="float: left; margin: 0 20px;">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
-            </a>
-            <h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-                background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
-            <h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-               ${ contentVO.location }</h2>
-         </div>
-         <div id="item" style="float: left; margin: 0 20px;">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png" style="height:300px; width:250px;"/>
-            </a>
-            <h1 style="width: 248px; height: 43px; line-height: 43px; text-align: center; font-size: 16px; font-weight: bold; color: #0014ff;
-                background: #e4ffae;">뮤지컬 <더 테일 에이프릴 풀스>${ contentVO.title }</h1>
-            <h2 style="width: 248px; height: 43px; line-height:43px; text-algin:center;">서경대학교 공연예술센터 스콘2관
-               ${ contentVO.location }</h2>
-         </div>
-      </c:forEach>
-   </div>
-</div> --%>
-
-<div id="success" style="width: 1200px; height: 400px; margin: 0 auto; border: 1px solid black;">
-   <div class="title" style="height:150px; text-align:center; width: 1200px; font-size:300%; line-height:150px;
-         font-weight:bold; background:#f3f3ff; color:blue;">
+<div id="success">
+   <div class="title">
          <h1>성&nbsp;공&nbsp;내&nbsp;역</h1>
    </div>
-   <div class="successlist1" style="position:relative; height:200px; width:1180px;margin:24px 24px 9px 9px; 
-    border:1px solid black;">
-   		<div class="succeslistview" style="position:relative; height:178px; width:498px; margin:10px 10px 630px 50px; border:1px solid black;">
-   			<div class="succeslistview" style="position:absolute; height:178px; width:1000px;">
-   				<div class="succeslisttitle" style="width:200px; height: 100px; margin-top: 10px; margin-left:25px; margin-right:25px;
-   				 border:1px solid black; ">
-   					<h2>감사합니다.</h2>
-   				</div>
-   			</div>
-   		</div>
+   <div class="successlist1">
+         <div class="successlistrealview">
+            <div class="successlistview">
+               <div class="successitem">
+	               <div class="successlisttitle">
+	                  <h2>김호중 콘서트 티켓팅 성공했습니다.</h2>
+	               </div>
+	               <div class="successlistid">
+	                  <h2>이상훈</h2>
+	               </div>
+	           </div>
+	           <div class="successitem">
+	               <div class="successlisttitle">
+	                  <h2>나는 행복합니다.</h2>
+	               </div>
+	               <div class="successlistid">
+	                  <h2>김한화</h2>
+	               </div>
+               </div>
+               <div class="successitem">
+	               <div class="successlisttitle">
+	                  <h2>삼성 대 두산 경기 티켓팅 성공했습니다.</h2>
+	               </div>
+	               <div class="successlistid">
+	                  <h2>김지은</h2>
+	               </div>
+               </div>
+               <div class="successitem">
+	               <div class="successlisttitle">
+	                  <h2>부산아이가</h2>
+	               </div>
+	               <div class="successlistid">
+	                  <h2>조재준</h2>
+	               </div>
+               </div>
+            </div>
+            
+         </div>
+         <div id="btn3">
+            	<ul>
+            		<li id="successleft">◁</li>
+            		<li id="successright">▷</li>
+            	</ul>
+         </div>
    </div>
    
 </div>
 
 
 <%@ include file="footer.jsp" %>
-
-
-
-<%-- <div class="successtable" style="height:230px; width:1200px;">
-      <form name="formm" method="post" style="position:relative; left:250px; top:50px;">
-      <table id="cartList" style="text-align:center;">
-	  	 <tbody>
-	         <tr>
-	         	<th style="border: 1px solid black; width: 60px; height: 30px; line-height: 30px; font-weight: bold;">번호</th>
-	            <th style="border: 1px solid black; width: 100px; height: 30px; line-height: 30px; font-weight: bold;">아이디</th>
-	            <th style="border: 1px solid black; width: 400px; height: 30px; line-height: 30px; font-weight: bold;">제목</th>
-	            <th style="border: 1px solid black; width: 150px; height: 30px; line-height: 30px; font-weight: bold;">날짜</th>
-	         </tr>
-	     </tbody>
-         	<tbody id="succeslistview" style="position: relative; width: 670px; height: 80px;">
-         		<tbody id="succeslist" style="position: absolute; width:670px; height:160px; ">
-	            <c:forEach items="${ successList }" end="3" var="successVO">
-	               <tr style="height:40px; line-height:40px;">
-	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
-	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
-	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
-	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
-	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
-	               </tr>
-	               <tr style="height:40px; line-height:40px;">
-	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
-	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
-	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
-	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
-	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
-	               </tr>
-	               <tr style="height:40px; line-height:40px;">
-	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
-	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
-	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
-	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
-	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
-	               </tr>
-	               <tr style="height:40px; line-height:40px;">
-	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
-	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
-	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
-	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
-	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
-	               </tr>
-	            </c:forEach>
-	            </tbody>
-            </tbody>
-      </table>
-      <div class="clear"></div>
-      
-   </form>
-      
-   </div> --%>
-
-<%-- <article>
-   <h2> 고객 게시판 </h2>
-   <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3>
-   <form name="formm" method="post">
-      <table id="cartList">
-         <tr><th>번호</th><th>제목</th><th>등록일</th><th>답변 여부</th></tr>
-         <c:forEach items="${ qnaList }" var="qnaVO">
-            <tr><td> ${ qnaVO.qseq }</td>
-               <td><a href="shop.do?command=qnaView&qseq=${ qnaVO.qseq }">${qnaVO.subject }</a></td>
-               <td><fmt:formatDate value="${ qnaVO.indate }" type="date"/></td>
-               <td><c:choose>
-                  <c:when test="${ qnaVO.rep == 1 }"> no </c:when>
-                  <c:when test="${ qnaVO.rep == 2 }"> yes </c:when>
-               </c:choose></td>
-            </tr>
-         </c:forEach>
-      </table>
-      <div class="clear"></div>
-      <div id="paging" style="font-size:120%; font-weight:bold; margin-left:300px">
-         <c:url var="action" value="shop.do?command=qnaList"/>
-         <c:if test="${ paging.prev }">
-            <a href="${ action }&page=${ paging.beginPage-1 }">◀</a>&nbsp;
-         </c:if>
-         <c:forEach begin="${ paging.beginPage }" end="${ paging.endPage }" var="index">
-            <c:choose>
-               <c:when test="${ paging.page==index }">
-                  [${ index }]
-               </c:when>
-               <c:otherwise>
-                  <a href="${ action }&page=${ index }">${ index }</a>&nbsp;
-               </c:otherwise>
-            </c:choose>
-         </c:forEach>
-         <c:if test="${ paging.next }">
-            <a href="${ action }&page=${ paging.endPage+1 }">▶</a>&nbsp;
-         </c:if>
-      </div>
-      
-      <div class="clear"></div><br/>
-      
-      <div id="buttons" style="float:right">
-         <input type="button" value="질문하기" class="submit"
-            onClick="location.href='shop.do?command=qnaWriteForm'"/>
-         <input type="button" value="쇼핑 계속하기" class="cancel"
-            onClick="location.href='shop.do?command=index'"/>
-      </div>
-      <div class="clear"></div><br/>
-   </form>
-</article> --%>
