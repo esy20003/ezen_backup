@@ -4,7 +4,7 @@
 
 CREATE OR REPLACE VIEW content_loc_seat_view 
 AS 
-SELECT c.cseq, c.title, c.locationNum, lo.locationName, c.artist, s.area, s.price
+SELECT c.cseq, c.title, c.locationNum, lo.locationName, c.artist, s.area, s.price, lo.areaImage
 FROM CONTENT c 
 INNER JOIN LOCATIONNUM lo 
 on c.locationNum=lo.locationNum
