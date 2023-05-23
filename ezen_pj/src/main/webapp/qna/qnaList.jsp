@@ -15,8 +15,8 @@
 		<td><a href="ticket.do?command=qnaView&qseq=${QnaVO.qseq}">${QnaVO.title}</a>
 		<td><fmt:formatDate value="${QnaVO.indate}" type="date"/></td>
 		<td><c:choose>
-			<c:when test="${qnaVO.repyn=='1' }">no</c:when>
-			<c:when test="${qnaVO.repyn=='2' }">yes</c:when>
+			<c:when test="${QnaVO.repyn=='1' }">no</c:when>
+			<c:when test="${QnaVO.repyn=='2' }">yes</c:when>
 		</c:choose></td>
 		</tr>
 	</c:forEach>
@@ -51,8 +51,8 @@
 <div class="clear"></div><br>
 
 <div id="buttons" style="float:right">
-	<input type="button" value="질문하기" class="submit" style="color:black;" onclick="location.href='ticket.do?command=qnaWriteForm'">
-	<input type="button" value="돌아가기" class="cancel" style="color:black;" onclick="location.href='ticket.do?command=index'">
+	<input type="button" value="질문하기" class="submit" style="color:black" onclick="location.href='ticket.do?command=qnaWriteForm'">
+	<input type="button" value="돌아가기" class="cancel" style="color:black" onclick="location.href='ticket.do?command=index'">
 </div>
 <div class="clear"></div><br>
 </form>
