@@ -42,7 +42,7 @@ public class QnaDao {
 				qvo.setId(rs.getString("id"));
 				qvo.setIndate(rs.getTimestamp("indate"));
 				qvo.setReply(rs.getString("reply"));
-				qvo.setRep(rs.getString("repyn"));
+				qvo.setRepyn(rs.getString("repyn"));
 				list.add(qvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();

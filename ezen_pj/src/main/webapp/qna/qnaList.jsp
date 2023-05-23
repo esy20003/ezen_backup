@@ -11,9 +11,9 @@
 <table id="cartList">
 	<tr><th>번호</th><th>제목</th><th>등록일</th><th>답변여부</th></tr>
 	<c:forEach items="${qnaList}" var="QnaVO">
-		<tr><td>${qnaVO.qseq }</td>
-		<td><a href="ticket.do?command=qnaView&qseq=${qnaVO.qseq}">${qnaVO.title}</a>
-		<td><fmt:formatDate value="${qnaVO.indate}" type="date"/></td>
+		<tr><td>${QnaVO.qseq }</td>
+		<td><a href="ticket.do?command=qnaView&qseq=${QnaVO.qseq}">${QnaVO.title}</a>
+		<td><fmt:formatDate value="${QnaVO.indate}" type="date"/></td>
 		<td><c:choose>
 			<c:when test="${qnaVO.repyn=='1' }">no</c:when>
 			<c:when test="${qnaVO.repyn=='2' }">yes</c:when>

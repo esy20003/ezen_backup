@@ -10,7 +10,7 @@ public class QnaVO {
 	private String content;
 	private String reply;
 	private String id;
-	private String rep;
+	private String repyn;
 	private Timestamp indate;
 	
 	
@@ -44,11 +44,12 @@ public class QnaVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getRep() {
-		return rep;
+	
+	public String getRepyn() {
+		return repyn;
 	}
-	public void setRep(String rep) {
-		this.rep = rep;
+	public void setRepyn(String repyn) {
+		this.repyn = repyn;
 	}
 	public Timestamp getIndate() {
 		return indate;
