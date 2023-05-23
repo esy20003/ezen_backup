@@ -20,7 +20,8 @@
 						<input type="hidden" name="reid">
 						<input type="button" value="중복체크" class="chk_id" onclick="checkid();">
 					</li>
-					<li><label>비밀번호</label> <span>* </span> <input type="password" name="pwd" placeholder="비밀번호를 입력해주세요." /><br></li>
+					<li><label>비밀번호</label> <span>* </span> <input type="password" name="pwd" placeholder="비밀번호를 입력해주세요." /></li>
+					<li><label>비밀번호확인</label> <span>* </span> <input type="password" name="pwdCheck" placeholder="비밀번호 재확인." /><br></li>
 					<li><label>이름</label> <span>* </span> <input type="text" name="name" placeholder="이름을 입력해주세요." /></li>
 					<li><label style="float: left;">성별</label> <select name="gender" class="gender">
 							<option value="무관">성별 선택</option>

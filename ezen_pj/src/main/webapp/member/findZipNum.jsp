@@ -26,7 +26,7 @@
             <c:forEach items="${ addressList }" var="add">
                <tr>
                   <td><a href="#" onclick="result('${ add.zip_num}', '${ add.sido }', '${ add.gugun }', '${ add.dong }')">${ add.zip_num }</a></td>
-                  <td><a href="#" onclick="result('${ add.zip_num}', '${ add.sido }', '${ add.gugun }', '${ add.dong }')">${ add.sido }&nbsp;${ add.gugun }&nbsp;${ add.dong }</a></td>
+                  <td><a href="#" onclick="result('${ add.zip_num}', '${ add.sido }', '${ add.gugun }', '${ add.dong }' , '${ add.bunji }')">${ add.sido }&nbsp;${ add.gugun }&nbsp;${ add.dong }&nbsp;${ add.bunji} </a></td>
                </tr>
             </c:forEach>
          </tr>

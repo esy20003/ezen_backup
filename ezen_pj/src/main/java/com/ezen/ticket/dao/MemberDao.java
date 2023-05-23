@@ -52,7 +52,7 @@ private MemberDao() {}
 				mvo.setSuccess(rs.getInt("success"));
 				mvo.setIndate(rs.getTimestamp("indate"));
 				mvo.setUseyn(rs.getString("useyn").charAt(0));
-				mvo.setGender(rs.getInt("gender"));
+				mvo.setGender(rs.getString("gender"));
 			} 
 			
 		} catch (SQLException e) {e.printStackTrace();

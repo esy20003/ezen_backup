@@ -9,7 +9,7 @@ public class MemberVO {
 	private String pwd;
 	private String name;
 	private String nickname;
-	private int gender;
+	private String gender;
 	private String email;
 	private String phone;
 	private String birth;
@@ -51,10 +51,10 @@ public class MemberVO {
 	public void setNickname(String nickname) {
 		this.nickname = nickname;
 	}
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public String getEmail() {
@@ -117,7 +117,7 @@ public class MemberVO {
 	public void setUseyn(char useyn) {
 		this.useyn = useyn;
 	}
-
+	
 	
 	
 
