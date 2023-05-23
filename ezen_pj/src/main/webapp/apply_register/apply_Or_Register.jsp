@@ -32,7 +32,7 @@
 									class="Image_register"><img	src=" "	class="" loading="lazy" alt="일정 등록"></span>
 							</div>
 							<span class="Typography_apply" style="margin-top: 10px;">
-							티켓팅이 가능한 일정을 등록할게요
+							티켓팅이 가능한 일정을 등록할게요 
 							</span>
 						</div>
 					</button>
