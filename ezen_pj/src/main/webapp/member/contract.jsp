@@ -180,8 +180,7 @@
      <div style="text-align: center;">	</div>
 		<br> <br>
 		<label style="float:right; text-align:right;"><input type="checkbox" class="chk_on" name="check_on2"  style="width:18px; height:18px;"></label>
-		<textarea rows="15" cols="100" style="padding: 10px; border:1px solid #666;">
-			■ 수집하는 개인정보 항목
+		<textarea rows="15" cols="100" style="padding: 10px; border:1px solid #666;">■ 수집하는 개인정보 항목
 회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
 
 ο 수집항목 : 이름 , 생년월일 , 주소 , 연락처 , 이메일, 서비스 이용기록, 접속 로그, 쿠키, 접속 IP 정보, 결제기록
