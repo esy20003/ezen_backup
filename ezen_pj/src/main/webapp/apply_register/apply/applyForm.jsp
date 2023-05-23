@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ include file="../../header.jsp" %>
 
-
+<script src="apply_register/apply_register.js"></script>
 
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
@@ -32,7 +32,7 @@
 				<div class="contentNameBox bodyBox">
 					<c:forEach items="${contentList}" var="contentVO">
 						<ul>
-							<li><a href="#" onclick="return false">${contentVO.title}</a></li>
+							<li><a href="ticket.do?command=titleSelect&${contentVO.title}">${contentVO.title}</a></li>
 						</ul>
 					</c:forEach>
 				</div>
@@ -59,9 +59,9 @@
 							<img src="">
 						</div>
 						<div class="detail">
-							<span class="title">${contentList.title}</span>
-							<span class="location">{contentList.location}</span>
-							<span class="artist">${contentList.artist}</span>
+							<span class="title">${contentVO.title}</span>
+							<span class="location">{contentVO.location}</span>
+							<span class="artist">${contentVO.artist}</span>
 						</div>
 					</div>
 				</div>

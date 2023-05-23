@@ -1,4 +1,4 @@
-select * from CONTENT;
+select * from CONTENT order by cseq;
 --category==>콘서트=1, 뮤지컬=2, 스포츠=3, 페스티벌=4, 전시/행사=5
 --콘서트 데이터 추가
 
@@ -8,12 +8,14 @@ WHERE cseq=1;
 UPDATE content SET title= '크랙샷 단독 콘서트 '||CHR(034)||'SPEAK OUT'||CHR(034)||'' WHERE cseq=4;
 UPDATE content SET content= '21세기를 대표하는 싱어송라이터이자 글로벌 팝스타 '||CHR(034)||'브루노 마스(Bruno Mars)'||CHR(034)||'가 오는 6월 한국을 찾는다. 이번 '||CHR(034)||'현대카드 슈퍼콘서트'||CHR(034)||' 내한 공연으로서는 역대 최대 규모다.' 
 WHERE cseq=5 ;
-UPDATE content SET title= '뮤지컬 '||CHR(060)||'<백작>'||CHR(062)||'' WHERE cseq=8;
-UPDATE content SET title= '뮤지컬 '||CHR(060)||'<더 테일 에이프릴 풀스>'||CHR(062)||'' WHERE cseq=9;
-UPDATE content SET title= '뮤지컬 '||CHR(060)||'<빠리빵집>'||CHR(062)||'' WHERE cseq=10;
+UPDATE content SET title= '뮤지컬 '||CHR(060)||'백작'||CHR(062)||'' WHERE cseq=8;
+UPDATE content SET title= '뮤지컬 '||CHR(060)||'더 테일 에이프릴 풀스'||CHR(062)||'' WHERE cseq=9;
+UPDATE content SET title= '뮤지컬 '||CHR(060)||'빠리빵집'||CHR(062)||'' WHERE cseq=10;
 UPDATE content SET content= '화려한 빛과 색으로 기쁨과 환희를 노래하는 '||CHR(034)||'뒤피'||CHR(034)||'의 원화 130여점 공개' 
 WHERE cseq=17;
 UPDATE content SET content= 'Tone'||CHR(038)||'Music Festival 2023' WHERE cseq=16;
+
+delete from content where cseq=21;
 
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
@@ -53,18 +55,18 @@ values(content_cseq.nextVal, '2023 테일러 스위프트(Taylor Swift) 내한�
 
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'<백작>'||CHR(062)||'', 14, '이승현 외','무패의 군신으로 불리는 백작. 
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'백작'||CHR(062)||'', 14, '이승현 외','무패의 군신으로 불리는 백작. 
 인간들을 상대로 밤에만 전투를 하고, 새벽이 되면 적장이 가장 사랑하는 사람을 인질로 잡아 포에나리성으로 퇴각한다. 
 백작에게 인질로 잡힌 적장의 아들 V. 태양을 가린 커튼 아래 빛의 세계와 밤의 세계가 교차한다. 기록되지 않은 포에나리 성주의 전설',2, '만 12세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'<더 테일 에이프릴 풀스>'||CHR(062)||'', 15, '최석진 외',
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'더 테일 에이프릴 풀스'||CHR(062)||'', 15, '최석진 외',
 '2022년 초연 흥행 돌풍, 예매처 관람 평점 9.7로 매진 신화 기록!
 아름다운 무대, 감각적 미장센으로 관객이 가장 기다려온 뮤지컬
 완벽한 호흡을 선보인 배우들과 함께 다시 돌아왔다!',2, '만 14세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'<빠리빵집>'||CHR(062)||'', 9, '고훈정 외',
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'빠리빵집'||CHR(062)||'', 9, '고훈정 외',
 '그리움이 만든 기적, 지금 여기 우리',2, '만 7세 이상');
 
 
