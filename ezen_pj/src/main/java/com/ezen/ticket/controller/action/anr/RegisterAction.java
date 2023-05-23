@@ -16,18 +16,14 @@ public class RegisterAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url = "apply_register/apply/registerEnd.jsp";
-        HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
         MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-        
         if (mvo == null) {
-            url ="ticket.do?command=loginForm";
+            response.sendRedirect("ticket.do?command=loginForm");
         } else {
-            // registerEnd.jsp에 전달할 값을 저장합니다.
-            String selectedDateTime = request.getParameter("selectedDateTime");
-            request.setAttribute("selectedDateTime", selectedDateTime);
+            
+            request.getRequestDispatcher(url).forward(request, response);
         }
-        
-        request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }
