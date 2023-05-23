@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 public class QnaVO {
 	
 	private Integer qseq;
+	private Integer mseq;
 	private String subject;
 	private String title;
 	private String content;
@@ -63,6 +64,14 @@ public class QnaVO {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	public Integer getMseq() {
+		return mseq;
+	}
+	public void setMseq(Integer mseq) {
+		this.mseq = mseq;
+	}
+	
+	
 	
 	
 	
