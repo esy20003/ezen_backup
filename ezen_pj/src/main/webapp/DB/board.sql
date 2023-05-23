@@ -117,6 +117,11 @@ select * from REVIEW_BOARD
 select * from MEMBER
 select * from qna_board
 select * from seat
+select * from QNA_BOARD
+
+
+
+
 
 
 

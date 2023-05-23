@@ -11,7 +11,7 @@
 	
 	<fieldset>
 		<legend>Board Info</legend>
-		<label>Title</label> <input type="text" name="subject" size="60"><br>
+		<label>Title</label> <input type="text" name="title" size="60"><br>
 		<label>Content</label> <textarea rows="8" cols="65" name="content"></textarea>		
 	</fieldset>
 	
