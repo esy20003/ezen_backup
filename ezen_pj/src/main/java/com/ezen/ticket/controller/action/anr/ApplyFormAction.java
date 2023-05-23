@@ -28,7 +28,7 @@ public class ApplyFormAction implements Action {
 		}else {
 			
 		ContentDao cdao=ContentDao.getInstance();
-		ArrayList<ContentVO> list = cdao.selectContent();
+		ArrayList<ContentVO> list = cdao.selectContent(0);
 		request.setAttribute("contentList", list);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
