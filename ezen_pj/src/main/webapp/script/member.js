@@ -49,8 +49,13 @@ function idok(userid){
     self.close();
 }
 
-
-
+/* 주소찾기  */
+function post_zip(){	
+	   	var url = "ticket.do?command=findZip";
+	    var opt = "toolbar=no, menubar=no, resizable=no, width=600, ,scrollbars=no";
+	    opt = opt + " height=300,top=300,left=300";
+	    window.open(url,"findZip",opt);
+	}
 
 
 

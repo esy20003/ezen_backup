@@ -31,6 +31,7 @@
 					<li><label>이메일</label> <span>* 필수입력</span> <input type="text" name="email" placeholder="이메일을 입력해주세요." /></li>
 					<li><label>전화번호</label> <span>* 필수입력</span> <input type="text" name="phone" placeholder="전화번호를(예:010-7777-3333) 양식으로 입력해주세요." /></li>
 					<li><label>우편번호</label> <span>* 필수입력</span> <input type="text" name="zip_num" placeholder="우편번호를 입력해주세요." /></li>
+					<li><input type="button" value="주소 찾기" class="zip_find" onclick="post_zip()"></li>
 					<li><label>주소</label> <span>* 필수입력</span> <input type="text" name="address1" placeholder="주소를 입력해주세요." /></li>
 					<li><label>상세주소</label> <input type="text" name="address2" placeholder="상세주소를 입력해주세요." /></li>
 				</ul>
