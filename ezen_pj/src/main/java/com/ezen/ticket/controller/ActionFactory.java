@@ -6,7 +6,7 @@ import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
-import com.ezen.ticket.controller.action.member.FindzipAction;
+import com.ezen.ticket.controller.action.member.FindZipNumAction;
 import com.ezen.ticket.controller.action.member.IdCheckFormAction;
 import com.ezen.ticket.controller.action.member.JoinFormAction;
 import com.ezen.ticket.controller.action.member.LoginAction;
@@ -53,7 +53,7 @@ public class ActionFactory {
 		else if(command.equals("contract")) ac = new ContractAction();
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
 		else if(command.equals("idCheckForm")) ac = new IdCheckFormAction();
-		else if(command.equals("findzip")) ac = new FindzipAction();
+		else if(command.equals("findZipNum")) ac = new FindZipNumAction();
 		return ac;
 	}
 

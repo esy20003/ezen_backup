@@ -51,12 +51,48 @@ function idok(userid){
 
 /* 주소찾기  */
 function post_zip(){	
-	   	var url = "ticket.do?command=findZip";
+	   	var url = "ticket.do?command=findZipNum";
 	    var opt = "toolbar=no, menubar=no, resizable=no, width=600, ,scrollbars=no";
 	    opt = opt + " height=300,top=300,left=300";
-	    window.open(url,"findZip",opt);
+	    window.open(url,"findZipNum",opt);
+}
+
+/* 검색값을 주소에 입력 */
+function result(zip_num,sido,gugun,dong){	
+		// 함수 호출 형태 - result('123-123','서울시', '서대문구', '대현동' , '~~번지' )
+	    opener.document.joinForm.zip_num.value = zip_num;
+	    opener.document.joinForm.address1.value = sido+" " +gugun+" "+dong;
+	    self.close();
 	}
 
+
+
+
+/* 회원정보 저장 */
+function join_insert(){ 
+   if( document.joinForm.id.value == "" ){
+      alert("아이디를 입력하여 주세요.");
+      document.joinForm.id.focus();     
+     }else if(document.joinForm.reid.value != document.joinForm.id.value){	
+	   alert("아이디 중복확인을 하지 않았습니다.");
+       document.joinForm.id.focus();	 
+     }else if(document.joinForm.pwd.value == ""){	
+	   alert("비밀번호를 입력해 주세요.");
+      document.joinForm.pwd.focus();	      
+      }else if(document.joinForm.pwdCheck.value != document.joinForm.pwdCheck.value){	
+	   alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+      document.joinForm.pwdCheck.focus();	      
+        }else if(document.joinForm.name.value ==""){	
+	   alert("이름을 입력해 주세요.");
+      document.joinForm.name.focus();	      
+        }else if(document.joinForm.phone.value == ""){	
+	     alert("전화번호를 입력해주세요.");
+        document.joinForm.phone.focus();	                	   
+      }else{
+	     document.joinForm.action = "shop.do";
+         document.joinForm.submit();
+   }
+}
 
 
 
