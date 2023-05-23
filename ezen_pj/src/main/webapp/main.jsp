@@ -12,47 +12,23 @@
          <div class="imgview1">
             <div class="imgview2" >
                <div id="imgview3">
-               	  <c:forEach items="${ bestContent }" begin="0" end="3" var="bestContentVO">
-                  <div class="imgview4">
-                     <div id="img1">
-                        <a href="ticket.do?command=detailcontent">
-                           <img src="${ bestContentVO.image }"/>
-                        </a>
-                     </div>
-                     <div id="title1">
-                        <h3>'${ bestContentVO.title }'</h3>
-                     </div>
-                     <div id="apply">
-                        <a href="ticket.do?command=detail">
-                           <h3>신청하기</h3>
-                        </a>
-                     </div>
-                  </div>
+                  <c:forEach items="${ bestContent }" end="3" var="bestContentVO">
+	                  <div class="imgview4">
+	                     <div id="img1">
+	                        <a href="ticket.do?command=detailcontent">
+	                           <img src="${ bestContentVO.image }"/>
+	                        </a>
+	                     </div>
+	                     <div id="title1">
+	                        <h3>${ bestContentVO.title }</h3>
+	                     </div>
+	                     <div id="apply">
+	                        <a href="ticket.do?command=detail">
+	                           <h3>신청하기</h3>
+	                        </a>
+	                     </div>
+	                  </div>
                   </c:forEach>
-                  <div class="imgview4">
-                     <div id="img1">
-                        <img src="images/list2.png"/>
-                     </div>
-                     <div id="title1">
-                        <h3>'세종문화회관 S씨어터'</h3>
-                     </div>
-                  </div>
-                  <div class="imgview4">
-                     <div id="img1">
-                        <img src="images/list1.png"/>
-                     </div>
-                     <div id="title1">
-                        <h3>'세종문화회관 S씨어터'</h3>
-                     </div>
-                  </div>
-                  <div class="imgview4">
-                     <div id="img1">
-                        <img src="images/list2.png"/>
-                     </div>
-                     <div id="title1">
-                        <h3>'세종문화회관 S씨어터'</h3>
-                     </div>
-                  </div>
                </div>
             </div>
                <div id="remote1">
@@ -76,40 +52,15 @@
          <h1>Concert</h1>
    </div>
    <div class="panel">
-      <%-- <c:forEach items="${ concert }" var="contentVO"> --%>
+      <c:forEach items="${ concert }" end="3" var="concertVO">
          <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
+            <a href="ticket.do?command=contentDetail&cseq=${ conCertVO.cseq }">
+               <img src="${ concertVO.image }"/>
             </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
+            <h1>${ concertVO.title }</h1>
+            <h2>신청하기</h2>
          </div>
-         <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
-            </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
-         </div>
-         <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
-            </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
-         </div>
-         <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
-            </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
-         </div>
-      <%-- </c:forEach> --%>
+      </c:forEach>
    </div>
 </div>
 
@@ -118,40 +69,16 @@
          <h1>Musical</h1>
    </div>
    <div class="panel">
-      <%-- <c:forEach items="${ musical }" var="contentVO"> --%>
+      <c:forEach items="${ musical }" end="3" var="musicalVO">
          <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
+            <a href="ticket.do?command=contentDetail&cseq=${ musicalVO.cseq }">
+               <img src="${ musicalVO.image }"/>
             </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
+            <h1>${ musicalVO.title }</h1>
             <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
+             신청하기</h2>
          </div>
-         <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
-            </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
-         </div>
-         <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
-            </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
-         </div>
-         <div id="item">
-            <a href="ticket.do?command=contentDetail&cseq=${ contentVO.cseq }">
-               <img src="images/list1.png"/>
-            </a>
-            <h1>뮤지컬 <더 테일 에이프릴 풀스><%-- ${ contentVO.title } --%></h1>
-            <h2>
-             신청하기 <%-- ${ contentVO.location } --%></h2>
-         </div>
-      <%-- </c:forEach> --%>
+      </c:forEach>
    </div>
 </div>
 
@@ -162,46 +89,48 @@
    <div class="successlist1">
          <div class="successlistrealview">
             <div class="successlistview">
-               <div class="successitem">
-	               <div class="successlisttitle">
-	                  <h2>김호중 콘서트 티켓팅 성공했습니다.</h2>
-	               </div>
-	               <div class="successlistid">
-	                  <h2>이상훈</h2>
-	               </div>
-	           </div>
-	           <div class="successitem">
-	               <div class="successlisttitle">
-	                  <h2>나는 행복합니다.</h2>
-	               </div>
-	               <div class="successlistid">
-	                  <h2>김한화</h2>
-	               </div>
+               <c:forEach items="${ success }" end="3" var="successVO">
+	               <div class="successitem">
+	                  <div class="successlisttitle">
+	                     <h2>${ successVO.title }</h2>
+	                  </div>
+	                  <div class="successlistid">
+	                     <h2>${ successVO.sucseq }.&nbsp; ${ successVO.id }</h2>
+	                  </div>
+	              </div>
+              </c:forEach>
+              <!-- <div class="successitem">
+                  <div class="successlisttitle">
+                     <h2>나는 행복합니다.</h2>
+                  </div>
+                  <div class="successlistid">
+                     <h2>김한화</h2>
+                  </div>
                </div>
                <div class="successitem">
-	               <div class="successlisttitle">
-	                  <h2>삼성 대 두산 경기 티켓팅 성공했습니다.</h2>
-	               </div>
-	               <div class="successlistid">
-	                  <h2>김지은</h2>
-	               </div>
+                  <div class="successlisttitle">
+                     <h2>삼성 대 두산 경기 티켓팅 성공했습니다.</h2>
+                  </div>
+                  <div class="successlistid">
+                     <h2>김지은</h2>
+                  </div>
                </div>
                <div class="successitem">
-	               <div class="successlisttitle">
-	                  <h2>부산아이가</h2>
-	               </div>
-	               <div class="successlistid">
-	                  <h2>조재준</h2>
-	               </div>
-               </div>
+                  <div class="successlisttitle">
+                     <h2>부산아이가</h2>
+                  </div>
+                  <div class="successlistid">
+                     <h2>조재준</h2>
+                  </div>
+               </div> -->
             </div>
             
          </div>
          <div id="btn3">
-            	<ul>
-            		<li id="successleft">◁</li>
-            		<li id="successright">▷</li>
-            	</ul>
+               <ul>
+                  <li id="successleft">◁</li>
+                  <li id="successright">▷</li>
+               </ul>
          </div>
    </div>
    
