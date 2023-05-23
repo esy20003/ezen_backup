@@ -1,10 +1,26 @@
-select * from CONTENT;
+select * from CONTENT order by cseq;
 --category==>콘서트=1, 뮤지컬=2, 스포츠=3, 페스티벌=4, 전시/행사=5
 --콘서트 데이터 추가
 
+UPDATE content SET title= '2023 김기태 전국투어 콘서트 '||CHR(091)||'위로'||CHR(093)||'' WHERE cseq=1;
+UPDATE content SET content= '김기태만의 짙고 울림있는 감성으로 여러분의 마음을 위로하며 가슴 깊은 곳 위로의 메세지를 전할 2023 김기태 전국투어 콘서트 '||CHR(091)||'위로'||CHR(093)||'' 
+WHERE cseq=1;
+UPDATE content SET title= '크랙샷 단독 콘서트 '||CHR(034)||'SPEAK OUT'||CHR(034)||'' WHERE cseq=4;
+UPDATE content SET content= '21세기를 대표하는 싱어송라이터이자 글로벌 팝스타 '||CHR(034)||'브루노 마스(Bruno Mars)'||CHR(034)||'가 오는 6월 한국을 찾는다. 이번 '||CHR(034)||'현대카드 슈퍼콘서트'||CHR(034)||' 내한 공연으로서는 역대 최대 규모다.' 
+WHERE cseq=5 ;
+UPDATE content SET title= '뮤지컬 '||CHR(060)||'백작'||CHR(062)||'' WHERE cseq=8;
+UPDATE content SET title= '뮤지컬 '||CHR(060)||'더 테일 에이프릴 풀스'||CHR(062)||'' WHERE cseq=9;
+UPDATE content SET title= '뮤지컬 '||CHR(060)||'빠리빵집'||CHR(062)||'' WHERE cseq=10;
+UPDATE content SET content= '화려한 빛과 색으로 기쁨과 환희를 노래하는 '||CHR(034)||'뒤피'||CHR(034)||'의 원화 130여점 공개' 
+WHERE cseq=17;
+UPDATE content SET content= 'Tone'||CHR(038)||'Music Festival 2023' WHERE cseq=16;
+
+delete from content where cseq=21;
+
+
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(content_cseq.nextVal, '2023 김기태 전국투어 콘서트 [위로] - 대구', 8, '김기태',
-'김기태만의 짙고 울림있는 감성으로 여러분의 마음을 위로하며 가슴 깊은 곳 위로의 메세지를 전할 2023 김기태 전국투어 콘서트 [위로]', 1,'만 7세 이상');
+values(content_cseq.nextVal, '2023 김기태 전국투어 콘서트 '||CHR(091)||'위로'||CHR(093)||'', 8, '김기태',
+'김기태만의 짙고 울림있는 감성으로 여러분의 마음을 위로하며 가슴 깊은 곳 위로의 메세지를 전할 2023 김기태 전국투어 콘서트 '||CHR(091)||'위로'||CHR(093)||'', 1,'만 7세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '2023 이민우 M 20th Anniversary Live "STORY"', 5, '이민우', 
@@ -16,15 +32,14 @@ values(content_cseq.nextVal, '2023 이민우 M 20th Anniversary Live "STORY"', 5
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '나윤선 Waking World', 1, '나윤선','나윤선 음악에 내재되어 있는 깊은 감동과 치유의 시간을 만나다',1, '8세 이상');
 
-UPDATE [테이블] SET [열]= '변경할값' WHERE [열] is not null
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(content_cseq.nextVal, '크랙샷 단독 콘서트 〈SPEAK OUT〉', 7, '크랙샷',
+values(content_cseq.nextVal, '크랙샷 단독 콘서트 '||CHR(034)||'SPEAK OUT'||CHR(034)||'', 7, '크랙샷',
 'INFP 발매 기념 콘서트 개최! 크랙샷의 SPEAK OUT 많은 기대 부탁드립니다!',1, '8세 이상');
 	
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '현대카드 슈퍼콘서트 27 브루노 마스(Bruno Mars)', 4, '브루노 마스(Bruno Mars)',
-'21세기를 대표하는 싱어송라이터이자 글로벌 팝스타 "브루노 마스(Bruno Mars)"가 오는 6월 한국을 찾는다. 이번 "현대카드 슈퍼콘서트" 내한 공연으로서는 역대 최대 규모다.',1, '만 7세 이상');
+'21세기를 대표하는 싱어송라이터이자 글로벌 팝스타 '||CHR(034)||'브루노 마스(Bruno Mars)'||CHR(034)||'가 오는 6월 한국을 찾는다. 이번 '||CHR(034)||'현대카드 슈퍼콘서트'||CHR(034)||' 내한 공연으로서는 역대 최대 규모다.',1, '만 7세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '2023 폴 아웃 보이(Fall Out Boy) 내한공연',4,'폴 아웃 보이(Fall Out Boy)',
@@ -40,18 +55,18 @@ values(content_cseq.nextVal, '2023 테일러 스위프트(Taylor Swift) 내한�
 
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 <백작>', 14, '이승현 외','무패의 군신으로 불리는 백작. 
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'백작'||CHR(062)||'', 14, '이승현 외','무패의 군신으로 불리는 백작. 
 인간들을 상대로 밤에만 전투를 하고, 새벽이 되면 적장이 가장 사랑하는 사람을 인질로 잡아 포에나리성으로 퇴각한다. 
 백작에게 인질로 잡힌 적장의 아들 V. 태양을 가린 커튼 아래 빛의 세계와 밤의 세계가 교차한다. 기록되지 않은 포에나리 성주의 전설',2, '만 12세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 <더 테일 에이프릴 풀스>', 15, '최석진 외',
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'더 테일 에이프릴 풀스'||CHR(062)||'', 15, '최석진 외',
 '2022년 초연 흥행 돌풍, 예매처 관람 평점 9.7로 매진 신화 기록!
 아름다운 무대, 감각적 미장센으로 관객이 가장 기다려온 뮤지컬
 완벽한 호흡을 선보인 배우들과 함께 다시 돌아왔다!',2, '만 14세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 <빠리빵집>', 9, '고훈정 외',
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'빠리빵집'||CHR(062)||'', 9, '고훈정 외',
 '그리움이 만든 기적, 지금 여기 우리',2, '만 7세 이상');
 
 
@@ -76,7 +91,7 @@ values(content_cseq.nextVal, '톤앤뮤직 페스티벌 2023', 16, '다이나믹
 --전시/행사
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY)
 values(content_cseq.nextVal, '더현대서울 프랑스국립현대미술관전 : 라울 뒤피', 17, '라울 뒤피(Raoul Dufy)',
-'화려한 빛과 색으로 기쁨과 환희를 노래하는 "뒤피"의 원화 130여점 공개', 5);
+'화려한 빛과 색으로 기쁨과 환희를 노래하는 '||CHR(034)||'뒤피'||CHR(034)||'의 원화 130여점 공개', 5);
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY)
 values(content_cseq.nextVal, '하리보 골드베렌 100주년 생일 기념전', 18, '(주)피플리',
 '100년 역사의 글로벌 1위 젤리 하리보의 세계 최초 미디어 전시', 5);
