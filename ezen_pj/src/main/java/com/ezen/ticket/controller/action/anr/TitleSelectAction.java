@@ -26,8 +26,8 @@ public class TitleSelectAction implements Action {
 		}else {
 			ArrayList<ContentVO> list =null;	
 			ContentDao cdao=ContentDao.getInstance();
-			String title=request.getParameter("title");
-			list=cdao.selectContentByTitle(title);
+			int cseq=Integer.parseInt(request.getParameter("cseq"));
+			list=cdao.selectContentByTitle(cseq);
 			request.setAttribute("contentList", list);
 		}
 		request.getRequestDispatcher(url).forward(request, response);

@@ -109,16 +109,16 @@ public class ContentDao {
 		return list;
 	}
 
-	public ArrayList<ContentVO> selectContentByTitle(String title) {
+	public ArrayList<ContentVO> selectContentByTitle(int cseq) {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
-		String sql="select * from content where title=?";
+		String sql="select * from content where cseq=?";
 			try {
 				pstmt=con.prepareStatement(sql);
-				pstmt.setString(1, title);
+				pstmt.setInt(1, cseq);
 				rs=pstmt.executeQuery();
-				if(rs.next()) {
+				while(rs.next()) {
 					cvo=new ContentVO();
 					cvo.setCseq(rs.getInt("cseq"));
 					cvo.setCategory(rs.getInt("category"));
@@ -133,9 +133,10 @@ public class ContentDao {
 				}
 				
 				sql="select * from content_loc_seat_view where locationNum=?";
+				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1,cvo.getLocationNum());
 				rs=pstmt.executeQuery();
-				if(rs.next()) {
+				while(rs.next()) {
 					cvo.setLocationName(rs.getString("locationName"));
 					cvo.setArea(rs.getString("area"));
 					cvo.setPrice(rs.getInt("price"));
@@ -143,9 +144,10 @@ public class ContentDao {
 					list.add(cvo);
 				}
 				sql="select * from content_time_view where cseq=?";
+				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1,cvo.getCseq());
 				rs=pstmt.executeQuery();
-				if(rs.next()) {
+				while(rs.next()) {
 					cvo.setContentDate(rs.getTimestamp("contentDate"));
 					cvo.setContentTime(rs.getString("contentTime"));
 					list.add(cvo);
