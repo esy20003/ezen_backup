@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ezen.ticket.dao.ContentDao;
+import com.ezen.ticket.dao.SuccessDao;
 import com.ezen.ticket.dto.ContentVO;
 import com.ezen.ticket.dto.SuccessVO;
 
@@ -32,15 +33,16 @@ public class IndexAction implements Action {
 		
 		// best, concert, musical 받아오기
 		ContentDao cdao = ContentDao.getInstance();
+		SuccessDao sdao = SuccessDao.getInstance();
 		ArrayList<ContentVO> bestContent = cdao.getBestContent();
-		ArrayList<ContentVO> concert = cdao.getConsert();
-		ArrayList<ContentVO> musical = cdao.getMusical();
-		/* ArrayList<SuccessVO> success = sdao.getSuccess(); */
+		ArrayList<ContentVO> concert = cdao.selectContentsByCategory(1);
+		ArrayList<ContentVO> musical = cdao.selectContentsByCategory(2);
+		ArrayList<SuccessVO> success = sdao.getSuccess();
 		
 		request.setAttribute("bestContent", bestContent);
 		request.setAttribute("concert", concert);
 		request.setAttribute("musical", musical);
-		/* request.setAttribute("success", success); */
+		request.setAttribute("success", success);
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
 		dispatcher.forward(request, response);
