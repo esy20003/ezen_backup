@@ -16,6 +16,7 @@ values(content_cseq.nextVal, '2023 이민우 M 20th Anniversary Live "STORY"', 5
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '나윤선 Waking World', 1, '나윤선','나윤선 음악에 내재되어 있는 깊은 감동과 치유의 시간을 만나다',1, '8세 이상');
 
+UPDATE [테이블] SET [열]= '변경할값' WHERE [열] is not null
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '크랙샷 단독 콘서트 〈SPEAK OUT〉', 7, '크랙샷',

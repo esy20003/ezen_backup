@@ -13,26 +13,30 @@ import com.ezen.ticket.dao.ContentDao;
 import com.ezen.ticket.dto.ContentVO;
 import com.ezen.ticket.dto.MemberVO;
 
-public class ApplyFormAction implements Action {
+public class CategorySelectAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+		
 		String url="apply_register/apply/applyForm.jsp";
-		
-		
 		HttpSession session=request.getSession();
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
 		if(mvo ==null) {
 			url="ticket.do?command=loginForm";
 		}else {
-			
-		ContentDao cdao=ContentDao.getInstance();
-		ArrayList<ContentVO> list = cdao.selectContent();
-		request.setAttribute("contentList", list);
+			ArrayList<ContentVO> list =null;	
+			ContentDao cdao=ContentDao.getInstance();
+			int category=Integer.parseInt(request.getParameter("category"));
+				if(category==0) {
+					list = cdao.selectContent();
+					request.setAttribute("contentList", list);
+				}else {
+					list = cdao.selectCategory(request.getParameter("category"));
+					request.setAttribute("contentCategoryList", list);
+				}
 		}
 		request.getRequestDispatcher(url).forward(request, response);
+
 	}
 
 }
-
