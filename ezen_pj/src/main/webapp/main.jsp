@@ -222,29 +222,16 @@
          font-weight:bold; background:#f3f3ff; color:blue;">
          <h1>성&nbsp;공&nbsp;내&nbsp;역</h1>
    </div>
-   <div class="successtable" style="height:230px; width:1200px;">
-      <form name="formm" method="post" style="position:relative; left:250px; top:50px;">
-      <table id="cartList" style="text-align:center;">
-         <tr><th style="border: 1px solid black; width: 60px; height: 30px; line-height: 30px; font-weight: bold;">번호</th>
-            <th style="border: 1px solid black; width: 100px; height: 30px; line-height: 30px; font-weight: bold;">아이디</th>
-            <th style="border: 1px solid black; width: 400px; height: 30px; line-height: 30px; font-weight: bold;">제목</th>
-            <th style="border: 1px solid black; width: 150px; height: 30px; line-height: 30px; font-weight: bold;">날짜</th>
-         </tr>
-         <tbody id="viewsuccess">
-            <%-- <c:forEach items="${ successList }" var="successVO"> --%>
-               <tr><td style="border: 1px solid black"> <%-- ${ successVO.sseq } --%>1</td>
-                  <td style="border: 1px solid black"><%-- ${ successVO.id } --%>이상준</td>
-                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
-                  <%-- ${ successVO.title } --%>김호중 콘서트 티켓팅 성공했습니다</a></td>
-                  <td style="border: 1px solid black"><%-- ${successVO.indate } --%>2023-05-19</td>
-               </tr>
-            <%-- </c:forEach> --%>
-         </tbody>
-      </table>
-      <div class="clear"></div>
-      
-   </form>
-      
+   <div class="successlist1" style="position:relative; height:200px; width:1180px;margin:24px 24px 9px 9px; 
+    border:1px solid black;">
+   		<div class="succeslistview" style="position:relative; height:178px; width:498px; margin:10px 10px 630px 50px; border:1px solid black;">
+   			<div class="succeslistview" style="position:absolute; height:178px; width:1000px;">
+   				<div class="succeslisttitle" style="width:200px; height: 100px; margin-top: 10px; margin-left:25px; margin-right:25px;
+   				 border:1px solid black; ">
+   					<h2>감사합니다.</h2>
+   				</div>
+   			</div>
+   		</div>
    </div>
    
 </div>
@@ -253,6 +240,58 @@
 <%@ include file="footer.jsp" %>
 
 
+
+<%-- <div class="successtable" style="height:230px; width:1200px;">
+      <form name="formm" method="post" style="position:relative; left:250px; top:50px;">
+      <table id="cartList" style="text-align:center;">
+	  	 <tbody>
+	         <tr>
+	         	<th style="border: 1px solid black; width: 60px; height: 30px; line-height: 30px; font-weight: bold;">번호</th>
+	            <th style="border: 1px solid black; width: 100px; height: 30px; line-height: 30px; font-weight: bold;">아이디</th>
+	            <th style="border: 1px solid black; width: 400px; height: 30px; line-height: 30px; font-weight: bold;">제목</th>
+	            <th style="border: 1px solid black; width: 150px; height: 30px; line-height: 30px; font-weight: bold;">날짜</th>
+	         </tr>
+	     </tbody>
+         	<tbody id="succeslistview" style="position: relative; width: 670px; height: 80px;">
+         		<tbody id="succeslist" style="position: absolute; width:670px; height:160px; ">
+	            <c:forEach items="${ successList }" end="3" var="successVO">
+	               <tr style="height:40px; line-height:40px;">
+	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
+	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
+	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
+	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
+	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
+	               </tr>
+	               <tr style="height:40px; line-height:40px;">
+	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
+	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
+	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
+	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
+	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
+	               </tr>
+	               <tr style="height:40px; line-height:40px;">
+	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
+	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
+	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
+	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
+	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
+	               </tr>
+	               <tr style="height:40px; line-height:40px;">
+	                  <td style="border: 1px solid black"> ${ successVO.sseq }1</td>
+	                  <td style="border: 1px solid black">${ successVO.id }이상준</td>
+	                  <td style="border: 1px solid black;"><a href="ticket.do?command=successView&title=${ successVO.title }" style="color:blue;">
+	                  ${ successVO.title }김호중 콘서트 티켓팅 성공했습니다</a></td>
+	                  <td style="border: 1px solid black">${successVO.indate }2023-05-19</td>
+	               </tr>
+	            </c:forEach>
+	            </tbody>
+            </tbody>
+      </table>
+      <div class="clear"></div>
+      
+   </form>
+      
+   </div> --%>
 
 <%-- <article>
    <h2> 고객 게시판 </h2>
