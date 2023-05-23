@@ -15,23 +15,19 @@ public class RegisterAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		HttpSession session = request.getSession();
+		String url = "apply_register/apply/registerEnd.jsp";
+        HttpSession session = request.getSession();
         MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-
+        
         if (mvo == null) {
-            // 로그인되지 않은 경우 로그인 페이지로 이동
-            response.sendRedirect("ticket.do?command=loginForm");
+            url ="ticket.do?command=loginForm";
         } else {
-            // 선택된 날짜와 시간 처리 및 저장 로직 작성
-            String dateTime = request.getParameter("dateTime");
-
-            // 저장 로직 작성 예시
-            // 예시: DB에 등록 정보 저장 또는 다른 필요한 처리 수행
-            // 예: registerService.saveDateTime(mvo.getId(), dateTime);
-
-            // registerEnd.jsp로 이동
-            request.getRequestDispatcher("apply_register/apply/registerEnd.jsp").forward(request, response);
+            // registerEnd.jsp에 전달할 값을 저장합니다.
+            String selectedDateTime = request.getParameter("selectedDateTime");
+            request.setAttribute("selectedDateTime", selectedDateTime);
         }
+        
+        request.getRequestDispatcher(url).forward(request, response);
 	}
 
 }
