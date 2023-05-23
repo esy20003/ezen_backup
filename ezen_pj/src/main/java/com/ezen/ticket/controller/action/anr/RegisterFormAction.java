@@ -15,7 +15,7 @@ public class RegisterFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "apply_register/register/registerFrom.jsp";
+		String url = "apply_register/register/registerForm.jsp";
 		
 		HttpSession session=request.getSession();
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
