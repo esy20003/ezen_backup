@@ -4,11 +4,15 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.ezen.ticket.dto.AddressVO;
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.util.Dbman;
+
+
 
 public class MemberDao {
 

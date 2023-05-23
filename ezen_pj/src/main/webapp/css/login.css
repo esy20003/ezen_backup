@@ -104,28 +104,44 @@
 
 /*  회원가입 css  */
 
+/*  placeholder color 변경  */
+input::placeholder {color:#444;}
+input::-webkit-input-placeholder {color:#444;}
+input:-ms-input-placeholder {color:#444;}
+ 
+textarea::placeholder {color:#ccc;}
+textarea::-webkit-input-placeholder {color:#ccc;}
+textarea:-ms-input-placeholder {color:#ccc;}
+
 #join_box{position:relative; text-align:center; width:100%;}
 #join_box .join_title{margin:40px 0 14px 0; color:#888;}
 #join_box .join_title span{font-size:25px; color:#000; margin-right:15px;}
-#join_box .join_content{
-	background: #FFF;
-    width: 600px;
-    border : 1px solid #d3d3d3;
-    margin : 0 auto 10px;
-}
+#join_box .join_content{background: #FFF;width: 600px;border : 1px solid #d3d3d3;margin : 0 auto 10px;}
 
 .join_content ul li {position: relative; list-style:none; min-height: 60px; border-bottom: 1px solid #ececec; box-sizing:border-box;}
-.join_content input{height:40px; width:300px; float:right; margin-left:10px; margin-top: 10px; background: none; border:none; float:left;}
+.join_content input{height:40px; width:300px; float:right; margin-left:10px; margin-top: 10px; background: none; border:none; float:left; padding-left:10px; font-size:18px; color:#444;}
 .join_content label{height:40px; width:100px; font-weight:bold; font-size:120%; line-height: 50px;}
-.join_content span{color:rgb(255,0,0); font-size:70%; font-weight:bold; float:left;line-height:30px;}
+.join_content span{color:rgb(255,0,0); font-size:70%; font-weight:bold; float:left;line-height:30px; font-size:18px;}
 .join_content .gender{height:40px; width:400px; float:right; margin-right:10px; margin-top:10px;}
 
 /*  중복체크 버튼 */
-.join_content input.chk_id {width: 80px;
-    border: 1px solid red;
-    box-sizing: border-box;
-    background: #ddd;
-    cursor: pointer;
-}
+.join_content input.chk_id {width: 100px; border:1px solid #444;box-sizing: border-box;cursor: pointer;padding:0;}
+/*  주소찾기 버튼  */
+.join_content .zip_find {float:left; width:100px; border:1px solid #444; border-radius:10px; cursor: pointer;padding:0;}
+/* select 성별 선택  */
+.join_content .gender {height: 40px; width: 400px; float: left; margin-top: 10px; margin-left:10px; padding-left:10px;}
+/* 회원가입 버튼 취소버튼   */
+
+#buttons .join_ok {color:#ccc; background:#222; cursor: pointer;}
+#buttons .join_cancel {color:#ccc; background:#222;  cursor: pointer;}
+
+/*  notice */
+.join_content .notice {height:40px; border-bottom:1px solid #999;} 
+.join_content .notice p {float:left; line-height:40px; color:#888; padding-left:10px; font-size:14px;}
+.join_content .notice p strong {color:#ff0000; font-size:16px;}
+.join_content .notice p strong:first-child { font-size:22px;}
+
+
+
 
 

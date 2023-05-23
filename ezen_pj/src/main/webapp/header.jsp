@@ -8,10 +8,10 @@
 <title>Ticket Shop</title>
 
 <link href="css/ticketing.css" rel="stylesheet">
-
 <link rel="stylesheet" href="css/apply.css?ver=1" />
 <link rel="stylesheet" href="css/login.css?ver=1" />
 <link rel="stylesheet" href="css/qna.css?ver=1" />
+<link rel="stylesheet" href="css/main.css?ver=1" />
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
@@ -155,18 +155,20 @@ $(function(){
          <div class="header_inner">
             <div class="top_menu">
                <ul>
-                  <li><a href="ticket.do?command=qnaList">1:1 문의하기</a></li>
-                  <li><a href="ticket.do?command=myPage">마이 페이지</a></li>
-                  <li><a href="ticket.do?command=cartList">장바구니</a></li>
-                  <c:choose>
+               <c:choose>
                      <c:when test="${ empty loginUser }">
-                        <li><a href="ticket.do?command=contract">회원가입</a></li>
                         <li><a href="ticket.do?command=loginForm">로그인</a></li>
+                        <li><a href="ticket.do?command=contract">회원가입</a></li>
+                 		 <li><a href="ticket.do?command=cartList">장바구니</a></li>
+                        <li><a href="ticket.do?command=qnaList">1:1 문의하기</a></li>
                      </c:when>
                      <c:otherwise>
                         <li>${ loginUser.name }(${ loginUser.id })</li>
-                        <li><a href="ticket.do?command=editForm">정보수정</a></li>
                         <li><a href="ticket.do?command=logout">로그아웃</a></li>
+                          <li><a href="ticket.do?command=mypage">마이페이지</a></li>
+                         <li><a href="ticket.do?command=cartList">장바구니</a></li>
+                        <li><a href="ticket.do?command=editForm">정보수정</a></li>
+                        <li><a href="ticket.do?command=qnaList">1:1 문의하기</a></li>
                      </c:otherwise>
                   </c:choose>
                </ul>

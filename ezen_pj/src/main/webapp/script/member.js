@@ -65,6 +65,62 @@ function result(zip_num,sido,gugun,dong){
 	    self.close();
 	}
 
+/* 생년월일 유효성체크 */
+function birthCheck() {
+	alert("123");
+	if(document.joinForm.birth.length > 4) {
+		alert("생년월일");
+		document.joinForm.birth.focus();		
+		return false;
+	}
+}
+
+
+
+
+
+
+
+
+//function birthdayCheck(birthday) {
+//   var birthday = $(".birthday").val();
+//   alert(birthday);
+//   const year = (birthday.substring(0, 4)); // 입력한 값의 년도
+//   alert(year);
+//   const month = (birthday.substring(5,7)); // 입력한 값의 월
+//   alert(month);
+//   const day = (birthday.substring(8,10)); // 입력한 값의 날짜
+//   alert(day);
+//   const today = new Date(); // 오늘 날짜
+//   const yearNow = today.getFullYear(); // 올해 연도
+//   
+//   if (document.joinForm.birthday.length <= 8) {
+//      if (1900 > year || year > yearNow){    // 연도의 경우 1900 보다 작거나 yearNow 보다 크다면 false
+//         return false;
+//      } else if (month < 1 || month > 12) {
+//         return false;
+//      } else if (day < 1 || day > 31) {
+//         return false;
+//      } else if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+//		  alert("해당 날짜가 없습니다");
+//         return false;
+//      } else if (month == 2) { // 2월달일때
+//         // 윤년 계산 
+//         const isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+//         if (day>29 || (day==29 && !isleap)) {
+//            return false;
+//         } else {
+//            return true;
+//         } //end of if (day>29 || (day==29 && !isleap))
+//      } else {
+//         return true;
+//      }//end of if
+//   } else { // 입력된 생년월일이 8자 초과할때 : false
+//      return false;
+//   }
+//}
+
+
 
 
 
