@@ -21,8 +21,8 @@
 			<div class="applyBodyBox">
 				<div class="categoryBox bodyBox">
 					<ul>
-						<li><a href="#" onclick="">전체</a></li>
-						<li><a href="#" onclick="select_category()">콘서트</a></li>
+						<li><a href="#" onclick="select_category(0)">전체</a></li>
+						<li><a href="#" onclick="select_category(1)">콘서트</a></li>
 						<li><a href="#" onclick="select_category(2)">뮤지컬</a></li>
 						<li><a href="#" onclick="select_category(3)">스포츠</a></li>
 						<li><a href="#" onclick="select_category(4)">페스티벌</a></li>
@@ -69,6 +69,7 @@
 					<!-- 좌석 선택-좌석도 위에 보여주고 밑에 좌석 선택 -->
 					<div class="seatingChartDetailBox">
 						<div class="seatingChartImg">
+						<!-- 좌석도도 content_loc_seat_view에서 가져와야함 -->
 							<img alt="" src="${contentVO.areaImage}">
 						</div>
 						<c:forEach  items="${contentList}" var="contentVO">
