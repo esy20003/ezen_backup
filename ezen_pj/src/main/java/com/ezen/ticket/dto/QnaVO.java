@@ -13,19 +13,29 @@ public class QnaVO {
 	private String id;
 	private String repyn;
 	private Timestamp indate;
-	
-	
 	public Integer getQseq() {
 		return qseq;
 	}
 	public void setQseq(Integer qseq) {
 		this.qseq = qseq;
 	}
+	public Integer getMseq() {
+		return mseq;
+	}
+	public void setMseq(Integer mseq) {
+		this.mseq = mseq;
+	}
 	public String getSubject() {
 		return subject;
 	}
 	public void setSubject(String subject) {
 		this.subject = subject;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getContent() {
 		return content;
@@ -45,7 +55,6 @@ public class QnaVO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	
 	public String getRepyn() {
 		return repyn;
 	}
@@ -58,23 +67,7 @@ public class QnaVO {
 	public void setIndate(Timestamp indate) {
 		this.indate = indate;
 	}
-	public String getTitle() {
-		return title;
-	}
-	public void setTitle(String title) {
-		this.title = title;
-	}
-	public Integer getMseq() {
-		return mseq;
-	}
-	public void setMseq(Integer mseq) {
-		this.mseq = mseq;
-	}
 	
 	
 	
-	
-	
-	
-
 }

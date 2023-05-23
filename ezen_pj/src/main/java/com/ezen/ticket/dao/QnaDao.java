@@ -91,7 +91,7 @@ public class QnaDao {
 	public void insertQna(QnaVO qvo) {
 		con = Dbman.getConnection();
 		String sql = "insert into qna_board( qseq, id, title, content, mseq) "
-				+ " values( qna_board_qseq.nextVal ,?,?,?,?)";
+				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, qvo.getId());

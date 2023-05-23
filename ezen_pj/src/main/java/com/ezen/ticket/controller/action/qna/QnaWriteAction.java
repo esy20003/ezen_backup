@@ -21,6 +21,7 @@ public class QnaWriteAction implements Action {
 			url = "ticket.do?command=loginForm";
 		} else {
 			QnaVO qvo = new QnaVO();
+			qvo.setMseq(mvo.getMseq());
 			qvo.setId(mvo.getId());
 			qvo.setTitle(request.getParameter("title"));
 			qvo.setContent(request.getParameter("content"));
