@@ -45,31 +45,40 @@ public class ContentDao {
 	      return list;
 	   }
 
-	public ArrayList<ContentVO> selectContent() {
+	public ArrayList<ContentVO> selectContent(int category) {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		con=Dbman.getConnection();
-		String sql="select * from content";
+		String sql;
 		ContentVO cvo=null;
 		try {
+		if(category==0) {
+		sql="select * from content";
+		pstmt=con.prepareStatement(sql);
+		}else {
+			sql="select * from content where category=?";
 			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, category);
+		}
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				cvo=new ContentVO();
 				cvo.setCseq(rs.getInt("cseq"));
 				cvo.setCategory(rs.getInt("category"));
 				cvo.setTitle(rs.getString("title"));
-				cvo.setLocationNum(rs.getInt("locationNum"));
 				cvo.setArtist(rs.getString("artist"));
+				cvo.setLocationNum(rs.getInt("locationNum"));
 				cvo.setContent(rs.getString("content"));
 				cvo.setImage(rs.getString("image"));
 				cvo.setAge(rs.getString("age"));
 				cvo.setBestyn(rs.getString("bestyn").charAt(0));
 				list.add(cvo);
 			}
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);}
-		return list;
+	
+	return list;
 	}
 
 
@@ -97,7 +106,38 @@ public class ContentDao {
 		return list;
 	}
 
+
+
+	public ArrayList<ContentVO> getMusical() {
+		ArrayList<ContentVO> list	=	new ArrayList<ContentVO>();
+		con = Dbman.getConnection();
+		String sql = "select * from content where category = 2";
+		ContentVO cvo = null;
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				cvo = new ContentVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setTitle(rs.getString("title"));
+				cvo.setLocationNum(rs.getInt("locationnum"));
+				cvo.setArtist(rs.getString("artist"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setCategory(rs.getInt("category"));
+				cvo.setAge(rs.getString("age"));
+				cvo.setBestyn(rs.getString("bestyn").charAt(0));
+				list.add(cvo);
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		return list;
+	}
+
+	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
+
 	public ArrayList<ContentVO> selectContentByTitle(int cseq) {
+
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
