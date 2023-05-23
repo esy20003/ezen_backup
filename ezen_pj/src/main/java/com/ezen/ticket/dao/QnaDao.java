@@ -89,19 +89,27 @@ public class QnaDao {
 	}
 
 	public void insertQna(QnaVO qvo) {
+		System.out.println(qvo.getId());
+		System.out.println(qvo.getTitle());
+		System.out.println(qvo.getContent());
+		System.out.println(qvo.getMseq());
+		System.out.println(qvo.getPwd());
+		
 		con = Dbman.getConnection();
-		String sql = "insert into qna_board( qseq, id, title, content, mseq) "
-				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?)";
+		String sql = "insert into qna_board( qseq, id, title, content, mseq, pwd) "
+				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?, ?)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, qvo.getId());
 			pstmt.setString(2, qvo.getTitle());
 			pstmt.setString(3, qvo.getContent());
 			pstmt.setInt(4, qvo.getMseq());
+			pstmt.setString(5, qvo.getPwd());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
 		}
+	
 	}
 
 
