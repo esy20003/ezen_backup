@@ -77,10 +77,38 @@ public class ContentDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);}
-		
-		
 		return list;
 	}
+
+	public ArrayList<ContentVO> selectCategory(String category) {
+		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
+		ContentVO cvo=null;
+		con=Dbman.getConnection();
+		String sql="select * from content where category=?";
+		try {
+			
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, Integer.parseInt(category));
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				cvo=new ContentVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setCategory(rs.getInt("category"));
+				cvo.setTitle(rs.getString(String.valueOf("title")));
+				cvo.setLocationNum(rs.getInt("locationNum"));
+				cvo.setArtist(rs.getString("artist"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setAge(rs.getString("age"));
+				cvo.setBestyn(rs.getString("bestyn").charAt(0));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return list;
+	}
+	
 	
 	
 }

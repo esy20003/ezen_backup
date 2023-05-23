@@ -40,7 +40,7 @@
 						<c:forEach items="${contentList}" var="contentVO">
 							<ul>
 							<!-- 이거는 content_time_view를 불러야함 -->
-								<li><a href="#" onclick="return false">${contentVO.date}</a></li>
+								<li><a href="#" onclick="return false">{contentVO.date}</a></li>
 							</ul>
 						</c:forEach>
 				</div>
@@ -56,11 +56,11 @@
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
 					<div class="contentDetail">
 						<div class="poster">
-							<img src="${contentList.image}">
+							<img src="">
 						</div>
 						<div class="detail">
 							<span class="title">${contentList.title}</span>
-							<span class="location">${contentList.location}</span>
+							<span class="location">{contentList.location}</span>
 							<span class="artist">${contentList.artist}</span>
 						</div>
 					</div>
@@ -70,7 +70,7 @@
 					<div class="seatingChartDetailBox">
 						<div class="seatingChartImg">
 						<!-- 좌석도도 content_loc_seat_view에서 가져와야함 -->
-							<img alt="" src="${contentVO.areaImage}">
+							<img alt="" src="{contentVO.areaImage}">
 						</div>
 						<c:forEach  items="${contentList}" var="contentVO">
 							<div class="seatingChartAreaBox">
