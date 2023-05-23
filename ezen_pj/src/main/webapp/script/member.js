@@ -133,19 +133,28 @@ function join_insert(){
 	   alert("아이디 중복확인을 하지 않았습니다.");
        document.joinForm.id.focus();	 
      }else if(document.joinForm.pwd.value == ""){	
-	   alert("비밀번호를 입력해 주세요.");
+	  alert("비밀번호를 입력해 주세요.");
       document.joinForm.pwd.focus();	      
-      }else if(document.joinForm.pwdCheck.value != document.joinForm.pwdCheck.value){	
-	   alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+     }else if(document.joinForm.pwdCheck.value != document.joinForm.pwdCheck.value){	
+	  alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
       document.joinForm.pwdCheck.focus();	      
-        }else if(document.joinForm.name.value ==""){	
-	   alert("이름을 입력해 주세요.");
-      document.joinForm.name.focus();	      
-        }else if(document.joinForm.phone.value == ""){	
-	     alert("전화번호를 입력해주세요.");
-        document.joinForm.phone.focus();	                	   
-      }else{
-	     document.joinForm.action = "shop.do";
+     }else if(document.joinForm.name.value ==""){	
+	  alert("이름을 입력해 주세요.");
+      document.joinForm.name.focus();
+     }else if(document.joinForm.email.value ==""){	
+	  alert("이메일을 입력해주세요 주세요.");
+      document.joinForm.email.focus();
+     }else if(document.joinForm.phone.value ==""){	
+	  alert("전화번호를 입력해 주세요.");
+      document.joinForm.phone.focus();
+     }else if(document.joinForm.zip_num.value ==""){	
+	  alert("우편번호를 입력해주세요.");
+      document.joinForm.zip_num.focus();
+     }else if(document.joinForm.address1.value ==""){	
+	  alert("주소를 입력 주세요.");
+      document.joinForm.address1.focus();
+     }else{
+	     document.joinForm.action = "ticket.do";
          document.joinForm.submit();
    }
 }
