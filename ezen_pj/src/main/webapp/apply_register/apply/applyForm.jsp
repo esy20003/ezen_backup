@@ -4,7 +4,7 @@
 
 <script src="apply_register/apply_register.js"></script>
 
-
+<form name="frm" method="post">
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
@@ -33,36 +33,38 @@
 				<div class="contentNameBox bodyBox">
 					<c:forEach items="${contentList}" var="contentVO">
 						<ul>
-							<li><a href="ticket.do?command=titleSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">${contentVO.title}</a></li>
+							<li><a href="ticket.do?command=applyContentSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">
+							${contentVO.title}</a></li>
 						</ul>
 					</c:forEach>
 				</div>
 				<div class="dateBox bodyBox">
-						<c:forEach items="${contentTableList}" var="contentTL">
+						<c:forEach items="${contentDateList}" var="contentDL">
 							<ul>
-								<li><a href="#" onclick="return false"><fmt:formatDate value="${contentDVO.contentDate}" pattern="yyyy-MM-dd" /></a></li>
+								<li><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
+								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a></li>
 							</ul>
 						</c:forEach>
 				</div>
 				<div class="timeBox bodyBox">
-					<c:forEach items="{contentList}" var="contentVO">
+					<c:forEach items="${contentTimeList}" var="contentTil">
 								<ul>
-									<li><a href="#" onclick="return false">{contentVO.contentTime}</a></li>
+									<li><a href="#" onclick="return false">${contentTil.contentTime}</a></li>
 								</ul>
 					</c:forEach>
 				</div>
 				<div class="detailBox bodyBox">
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
 					<div class="contentDetail">
-					<c:forEach items="${contentDateList}" var="contentDVO" end="0">
+					<c:forEach items="${contentTableList}" var="contentTL">
 						<div class="poster">
-							<img src="${contentDVO.image}">
+							<img src="${contentTL.image}">
 						</div>
 						<div class="detail">
-							<div class="title">${contentDVO.title}</div>
-							<div class="artist">아티스트 : ${contentDVO.artist}</div>
-					<c:forEach items="${contentDateList}" var="contentDVO" begin="${contentDateList.size()}">
-							<div class="location">장소 : ${contentDVO.locationName}</div>
+							<div class="title">${contentTL.title}</div>
+							<div class="artist">아티스트 : ${contentTL.artist}</div>
+					<c:forEach items="${contentLocationList}" var="contentLL">
+							<div class="location">장소 : ${contentLL.locationName}</div>
 					</c:forEach>
 						</div>
 					</c:forEach>
@@ -71,24 +73,24 @@
 				<div class="seatingChartBox bodyBox">
 					<!-- 좌석 선택-좌석도 위에 보여주고 밑에 좌석 선택 -->
 					<div class="seatingChartDetailBox">
-						<c:forEach  items="${contentDateList}" var="contentDVO" end="0">
+						<c:forEach  items="${contentLocationList}" var="contentLL">
 						<div class="seatingChartImg">
 						<!-- 좌석도도 content_loc_seat_view에서 가져와야함 -->
-							<img alt="" src="${contentDVO.areaImage}">
+							<img alt="" src="${contentLL.areaImage}">
 						</div>
 						</c:forEach>
 					</div>
 					<div class="AreaBox">
-						<c:forEach  items="${contentDateList}" var="contentDVO">
+						<c:forEach  items="${contentAreaList}" var="contentAL">
 								<ul>
-									<li><a href="#" onclick="return false">${contentDVO.area}&nbsp;&nbsp;&nbsp;${contentDVO.price}</a></li>
+									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}</a></li>
 								</ul>
 						</c:forEach>
 					</div>
 					</div>
 				</div>
 </section>
-	
+</form>	
 	
 
 
