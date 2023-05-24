@@ -33,12 +33,12 @@
 				<div class="contentNameBox bodyBox">
 					<c:forEach items="${contentList}" var="contentVO">
 						<ul>
-							<li><a href="ticket.do?command=titleSelect&cseq=${contentVO.cseq}&category=${category}">${contentVO.title}</a></li>
+							<li><a href="ticket.do?command=titleSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">${contentVO.title}</a></li>
 						</ul>
 					</c:forEach>
 				</div>
 				<div class="dateBox bodyBox">
-						<c:forEach items="${contentDateList}" var="contentDVO">
+						<c:forEach items="${contentTableList}" var="contentTL">
 							<ul>
 								<li><a href="#" onclick="return false"><fmt:formatDate value="${contentDVO.contentDate}" pattern="yyyy-MM-dd" /></a></li>
 							</ul>
@@ -54,34 +54,39 @@
 				<div class="detailBox bodyBox">
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
 					<div class="contentDetail">
+					<c:forEach items="${contentDateList}" var="contentDVO" end="0">
 						<div class="poster">
-							<img src="${contentDateList.image}">
+							<img src="${contentDVO.image}">
 						</div>
 						<div class="detail">
-							<div class="title">${contentDateList.title}</div>
-							<div class="location">${contentDateList.locationName}</div>
-							<div class="artist">${contentDateList.artist}</div>
+							<div class="title">${contentDVO.title}</div>
+							<div class="artist">아티스트 : ${contentDVO.artist}</div>
+					<c:forEach items="${contentDateList}" var="contentDVO" begin="${contentDateList.size()}">
+							<div class="location">장소 : ${contentDVO.locationName}</div>
+					</c:forEach>
 						</div>
+					</c:forEach>
 					</div>
 				</div>
 				<div class="seatingChartBox bodyBox">
 					<!-- 좌석 선택-좌석도 위에 보여주고 밑에 좌석 선택 -->
 					<div class="seatingChartDetailBox">
+						<c:forEach  items="${contentDateList}" var="contentDVO" end="0">
 						<div class="seatingChartImg">
 						<!-- 좌석도도 content_loc_seat_view에서 가져와야함 -->
-							<img alt="" src="${contentDateList.areaImage}">
+							<img alt="" src="${contentDVO.areaImage}">
 						</div>
+						</c:forEach>
+					</div>
+					<div class="AreaBox">
 						<c:forEach  items="${contentDateList}" var="contentDVO">
-							<div class="AreaBox">
 								<ul>
 									<li><a href="#" onclick="return false">${contentDVO.area}&nbsp;&nbsp;&nbsp;${contentDVO.price}</a></li>
 								</ul>
-							</div>
 						</c:forEach>
 					</div>
+					</div>
 				</div>
-
-	</div>
 </section>
 	
 	
