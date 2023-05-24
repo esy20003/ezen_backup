@@ -8,13 +8,14 @@ SELECT c.cseq, c.title, c.locationNum, lo.locationName, c.artist, s.area, s.pric
 FROM CONTENT c 
 INNER JOIN LOCATIONNUM lo 
 on c.locationNum=lo.locationNum
-INNER JOIN seat s 
+left JOIN seat s 
 on c.locationNum=s.locationNum;
 
+select* from content_loc_seat_view order by locationNum;
 select* from content_loc_seat_view order by cseq;
 
 
-select*from CONTENT;
+select*from CONTENT order by cseq;
 select*from locationNum;
 select*from seat;
 select*from contentTime;
