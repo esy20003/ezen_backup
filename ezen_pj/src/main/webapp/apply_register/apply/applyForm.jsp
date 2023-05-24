@@ -40,7 +40,7 @@
 				<div class="dateBox bodyBox">
 						<c:forEach items="${contentDateList}" var="contentDVO">
 							<ul>
-								<li><a href="#" onclick="return false">${contentDVO.contentDate}</a></li>
+								<li><a href="#" onclick="return false"><fmt:formatDate value="${contentDVO.contentDate}" pattern="yyyy-MM-dd" /></a></li>
 							</ul>
 						</c:forEach>
 				</div>
