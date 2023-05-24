@@ -4,6 +4,7 @@
 
 <script src="apply_register/apply_register.js"></script>
 
+
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
@@ -32,15 +33,15 @@
 				<div class="contentNameBox bodyBox">
 					<c:forEach items="${contentList}" var="contentVO">
 						<ul>
-							<li><a href="ticket.do?command=titleSelect&cseq=${contentVO.cseq}">${contentVO.title}</a></li>
+							<li><a href="ticket.do?command=titleSelect&cseq=${contentVO.cseq}&category=${category}">${contentVO.title}</a></li>
 						</ul>
 					</c:forEach>
 				</div>
 				<div class="dateBox bodyBox">
-						<c:forEach items="${contentList}" var="contentVO">
+						<c:forEach items="${contentDateList}" var="contentDVO">
 							<ul>
 							<!-- 이거는 content_time_view를 불러야함 -->
-								<li><a href="#" onclick="return false">${contentVO.contentDate}</a></li>
+								<li><a href="#" onclick="return false">${contentDVO.contentDate}</a></li>
 							</ul>
 						</c:forEach>
 				</div>
@@ -80,8 +81,6 @@
 						</c:forEach>
 					</div>
 				</div>
-
-				
 
 	</div>
 </section>

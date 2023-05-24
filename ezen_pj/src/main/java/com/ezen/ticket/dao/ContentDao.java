@@ -136,7 +136,7 @@ public class ContentDao {
 
 	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
 
-	public ArrayList<ContentVO> selectContentByTitle(int cseq) {
+
 
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
@@ -160,24 +160,12 @@ public class ContentDao {
 					list.add(cvo);
 				}
 				
-				sql="select * from content_loc_seat_view where locationNum=?";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1,cvo.getLocationNum());
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					cvo.setLocationName(rs.getString("locationName"));
-					cvo.setArea(rs.getString("area"));
-					cvo.setPrice(rs.getInt("price"));
-					cvo.setAreaImage(rs.getString("areaImage"));
-					list.add(cvo);
-				}
 				sql="select * from content_time_view where cseq=?";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1,cvo.getCseq());
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
 					cvo.setContentDate(rs.getTimestamp("contentDate"));
-					cvo.setContentTime(rs.getString("contentTime"));
 					list.add(cvo);
 				}
 			} catch (SQLException e) {
