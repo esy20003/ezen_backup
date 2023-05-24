@@ -36,9 +36,9 @@
 			</div>
 		</div>
 		</fieldset>
-		<div>&nbsp;&nbsp;&nbsp;${param.message}</div>
-		<div>&nbsp;&nbsp;&nbsp;${message}</div>
 	</form>
+	<div>&nbsp;&nbsp;&nbsp;${param.message}</div>
+	<div>&nbsp;&nbsp;&nbsp;${message}</div>
 	<hr/>
 	<hr/>
 	<div class="login_form_footer">

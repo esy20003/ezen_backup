@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -47,6 +48,7 @@ private MemberDao() {}
 				mvo.setPhone(rs.getString("phone"));
 				mvo.setZip_num(rs.getString("zip_num"));
 				mvo.setAddress1(rs.getString("address1"));
+				mvo.setBirth(rs.getString("birth"));
 				mvo.setAddress2(rs.getString("address2"));
 				mvo.setGrade(rs.getString("grade"));
 				mvo.setSuccess(rs.getInt("success"));
@@ -86,6 +88,40 @@ private MemberDao() {}
 		}finally {Dbman.close(con, pstmt, rs);
 		}
 		return list;
+	}
+
+	public int insertMember(MemberVO mvo) {
+		int result = 0;
+		
+		String sql ="insert into member(mseq ,id, pwd, name,  nickname,  gender, email, phone, birth, zip_num, address1, address2) "
+				+ "values(member_mseq.nextVal, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			
+			pstmt.setString(1, mvo.getId());
+			pstmt.setString(2, mvo.getPwd());
+			pstmt.setString(3, mvo.getName());
+			pstmt.setString(4, mvo.getNickname());
+			pstmt.setInt(5, mvo.getGender());
+			pstmt.setString(6, mvo.getEmail());
+			pstmt.setString(7, mvo.getPhone());
+			pstmt.setString(8, mvo.getBirth());
+			pstmt.setString(9, mvo.getZip_num());
+			pstmt.setString(10, mvo.getAddress1());
+			pstmt.setString(11, mvo.getAddress2());
+			result = pstmt.executeUpdate();
+
+		} catch (SQLException e) { e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);
+		}
+		return result;
+	}
+
+	public void updateMember() {
+		con = Dbman.getConnection();
+		
+		
 	}
 	
 	
