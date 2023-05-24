@@ -4,7 +4,7 @@
 
 <script src="apply_register/apply_register.js"></script>
 
-<form name="frm" method="post">
+<form name="frm" method="post" class="form">
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
@@ -41,7 +41,7 @@
 				<div class="dateBox bodyBox">
 						<c:forEach items="${contentDateList}" var="contentDL">
 							<ul>
-								<li><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
+								<li><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=to_date(${contentDL.contentDate}, 'yyyy-mm-dd')">
 								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a></li>
 							</ul>
 						</c:forEach>
@@ -83,7 +83,7 @@
 					<div class="AreaBox">
 						<c:forEach  items="${contentAreaList}" var="contentAL">
 								<ul>
-									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}</a></li>
+									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}원</a></li>
 								</ul>
 						</c:forEach>
 					</div>

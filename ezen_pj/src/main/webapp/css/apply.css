@@ -2,11 +2,32 @@
 
 /* apply_Or_Register.jsp의 css */
 
-.body
+.form{border:1px solid black; height:700px; width:100%; margin:0 auto;}
+.body_Choose{border:1px solid black; height:100%; width:1200px; margin:0 auto;}
+.body_Choose header{border:2px solid black; height:125px; width:100%;}
+.titlearea_Choose{border:1px dotted black; height:100px; width:100%; margin-top: 12.5px;}
+.hello{border:1px solid red; height:50px; margin-left: 12.5px; margin-right: 12.5px;
+font-size:2em; line-height:50px;}
+.afterHello{border:1px solid red; height:50px; margin-left: 12.5px; margin-right: 12.5px; margin-top:0;
+font-size:2em; line-height:50px;}
+
+.bodyarea_Choose{border:1px solid blue; height:575px; width:100%;}
+.mainArea_UserChoice{border:1px solid black; height:550px; width:1150px; margin:12.5px auto;}
+.buttonBoxArea{border:1px solid red; height:100%; width:50%;float:left;box-sizing:border-box; }
+#buttonBox{box-sizing:border-box; border:2px dotted black; height:500px; width:500px; margin:25px auto;}
+.button{width:100%; height:100%; border-radius:5%;}
+.box{border:1px solid blue; height:450px; width:450px; margin:auto;}
+.box_img{border:2px solid black; height:350px;width:450px;box-sizing:border-box;}
+.box_text{border:2px solid black; height:100px;width:450px;box-sizing:border-box;}
+.Image{border:1px solid black; height:320px; width:420px; margin:15px auto;}
+.smallBox_text{border:1px solid black; height:100%; width:400px; margin:0 auto;box-sizing:border-box; }
+.box_textTitle{border:1px solid red; box-sizing:border-box; height:50px; width:100%; top:0;}
+.box_textContent{box-sizing:border-box; border:1px solid red; height:50px; width:100%; bottom:0;}
+.textTitle{font-size:1.7em; text-align:center; line-height:50px;}
+.textContent{font-size:1.2em; text-align:center; line-height:50px;}
 
 
 /* 여기부턴 applyForm.jsp의 css */
-
 #bodyBox_apply{border:1px solid black; height:700px; width:1200px; margin:0 auto;}
 .applyBox{border:1px solid black; background:lightblue;height:700px; width:1200px; margin:0 auto;}
 
@@ -19,18 +40,49 @@
 .applyTitle li:nth-child(5){width:250px;}
 .applyTitle li:last-child{width:250px; }
 
-.applyBodyBox{background:beige; postion:relative; width:1200px; height:650px;}
+.applyBodyBox{background:#E8E8E8; postion:relative; width:1200px; height:650px;}
 .bodyBox{box-sizing:border-box; border:1px solid black;postion:relative; float:left; height:100%;}
 
 .categoryBox{width:125px;}
 .categoryBox ul{margin-top: 15px;} 
 .categoryBox ul li{width:100%; height:30px; margin:5px auto; font-size:1.15em; text-align:center;}
 
-.contentNameBox{width:300px;}
+.contentNameBox{width:300px; overflow:auto;}
+.contentNameBox::-webkit-scrollbar {  width: 8px;  /* 스크롤바의 너비 */}
+
+.contentNameBox::-webkit-scrollbar-thumb {
+	height: 30%; /* 스크롤바의 길이 */
+    background: #B19893; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+.contentNameBox::-webkit-scrollbar-track {
+    background: rgba(177, 152, 147, .1);  /*스크롤바 뒷 배경 색상*/
+}
 .contentNameBox ul{margin-top:15px;margin-left: 10px;}
 .contentNameBox ul li{ width:100%; margin-bottom:5px; font-size:1.1em; text-align:left;}
 
 .dateBox{width:150px;}
+.dateBox ul{margin:15px auto;}
+.dateBox ul li{border:1px solid black; float:left; box-sizing:border-box; 
+font-size:1.25em; line-height:50px; text-align:center;}
+
+
 .timeBox{width:125px;}
+.timeBox ul{margin:15px auto;}
+.timeBox ul li{border:1px solid black; float:left; box-sizing:border-box; 
+font-size:1.25em; line-height:50px; text-align:center;}
+
+
 .detailBox{width:250px;}
+.contentDetail{border: 1px solid black; width:220px; height:620px; margin:15px auto;}
+.poster{border:1px solid red; width:100%; height:294px; margin-bottom: 10px;}
+.contentDetail .detail{border:1px solid red; width:100%; height:150px;}
+
 .seatingChartBox{width:250px;}
+.AreaBox ul{margin:15px auto;}
+.AreaBox ul li{border:1px solid black; float:left; box-sizing:border-box; 
+font-size:1.25em; line-height:50px; text-align:center;}
+
+
+
+/* register의 어떤 jsp의 css */

@@ -230,7 +230,7 @@ public class ContentDao {
 	public ArrayList<ContentVO> selectTimeByDate(String contentDate) {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		con=Dbman.getConnection();
-		String sql="select distinct contentTime from  content_time_view where contentDate=? order by contentTime";
+		String sql="select distinct contentTime from  content_time_view where contentDate=to_date(?,'yyyy-mm-dd') order by contentTime";
 		ContentVO cvo=null;
 		
 		try {

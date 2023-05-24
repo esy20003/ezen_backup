@@ -19,7 +19,7 @@ select*from CONTENT order by cseq;
 select*from locationNum;
 select*from seat;
 select*from contentTime;
-
+select distinct to_date('contentTime','yyyy-mm-dd') from  content_time_view where contentDate='2023-05-24' order by contentTime;
 
 --2. content+contentTime 합친 뷰
 
