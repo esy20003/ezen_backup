@@ -1,5 +1,4 @@
 --장바구니
-UPDATE cart SET mseq2=1 WHERE mseq=2;
 
 select * from cart;
 

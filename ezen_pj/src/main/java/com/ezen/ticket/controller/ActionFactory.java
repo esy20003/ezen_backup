@@ -13,6 +13,7 @@ import com.ezen.ticket.controller.action.anr.PrevMonthAction;
 
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 import com.ezen.ticket.controller.action.anr.TitleSelectAction;
+import com.ezen.ticket.controller.action.cart.CartDeleteAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
 import com.ezen.ticket.controller.action.member.EditFormAction;
@@ -24,6 +25,7 @@ import com.ezen.ticket.controller.action.member.LoginAction;
 import com.ezen.ticket.controller.action.member.LoginFormAction;
 import com.ezen.ticket.controller.action.member.LogoutAction;
 import com.ezen.ticket.controller.action.member.MemberUpdateAction;
+import com.ezen.ticket.controller.action.mypage.MypageAction;
 import com.ezen.ticket.controller.action.qna.QnaListAction;
 import com.ezen.ticket.controller.action.qna.QnaViewAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteAction;
@@ -80,8 +82,12 @@ public class ActionFactory {
 		
 		// cart
 		else if(command.equals("cartList")) ac = new CartListAction();
+		else if(command.equals("cartDelete")) ac = new CartDeleteAction();
 		
-
+		
+		// mypage
+		else if(command.equals("mypage")) ac = new MypageAction();
+		
 		return ac;
 	}
 

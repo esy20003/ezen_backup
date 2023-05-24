@@ -7,7 +7,8 @@
 	<form id="frmcartList" name="frm" method="post">
 		<c:choose>
 			<c:when test="${ notBuy_cartList.size() == 0 }">
-				<h3>장바구니가 비었습니다</h3>
+				<h3 style="margin-top: 60px; line-height: 80px; font-size: 50px; text-align: center; margin-bottom: 60px; width: 1200px;
+ height: 80px; border: 3px dashed red;">장바구니가 비었습니다</h3>
 			</c:when>
 			<c:otherwise>
 				<div class = "cartList_box">
@@ -24,20 +25,22 @@
 								<td>${ cartListVO.contenttime }</td>
 								<td>${ cartListVO.locationnum }</td>
 								<td>${ cartListVO.area }</td>
-								<td>${ cartListVO.quantity }</td>
+								<td>${ cartListVO.mseq2 }</td>
 								<td><fmt:formatDate value="${ cartListVO.indate }" type="date" /></td>
-								<c:forEach items="${ commition }" var="defutyVO">
+								<c:forEach items="${ defuty }" end="0" var="defutyVO">
 								<td>${ defutyVO.cnickname }</td>
 								</c:forEach>
-								<td><input type="checkbox"/></td>
+								<td><input type="checkbox" name="cartseq" value="${ cartListVO.cseq }"/></td>
 							</tr>
 						</c:forEach>
 					</table>
 					<div id="buttons">
 						<input type="button" value="계속 쇼핑" class="comeon" onclick="location.href='ticket.do?command=index'"/>
 						<c:if test="${ notBuy_cartList.size() != 0 }">
-							<input type="button" value="주문하기" class="submit" onclick="go_order_insert();"/>
-							<input type="button" value="삭제하기" class="cancel"/>
+							<input type="button" value="주문하기" class="submit" onclick="location.href='ticket.do?command=cartDetail'"/>
+							<!-- 체크된 카트번호와 멤버 번호를 가져와야한다. 어떡해하면 가져올 수 있을까.. -->
+							<!-- 우선 마이페이지를 완성하고 다시오자.. -->
+							<input type="button" value="삭제하기" class="cancel" onclick="go_cart_delete();" />
 						</c:if>
 					</div>
 				</div>
