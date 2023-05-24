@@ -12,7 +12,8 @@
 	<fieldset>
 		<legend>Board Info</legend>
 		<label>Title</label> <input type="text" name="title" size="60"><br>
-		<label>Content</label> <textarea rows="8" cols="65" name="content"></textarea>		
+		<label>Content</label> <textarea rows="8" cols="65" name="content"></textarea>	
+		<label>Image</label> <input type="image" name="image" size="60"><br>
 	</fieldset>
 	
 	<div class="clear"></div>

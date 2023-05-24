@@ -22,7 +22,7 @@ public class QnaViewAction implements Action {
 		} else {
 			QnaDao qdao = QnaDao.getInstance();
 			QnaVO qvo = qdao.getQna(qseq);
-			request.setAttribute("qnaVO", qvo);
+			request.setAttribute("QnaVO", qvo);
 		}
 
 		request.getRequestDispatcher(url).forward(request, response);
