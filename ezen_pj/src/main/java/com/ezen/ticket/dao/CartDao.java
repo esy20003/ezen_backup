@@ -72,23 +72,4 @@ public class CartDao {
 		return buycartlist;
 	}
 	
-	public ArrayList<CartVO> getDseq(int mseq) {
-		ArrayList<CartVO> list = new ArrayList<CartVO>();
-		CartVO cartvo = null;
-		con = Dbman.getConnection();
-		String sql ="select mseq2 from cart where mseq=?";
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mseq);
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				cartvo = new CartVO();
-				cartvo.setMseq2(rs.getInt("mseq2"));
-				list.add(cartvo);
-			}
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs); }
-		return list;
-	}
-	
 }

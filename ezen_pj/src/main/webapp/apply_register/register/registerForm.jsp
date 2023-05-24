@@ -7,8 +7,8 @@
       <tr class="tableHead">
         <th><h1>날짜와 시간</h1></th>
       </tr>
-      <td class="date">
-        <div class="dateBox">
+      <td class="datetime">
+        <div class="datetimeBox">
           <%@ include file="calendar.jsp" %>
         </div>
       </td>

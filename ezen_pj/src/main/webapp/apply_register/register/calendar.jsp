@@ -1,105 +1,82 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.util.Calendar" %>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>캘린더</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <style>
-        body {font-family: Arial, sans-serif; text-align: center; margin-top: 50px;}
-        h1 {color: #333;}
-        input[type="text"] {padding: 5px; margin: 10px; width: 200px;}
-        #time-wrapper {display: flex; justify-content: center;}
-        select {padding: 5px; margin: 10px; width: 70px;}
-        #datetime-list {list-style-type: none; padding: 0;}
-        #datetime-list li {margin-bottom: 10px;}
-        #datetime-list li.checked {background-color: #eee;}
-        button { padding: 10px 20px; background-color: #333; color: #fff; border: none; 
-        				cursor: pointer; float:left;}
-        button:hover {background-color: #555;}
-    </style>
+<meta charset="UTF-8">
+<title>07_Calendar</title>
+
+<style type="text/css">
+	td{ font-weight:bold; font-size:110%; }
+	tr>td:first-child{ color:red;}
+	tr>td:last-child{ color:blue; }
+	a{text-decoration:none; }
+</style>
 </head>
 <body>
-    <h1>캘린더</h1>
-    <label for="date">날짜:</label>
-    <input type="text" id="date" placeholder="날짜를 선택하세요" readonly><br>
-    <label for="time">시간:</label>
-    <div id="time-wrapper">
-        <select id="hour-select"></select>
-        <span>:</span>
-        <select id="minute-select"></select>
-    </div>
-    <button onclick="addDateTime()">추가</button>
-    <form id="register-form" action="ticket.do" method="post">
-        <input type="hidden" id="datetimeList" name="command" value="datetimeList">
-        <button type="submit" onclick="submitForm()">등록</button>
-    </form>
+<%
+	java.util.Calendar sDay = java.util.Calendar.getInstance();  // 출력될 달력의 1일자를 저장할 객체
+	Calendar eDay = Calendar.getInstance();   // 출력될 달력의 말일자가 저장될 객체
+	
+	int sYear = sDay.get(Calendar.YEAR);
+	int sMonth = sDay.get(Calendar.MONTH);
+	
+	if( request.getParameter("sYear") != null ){
+		sYear = Integer.parseInt( request.getParameter("sYear") );
+	}
+	if (  request.getParameter("sMonth") != null ){
+		sMonth = Integer.parseInt( request.getParameter("sMonth") );
+		if(sMonth==12) {  	sMonth = 0;			sYear++;		}
+		if(sMonth==-1){ 		sMonth=11;			sYear--;		}
+	}
+	
+	sDay.set( sYear, sMonth, 1 );
+	int lastDay = sDay.getActualMaximum(Calendar.DATE) ;
+	eDay.set( sYear, sMonth, lastDay);
+	int START_WEEK = sDay.get( Calendar.DAY_OF_WEEK );	
+%>
 
-    <ul id="datetime-list"></ul>
-    <button onclick="deleteChecked()">선택 삭제</button>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#date").datepicker({
-                dateFormat: "yy-mm-dd"
-            });
-
-            populateHourSelect();
-            populateMinuteSelect();
-        });
-
-        function populateHourSelect() {
-            var hourSelect = $("#hour-select");
-            for (var i = 0; i <= 23; i++) {
-                var option = "<option value='" + i + "'>" + (i < 10 ? "0" + i : i) + "</option>";
-                hourSelect.append(option);
-            }
-        }
-
-        function populateMinuteSelect() {
-            var minuteSelect = $("#minute-select");
-            for (var i = 0; i <= 50; i += 10) {
-                var option = "<option value='" + i + "'>" + (i < 10 ? "0" + i : i) + "</option>";
-                minuteSelect.append(option);
-            }
-        }
-
-        function addDateTime() {
-            var selectedDate = $("#date").val();
-            var selectedHour = $("#hour-select").val();
-            var selectedMinute = $("#minute-select").val();
-
-            if (selectedDate !== "" && selectedHour !== "" && selectedMinute !== "") {
-                var datetime = selectedDate + " " + selectedHour + ":" + selectedMinute;
-                var datetimeItem = "<li>" + datetime + "<input type='checkbox'></li>";
-                $("#datetime-list").append(datetimeItem);
-
-                // 입력 필드 초기화
-                $("#date").val("");
-                $("#hour-select").val("");
-                $("#minute-select").val("");
-
-                // 등록할 날짜와 시간을 숨은 입력 필드에 설정
-                updateDatetimeList();
-            } else {
-                alert("날짜와 시간을 입력하세요.");
-            }
-        }
-
-        function deleteChecked() {
-            var checkedItems = $("#datetime-list input[type='checkbox']:checked").closest("li");
-            checkedItems.remove();
-            updateDatetimeList();
-        }
-
-        function updateDatetimeList() {
-            var datetimeList = [];
-            $("#datetime-list li").each(function() {
-                datetimeList.push($(this).text());
-            });
-            $("#datetimeList").val(datetimeList.join(","));
-        }
-    </script>
+	<!-- jsp 문법을 이용해서  토요일부터 시작하는 4월 달력을 표시해주세요 -->
+	<table width="560" align="left" cellspacing="1" bgcolor="black">
+		<tr bgcolor="white" height="50">
+			<td colspan="7" align="center">
+				<h2>
+				<a href="ticket.do?command=prevMonth&sYear=<%=sYear%>&sMonth=<%=sMonth-1%>">이전달</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<%=sYear%>년 <%=(sMonth+1)%>월
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="ticket.do?command=nextMonth&sYear=<%=sYear%>&sMonth=<%=sMonth+1%>">다음달</a></h2>
+			</td>
+		</tr>
+		<tr bgcolor="white" height="50"><!-- 맨윗줄 요일이 표시되는 tr -->
+			<td align="center" width="80">일</td><td align="center" width="80">월</td>
+			<td align="center" width="80">화</td><td align="center" width="80">수</td>
+			<td align="center" width="80">목</td><td align="center" width="80">금</td>
+			<td align="center" width="80">토</td>
+		</tr>
+		<tr bgcolor="white" height="50"><!-- 날짜가 표시되는 tr -->
+			<%
+				int i;
+				for(i=1; i<START_WEEK; i++) {  
+					out.print("<td>&nbsp;</td>");
+				}// 1일자 전 빈칸들 (2023년 4월 1일은 토요일 -> 여섯칸 빈칸)
+				
+				for(int d=1; d<=lastDay; d++){  // 1일부터 30일까지 한칸(td테그)씩 표시
+					out.print("<td>" + d + "</td>");
+					if( i++ % 7 == 0){  // 7의 배수만큼 열이 채워지는 순간 줄바꿈 -> tr끝 - tr시작
+						out.print("</tr><tr bgcolor=\"white\" height=\"50\">");
+					}
+				}
+				
+				if(i%7!=0){
+					for(int k=1; k<= (8-(i%7)); k++ ){ // 마지막 말일 표시후 남는 칸에 빈칸으로 
+						out.print("<td>&nbsp;</td>");
+					}  
+				}else{
+					out.print("<td>&nbsp;</td>");
+				}
+			%>
+		</tr>
+	</table>
 </body>
 </html>

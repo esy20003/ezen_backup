@@ -5,7 +5,12 @@ import com.ezen.ticket.controller.action.IndexAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
 import com.ezen.ticket.controller.action.anr.CategorySelectAction;
+
 import com.ezen.ticket.controller.action.anr.RegisterAction;
+
+import com.ezen.ticket.controller.action.anr.NextMonthAction;
+import com.ezen.ticket.controller.action.anr.PrevMonthAction;
+
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 import com.ezen.ticket.controller.action.anr.TitleSelectAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
@@ -50,8 +55,8 @@ public class ActionFactory {
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("register")) ac = new RegisterAction();
-
-
+		else if (command.equals("prevMonth")) ac = new PrevMonthAction();
+		else if (command.equals("nextMonth")) ac = new NextMonthAction();
 		
 
 		

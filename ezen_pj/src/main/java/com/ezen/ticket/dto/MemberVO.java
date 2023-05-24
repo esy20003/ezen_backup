@@ -20,7 +20,14 @@ public class MemberVO {
 	private int success;
 	private Timestamp indate;
 	private char useyn;
+	private String cnickname;
 	
+	public String getCnickname() {
+		return cnickname;
+	}
+	public void setCnickname(String cnickname) {
+		this.cnickname = cnickname;
+	}
 	public int getMseq() {
 		return mseq;
 	}
