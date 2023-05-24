@@ -89,11 +89,6 @@ public class QnaDao {
 	}
 
 	public void insertQna(QnaVO qvo) {
-		System.out.println(qvo.getId());
-		System.out.println(qvo.getTitle());
-		System.out.println(qvo.getContent());
-		System.out.println(qvo.getMseq());
-		System.out.println(qvo.getPwd());
 		
 		con = Dbman.getConnection();
 		String sql = "insert into qna_board( qseq, id, title, content, mseq, pwd) "
