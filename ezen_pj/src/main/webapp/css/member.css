@@ -142,6 +142,8 @@ textarea:-ms-input-placeholder {color:#ccc;}
 .join_content .notice p strong:first-child { font-size:22px;}
 
 
+/* updateForm css  */
+#update_box {width:1000px; height:500px; border:1px solid red; margin :0 auto;}
 
 
 

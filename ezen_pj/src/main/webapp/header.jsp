@@ -9,7 +9,7 @@
 
 <link href="css/ticketing.css" rel="stylesheet">
 <link rel="stylesheet" href="css/apply.css?ver=1" />
-<link rel="stylesheet" href="css/login.css?ver=1" />
+<link rel="stylesheet" href="css/member.css?ver=1" />
 <link rel="stylesheet" href="css/qna.css?ver=1" />
 <link rel="stylesheet" href="css/main.css?ver=1" />
 <link rel="stylesheet" href="css/cartlist.css?ver=1" />
