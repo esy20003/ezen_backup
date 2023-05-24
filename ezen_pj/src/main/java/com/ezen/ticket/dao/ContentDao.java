@@ -137,8 +137,6 @@ public class ContentDao {
 
 
 	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
-
-
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();

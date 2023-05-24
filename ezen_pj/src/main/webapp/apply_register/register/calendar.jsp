@@ -5,63 +5,23 @@
     <title>캘린더</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        input[type="text"] {
-            padding: 5px;
-            margin: 10px;
-            width: 200px;
-        }
-
-        #time-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        select {
-            padding: 5px;
-            margin: 10px;
-            width: 70px;
-        }
-
-        #datetime-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        #datetime-list li {
-            margin-bottom: 10px;
-        }
-
-        #datetime-list li.checked {
-            background-color: #eee;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #555;
-        }
+        body {font-family: Arial, sans-serif; text-align: center; margin-top: 50px;}
+        h1 {color: #333;}
+        input[type="text"] {padding: 5px; margin: 10px; width: 200px;}
+        #time-wrapper {display: flex; justify-content: center;}
+        select {padding: 5px; margin: 10px; width: 70px;}
+        #datetime-list {list-style-type: none; padding: 0;}
+        #datetime-list li {margin-bottom: 10px;}
+        #datetime-list li.checked {background-color: #eee;}
+        button { padding: 10px 20px; background-color: #333; color: #fff; border: none; 
+        				cursor: pointer; float:left;}
+        button:hover {background-color: #555;}
     </style>
 </head>
 <body>
     <h1>캘린더</h1>
     <label for="date">날짜:</label>
-    <input type="text" id="date" placeholder="날짜를 선택하세요" readonly>
+    <input type="text" id="date" placeholder="날짜를 선택하세요" readonly><br>
     <label for="time">시간:</label>
     <div id="time-wrapper">
         <select id="hour-select"></select>
@@ -69,13 +29,12 @@
         <select id="minute-select"></select>
     </div>
     <button onclick="addDateTime()">추가</button>
-    <form id="register-form" action="registerEnd.jsp" method="post">
-        <input type="hidden" id="datetimeList" name="datetimeList" value="">
-        <button type="submit">등록</button>
+    <form id="register-form" action="ticket.do" method="post">
+        <input type="hidden" id="datetimeList" name="command" value="datetimeList">
+        <button type="submit" onclick="submitForm()">등록</button>
     </form>
 
     <ul id="datetime-list"></ul>
-
     <button onclick="deleteChecked()">선택 삭제</button>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
