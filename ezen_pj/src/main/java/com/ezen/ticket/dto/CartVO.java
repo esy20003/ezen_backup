@@ -6,14 +6,21 @@ public class CartVO {
 	
 	private int mseq;
 	private int cseq;
-	private Timestamp contentDate;
-	private String contentTime;
-	private int locationNum;
+	private Timestamp contentdate;
+	private String contenttime;
+	private int locationnum;
 	private String area;
+	private int mseq2;
 	private int quantity;
 	private Timestamp indate;
 	private char buyyn;
 	
+	public int getMseq2() {
+		return mseq2;
+	}
+	public void setMseq2(int mseq2) {
+		this.mseq2 = mseq2;
+	}
 	public int getMseq() {
 		return mseq;
 	}
@@ -26,23 +33,23 @@ public class CartVO {
 	public void setCseq(int cseq) {
 		this.cseq = cseq;
 	}
-	public Timestamp getContentDate() {
-		return contentDate;
+	public Timestamp getContentdate() {
+		return contentdate;
 	}
-	public void setContentDate(Timestamp contentDate) {
-		this.contentDate = contentDate;
+	public void setContentdate(Timestamp contentdate) {
+		this.contentdate = contentdate;
 	}
-	public String getContentTime() {
-		return contentTime;
+	public String getContenttime() {
+		return contenttime;
 	}
-	public void setContentTime(String contentTime) {
-		this.contentTime = contentTime;
+	public void setContenttime(String contenttime) {
+		this.contenttime = contenttime;
 	}
-	public int getLocationNum() {
-		return locationNum;
+	public int getLocationnum() {
+		return locationnum;
 	}
-	public void setLocationNum(int locationNum) {
-		this.locationNum = locationNum;
+	public void setLocationnum(int locationnum) {
+		this.locationnum = locationnum;
 	}
 	public String getArea() {
 		return area;

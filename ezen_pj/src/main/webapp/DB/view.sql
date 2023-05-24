@@ -1,5 +1,5 @@
 --view들 만드는 파일
-
+select * from member_grade_view
 --1. content+locationNum+seat 합친 뷰
 
 CREATE OR REPLACE VIEW content_loc_seat_view 
