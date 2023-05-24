@@ -29,6 +29,7 @@ public class CategorySelectAction implements Action {
 			int category=Integer.parseInt(request.getParameter("category"));
 					list = cdao.selectContent(category);
 					request.setAttribute("contentList", list);
+					request.setAttribute("category", category);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 

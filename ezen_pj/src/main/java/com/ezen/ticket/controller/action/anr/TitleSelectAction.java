@@ -21,14 +21,22 @@ public class TitleSelectAction implements Action {
 		String url="apply_register/apply/applyForm.jsp";
 		HttpSession session=request.getSession();
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
+		ArrayList<ContentVO> list =null;	
+		ArrayList<ContentVO> list2 =null;	
 		if(mvo ==null) {
 			url="ticket.do?command=loginForm";
 		}else {
-			ArrayList<ContentVO> list =null;	
 			ContentDao cdao=ContentDao.getInstance();
+			int category=Integer.parseInt(request.getParameter("category"));
+			list = cdao.selectContent(category);
+			
 			int cseq=Integer.parseInt(request.getParameter("cseq"));
-			list=cdao.selectContentDetailByTitle(cseq);
+			list2=cdao.selectContentDetailByTitle(cseq);
+			
+			request.setAttribute("category", category);
 			request.setAttribute("contentList", list);
+			request.setAttribute("contentDateList", list2);
+			
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
