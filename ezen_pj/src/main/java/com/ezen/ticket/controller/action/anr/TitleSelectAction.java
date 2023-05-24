@@ -31,9 +31,11 @@ public class TitleSelectAction implements Action {
 			list = cdao.selectContent(category);
 			
 			int cseq=Integer.parseInt(request.getParameter("cseq"));
+
 			list2=cdao.selectContentDetailByTitle(cseq);
 			
 			request.setAttribute("category", category);
+
 			request.setAttribute("contentList", list);
 			request.setAttribute("contentDateList", list2);
 			

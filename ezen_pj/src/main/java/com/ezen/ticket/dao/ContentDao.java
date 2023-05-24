@@ -10,6 +10,7 @@ import com.ezen.ticket.dto.ContentVO;
 import com.ezen.ticket.util.Dbman;
 
 public class ContentDao {
+	
 	private ContentDao() {};
 	private static ContentDao itc = new ContentDao();
 	public static ContentDao getInstance() { return itc; }
@@ -134,8 +135,8 @@ public class ContentDao {
 		return list;
 	}
 
-	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
 
+	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
 
 
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
@@ -181,8 +182,7 @@ public class ContentDao {
 					cvo.setAreaImage(rs.getString("areaImage"));
 					list.add(cvo);
 				}
-			} catch (SQLException e) {
-				e.printStackTrace();
+			} catch (SQLException e) { e.printStackTrace();
 			}finally {Dbman.close(con, pstmt, rs);}
 		
 		return list;

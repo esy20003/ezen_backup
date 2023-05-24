@@ -12,9 +12,11 @@
 <link rel="stylesheet" href="css/login.css?ver=1" />
 <link rel="stylesheet" href="css/qna.css?ver=1" />
 <link rel="stylesheet" href="css/main.css?ver=1" />
+<link rel="stylesheet" href="css/cartlist.css?ver=1" />
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
+<script src="script/cartlist.js"></script>
 <script src="apply_register/apply_register.js"></script>
 <link rel="stylesheet" href="css/main.css?ver=1" />
 <script type="text/javascript">
