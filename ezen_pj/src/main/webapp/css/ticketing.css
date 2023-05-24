@@ -78,14 +78,15 @@ table {
 
 #header .header_inner .top_menu li {
 	float:left; 
-	width:100px;
+	/* width:100px; */
+	margin:0 5px;
 	text-align: center;
 }
-
+#header .header_inner .top_menu li:hover a {color:#444; font-weight:700; border:1px transparent;} 
 #header .header_inner .top_menu li a {
 	color: #444;
 	text-decoration: none;
-	
+	padding:10px 10px;
 }
 
 #header .header_inner .top_header_inner {
@@ -169,6 +170,7 @@ table {
 	left: 0;
 	top: 40px;
 	display:none;
+	z-index:10;
 }
 
 #category_menu ul li:hover > .depth2_menu {display:block;}
