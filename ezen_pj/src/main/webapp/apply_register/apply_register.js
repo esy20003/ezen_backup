@@ -4,7 +4,7 @@
  
  function go_apply(){
 
-	 document.frm.action='ticket.do?command=applyForm';
+	 document.frm.action='ticket.do?command=categorySelect&category=0';
 	 document.frm.submit();
  }
  
