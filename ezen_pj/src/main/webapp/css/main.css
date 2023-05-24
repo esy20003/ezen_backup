@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 /* bestContent  */
 #bestContent .title h1{margin:0;}
 #item h2{width: 258px; height: 20px; line-height:43px; font-size: 15px; font-weight: bold;}
@@ -39,7 +38,7 @@
 
 
 /* musical */
-#musical{width: 1200px; height: 600px; border: 1px solid black; margin: 0 auto;}
+#musical{width: 1200px; height: 600px; border: 3px solid black; margin: 0 auto;}
 #musical .title{height:100px; text-align:center; margin: 3px; width: 1193px; font-size:300%; font-weight:bold; background:#f3f3ff; color:red; border:1px solid black;}
 #musical .title h1{line-height:100px; margin:0;}
 #musical .panel{height: 480px; width: 1193px; margin:5px 3px; border: 1px solid black;}
@@ -51,7 +50,7 @@
 
 
 /* success */
-#success{width: 1200px; height: 400px; margin: 0 auto; border: 1px solid black;}
+#success{width: 1200px; height: 400px; margin: 0 auto; border: 3px solid black;}
 #success .title{height: 150px; text-align: center; width: 1193px; font-size: 300%; line-height: 150px; font-weight: bold; background: #f3f3ff;
  color: blue; margin: 3px; border: 1px solid black;}
 #success .title h1{margin:0;}
@@ -65,7 +64,7 @@
 #success .successlist1 .successlistrealview .successlistview .successlisttitle h2{font-family: none; color: black; padding-bottom: 0;
  border-bottom: none; background: white; text-align: center; font-size: 130%; font-weight: bold; height: 100px; line-height: 75px; width:340px;}
  
-#success .successlist1 .successlistrealview .successlistview .successlistid{width:340px; height:40px; margin:5px 5px 0 0; border:1px solid black}
+#success .successlist1 .successlistrealview .successlistview .successlistid{width:340px; height:40px; margin:5px 5px 0 0; border:1px solid black;}
 #success .successlist1 .successlistrealview .successlistview .successlistid h2{font-family: ""; color: black; padding-bottom: 0px; background: none;
  line-height: 40px; font-weight: bold; text-align: center; font-size: 25px; text-align: center; width: 340px;}
 #success .successlist1 #btn3 #successleft{position: absolute;font-size: 30px;font-weight: bold;text-align: center;border: 1px solid black;

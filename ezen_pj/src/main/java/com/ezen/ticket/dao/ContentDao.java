@@ -10,6 +10,7 @@ import com.ezen.ticket.dto.ContentVO;
 import com.ezen.ticket.util.Dbman;
 
 public class ContentDao {
+	
 	private ContentDao() {};
 	private static ContentDao itc = new ContentDao();
 	public static ContentDao getInstance() { return itc; }
@@ -134,8 +135,8 @@ public class ContentDao {
 		return list;
 	}
 
-	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
 
+	public ArrayList<ContentVO> selectContentDetailByTitle(int cseq) {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
@@ -144,7 +145,7 @@ public class ContentDao {
 				pstmt=con.prepareStatement(sql);
 				pstmt.setInt(1, cseq);
 				rs=pstmt.executeQuery();
-				while(rs.next()) {
+				if(rs.next()) {
 					cvo=new ContentVO();
 					cvo.setCseq(rs.getInt("cseq"));
 					cvo.setCategory(rs.getInt("category"));
@@ -158,28 +159,28 @@ public class ContentDao {
 					list.add(cvo);
 				}
 				
-				sql="select * from content_loc_seat_view where locationNum=?";
+				sql="select * from contentTime where cseq=?";
 				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1,cvo.getLocationNum());
+				pstmt.setInt(1,cseq);
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
+					cvo=new ContentVO();
+					cvo.setContentDate(rs.getTimestamp("contentDate"));
+					list.add(cvo);
+				}
+				sql="select * from content_loc_seat_view where cseq=?";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1,cseq);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					cvo=new ContentVO();
 					cvo.setLocationName(rs.getString("locationName"));
 					cvo.setArea(rs.getString("area"));
 					cvo.setPrice(rs.getInt("price"));
 					cvo.setAreaImage(rs.getString("areaImage"));
 					list.add(cvo);
 				}
-				sql="select * from content_time_view where cseq=?";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1,cvo.getCseq());
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					cvo.setContentDate(rs.getTimestamp("contentDate"));
-					cvo.setContentTime(rs.getString("contentTime"));
-					list.add(cvo);
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
+			} catch (SQLException e) { e.printStackTrace();
 			}finally {Dbman.close(con, pstmt, rs);}
 		
 		return list;
