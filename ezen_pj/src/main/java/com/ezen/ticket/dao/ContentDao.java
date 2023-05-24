@@ -4,7 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.ezen.ticket.dto.ContentVO;
 import com.ezen.ticket.util.Dbman;
@@ -135,63 +139,40 @@ public class ContentDao {
 					list.add(cvo);
 					
 				}
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				sql="select * from contentTime where cseq=?";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1,cseq);
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					cvo=new ContentVO();
-					cvo.setContentDate(rs.getTimestamp("contentDate"));
-					list.add(cvo);
-				}
-				sql="select * from content_loc_seat_view where cseq=?";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1,cseq);
-				rs=pstmt.executeQuery();
-				if(rs.next()) {
-					cvo=new ContentVO();
-					cvo.setLocationName(rs.getString("locationName"));
-					cvo.setAreaImage(rs.getString("areaImage"));
-					System.out.println(rs.getString("locationName"));
-					list.add(cvo);
-				}
-				sql="select * from seat where locationNum=?";
-				pstmt=con.prepareStatement(sql);
-				pstmt.setInt(1,locationNum);
-				rs=pstmt.executeQuery();
-				while(rs.next()) {
-					cvo.setArea(rs.getString("area"));
-					cvo.setPrice(rs.getInt("price"));
-					System.out.println(rs.getString("area"));
-					list.add(cvo);
-				}
-			} catch (SQLException e) { e.printStackTrace();
-			}finally {Dbman.close(con, pstmt, rs);}
-		
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return list;
 	}
+		
 
-	public ArrayList<ContentVO> selectFromContentTime(int cseq) {
+	public ArrayList<ContentVO> selectFromContentTimeByTitle(int cseq) {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
-		String sql="select * from contentTime where cseq=?";
+		String sql="select * from content where cseq=?";
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1,cseq);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				cvo=new ContentVO();
+				cvo.setCseq(cseq);
+				cvo.setCategory(rs.getInt("category"));
+				cvo.setLocationNum(rs.getInt("locationNum"));
+				System.out.println(cvo.getCseq());
+				System.out.println(cvo.getCategory());
+				System.out.println(cvo.getLocationNum());
+				list.add(cvo);
+			}
+			sql="select * from contentTime where cseq=?";
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,cseq);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				cvo=new ContentVO();
+				cvo.setCseq(cseq);
 				cvo.setContentDate(rs.getTimestamp("contentDate"));
 				list.add(cvo);
 			}
@@ -201,6 +182,72 @@ public class ContentDao {
 		return list;
 	}
 	
+	public ArrayList<ContentVO> selectFromLocationViewByTitle(int cseq) {
+		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
+		ContentVO cvo=null;
+		con=Dbman.getConnection();
+		String sql="select * from content_loc_seat_view where cseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,cseq);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				cvo=new ContentVO();
+				cvo.setLocationName(rs.getString("locationName"));
+				cvo.setAreaImage(rs.getString("areaImage"));
+				System.out.println(rs.getString("locationName"));
+				list.add(cvo);
+			
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+	
+	public ArrayList<ContentVO> selectFromContentAreaByTitle(int locationNum) {
+		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
+		ContentVO cvo=null;
+		con=Dbman.getConnection();
+		String sql="select * from seat where locationNum=? order by price desc";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1,locationNum);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				cvo=new ContentVO();
+				cvo.setArea(rs.getString("area"));
+				cvo.setPrice(rs.getInt("price"));
+				System.out.println(rs.getString("area"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return list;
+	}
+
+	public ArrayList<ContentVO> selectTimeByDate(String contentDate) {
+		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
+		con=Dbman.getConnection();
+		String sql="select distinct contentTime from  content_time_view where contentDate=? order by contentTime";
+		ContentVO cvo=null;
+		
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, contentDate);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				cvo=new ContentVO();
+				cvo.setContentTime(rs.getString("contentTime"));
+				list.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+			
+		return list;
+	}
+}
 
 	
-}

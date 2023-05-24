@@ -6,8 +6,8 @@ public class Paging {
 	private int totalCount;
 	private int beginPage;
 	private int endPage;
-	private int displayRow=5;
-	private int displayPage=5;
+	private int displayRow=10;
+	private int displayPage=10;
 	private boolean prev;
 	private boolean next;
 	private int startNum;

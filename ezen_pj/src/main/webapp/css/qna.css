@@ -7,7 +7,7 @@ border-style: dote;
 
 color:black;
 
-background: pink;
+background: #9ed999;
 
 font-size: 350px;
 
@@ -194,7 +194,7 @@ footer #copy {    margin: 5px 0 0 300px;    width: 600px;   }
 #main_img img {   margin: 9px 0 0 0;}
 
 
-article h2, div h2 {   font-family: Verdana; font-size: 30px;   color: #6F0C78;   padding-bottom: 15px;   
+article h2, div h2 {   font-family: Verdana; font-size: 30px;   color: #000000;   padding-bottom: 15px;   
    border-bottom: 1px dotted #666; }
 
 a { color: #6F0C78;   text-decoration: none; } 
@@ -245,8 +245,8 @@ table#zipcode a:hover{font-weight: bold;}
 
 #itemdetail  img { width: 300px;      margin-right: 20px;  }
 
-table#cartList {border-collapse: collapse;   border-top: 2px solid #333;   border-bottom: 1px solid #333; 
-      width: 100%; margin-bottom: 20px; }
+table#cartList {background: #fffbe8; border-collapse: collapse;   border-top: 2px solid #333;   border-bottom: 2px solid #333; 
+      width: 100%; margin-bottom: 30px; line-height: 2; }
 table#cartList th, td {   border-bottom: 1px dotted #333;   text-align: center; }   
 
 #kindProduct {   border: solid 1px #FFFFFF;   border-radius: 10px; width: 610px;   min-height: 900px;   
