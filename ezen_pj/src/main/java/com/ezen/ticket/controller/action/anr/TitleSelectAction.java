@@ -23,6 +23,7 @@ public class TitleSelectAction implements Action {
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
 		ArrayList<ContentVO> list =null;	
 		ArrayList<ContentVO> list2 =null;	
+		ArrayList<ContentVO> list3 =null;	
 		if(mvo ==null) {
 			url="ticket.do?command=loginForm";
 		}else {
@@ -32,12 +33,13 @@ public class TitleSelectAction implements Action {
 			
 			int cseq=Integer.parseInt(request.getParameter("cseq"));
 
-			list2=cdao.selectContentDetailByTitle(cseq);
+			list2=cdao.selectFromContentByTitle(cseq);
+			list3=cdao.selectFromContentTime(cseq);
 			
 			request.setAttribute("category", category);
 
 			request.setAttribute("contentList", list);
-			request.setAttribute("contentDateList", list2);
+			request.setAttribute("contentTableList", list2);
 			
 		}
 		request.getRequestDispatcher(url).forward(request, response);
