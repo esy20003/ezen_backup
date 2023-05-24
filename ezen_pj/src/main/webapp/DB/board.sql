@@ -31,7 +31,7 @@ values(qna_board_qseq.nextval, 10, '문희드립니당', '수고비도 조정이
 
 
 --review
-
+select * from review_board; 
 insert into review_board(rseq, mseq, title, content, id,pwd)
 values(review_board_rseq.nextval, 1, '아이유 콘서트 성공후기', '1열로 성공해주셨어요! 감사합니다 믿고 맡기세요','dsan','1234');
 
