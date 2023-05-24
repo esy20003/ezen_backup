@@ -26,10 +26,11 @@ public class MemberUpdateAction implements Action {
 		mvo.setPhone(request.getParameter("phone"));
 		mvo.setBirth(request.getParameter("birth"));
 		mvo.setZip_num(request.getParameter("zip_num"));
+		mvo.setAddress1(request.getParameter("address1"));
 		mvo.setAddress2(request.getParameter("address2"));
 
 		MemberDao mdao = MemberDao.getInstance();
-		mdao.updateMember();
+		mdao.updateMember(mvo);
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("loginUser", mvo);

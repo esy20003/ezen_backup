@@ -28,6 +28,7 @@ import com.ezen.ticket.controller.action.qna.QnaListAction;
 import com.ezen.ticket.controller.action.qna.QnaViewAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
+import com.ezen.ticket.controller.action.review.ReviewListAction;
 
 
 public class ActionFactory {
@@ -76,6 +77,10 @@ public class ActionFactory {
 		// update, delete
 		else if(command.equals("editForm")) ac = new EditFormAction();
 		else if(command.equals("memberUpdate")) ac = new MemberUpdateAction();
+		// delete 는 마이페이지에서 기능추가
+		
+		// review
+		else if(command.equals("reviewList")) ac = new ReviewListAction();
 		
 		
 		// cart

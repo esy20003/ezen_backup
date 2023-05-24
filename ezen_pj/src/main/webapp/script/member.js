@@ -160,7 +160,7 @@ function go_update(){
      }else if(document.joinForm.name.value == ""){	
 	  alert("이름을 입력해 주세요.");
       document.joinForm.name.focus();	      
-     }else if(document.joinForm.nickname.value){	
+     }else if(document.joinForm.nickname.value == ""){	
 	  alert("별명을 입력해 주세요.");
       document.joinForm.nickname.focus();	      
      }else if(document.joinForm.email.value ==""){	
@@ -169,7 +169,7 @@ function go_update(){
      }else if(document.joinForm.phone.value ==""){	
 	  alert("전화번호를 입력해 주세요.");
       document.joinForm.phone.focus();
-     }else if(document.joinForm.birth.value =="" || document.joinForm.birth.value != 8 ){	
+     }else if(document.joinForm.birth.value =="" ){	
 	  alert("생년월일을 형식에 맞게 입력해 주세요");
       document.joinForm.birth.focus();
      }else if(document.joinForm.zip_num.value ==""){	

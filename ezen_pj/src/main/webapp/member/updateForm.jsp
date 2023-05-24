@@ -37,8 +37,11 @@
 				<input type="text" name="phone" value="${ loginUser.phone }">
 				
 				<br> <label>생년월일</label>
-					<%-- <fmt:parseDate value="${ loginUser.birth }" var="birth1" pattern="yyyymmdd" scope="page"/> --%>
-				<input type="text" name="birth"  value='${ loginUser.birth }'>
+				<fmt:parseDate var="birth" value="${loginUser.birth}" pattern="yyyy-MM-dd"/>
+				<fmt:formatDate var="birthday" value="${birth}" pattern="yyyy-MM-dd"/>
+				<input type="text" name="birth" value="${ birthday}"> <!--  string 형 으로 넘어올때   -->
+<%-- 				<fmt:formatDate var="resultRegDt" value="${loginUser.birth}" pattern="yyyy-MM-dd"/> --%>
+<%-- 				<input type="text" value="${ resultRegDt }"><!--  넘어온 값이 date 일 때 --> --%>
 				<br>
 			</fieldset>
 			<fieldset>
@@ -50,12 +53,11 @@
 				<input type="text" name="address1" readonly="readonly" size="50" value="${loginUser.address1}">
 				<br> <label>&nbsp;</label>
 				<input type="text" name="address2" size="25" value="${loginUser.address2}">
-				
 				<br>
 			</fieldset>
 			<div class="clear"></div>
-			<div id="buttons">
-				<input type="button" value="정보수정" class="submit" onclick="go_update();">
+			<div id="buttons" class="update_btn_box">
+				<input type="button" value="정보수정" class="submit btn_update_confirm" onclick="go_update();">
 				<input type="reset" value="취소" class="cancel">
 			</div>
 		</form>

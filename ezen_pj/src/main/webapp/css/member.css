@@ -121,15 +121,14 @@ textarea:-ms-input-placeholder {color:#ccc;}
 .join_content ul li {position: relative; list-style:none; min-height: 60px; border-bottom: 1px solid #ececec; box-sizing:border-box;}
 .join_content input{height:40px; width:300px; float:right; margin-left:10px; margin-top: 10px; background: none; border:none; float:left; padding-left:10px; font-size:18px; color:#444;}
 .join_content label{height:40px; width:100px; font-weight:bold; font-size:120%; line-height: 50px;}
-.join_content span{color:rgb(255,0,0); font-size:70%; font-weight:bold; float:left;line-height:30px; font-size:18px;}
-.join_content .gender{height:40px; width:400px; float:right; margin-right:10px; margin-top:10px;}
+.join_content span{color:rgb(255,0,0); font-size:70%; font-weight:bold; float:left;line-height:30px; font-size:18px; margin-left:10px;}
 
 /*  중복체크 버튼 */
 .join_content input.chk_id {width: 100px; border:1px solid #444;box-sizing: border-box;cursor: pointer;padding:0;}
 /*  주소찾기 버튼  */
 .join_content .zip_find {float:left; width:100px; border:1px solid #444; border-radius:10px; cursor: pointer;padding:0;}
 /* select 성별 선택  */
-.join_content .gender {height: 40px; width: 400px; float: left; margin-top: 10px; margin-left:10px; padding-left:10px;}
+.join_content .gender {height: 40px; width: 400px; float: left; margin-top: 10px; margin-left:10px; padding-left:10px; font-size:18px;}
 /* 회원가입 버튼 취소버튼   */
 
 #buttons .join_ok {color:#ccc; background:#222; cursor: pointer;}
@@ -143,7 +142,39 @@ textarea:-ms-input-placeholder {color:#ccc;}
 
 
 /* updateForm css  */
-#update_box {width:1000px; height:500px; border:1px solid red; margin :0 auto;}
+#update_box {width:1000px; height:500px; margin :0 auto;}
+#update_box h2 {background: none; color:#444; padding-top:15px;}
+
+/* update_btn_box   */
+#buttons.update_btn_box {float:right;}
+#buttons.update_btn_box input[type="button"], input[type="reset"] {cursor: pointer; }
+#buttons.update_btn_box .btn_update_confirm {background:#444; color:#fff;}
+#buttons.update_btn_box .cancel{background:#444; color:#fff;}
+
+#update_box form input {background:none; padding-left:10px; height:26px;}
+#update_box form label {height:26px; line-height: 26px; font-weight: 700; color:#666;}
+#update_box form .dup {height:30px; vertical-align: middle;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

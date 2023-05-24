@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 import com.ezen.ticket.dto.AddressVO;
@@ -118,11 +115,31 @@ private MemberDao() {}
 		return result;
 	}
 
-	public void updateMember() {
+	public int updateMember(MemberVO mvo) {
+		int result = 0;
 		con = Dbman.getConnection();
-		
-		
+		String sql ="update member set pwd=?, name=?, nickname=?, email=?, phone=?, birth=?, zip_num=?, address1=? , address2=? where id=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, mvo.getPwd());
+			pstmt.setString(2, mvo.getName());
+			pstmt.setString(3, mvo.getNickname());
+			pstmt.setString(4, mvo.getEmail());
+			pstmt.setString(5, mvo.getPhone());
+			pstmt.setString(6, mvo.getBirth());
+			pstmt.setString(7, mvo.getZip_num());
+			pstmt.setString(8, mvo.getAddress1());
+			pstmt.setString(9, mvo.getAddress2());
+			pstmt.setString(10, mvo.getId());
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) { e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);
+		}
+		return result;
 	}
+
+
 	
 	
 	
