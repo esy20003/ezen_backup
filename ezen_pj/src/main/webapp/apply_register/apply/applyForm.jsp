@@ -40,15 +40,14 @@
 				<div class="dateBox bodyBox">
 						<c:forEach items="${contentDateList}" var="contentDVO">
 							<ul>
-							<!-- 이거는 content_time_view를 불러야함 -->
 								<li><a href="#" onclick="return false">${contentDVO.contentDate}</a></li>
 							</ul>
 						</c:forEach>
 				</div>
 				<div class="timeBox bodyBox">
-					<c:forEach items="${contentList}" var="contentVO">
+					<c:forEach items="{contentList}" var="contentVO">
 								<ul>
-									<li><a href="#" onclick="return false">${contentVO.contentTime}</a></li>
+									<li><a href="#" onclick="return false">{contentVO.contentTime}</a></li>
 								</ul>
 					</c:forEach>
 				</div>
@@ -56,11 +55,11 @@
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
 					<div class="contentDetail">
 						<div class="poster">
-							<img src="${ContentVO.image}">
+							<img src="${ContentDVO.image}">
 						</div>
 						<div class="detail">
 							<div class="title">${contentVO.title}</div>
-							<div class="location">${contentVO.locationName}</div>
+							<div class="location">${contentDVO.locationName}</div>
 							<div class="artist">${contentVO.artist}</div>
 						</div>
 					</div>
@@ -70,12 +69,12 @@
 					<div class="seatingChartDetailBox">
 						<div class="seatingChartImg">
 						<!-- 좌석도도 content_loc_seat_view에서 가져와야함 -->
-							<img alt="" src="${contentVO.areaImage}">
+							<img alt="" src="${contentDVO.areaImage}">
 						</div>
-						<c:forEach  items="${contentList}" var="contentVO">
+						<c:forEach  items="${contentDateList}" var="contentDVO">
 							<div class="seatingChartAreaBox">
 								<ul>
-									<li><a href="#" onclick="return false">${contentVO.area}&nbsp;&nbsp;&nbsp;${contentVO.price}</a></li>
+									<li><a href="#" onclick="return false">${contentDVO.area}&nbsp;&nbsp;&nbsp;${contentDVO.price}</a></li>
 								</ul>
 							</div>
 						</c:forEach>
