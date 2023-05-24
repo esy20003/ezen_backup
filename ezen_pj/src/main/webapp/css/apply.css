@@ -40,7 +40,7 @@ font-size:2em; line-height:50px;}
 .applyTitle li:nth-child(5){width:250px;}
 .applyTitle li:last-child{width:250px; }
 
-.applyBodyBox{background:#EDEDED; postion:relative; width:1200px; height:650px;}
+.applyBodyBox{background:#E8E8E8; postion:relative; width:1200px; height:650px;}
 .bodyBox{box-sizing:border-box; border:1px solid black;postion:relative; float:left; height:100%;}
 
 .categoryBox{width:125px;}

@@ -41,7 +41,7 @@
 				<div class="dateBox bodyBox">
 						<c:forEach items="${contentDateList}" var="contentDL">
 							<ul>
-								<li><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
+								<li><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=to_date(${contentDL.contentDate}, 'yyyy-mm-dd')">
 								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a></li>
 							</ul>
 						</c:forEach>

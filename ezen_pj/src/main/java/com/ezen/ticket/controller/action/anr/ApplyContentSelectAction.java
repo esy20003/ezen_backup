@@ -33,8 +33,9 @@ public class ApplyContentSelectAction implements Action {
 			ContentDao cdao=ContentDao.getInstance();
 			
 			if(request.getParameter("contentDate")!=null) {
-				String contentDateTimestp=request.getParameter("contentDate");
-				String contentDate=contentDateTimestp.substring(0, 10);
+				System.out.println(request.getParameter("contentDate"));
+				String contentDate=request.getParameter("contentDate").substring(8, 18);
+				System.out.println(contentDate);
 				int category=Integer.parseInt(request.getParameter("category"));
 				list = cdao.selectContent(category);
 				
