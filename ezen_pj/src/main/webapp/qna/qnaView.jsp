@@ -19,9 +19,9 @@
 	<tr><th>등록일</th><td align="left" style="text-align:left;">
 	<fmt:formatDate value="${QnaVO.indate}" type="date"/></td></tr>
 	<tr><th>질문내용</th>
-	<td align="left" style="text-align:left;font-size:115%;"><pre>${QnaVO.content}</pre></td></tr>
+	<td align="left" style="text-align:left;font-size:100%;"><pre>${QnaVO.content}</pre></td></tr>
 	<tr><th>답변내용</th><td align="left" style="text-align:left; color:white;">${QnaVO.reply}</td></tr>
-	<tr><th>아이디</th><td align="left" style="text-align:left; font-size:115%;"><pre>${QnaVO.mseq}</pre></td></tr>
+	<tr><th>아이디</th><td align="left" style="text-align:left; font-size:115%;"><pre>${QnaVO.id}</pre></td></tr>
 </table><div class="clear"></div>
 <div id="buttons" style="float:right">
 	<input type="button" value="목록보기" class="submit" style="color:black" onclick="location.href='ticket.do?command=qnaList'">
