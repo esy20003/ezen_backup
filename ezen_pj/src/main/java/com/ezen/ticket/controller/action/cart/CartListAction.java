@@ -31,10 +31,7 @@ public class CartListAction implements Action {
 			Member_Grade_View_Dao mgvdao = Member_Grade_View_Dao.getInstance();
 			ArrayList<CartVO> list = cartdao.getMyCartList_notBuy(mvo.getMseq());
 			ArrayList<CartVO> buycartlist = cartdao.getMyCartList_Buy(mvo.getMseq());
-			
 			ArrayList<Member_Grade_View_VO> defutylist = mgvdao.setDefutyList(list, list.size());
-			System.out.println(defutylist.size());
-			
 			request.setAttribute("notBuy_cartList", list);
 			request.setAttribute("buy_cartList", buycartlist);
 			request.setAttribute("defuty", defutylist);

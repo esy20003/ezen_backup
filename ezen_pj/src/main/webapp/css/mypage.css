@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+#mypage_box{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#mypage_box h2{
+	margin-top: 30px;
+    background: white;
+    border: none;
+    color: black;
+    font-size: 50px;
+    margin-left: 50px;
+    color: blue;
+}
+
+#mypage_box #mypageFrm{
+	width:1200px;
+	margin-top:30px;
+}
+
+#mypage_box #mypageFrm #mypage{
+	width:1200px;
+	height:100px;
+}
+#mypage_box #mypageFrm #mypage tbody{
+	line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+#mypage_box #mypageFrm #mypage tbody tr th{
+    border: 1px solid black;
+}
+#mypage_box #mypageFrm #mypage tbody tr td{
+	border: 1px solid black;
+}
+#mypage_box #mypageFrm #mypage tbody tr{
+	height:50px;
+}
+
+#mypage_box #mypageFrm #mypage_sub{
+	margin-top:50px;
+	width:1200px;
+	height:100px;
+	margin-bottom: 50px;
+}
+
+#mypage_box #mypageFrm #mypage_sub tbody tr{
+	height:50px;
+}
+
+#mypage_box #mypageFrm #mypage_sub tbody tr th{
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+#mypage_box #mypageFrm #mypage_sub tbody tr td{
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 1px solid black;
+}
+
+#mypage_box #mypageFrm #buttons{
+	margin: 20px 0 0 850px;
+}
+    
+#mypage_box #mypageFrm #buttons #update_button{
+	width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    margin-right:25px;
+}
+#mypage_box #mypageFrm #buttons #cancel_button{
+	width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: black;
+}
+
+
+
+
+

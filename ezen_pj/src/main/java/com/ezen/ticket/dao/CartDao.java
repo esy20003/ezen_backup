@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezen.ticket.dto.CartVO;
+import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.util.Dbman;
 
 public class CartDao {
@@ -37,6 +38,7 @@ public class CartDao {
 				cartVO.setArea(rs.getString("area"));
 				cartVO.setQuantity(rs.getInt("quantity"));
 				cartVO.setIndate(rs.getTimestamp("indate"));
+				cartVO.setMseq2(rs.getInt(rs.getInt("mseq2")));
 				cartVO.setBuyyn(rs.getString("buyyn").charAt(0));
 				list.add(cartVO);
 			}
@@ -70,6 +72,20 @@ public class CartDao {
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs); }
 		return buycartlist;
+	}
+	
+	public void deleteCart(int cseq, MemberVO mvo) {
+		
+		con = Dbman.getConnection();
+		String sql = "delete from cart where mseq = ? and cseq = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mvo.getMseq());
+			pstmt.setInt(2, cseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		
 	}
 	
 }

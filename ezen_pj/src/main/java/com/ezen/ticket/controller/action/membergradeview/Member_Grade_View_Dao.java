@@ -24,17 +24,15 @@ public class Member_Grade_View_Dao {
 		if(size == 0) {
 			return defutylist;
 		}else {
-			System.out.println("성공");
 			defutylist = new ArrayList<Member_Grade_View_VO>();
 			Member_Grade_View_VO mgvVO = null;
 			con = Dbman.getConnection();
 			String sql = "select * from member_grade_view where cmseq=?";
 			try {
 				
-				for(int sseq = 0; sseq < size; sseq++) {
-					
+				for(int sseq = 0; sseq < 2; sseq++) {
 					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, list.get(sseq).getMseq2());
+					pstmt.setInt(1, list.get(0).getMseq2());
 					rs = pstmt.executeQuery();
 					if(rs.next()) {
 						mgvVO = new Member_Grade_View_VO();
