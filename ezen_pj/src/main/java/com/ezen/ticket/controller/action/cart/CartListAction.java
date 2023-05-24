@@ -31,7 +31,7 @@ public class CartListAction implements Action {
 			Member_Grade_View_Dao mgvdao = Member_Grade_View_Dao.getInstance();
 			
 			ArrayList<CartVO> list = cartdao.getMyCartList_notBuy(mvo.getMseq());
-			/* int defutySeq = cartdao.getDseq(mvo.getMseq()); */
+			ArrayList<CartVO> defutylist = cartdao.getDseq(mvo.getMseq());
 			
 			ArrayList<CartVO> buycartlist = cartdao.getMyCartList_Buy(mvo.getMseq());
 			/*
@@ -40,7 +40,7 @@ public class CartListAction implements Action {
 			
 			request.setAttribute("notBuy_cartList", list);
 			request.setAttribute("buy_cartList", buycartlist);
-			request.setAttribute("defuty", defutylist);
+			/* request.setAttribute("defuty", defutylist); */
 		}
 		
 		/* request.getRequestDispatcher("main.jsp").forward(request, response); */
