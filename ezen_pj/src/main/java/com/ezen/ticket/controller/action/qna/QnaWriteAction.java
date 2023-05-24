@@ -23,6 +23,7 @@ public class QnaWriteAction implements Action {
 			QnaVO qvo = new QnaVO();
 			qvo.setMseq(mvo.getMseq());
 			qvo.setId(mvo.getId());
+			qvo.setPwd(mvo.getPwd());
 			qvo.setTitle(request.getParameter("title"));
 			qvo.setContent(request.getParameter("content"));
 			QnaDao qdao = QnaDao.getInstance();
