@@ -4,7 +4,7 @@
 
 <script src="apply_register/apply_register.js"></script>
 
-<form name="frm" method="post">
+<form name="frm" method="post" class="form">
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
@@ -83,7 +83,7 @@
 					<div class="AreaBox">
 						<c:forEach  items="${contentAreaList}" var="contentAL">
 								<ul>
-									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}</a></li>
+									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}원</a></li>
 								</ul>
 						</c:forEach>
 					</div>
