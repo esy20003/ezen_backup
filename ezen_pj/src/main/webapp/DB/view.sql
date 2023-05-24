@@ -34,14 +34,13 @@ select*from content_time_view order by cseq;
 
 
 -- 3. member+ grade 합친 뷰
-
 select * from member;
 select * from grade;
 select * from member_grade_view;
 
 CREATE OR REPLACE VIEW member_grade_view
 AS 
-SELECT  m.mseq, m.id, m.nickname,m.success, m.grade, g.gname, g.gprice
+SELECT  m.mseq as cmseq, m.id as cid, m.nickname as cnickname,m.success, m.grade, g.gname, g.gprice
 FROM member m
 INNER JOIN grade g
 ON m.grade=g.gseq;

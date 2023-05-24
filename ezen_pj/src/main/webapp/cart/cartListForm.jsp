@@ -11,7 +11,7 @@
 			</c:when>
 			<c:otherwise>
 				<div class = "cartList_box">
-					<h1>구매 목록</h1>
+					<h1>장바구니 목록</h1>
 					<table class = "cartItemList">
 						<tr>
 							<th>번호</th><th>일시</th><th>시간</th><th>위치번호(구역번호)</th><th>좌석</th><th>총수량</th><th>신청날짜</th>
@@ -26,9 +26,8 @@
 								<td>${ cartListVO.area }</td>
 								<td>${ cartListVO.quantity }</td>
 								<td><fmt:formatDate value="${ cartListVO.indate }" type="date" /></td>
-								<td>${ cartListVO.mseq2 }</td>
-								<c:forEach items="${ defuty }" var="defutyVO">
-								<td>${ defutyVO.nickname }</td>
+								<c:forEach items="${ commition }" var="defutyVO">
+								<td>${ defutyVO.cnickname }</td>
 								</c:forEach>
 								<td><input type="checkbox"/></td>
 							</tr>
