@@ -12,9 +12,9 @@ import javax.servlet.http.HttpSession;
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.membergradeview.Member_Grade_View_Dao;
 import com.ezen.ticket.dao.CartDao;
-import com.ezen.ticket.dao.Member_Grade_View_VO;
 import com.ezen.ticket.dto.CartVO;
 import com.ezen.ticket.dto.MemberVO;
+import com.ezen.ticket.dto.Member_Grade_View_VO;
 
 public class CartListAction implements Action {
 
@@ -29,18 +29,15 @@ public class CartListAction implements Action {
 		}else {
 			CartDao cartdao = CartDao.getInstance();
 			Member_Grade_View_Dao mgvdao = Member_Grade_View_Dao.getInstance();
-			
 			ArrayList<CartVO> list = cartdao.getMyCartList_notBuy(mvo.getMseq());
-			ArrayList<CartVO> defutylist = cartdao.getDseq(mvo.getMseq());
-			
 			ArrayList<CartVO> buycartlist = cartdao.getMyCartList_Buy(mvo.getMseq());
-			/*
-			 * ArrayList<Member_Grade_View_VO> defutylist = mgvdao.setDefutyList(defutySeq);
-			 */
+			
+			ArrayList<Member_Grade_View_VO> defutylist = mgvdao.setDefutyList(list, list.size());
+			System.out.println(defutylist.size());
 			
 			request.setAttribute("notBuy_cartList", list);
 			request.setAttribute("buy_cartList", buycartlist);
-			/* request.setAttribute("defuty", defutylist); */
+			request.setAttribute("defuty", defutylist);
 		}
 		
 		/* request.getRequestDispatcher("main.jsp").forward(request, response); */

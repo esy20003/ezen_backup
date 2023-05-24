@@ -1,32 +1,32 @@
-package com.ezen.ticket.dao;
+package com.ezen.ticket.dto;
 
 public class Member_Grade_View_VO {
 	
-	private int mseq;
-	private String id;
-	private String nickname;
+	private int cmseq;
+	private String cid;
+	private String cnickname;
 	private int success;
 	private int grade;
 	private String gname;
 	private String gprice;
 	
-	public int getMseq() {
-		return mseq;
+	public int getCmseq() {
+		return cmseq;
 	}
-	public void setMseq(int mseq) {
-		this.mseq = mseq;
+	public void setCmseq(int cmseq) {
+		this.cmseq = cmseq;
 	}
-	public String getId() {
-		return id;
+	public String getCid() {
+		return cid;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setCid(String cid) {
+		this.cid = cid;
 	}
-	public String getNickname() {
-		return nickname;
+	public String getCnickname() {
+		return cnickname;
 	}
-	public void setNickname(String nickname) {
-		this.nickname = nickname;
+	public void setCnickname(String cnickname) {
+		this.cnickname = cnickname;
 	}
 	public int getSuccess() {
 		return success;
