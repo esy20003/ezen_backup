@@ -55,12 +55,12 @@
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
 					<div class="contentDetail">
 						<div class="poster">
-							<img src="${ContentDVO.image}">
+							<img src="{ContentDVO.image}">
 						</div>
 						<div class="detail">
-							<div class="title">${contentVO.title}</div>
-							<div class="location">${contentDVO.locationName}</div>
-							<div class="artist">${contentVO.artist}</div>
+							<div class="title">{contentVO.title}</div>
+							<div class="location">{contentDVO.locationName}</div>
+							<div class="artist">{contentVO.artist}</div>
 						</div>
 					</div>
 				</div>
