@@ -9,7 +9,6 @@ import com.ezen.ticket.controller.action.anr.CategorySelectAction;
 
 import com.ezen.ticket.controller.action.anr.NextMonthAction;
 import com.ezen.ticket.controller.action.anr.PrevMonthAction;
-import com.ezen.ticket.controller.action.anr.RegisterAction;
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 
 import com.ezen.ticket.controller.action.anr.RegisterTimeFormAction;

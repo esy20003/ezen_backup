@@ -1,41 +1,57 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.20/jquery.datetimepicker.full.min.js"></script>
+<%@ include file="../../header.jsp"%>
 
-<script type="text/javascript">
+<form method="post" name="registerForm" style="margin: 0 auto;">
+    <!-- <input type="hidden" name="command" value="registerTimeForm"> -->
+
+    <section name="registerBody" id="bodyBox_register">
+        <div class="registerBox" name="registerBoxform">
+            <table class="registerDate" name="registerDate">
+                <tr class="tableHead">
+                    <th><h1>날짜와 시간</h1></th>
+                </tr>
+                <td class="datetime">
+                    <div class="datetimeBox">
+                        <input type="datetime-local" name="starttime" id="starttime"> ~ 
+                        <input type="datetime-local" name="endtime" id="endtime">
+                    </div>
+                </td>
+            </table>
+            <button type="button" id="addButton">추가</button>
+        </div>
+    </section>
+</form>
+
+<ul id="output"></ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script>
 $(function() {
-    $(".datetimepicker").datetimepicker({ 
-        format: "Y-m-d H:i",
-    });
-
     $("#addButton").click(function() {
-        var startDt = $("input[name='start_dt']").val();
-        var endDt = $("input[name='end_dt']").val();
+        var startTime = $("#starttime").val();
+        var endTime = $("#endtime").val();
         
-        if (startDt.trim() === '' || endDt.trim() === '') {
-            alert("시작일시와 종료일시를 입력해주세요.");
+        if (startTime === "" || endTime === "") {
+            alert("날짜와 시간을 선택해주세요.");
             return;
         }
         
-        // 선택한 날짜와 시간을 출력하는 부분입니다.
-        $("#output").append("<p>시작일시: " + startDt + ", 종료일시: " + endDt + "</p>");
+        var listItem = $("<li>").text("시작일시: " + startTime + ", 종료일시: " + endTime);
+        var deleteButton = $("<button>").text("삭제");
+        deleteButton.on("click", function() {
+            listItem.remove();
+        });
+        listItem.append(deleteButton);
+        $("#output").append(listItem);
         
         // 필요한 작업을 수행할 수 있습니다.
         // 예를 들면, 저장된 데이터를 서버에 전송하거나 다른 처리를 수행하는 등의 작업입니다.
+        
+        // 선택한 날짜와 시간 초기화
+        $("#starttime").val("");
+        $("#endtime").val("");
     });
 });
 </script>
 
-<h1>datetimepicker</h1>
-시작일시 : <input type='text' class='datetimepicker' name='start_dt'  style='width:140px;'>, 
-종료일시 : <input type='text' class='datetimepicker' name='end_dt'   style='width:140px; padding-left:10px;'>
-<br>
-<button id="addButton">추가</button>
-
-<div id="output"></div>
-</body>
-</html>
+<%@ include file="../../footer.jsp"%>
