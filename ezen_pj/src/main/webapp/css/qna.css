@@ -176,11 +176,11 @@ background-color:#ffd668;
 
 }
 
-.clear {   clear: both; }
-footer {   margin: 10px 0 0 0;   height: 70px;   background-image: url(../images/bottom_logo.png); 
-      background-repeat: no-repeat; background-position: 60px center;  }   
+/* .clear {   clear: both; } */
+/* footer {   margin: 10px 0 0 0;   height: 70px;   background-image: url(../images/bottom_logo.png);  */
+/*       background-repeat: no-repeat; background-position: 60px center;  }    */
 
-footer #copy {    margin: 5px 0 0 300px;    width: 600px;   }
+/* footer #copy {    margin: 5px 0 0 300px;    width: 600px;   } */
 
 
 
