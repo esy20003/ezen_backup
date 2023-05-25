@@ -27,6 +27,8 @@ import com.ezen.ticket.controller.action.member.LoginAction;
 import com.ezen.ticket.controller.action.member.LoginFormAction;
 import com.ezen.ticket.controller.action.member.LogoutAction;
 import com.ezen.ticket.controller.action.member.MemberUpdateAction;
+import com.ezen.ticket.controller.action.mypage.MyRegisterAction;
+import com.ezen.ticket.controller.action.mypage.MyRegisteredAction;
 import com.ezen.ticket.controller.action.mypage.MypageAction;
 import com.ezen.ticket.controller.action.qna.QnaListAction;
 import com.ezen.ticket.controller.action.qna.QnaViewAction;
@@ -98,7 +100,8 @@ public class ActionFactory {
 		
 		// mypage
 		else if(command.equals("mypage")) ac = new MypageAction();
-		
+		else if(command.equals("myRegister")) ac = new MyRegisterAction();
+		else if(command.equals("myRegistered")) ac = new MyRegisteredAction();
 		
 		// main 화면 헤더부분
 		else if(command.equals("contentForm")) ac = new ContentFormAction();

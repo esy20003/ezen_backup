@@ -67,10 +67,10 @@
 }
 
 #mypage_box #mypageFrm #buttons{
-	margin: 20px 0 0 850px;
+	margin: 20px 0 0 690px;
 }
-    
-#mypage_box #mypageFrm #buttons #update_button{
+
+#mypage_box #mypageFrm #buttons #registertable_button{
 	width: 150px;
     height: 50px;
     border-radius: 50px;
@@ -79,7 +79,19 @@
     font-weight: bold;
     background: white;
     color: black;
-    margin-right:25px;
+}
+
+#mypage_box #mypageFrm #buttons #updateForm_button{
+	width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    margin-right:20px;
+    margin-left:20px;
 }
 
 #mypage_box #mypageFrm #buttons #cancel_button{
@@ -93,43 +105,43 @@
     color: black;
 }
 
-#mypage_box #mypageFrm #notyetRegister{
+#mypage_box #mypageFrm #registeringtable{
 	width:1200px;
 	margin-top:35px;
 }
 
-#mypage_box #mypageFrm #notyetRegister tbody tr{
+#mypage_box #mypageFrm #registeringtable tbody tr{
 	height:50px;
 	line-height:50px;
 	font-size:20px;
 	font-weight:bold;
 }
 
-#mypage_box #mypageFrm #notyetRegister tbody tr th{
+#mypage_box #mypageFrm #registeringtable tbody tr th{
 	border:1px solid black;
 }
 
-#mypage_box #mypageFrm #notyetRegister tbody tr td{
+#mypage_box #mypageFrm #registeringtable tbody tr td{
 	border:1px solid black;
 }
 
-#mypage_box #mypageFrm #lastRegister{
+#mypage_box #mypageFrm #registeredtable{
 	width:1200px;
 	margin-top:35px;
 }
 
-#mypage_box #mypageFrm #lastRegister tbody tr{
+#mypage_box #mypageFrm #registeredtable tbody tr{
 	height:50px;
 	line-height:50px;
 	font-size:20px;
 	font-weight:bold;
 }
 
-#mypage_box #mypageFrm #lastRegister tbody tr th{
+#mypage_box #mypageFrm #registeredtable tbody tr th{
 	border:1px solid black;
 }
 
-#mypage_box #mypageFrm #lastRegister tbody tr td{
+#mypage_box #mypageFrm #registeredtable tbody tr td{
 	border:1px solid black;
 }
 
