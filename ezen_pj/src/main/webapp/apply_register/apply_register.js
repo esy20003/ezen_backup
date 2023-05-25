@@ -25,7 +25,7 @@
 		 case 5: location.href="ticket.do?command=categorySelect&category=5"; break;
 	 }
  }
- 
+
 
  
  
