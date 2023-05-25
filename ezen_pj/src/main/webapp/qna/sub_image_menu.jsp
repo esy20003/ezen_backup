@@ -10,7 +10,7 @@
 
 <nav id="sub_menu">
 	<ul>
-			<li><a href="ticket.do?command=qnaList">♥♥♥♥♥♥♬♬♬♬</a></li>
-			<li><a href="ticket.do?command=qnaWriteForm">♡♡♡♡♡♡♩♪♩♪</a></li>
+			<li><a href="ticket.do?command=qnaList">♥♥목록 보기♬♬♬</a></li>
+			<li><a href="ticket.do?command=qnaWriteForm">♡♡글쓰기♩♪♩♪</a></li>
 		</ul>
 </nav>
