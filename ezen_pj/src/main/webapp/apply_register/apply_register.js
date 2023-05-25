@@ -3,7 +3,11 @@
  */
  
  function go_apply(){
-
+	 
+	sessionStorage.removeItem('selectedCseq');
+	sessionStorage.removeItem('selectedDate');
+	sessionStorage.removeItem('selectedTime');
+	sessionStorage.removeItem('selectedArea');
 	 document.frm.action='ticket.do?command=categorySelect&category=0';
 	 document.frm.submit();
  }
@@ -18,31 +22,37 @@
  function select_category(category){
 	 switch(category){
 		 case 0: location.href="ticket.do?command=categorySelect&category=0";
+	sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');
 		  break;
 		 case 1: location.href="ticket.do?command=categorySelect&category=1";
+	sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');
 		  break;
 		 case 2: location.href="ticket.do?command=categorySelect&category=2"; 
+	sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');
 		 break;
 		 case 3: location.href="ticket.do?command=categorySelect&category=3"; 
+	sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');
 		 break;
 		 case 4: location.href="ticket.do?command=categorySelect&category=4"; 
+	sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');
 		 break;
 		 case 5: location.href="ticket.do?command=categorySelect&category=5"; 
+	sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');
@@ -55,7 +65,7 @@ function applyFormCheck(){
 	var date=sessionStorage.getItem('selectedDate');
 	var time=sessionStorage.getItem('selectedTime');
 	var area=sessionStorage.getItem('selectedArea');
-	if(document.getElementById('cseq').value==""){
+	if(sessionStorage.getItem('selectedCseq')==null){
 		alert("공연을 선택해 주세요.");
 		return false;
 	}else if(sessionStorage.getItem('selectedDate')==null){
@@ -72,6 +82,10 @@ function applyFormCheck(){
 	}	
 }
 
+function saveCseq(num){
+	
+	sessionStorage.setItem('selectedCseq',document.getElementById('cseq'+num).value);
+}
 function saveDate(num){
 	
 	sessionStorage.setItem('selectedDate',document.getElementById('date'+num).value);

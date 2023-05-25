@@ -33,18 +33,19 @@
 					</ul>
 				</div>
 				<div class="contentNameBox bodyBox">
-					<c:forEach items="${contentList}" var="contentVO">
 						<ul>
-							<li><a href="ticket.do?command=applyContentSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">
-							${contentVO.title}</a></li>
-						</ul>
+					<c:forEach items="${contentList}" var="contentVO" varStatus="state">
+							<li onclick="saveCseq('${state.count}')"><a href="ticket.do?command=applyContentSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">
+							${contentVO.title}</a>
+								<input type="hidden" value="${contentVO.cseq}" name="cseq" id='${"cseq"+=state.count}'>
+							</li>
 					</c:forEach>
+						</ul>
 				</div>
 				<div class="dateBox bodyBox">
 							<ul class="date">
 						<c:forEach items="${contentDateList}" var="contentDL" varStatus="state">
 								<li onclick="saveDate('${state.count}')"><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
-								<input type="hidden" value="${contentDL.cseq}" name="cseq" id="cseq">
 								<input type="hidden" value="${contentDL.contentDate}" name="date" id='${"date"+=state.count}'>
 								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a>
 								</li>
