@@ -114,6 +114,7 @@ CREATE TABLE content
 	content varchar2(3000) NOT NULL,
 	category number(2,0) NOT NULL,
 	age varchar2(20) DEFAULT '전체관람가',
+	tDateTime varchar2(100) default '0',
 	bestyn char(1) DEFAULT 'N',
 	PRIMARY KEY (cseq)
 );
