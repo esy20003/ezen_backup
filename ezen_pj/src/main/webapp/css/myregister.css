@@ -49,7 +49,7 @@
 	border:1px solid black;
 }
 
-#myRegister_box #go_home_button{
+#myRegister_box #buttons #go_home_button{
 	width: 150px;
     height: 50px;
     border-radius: 50px;
@@ -60,4 +60,51 @@
     color: black;
     margin-right:20px;
     margin-left:20px;
+}
+
+#myRegister_box #buttons #myregister_button{
+	width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    margin-right:20px;
+    margin-left:20px;
+}
+
+#myRegister_box #buttons #myregistered_button{
+	width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    margin-right:20px;
+    margin-left:20px;
+}
+
+#myRegister_box #buttons #myregisterall_button{
+	width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    background: white;
+    color: black;
+    margin-right:20px;
+    margin-left:20px;
+}
+
+#myRegister_box #buttons{
+	
+    margin-bottom: 50px;
+    text-align: center;
+    background: greenyellow;
+	
 }

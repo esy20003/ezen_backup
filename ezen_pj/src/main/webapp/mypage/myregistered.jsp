@@ -27,7 +27,7 @@
 		<input type="button" id="myregister_button" value="나의 대리할 내역" onclick="location.href='ticket.do?command=myRegister'"/>
 		<input type="button" id="myregistered_button" value="나의 대리한 내역" onclick="location.href='ticket.do?command=myRegistered'"/>
 		<input type="button" id="myregisterall_button" value="나의 전체 대리 내역" onclick="location.href='ticket.do?command=myAllRegister'"/>
-		<input type="button" id="go_home_button" value="홈으로" onclick="location.href='ticket.do?command=index'"/>
+		<input type="button" id="go_home_button" value="마이 페이지로" onclick="location.href='ticket.do?command=mypage'"/>
 	</div>
 	
 	<h2>나의 대리한 내역</h2>

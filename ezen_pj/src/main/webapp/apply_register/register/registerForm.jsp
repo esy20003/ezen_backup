@@ -18,6 +18,7 @@
                 </td>
             </table>
             <button type="button" id="addButton">추가</button>
+            <input type="submit" id="submit_Button" value="저장" onClick="gotime()">
         </div>
     </section>
 </form>
