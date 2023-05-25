@@ -18,8 +18,12 @@ select * from user_sequences;
 
 delete from ADDRESS;
 
+---------------등록 정보 페이지
+select*from registerTime;
+insert into REGISTERTIME values(registerTime_rtseq.nextVal,4, '2023-05-16','14:00','15:00');
+insert into REGISTERTIME values(registerTime_rtseq.nextVal,7, '2023-06-10','10:00','14:00');
 
-
+--------------------------여기부턴 member 테이블
 
 
 insert into MEMBER(mseq,id,pwd, name,gender,nickname,birth,email,phone,zip_num, address1, address2,grade, success) 

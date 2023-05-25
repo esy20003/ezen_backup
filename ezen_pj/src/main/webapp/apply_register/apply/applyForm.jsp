@@ -87,9 +87,25 @@
 								</ul>
 						</c:forEach>
 					</div>
-					</div>
 				</div>
-</section>
+			</div>
+		</div>		
+	</section>
+	<section class=buttonSection>
+		<div class=buttonBox>
+			<div class=groupBox>
+					<div class=buttonSmallBox>
+						<input id="button" type="button" value="뒤로">
+					</div>
+					<div class=buttonSmallBox>
+						<input id="button" type="button" value="장바구니">
+					</div>
+					<div class=buttonSmallBox>
+						<input type="submit" id="button" value="다음">
+					</div>
+			</div>
+		</div>
+	</section>
 </form>	
 	
 
