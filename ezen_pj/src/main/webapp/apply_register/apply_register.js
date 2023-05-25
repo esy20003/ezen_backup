@@ -96,9 +96,10 @@ function saveTime(num){
 function saveArea(num){
 	sessionStorage.setItem('selectedArea',document.getElementById('area'+num).value);
 }
- 
- 
+
+
  function gotime(){
-	 document.registerForm.action="ticket.do?command=registerTimeForm";
+    document.registerForm.action="ticket.do?command=registerTimeForm";
+
  }
  
