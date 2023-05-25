@@ -86,6 +86,7 @@ function saveCseq(num){
 	
 	sessionStorage.setItem('selectedCseq',document.getElementById('cseq'+num).value);
 }
+
 function saveDate(num){
 	
 	sessionStorage.setItem('selectedDate',document.getElementById('date'+num).value);
@@ -102,4 +103,5 @@ function saveArea(num){
     document.registerForm.action="ticket.do?command=registerTimeForm";
 
  }
+
  

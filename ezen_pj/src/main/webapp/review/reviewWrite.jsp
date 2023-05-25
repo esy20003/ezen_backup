@@ -21,21 +21,20 @@
 					</td>
 				</tr>
 				<tr>
-					<th>상품이미지</th>
+					<th>이미지업로드</th>
 					<td>
-						<label for="file" class="file_up_label">
-							<div class="btn_file_up">파일 업로드하기</div>
-						</label>
-						<input type="file" name="file" id="file" style="display:none;">
+						<div class="filebox">
+							<label for="file" style="width: 100%; text-align: left;padding-left: 20px;">첨부파일</label>
+							<input type="file" id="file" style="display:none;">
+						</div>
 					</td>
 				</tr>
 			</table>
-
 			<div class="clear"></div>
 			<div id="buttons" class="rev_btn_box" style="float: right">
 				<input type="submit" value="작성완료" class="submit" onclick="review_up();">
 				<input type="reset" value="취소" class="cancel">
-				<input type="button" value=" 돌아가기" class="submit" onClick="location.href='ticket.do?command=index'">
+				<input type="button" value=" 돌아가기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
 			</div>
 		</form>
 	</div>
