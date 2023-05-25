@@ -17,6 +17,7 @@ import com.ezen.ticket.controller.action.cart.CartDeleteAction;
 import com.ezen.ticket.controller.action.anr.ApplyContentSelectAction;
 
 import com.ezen.ticket.controller.action.cart.CartListAction;
+import com.ezen.ticket.controller.action.content.ContentFormAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
 import com.ezen.ticket.controller.action.member.EditFormAction;
 import com.ezen.ticket.controller.action.member.FindZipNumAction;
@@ -94,6 +95,12 @@ public class ActionFactory {
 		
 		// mypage
 		else if(command.equals("mypage")) ac = new MypageAction();
+		
+		
+		// main 화면 헤더부분
+		else if(command.equals("contentForm")) ac = new ContentFormAction();
+		
+		
 		
 		return ac;
 	}
