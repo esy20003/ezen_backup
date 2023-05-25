@@ -21,7 +21,6 @@ values(5,'Diamonds', 500000);
 select * from registertime
 select * from MEMBER
 
-
 --admin
 insert into admin(id, pwd, name, phone, email) 
 values('admin', 'admin', '김현우', '010-1564-7894', 'woo1@naver.com');
