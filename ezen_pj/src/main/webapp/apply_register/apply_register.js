@@ -27,7 +27,28 @@
  }
 
 
+function applyFormCheck(){
+	
+	if(document.getElementById('cseq').value==""){
+		alert("공연을 선택해 주세요.");
+		return false;
+	}else if(document.date.value==""){
+		alert("공연 날짜를 선택해 주세요.");
+		return false;
+	}else if(document.getElementById('time').value==""){
+		alert("공연 시간을 선택해 주세요.");
+		return false;
+	}else if(document.getElementById('area').value==""){
+		alert("공연 구역을 선택해 주세요.");
+		return false;
+	}else{
+		return true;	
+	}	
+}
  
- 
+ function datecheck() {
+	alert(document.getElementById('cseq').value);
+	alert(document.getElementById('date1').value);
+}
  
  

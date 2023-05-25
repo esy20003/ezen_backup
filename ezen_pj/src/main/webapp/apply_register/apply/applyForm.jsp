@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="../../header.jsp" %>
 
 <script src="apply_register/apply_register.js"></script>
 
-<form name="frm" method="post" class="form">
+<form name="frm" action="ticket.do" method="post" class="form">
+<input type="hidden" name="command" value="applyselectCommsioner"/>
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
@@ -39,17 +41,23 @@
 					</c:forEach>
 				</div>
 				<div class="dateBox bodyBox">
-						<c:forEach items="${contentDateList}" var="contentDL">
 							<ul>
-								<li><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=to_date(${contentDL.contentDate}, 'yyyy-mm-dd')">
-								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a></li>
-							</ul>
+						<c:forEach items="${contentDateList}" var="contentDL">
+								<li onclick="datecheck()"><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
+								<input type="hidden" value="${contentDL.cseq}" name="cseq" id="cseq">
+								<input type="hidden" value="${contentDL.contentDate}" name="date" id="date1">
+								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a>
+								</li>
 						</c:forEach>
+							</ul>
 				</div>
 				<div class="timeBox bodyBox">
 					<c:forEach items="${contentTimeList}" var="contentTil">
 								<ul>
-									<li><a href="#" onclick="return false">${contentTil.contentTime}</a></li>
+									<li><a href="#" onclick="return false">${contentTil.contentTime}</a>
+									<input type="hidden" value="${contentTil.contentTime}" name="time" name="time">
+									</li>
+									
 								</ul>
 					</c:forEach>
 				</div>
@@ -83,7 +91,9 @@
 					<div class="AreaBox">
 						<c:forEach  items="${contentAreaList}" var="contentAL">
 								<ul>
-									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}원</a></li>
+									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}원</a>
+									<input type="hidden" value="${contentAL.area}" name="area" id="area">
+									</li>
 								</ul>
 						</c:forEach>
 					</div>
@@ -101,7 +111,7 @@
 						<input id="button" type="button" value="장바구니">
 					</div>
 					<div class=buttonSmallBox>
-						<input type="submit" id="button" value="다음">
+						<input type="submit" id="button" onclick="return applyFormCheck()" value="다음">
 					</div>
 			</div>
 		</div>
