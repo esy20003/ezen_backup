@@ -33,33 +33,34 @@
 					</ul>
 				</div>
 				<div class="contentNameBox bodyBox">
-					<c:forEach items="${contentList}" var="contentVO">
 						<ul>
-							<li><a href="ticket.do?command=applyContentSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">
-							${contentVO.title}</a></li>
-						</ul>
+					<c:forEach items="${contentList}" var="contentVO" varStatus="state">
+							<li onclick="saveCseq('${state.count}')"><a href="ticket.do?command=applyContentSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">
+							${contentVO.title}</a>
+								<input type="hidden" value="${contentVO.cseq}" name="cseq" id='${"cseq"+=state.count}'>
+							</li>
 					</c:forEach>
+						</ul>
 				</div>
 				<div class="dateBox bodyBox">
-							<ul>
-						<c:forEach items="${contentDateList}" var="contentDL">
-								<li onclick="datecheck()"><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
-								<input type="hidden" value="${contentDL.cseq}" name="cseq" id="cseq">
-								<input type="hidden" value="${contentDL.contentDate}" name="date" id="date1">
+							<ul class="date">
+						<c:forEach items="${contentDateList}" var="contentDL" varStatus="state">
+								<li onclick="saveDate('${state.count}')"><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
+								<input type="hidden" value="${contentDL.contentDate}" name="date" id='${"date"+=state.count}'>
 								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a>
 								</li>
 						</c:forEach>
 							</ul>
 				</div>
 				<div class="timeBox bodyBox">
-					<c:forEach items="${contentTimeList}" var="contentTil">
 								<ul>
-									<li><a href="#" onclick="return false">${contentTil.contentTime}</a>
-									<input type="hidden" value="${contentTil.contentTime}" name="time" name="time">
+					<c:forEach items="${contentTimeList}" var="contentTil" varStatus="state">
+									<li onclick="saveTime('${state.count}')"><a href="#" onclick="return false">${contentTil.contentTime}</a>
+									<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
 									</li>
+					</c:forEach>
 									
 								</ul>
-					</c:forEach>
 				</div>
 				<div class="detailBox bodyBox">
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
@@ -89,13 +90,14 @@
 						</c:forEach>
 					</div>
 					<div class="AreaBox">
-						<c:forEach  items="${contentAreaList}" var="contentAL">
 								<ul>
-									<li><a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}원</a>
-									<input type="hidden" value="${contentAL.area}" name="area" id="area">
+						<c:forEach  items="${contentAreaList}" var="contentAL" varStatus="state">
+									<li onclick="saveArea('${state.count}')">
+									<a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}원</a>
+									<input type="hidden" value="${contentAL.area}" name="area" id='${"area"+=state.count}'>
 									</li>
-								</ul>
 						</c:forEach>
+								</ul>
 					</div>
 				</div>
 			</div>
@@ -111,7 +113,7 @@
 						<input id="button" type="button" value="장바구니">
 					</div>
 					<div class=buttonSmallBox>
-						<input type="submit" id="button" onclick="return applyFormCheck()" value="다음">
+						<input type="submit" id="button" value="다음" onclick="return applyFormCheck()"/>
 					</div>
 			</div>
 		</div>
