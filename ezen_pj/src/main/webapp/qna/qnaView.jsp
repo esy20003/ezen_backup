@@ -12,10 +12,10 @@
 
 </head>
 <article>
-<h2> 고객 게시판 </h2> <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3>
+<h2> 고객 게시판 </h2> <br><br> <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3><br><br>
 <form>
 
-<table>
+<table class="qna_view_table">
 	<tr><th>제목</th><td width="500" background="pink" style="text-align:left; ">${QnaVO.title}</td></tr>
 	<tr><th>질문내용</th>
 	<td align="left" style="text-align:left;font-size:100%;"><pre>${QnaVO.content}</pre></td></tr>
