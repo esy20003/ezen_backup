@@ -23,7 +23,7 @@
 	</c:forEach>
 </table>
 <div class="clear"></div>
-<div id="paging" style="font-weight:bold; margin-left:300px">
+<div id="paging" style="font-weight:bold; text-align: center;">
 	<c:url var="action" value="ticket.do?command=qnaList"/>
 	
 	<c:if test="${paging.prev}">
