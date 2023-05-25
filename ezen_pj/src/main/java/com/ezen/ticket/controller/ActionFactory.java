@@ -7,13 +7,10 @@ import com.ezen.ticket.controller.action.anr.ApplyContentSelectAction;
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
 import com.ezen.ticket.controller.action.anr.ApplyselectCommsionerAction;
 import com.ezen.ticket.controller.action.anr.CategorySelectAction;
-
 import com.ezen.ticket.controller.action.anr.NextMonthAction;
 import com.ezen.ticket.controller.action.anr.PrevMonthAction;
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
-
 import com.ezen.ticket.controller.action.anr.RegisterTimeFormAction;
-
 import com.ezen.ticket.controller.action.cart.CartDeleteAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
 import com.ezen.ticket.controller.action.content.ContentFormAction;
@@ -36,6 +33,7 @@ import com.ezen.ticket.controller.action.qna.QnaWriteAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
 import com.ezen.ticket.controller.action.review.ReviewListAction;
 import com.ezen.ticket.controller.action.review.ReviewViewAction;
+import com.ezen.ticket.controller.action.review.ReviewWriteAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteFormAction;
 
 
@@ -91,7 +89,8 @@ public class ActionFactory {
 		// review
 		else if(command.equals("reviewList")) ac = new ReviewListAction();
 		else if(command.equals("reviewView")) ac = new ReviewViewAction();
-		else if(command.equals("reviewWriteForm")) new ReviewWriteFormAction();
+		else if(command.equals("reviewWriteForm")) ac = new ReviewWriteFormAction();
+		else if(command.equals("reviewWrite")) ac = new ReviewWriteAction();
 		
 		// cart
 		else if(command.equals("cartList")) ac = new CartListAction();
