@@ -98,4 +98,7 @@ function saveArea(num){
 }
  
  
+ function gotime(){
+	 document.registerForm.action="ticket.do?command=registerTimeForm";
+ }
  
