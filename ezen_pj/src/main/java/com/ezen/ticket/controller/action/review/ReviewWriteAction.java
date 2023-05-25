@@ -8,22 +8,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.ezen.ticket.controller.action.Action;
-import com.ezen.ticket.dto.MemberVO;
 
-public class ReviewWriteFormAction implements Action {
+public class ReviewWriteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url="review/reviewWrite.jsp";
-		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		String url ="review/reviewList.jsp";
 		
-		if(mvo == null ) {
-			url ="ticket.do?command=loginForm";
-		} else {
-			request.getRequestDispatcher(url).forward(request, response);
-		}
+		
 		
 
 	}

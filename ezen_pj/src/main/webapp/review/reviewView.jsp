@@ -30,7 +30,7 @@
 				<tr>
 					<th>내용</th>
 					<td align="left">
-						<textarea cols="" rows="10">${reviewVO.content}</textarea>
+						<textarea cols="" rows="10" readonly="readonly" >${reviewVO.content}</textarea>
 					</td>
 				</tr>
 				<tr>
