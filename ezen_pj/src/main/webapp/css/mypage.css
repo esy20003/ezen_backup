@@ -55,6 +55,7 @@
     font-size: 20px;
     font-weight: bold;
     border: 1px solid black;
+    text-align:center;
 }
 
 #mypage_box #mypageFrm #mypage_sub tbody tr td{
@@ -62,6 +63,7 @@
     font-size: 20px;
     font-weight: bold;
     border: 1px solid black;
+    text-align: center;
 }
 
 #mypage_box #mypageFrm #buttons{
@@ -79,6 +81,7 @@
     color: black;
     margin-right:25px;
 }
+
 #mypage_box #mypageFrm #buttons #cancel_button{
 	width: 150px;
     height: 50px;
@@ -89,6 +92,54 @@
     background: white;
     color: black;
 }
+
+#mypage_box #mypageFrm #notyetRegister{
+	width:1200px;
+	margin-top:35px;
+}
+
+#mypage_box #mypageFrm #notyetRegister tbody tr{
+	height:50px;
+	line-height:50px;
+	font-size:20px;
+	font-weight:bold;
+}
+
+#mypage_box #mypageFrm #notyetRegister tbody tr th{
+	border:1px solid black;
+}
+
+#mypage_box #mypageFrm #notyetRegister tbody tr td{
+	border:1px solid black;
+}
+
+#mypage_box #mypageFrm #lastRegister{
+	width:1200px;
+	margin-top:35px;
+}
+
+#mypage_box #mypageFrm #lastRegister tbody tr{
+	height:50px;
+	line-height:50px;
+	font-size:20px;
+	font-weight:bold;
+}
+
+#mypage_box #mypageFrm #lastRegister tbody tr th{
+	border:1px solid black;
+}
+
+#mypage_box #mypageFrm #lastRegister tbody tr td{
+	border:1px solid black;
+}
+
+
+
+
+
+
+
+
 
 
 

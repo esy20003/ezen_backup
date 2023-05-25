@@ -121,9 +121,9 @@ $(function(){
 
                <nav id="category_menu">
                   <ul>
-                     <li><a href="ticket.do?command=proxyTicketingForm">대리
-                           티켓팅</a>
+                     <li><a href="ticket.do?command=contentForm">대리 티켓팅</a>
                         <ul class="depth2_menu">
+                           <li><a href="ticket.do?command=contentForm">전체</a></li>
                            <li><a href="ticket.do?command=musicalForm">콘서트</a></li>
                            <li><a href="ticket.do?command=concertForm">뮤지컬</a></li>
                            <li><a href="ticket.do?command=sportsForm">스포츠</a></li>

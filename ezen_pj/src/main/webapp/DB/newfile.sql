@@ -15,6 +15,7 @@ DROP TABLE qna_board CASCADE CONSTRAINTS;
 DROP TABLE review_board CASCADE CONSTRAINTS;
 DROP TABLE success_board CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
+DROP TABLE registerTime CASCADE CONSTRAINTS;
 
 
 
@@ -44,10 +45,24 @@ CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE success_board_sucseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE locationNum_seq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 
 
 
 /* Create Tables */
+
+
+
+CREATE TABLE registerTime
+(
+	-- 대리인 일정 등록 정보
+	rtseq number(5) not null,
+	mseq number(5,0) NOT NULL,
+	registerDate varchar2(100) NOT NULL,
+	startTime varchar2(100) NOT NULL,
+	endTime varchar2(100) NOT NULL,
+	primary key(rtseq)
+);
 
 CREATE TABLE address
 (
@@ -242,6 +257,11 @@ CREATE TABLE success_board
 
 
 /* Create Foreign Keys */
+
+ALTER TABLE registerTime
+	ADD FOREIGN KEY (mseq)
+	REFERENCES member (mseq) on delete cascade
+;
 
 ALTER TABLE contentTime
 	ADD FOREIGN KEY (cseq)
