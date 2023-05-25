@@ -248,6 +248,33 @@ public class ContentDao {
 			
 		return list;
 	}
+
+	public ArrayList<ContentVO> selectAll() {
+		ArrayList<ContentVO> content = new ArrayList<ContentVO>();
+		ContentVO cvo = null;
+		con = Dbman.getConnection();
+		String sql = "select * from content";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				cvo = new ContentVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setTitle(rs.getString("title"));
+				cvo.setLocationNum(rs.getInt("locationnum"));
+				cvo.setArtist(rs.getString("artist"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setCategory(rs.getInt("category"));
+				cvo.setAge(rs.getString("age"));
+				cvo.setBestyn(rs.getString("bestyn").charAt(0));
+				content.add(cvo);
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		return content;
+	}
+	
 }
 
 	

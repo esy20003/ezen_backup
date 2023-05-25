@@ -6,12 +6,17 @@ import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
 import com.ezen.ticket.controller.action.anr.ApplyContentSelectAction;
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
 import com.ezen.ticket.controller.action.anr.CategorySelectAction;
+
 import com.ezen.ticket.controller.action.anr.NextMonthAction;
 import com.ezen.ticket.controller.action.anr.PrevMonthAction;
 import com.ezen.ticket.controller.action.anr.RegisterAction;
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
+
+import com.ezen.ticket.controller.action.anr.RegisterTimeFormAction;
+
 import com.ezen.ticket.controller.action.cart.CartDeleteAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
+import com.ezen.ticket.controller.action.content.ContentFormAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
 import com.ezen.ticket.controller.action.member.EditFormAction;
 import com.ezen.ticket.controller.action.member.FindZipNumAction;
@@ -56,7 +61,7 @@ public class ActionFactory {
 		else if (command.equals("applyContentSelect")) ac = new ApplyContentSelectAction();
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
-		else if (command.equals("register")) ac = new RegisterAction();
+		else if (command.equals("registerTimeForm")) ac = new RegisterTimeFormAction();
 		else if (command.equals("prevMonth")) ac = new PrevMonthAction();
 		else if (command.equals("nextMonth")) ac = new NextMonthAction();
 		
@@ -92,6 +97,12 @@ public class ActionFactory {
 		
 		// mypage
 		else if(command.equals("mypage")) ac = new MypageAction();
+		
+		
+		// main 화면 헤더부분
+		else if(command.equals("contentForm")) ac = new ContentFormAction();
+		
+		
 		
 		return ac;
 	}
