@@ -37,7 +37,6 @@ $(function() {
         }
         
         var listItem = $("<li>");
-        var checkbox = $("<input>").attr("type", "checkbox");
         var label = $("<label>").text("시작일시: " + startTime + ", 종료일시: " + endTime);
         var deleteButton = $("<button>").text("삭제");
         
@@ -45,7 +44,6 @@ $(function() {
             listItem.remove();
         });
         
-        listItem.append(checkbox);
         listItem.append(label);
         listItem.append(deleteButton);
         $("#output").append(listItem);
@@ -57,19 +55,7 @@ $(function() {
         $("#starttime").val("");
         $("#endtime").val("");
     });
-    
-    $("#output").on("click", "input[type='checkbox']", function() {
-        var listItem = $(this).parent();
-        listItem.toggleClass("completed");
-    });
 });
 </script>
-
-<style>
-.completed {
-    text-decoration: line-through;
-    color: gray;
-}
-</style>
 
 <%@ include file="../../footer.jsp"%>
