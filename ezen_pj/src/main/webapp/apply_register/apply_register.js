@@ -50,5 +50,8 @@ function applyFormCheck(){
 	alert(document.getElementById('cseq').value);
 	alert(document.getElementById('date1').value);
 }
- 
+
+ function gotime(){
+    document.registerForm.action="ticket.do?command=registerTimeForm";
+ }
  
