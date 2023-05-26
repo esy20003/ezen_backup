@@ -33,10 +33,17 @@
     }
     
     function addTime() {
-    	
+    	 sessionStorage.removeItem('date');
+    	 sessionStorage.removeItem('startTime');
+    	 sessionStorage.removeItem('endTime');
+    	 
     	var date = document.getElementById("date").value;
         var startTime = document.getElementById("starttime").value;
         var endTime = document.getElementById("endtime").value;
+        
+        sessionStorage.setItem('date',date);
+        sessionStorage.setItem('startTime',startTime);
+        sessionStorage.setItem('endTime',endTime);
         
         if (date === "" || startTime === "" || endTime === "") {
             alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
@@ -57,9 +64,9 @@
     
     function gotime(){
     	
-    	var date = document.getElementById("date").value;
-    	var starttime = document.getElementById("starttime").value;
-    	var endtime = document.getElementById("endtime").value;
+    	var date = sessionStorage.getItem('date');
+    	var starttime = sessionStorage.getItem('startTime');
+    	var endtime = sessionStorage.getItem('endTime');
     	alert(date);
     	document.registerForm.action = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + starttime + "&endtime=" + endtime;
     	document.registerForm.submit();
