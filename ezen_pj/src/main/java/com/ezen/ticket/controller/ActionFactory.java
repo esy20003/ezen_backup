@@ -64,8 +64,6 @@ public class ActionFactory {
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("registerTimeForm")) ac = new RegisterTimeFormAction();
-		else if (command.equals("prevMonth")) ac = new PrevMonthAction();
-		else if (command.equals("nextMonth")) ac = new NextMonthAction();
 		
 
 		
@@ -103,6 +101,7 @@ public class ActionFactory {
 		else if(command.equals("myRegister")) ac = new MyRegisterAction();
 		else if(command.equals("myRegistered")) ac = new MyRegisteredAction();
 		else if(command.equals("myAllRegister")) ac = new MyAllRegisterAction();
+		
 		
 		// main 화면 헤더부분
 		else if(command.equals("contentForm")) ac = new ContentFormAction();

@@ -1,6 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../../header.jsp"%>
 
+<script type="text/javascript">
+    function inputTimeColon(time) {
+        // replace 함수를 사용하여 콜론( : )을 공백으로 치환한다.
+        var replaceTime = time.value.replace(/\:/g, "");
+        // 텍스트박스의 입력값이 4~5글자 사이가 되는 경우에만 실행한다.
+        if(replaceTime.length >= 4 && replaceTime.length < 5) {
+            var hours = replaceTime.substring(0, 2);      // 선언한 변수 hours에 시간값을 담는다.
+            var minute = replaceTime.substring(2, 4);    // 선언한 변수 minute에 분을 담는다.
+            // isFinite함수를 사용하여 문자가 선언되었는지 확인한다.
+            if(isFinite(hours + minute) == false) {
+                alert("문자는 입력하실 수 없습니다.");
+                time.value = "00:00";
+                return false;
+            }
+			// 두 변수의 시간과 분을 합쳐 입력한 시간이 24시가 넘는지를 체크한다.
+            if(hours + minute > 2400) {
+                alert("시간은 24시를 넘길 수 없습니다.");
+                time.value = "24:00";
+                return false;
+            }
+            // 입력한 분의 값이 60분을 넘는지 체크한다.
+            if(minute > 60) {
+                alert("분은 60분을 넘길 수 없습니다.");
+                time.value = hours + ":00";
+                return false;
+            }
+            time.value = hours + ":" + minute;
+        }
+    }
+    
+    function addTime() {
+    	var date = document.getElementById("date").value;
+        var startTime = document.getElementById("starttime").value;
+        var endTime = document.getElementById("endtime").value;
+        
+        if (date === "" || startTime === "" || endTime === "") {
+            alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
+            return;
+        }
+        
+        var output = document.getElementById("output");
+        var li = document.createElement("li");
+        li.textContent = date + " " + startTime + " ~ " + endTime;
+        output.appendChild(li);
+        
+        // 입력 후에 입력 필드를 초기화합니다.
+        document.getElementById("date").value = "";
+        document.getElementById("starttime").value = "";
+        document.getElementById("endtime").value = "";
+    }
+</script>
+
 <form method="post" name="registerForm" style="margin: 0 auto;">
     <!-- <input type="hidden" name="command" value="registerTimeForm"> -->
 
@@ -12,51 +64,18 @@
                 </tr>
                 <td class="datetime">
                     <div class="datetimeBox">
-                        <input type="datetime-local" name="starttime" id="starttime"> ~ 
-                        <input type="datetime-local" name="endtime" id="endtime">
+                        <input type="date" name="date" id="date">
+                        <input type="text" id="starttime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/> ~
+                        <input type="text" id="endtime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/>
                     </div>
                 </td>
             </table>
-            <button type="button" id="addButton">추가</button>
+            <button type="button" id="addButton" onclick="addTime()">추가</button>
             <input type="submit" id="submit_Button" value="저장" onClick="gotime()">
         </div>
     </section>
 </form>
 
 <ul id="output"></ul>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script>
-$(function() {
-    $("#addButton").click(function() {
-        var startTime = $("#starttime").val();
-        var endTime = $("#endtime").val();
-        
-        if (startTime === "" || endTime === "") {
-            alert("날짜와 시간을 선택해주세요.");
-            return;
-        }
-        
-        var listItem = $("<li>");
-        var label = $("<label>").text("시작일시: " + startTime + ", 종료일시: " + endTime);
-        var deleteButton = $("<button>").text("삭제");
-        
-        deleteButton.on("click", function() {
-            listItem.remove();
-        });
-        
-        listItem.append(label);
-        listItem.append(deleteButton);
-        $("#output").append(listItem);
-        
-        // 필요한 작업을 수행할 수 있습니다.
-        // 예를 들면, 저장된 데이터를 서버에 전송하거나 다른 처리를 수행하는 등의 작업입니다.
-        
-        // 선택한 날짜와 시간 초기화
-        $("#starttime").val("");
-        $("#endtime").val("");
-    });
-});
-</script>
 
 <%@ include file="../../footer.jsp"%>
