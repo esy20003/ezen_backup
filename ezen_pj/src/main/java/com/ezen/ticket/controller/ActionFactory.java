@@ -96,7 +96,6 @@ public class ActionFactory {
 		else if(command.equals("cartList")) ac = new CartListAction();
 		else if(command.equals("cartDelete")) ac = new CartDeleteAction();
 		
-		
 		// mypage
 		else if(command.equals("mypage")) ac = new MypageAction();
 		else if(command.equals("myRegister")) ac = new MyRegisterAction();
@@ -104,8 +103,6 @@ public class ActionFactory {
 		
 		// main 화면 헤더부분
 		else if(command.equals("contentForm")) ac = new ContentFormAction();
-		
-		
 		
 		return ac;
 	}

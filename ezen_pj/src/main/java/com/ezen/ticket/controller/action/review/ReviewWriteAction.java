@@ -20,17 +20,17 @@ public class ReviewWriteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String url ="review/reviewList.jsp";
-		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
+		String command = request.getParameter("command");
+		String url ="ticket.do?command=reviewList"; // 처리하고 마지막에 갈 목적지
+		HttpSession session = request.getSession(); // 세션값
+		MemberVO mvo = (MemberVO)session.getAttribute("loginUser"); // loginUser 가 있는지
 		
 		if(mvo == null) {
-			url = "ticket.do?command=loginForm";
+			url = "ticket.do?command=loginForm"; // 없으면 로그인폼으로 ㄱ
 		} else {
-			ServletContext content = request.getServletContext();
-			String path = content.getRealPath("images/content");
-			MultipartRequest multi = new MultipartRequest(
+			ServletContext content = request.getServletContext();  
+			String path = content.getRealPath("images/content"); // 이미지 업로드 경로
+			MultipartRequest multi = new MultipartRequest( 
 					request,
 					path,
 					5*1024*1024,
@@ -38,12 +38,16 @@ public class ReviewWriteAction implements Action {
 					new DefaultFileRenamePolicy()
 			);
 			ReviewVO rvo = new ReviewVO();
+			System.out.println("rvo 의 현재 상태 : =>" + rvo);
+			System.out.println(command);
 			rvo.setTitle(multi.getParameter("title"));
 			rvo.setContent(multi.getParameter("content"));
 			rvo.setImage(multi.getFilesystemName("image"));
-			ReviewDao rdao = ReviewDao.getInstance();
+			rvo.setId(mvo.getId()); // mvo 에서 작성자의 id 를 얻음
 			
+			ReviewDao rdao = ReviewDao.getInstance();
 			rdao.insertReview(rvo);
+			
 		}
 			response.sendRedirect(url);
 	}

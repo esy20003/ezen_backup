@@ -16,7 +16,7 @@ public class LoginAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println(0);
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		
@@ -39,7 +39,7 @@ public class LoginAction implements Action {
 	    	url = "ticket.do?command=index";
 	    }else
 	    	request.setAttribute("message", "로그인 실패. 관리자에게 문의하시오");
-		
+		System.out.println(1);
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);
 		

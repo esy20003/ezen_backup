@@ -101,18 +101,17 @@ public class ReviewDao {
 		public void insertReview(ReviewVO rvo) {
 		
 		con = Dbman.getConnection();
-		String sql="insert into review_board(rseq,  title, indate, content, reply, repyn, image) "
-				+ " values(review_board_rseq.nextVal, ?, ?, ?, ?, ? ,?, ?, ?, ?)";
+		String sql="insert into review_board(rseq,  title,  content, image, id) "
+				+ " values(review_board_rseq.nextVal, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rvo.getRseq());
 			pstmt.setString(2, rvo.getTitle());
-			pstmt.setString(3, rvo.getIndate());
-			pstmt.setString(4, rvo.getContent());
-			pstmt.setString(5, rvo.getReply());
-			pstmt.setString(6, rvo.getRepyn());
-			pstmt.setString(7, rvo.getImage());
+			pstmt.setString(3, rvo.getContent());
+			pstmt.setString(4, rvo.getImage());
+			pstmt.setString(5, rvo.getId());
+			pstmt.executeUpdate();
 			
 		} catch (SQLException e) { e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);

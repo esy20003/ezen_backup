@@ -36,7 +36,7 @@ public class TicketingMallServlet extends HttpServlet {
 		
 		
 		String command = request.getParameter("command");
-		System.out.println("command : " + command);
+		System.out.println("command => : " + command);
 		ActionFactory af = ActionFactory.getInstance();
 		Action ac = af.getAction(command);
 		
