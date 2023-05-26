@@ -52,15 +52,13 @@ CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 /* Create Tables */
 
 
-
 CREATE TABLE registerTime
 (
 	-- 대리인 일정 등록 정보
 	rtseq number(5) not null,
 	mseq number(5,0) NOT NULL,
-	registerDate varchar2(100) NOT NULL,
-	startTime varchar2(100) NOT NULL,
-	endTime varchar2(100) NOT NULL,
+	startDateTime varchar2(100) NOT NULL,
+	endDateTime varchar2(100) NOT NULL,
 	primary key(rtseq)
 );
 

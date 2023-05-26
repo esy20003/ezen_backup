@@ -13,12 +13,12 @@ import com.ezen.ticket.dao.RegisterTimeDao;
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.dto.RegisterTimeVO;
 
-public class ApplyselectCommsionerAction implements Action {
+public class ApplySelectCommissionerAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url="apply_register/apply/applySelectCommisioner.jsp";
+		String url="apply_register/apply/applySelectCommissioner.jsp";
 		
 		HttpSession session=request.getSession();
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");

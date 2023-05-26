@@ -20,8 +20,8 @@ delete from ADDRESS;
 
 ---------------등록 정보 페이지
 select*from registerTime;
-insert into REGISTERTIME values(registerTime_rtseq.nextVal,4, '2023-05-16','14:00','15:00');
-insert into REGISTERTIME values(registerTime_rtseq.nextVal,7, '2023-06-10','10:00','14:00');
+insert into REGISTERTIME values(registerTime_rtseq.nextVal,4, '20230516140000','20230516150000');
+insert into REGISTERTIME values(registerTime_rtseq.nextVal,7, '20230610100000','20230610140000');
 
 --------------------------여기부턴 member 테이블
 
