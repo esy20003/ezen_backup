@@ -34,13 +34,31 @@ public class RegisterTimeDao {
 				rgtVO = new RegisterTimeVO();
 				rgtVO.setRtseq(rs.getInt("rtseq"));
 				rgtVO.setMseq(rs.getInt("mseq"));
-				rgtVO.setStartdatetime(rs.getString("startdatetime"));
-				rgtVO.setEnddatetime(rs.getString("enddatetime"));
+				rgtVO.setRegisterdate(rs.getString("registerdate"));
+				rgtVO.setStarttime(rs.getString("starttime"));
+				rgtVO.setEndtime(rs.getString("endtime"));
 				registerTime.add(rgtVO);
 			}
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs); }
 		return registerTime;
+	}
+
+
+	public void insertRegisterTime(String date, String starttime, String endtime, MemberVO mvo) {
+		
+		con = Dbman.getConnection();
+		String sql = "insert into registertime(rtseq, mseq, registerdate, starttime, endtime) values(registerTime_rtseq.nextVal, ?, ?, ?, ?)";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mvo.getMseq());
+			pstmt.setString(2, date);
+			pstmt.setString(3, starttime);
+			pstmt.setString(4, endtime);
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		
 	}
 
 	public ArrayList<RegisterTimeVO> getCommissioner(String tDateTime) {

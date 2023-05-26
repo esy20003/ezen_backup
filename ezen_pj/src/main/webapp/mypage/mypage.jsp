@@ -59,7 +59,7 @@
 				<input type="text" name="zip_num" value="${ loginUser.zip_num }" readonly/>
 				
 				<br/> <label>주소</label>
-				<input type="text" name="address1" value="${ loginUser.address1 }" readonly/>
+				<input type="text" name="address1" style="width:600px;" value="${ loginUser.address1 }" readonly/>
 				
 				<br/><label>상세 주소</label>
 				<input type="text" name="address2" value="${ loginUser.address2 }" readonly/>
