@@ -4,20 +4,28 @@ public class RegisterTimeVO {
 	
 	private int rtseq;
 	private int mseq;
-	private String startdatetime;
-	private String enddatetime;
+	private String registerDate;
+	private String startTime;
+	private String endTime;
 	
-	public String getStartdatetime() {
-		return startdatetime;
+	
+	public String getRegisterDate() {
+		return registerDate;
 	}
-	public void setStartdatetime(String startdatetime) {
-		this.startdatetime = startdatetime;
+	public void setRegisterDate(String registerDate) {
+		this.registerDate = registerDate;
 	}
-	public String getEnddatetime() {
-		return enddatetime;
+	public String getStartTime() {
+		return startTime;
 	}
-	public void setEnddatetime(String enddatetime) {
-		this.enddatetime = enddatetime;
+	public void setStartTime(String startTime) {
+		this.startTime = startTime;
+	}
+	public String getEndTime() {
+		return endTime;
+	}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 	public int getRtseq() {
 		return rtseq;
