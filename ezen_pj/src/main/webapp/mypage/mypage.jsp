@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ include file="../header.jsp" %>
-<link rel="stylesheet" href="css/mypage.css?ver=1" />
+<link rel="stylesheet" href="../css/mypage.css?ver=1" />
 
 <!-- 현재 시각 정보(오늘날짜, 현재시각 저장) -->
          	<%-- ${ date } <!-- 오늘날짜 -->
@@ -19,22 +19,21 @@
 
 <div id="mypage_box">
 		<h2>나의 정보</h2>
-		<form method="post" name="mypageForm">
-			<input type="hidden" name="command" value="memberUpdate" />
-			<fieldset>
-				<legend>${ loginUser.mseq }번 ${ loginUser.name } 회원님의 정보</legend>
+		<form method="post" name="mypageForm" id="mypageactionFrm">
+			<fieldset id="mypagefield">
+				<legend id="legend">${ loginUser.mseq }번 ${ loginUser.name } 회원님의 정보</legend>
 				<!-- id는 수정 대상이 아니면서, submit 할 떄 전송될 대상이므로, input type="text"로 하되 readonly로 설정해서
           수정을 금지시킴  -->
-				<label>나의 아이디</label>
-				<input type="text" name="id" value="${ loginUser.id }" readonly>
+				<label id="id">나의 아이디</label>
+				<input type="text" class="myid" name="id" value="${ loginUser.id }" readonly>
 				
-				<br/> <label>이름</label>
+				<br/><label>이름</label>
 				<input type="text" name="name" value="${ loginUser.name }" readonly/>
 				
-				<br> <label>닉네임</label>
+				<br/><label>닉네임</label>
 				<input type="text" name="nickname" value="${ loginUser.nickname }" readonly>
 				
-				<br> <label>성별</label>
+				<br/><label>성별</label>
 				<c:choose>
 					<c:when test="${ loginUser.gender == 1 }">
 						<input type="text" name="gender" value="남" readonly/>
@@ -47,16 +46,16 @@
 					</c:otherwise>
 				</c:choose>
 				
-				<br> <label>이메일</label>
+				<br/> <label>이메일</label>
 				<input type="text" name="email" value="${ loginUser.email }" readonly/>
 				
-				<br> <label>전화 번호</label>
+				<br/><label>전화 번호</label>
 				<input type="text" name="phone" value="${ loginUser.phone }" readonly/>
 				
-				<br> <label>생년 월일</label>				
+				<br/> <label>생년 월일</label>				
 				<input type="text" name="birth" value="${ birthDay }" readonly/>
 				
-				<br> <label>우편 번호</label>
+				<br/> <label>우편 번호</label>
 				<input type="text" name="zip_num" value="${ loginUser.zip_num }" readonly/>
 				
 				<br/> <label>주소</label>
@@ -88,15 +87,53 @@
 				</c:choose>
 				
 				<br/><label>가입 일자</label>
-				<input type="text" name="indate" value="${ loginUser.indate }" readonly/>
+				<fmt:formatDate value="${ loginUser.indate }" var="indate" type="date" />
+				<input type="text" name="indate" value="${ indate }" readonly/>
 
 
 				<br/>
 			</fieldset>
 			<div class="clear"></div>
-			<div id="buttons" class="update_btn_box">
-				<input type="button" value="정보수정" class="submit btn_update_confirm" onclick="go_update();">
-				<input type="reset" value="취소" class="cancel">
+			<div id="buttons" style="margin-left:600px;">
+				<input type="button" value="대리 내역" onClick="location.href='ticket.do?command=myRegister'"
+					style="
+					width: 200px;
+					height: 70px;
+					border-radius: 20px;
+					font-size: 40px;
+					font-weight: bold;
+					background: royalblue;
+					color: white;
+					position: absolute;
+					left: 1000px;
+					top: 400px;
+						"/>
+				<input type="button" id="updateForm_btn" value="정보 수정" onClick="location.href='ticket.do?command=editForm'"
+					style="
+					width: 200px;
+					height: 70px;
+					border-radius: 20px;
+					font-size: 40px;
+					font-weight: bold;
+					background: royalblue;
+					color: white;
+					position: absolute;
+					left: 1000px;
+					top: 500px;
+					"/>
+				<input type="button" value="홈으로" onclick="location.href='ticket.do?command=index'"
+					style="
+					width: 200px;
+					height: 70px;
+					border-radius: 20px;
+					font-size: 40px;
+					font-weight: bold;
+					background: royalblue;
+					color: white;
+					position: absolute;
+					left: 1000px;
+					top: 600px;
+						"/>
 			</div>
 		</form>
 	</div>

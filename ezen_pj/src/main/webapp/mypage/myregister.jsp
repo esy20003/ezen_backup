@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <%@ include file="../header.jsp"%>
 <link rel="stylesheet" href="css/myregister.css?ver=1" />
 
@@ -45,11 +47,15 @@
 		<c:forEach items="${ myRegister }" var="myRegisterVO">
 			<!----------------------------------register 날짜 시작시간 끝날시간 저장(mrDate, mrEndTime, mrStartTime 사용)-------------------------->
 			<!-- register 날짜 mrDate 변수이름으로 만듦 jsp로 사용 -->
-			<fmt:parseDate var="registerDate"
-				value="${ myRegisterVO.registerdate }" pattern="yyyy-MM-dd" />
+			<c:set var="regidate" value="${ myRegisterVO.enddatetime }">
+			</c:set>
+			${fn:substring(regidate, 0, 8) }
+			<%-- <fmt:parseDate var="registerDate"
+				value="${ myRegisterVO.enddatetime }" pattern="yyyy-MM-dd" />
 			<fmt:formatDate var="mrDate" value="${ registerDate }"
 				pattern="yyyy-MM-dd" />
-
+			${mrDate }
+			
 
 			<!-- register 시작시간 mrStartTime 변수이름으로 만듦 jsp로 사용 -->
 			<fmt:parseDate var="registerStartTime"
@@ -62,12 +68,12 @@
 			<fmt:parseDate var="registerEndTime"
 				value="${ myRegisterVO.endtime }" pattern="HH:mm" />
 			<fmt:formatDate var="mrEndTime" value="${ registerEndTime }"
-				pattern="HH:mm" />
+				pattern="HH:mm" /> --%>
 			<!------------------------------------------------------------------------------------------------------------------------------------------->
 
 
 
-			<c:if test="${ !(mrDate < date || (mrDate == date && mrEndTime < time) ) }">
+			<%-- <c:if test="${ !(mrDate < date || (mrDate == date && mrEndTime < time) ) }">
 				<c:forEach items="${ member }" var="memberNickname" end="0">
 					<tr>
 						<td>${ myRegisterVO.rtseq }</td>
@@ -76,8 +82,8 @@
 						<td>${ mrStartTime }</td>
 						<td>${ mrEndTime }</td>
 					</tr>
-				</c:forEach>
-			</c:if>
+				</c:forEach> --%>
+			<%-- </c:if> --%>
 		</c:forEach>
 	</table>
 </div>
