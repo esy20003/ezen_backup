@@ -64,8 +64,6 @@ public class ActionFactory {
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("registerTimeForm")) ac = new RegisterTimeFormAction();
-		else if (command.equals("prevMonth")) ac = new PrevMonthAction();
-		else if (command.equals("nextMonth")) ac = new NextMonthAction();
 		
 
 		

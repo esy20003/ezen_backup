@@ -1,6 +1,8 @@
 package com.ezen.ticket.controller.action.anr;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +22,7 @@ public class RegisterTimeFormAction implements Action {
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
 		if(mvo ==null) {
 			url="ticket.do?command=loginForm";
-		}
+		} 
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
