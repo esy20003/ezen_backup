@@ -8,8 +8,6 @@ border-style: dote;
 
 color:white;
 
-background: #ff3737;
-
 font-size: 350px;
 
 text-align: center;
@@ -17,6 +15,8 @@ text-align: center;
 font-weight: 400;
 
 }
+
+
 
 .writerlong{
 
@@ -56,7 +56,7 @@ text-overflow:ellipsis;
 #main_img img {   margin: 9px 0 0 0;}
 
 
-article h2, div h2 {   font-family: Verdana; font-size: 30px;   color: white;   padding-bottom: 15px;   
+article h2, div h2 {   font-family: Verdana; font-size: 30px;   color: white;   padding-top: 15px;  padding-bottom: 15px;   
    border-bottom: 1px dotted #666; }
 
 a { color: #6F0C78;   text-decoration: none; } 
@@ -91,8 +91,8 @@ form #buttons {   margin: 20px 0 0 0; }
 form  .submit, form  .cancel {   height: 30px;   width: 150px;    border: 1px solid #666; 
       border-radius: 10px; box-shadow: 3px 3px 2px #ccc; font-size: 14px; background-repeat: repeat-x; 
       background-position: center center;   color: #fff;   margin: 0 0 0 20px;  }
-form  .submit {   background-image: url(../images/submit_back.jpg); background-color: #ffff80;}
-form  .cancel {     background-image: url(../images/cancel_back.jpg); background-color: #ffff80; }
+form  .submit {   background-image: url(../images/submit_back.jpg); background-color: #c0c0c0;}
+form  .cancel {     background-image: url(../images/cancel_back.jpg); background-color: #c0c0c0; }
 
 
 body{overflow-x:hidden; }
@@ -107,7 +107,7 @@ table#zipcode a:hover{font-weight: bold;}
 
 #itemdetail  img { width: 300px;      margin-right: 20px;  }
 
-table#cartList {background: #fffff7; border-collapse: collapse;   border-top: 2px solid #ff0000;   border-bottom: 2px solid red; 
+table#cartList {background: #fcfcfc; border-collapse: collapse;   border-top: 2px solid #ff0000;   border-bottom: 2px solid red; 
       width: 100%; margin-bottom: 30px; line-height: 2; border:1px solid #c0c0c0;}
 table#cartList th, td {   border-bottom: 1px dotted #333;  border:1px solid #c0c0c0; text-align: center; }   
 table#cartList tr, td {  border:1px solid #c0c0c0; text-align: center; }  
