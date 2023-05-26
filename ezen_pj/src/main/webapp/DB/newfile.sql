@@ -31,7 +31,7 @@ DROP SEQUENCE qna_board_sucseq;
 DROP SEQUENCE review_board_rseq;
 DROP SEQUENCE seat_seatseq;
 DROP SEQUENCE success_board_sucseq;
-
+drop SEQUENCE registerTime_rtseq;
 
 
 
@@ -52,13 +52,18 @@ CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 /* Create Tables */
 
 
+
+drop table registerTime;
+
+select * from REGISTERTIME;
 CREATE TABLE registerTime
 (
 	-- 대리인 일정 등록 정보
 	rtseq number(5) not null,
 	mseq number(5,0) NOT NULL,
-	startDateTime varchar2(100) NOT NULL,
-	endDateTime varchar2(100) NOT NULL,
+	registerDate varchar2(100) default '00000000',
+	startTime varchar2(100) NOT NULL,
+	endTime varchar2(100) NOT NULL,
 	primary key(rtseq)
 );
 

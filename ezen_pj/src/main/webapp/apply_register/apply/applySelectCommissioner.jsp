@@ -23,11 +23,13 @@
 			<div class="Header">대리인 리스트</div>
 			<div class="detailBody">
 				<table>
-					<c:forEach items="${contentTimeList}" var="contentTil" varStatus="state">
+					<tr><th></tr>
+					<c:forEach items="{commissionerList}" var="commissionerVO" varStatus="state">
 						<li onclick="saveTime('${state.count}')"><a href="#" onclick="return false">{contentTil.contentTime}</a>
 						<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
 						</li>
 					</c:forEach>
+					
 				</table>
 			</div>
 		</div>
