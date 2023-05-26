@@ -11,3 +11,17 @@
 //	}
 //	
 //}
+function review_write() {
+	var reviewForm = document.formm
+	if (reviewForm.title.value == "") {
+		alert("제목을 입력해주세요")
+		reviewForm.title.focus()
+	} else if (reviewForm.content.value == "") {
+		alert("내용을 입력해주세요")
+		reviewForm.content.focus()
+	}  else {
+		reviewForm.action = "ticket.do?command=reviewWrite";
+		reviewForm.submit();
+	}
+
+}

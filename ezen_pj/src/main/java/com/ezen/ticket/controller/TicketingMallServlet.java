@@ -37,11 +37,15 @@ public class TicketingMallServlet extends HttpServlet {
 		
 		String command = request.getParameter("command");
 		System.out.println("command => : " + command);
+		//System.out.println("00");
+		
 		ActionFactory af = ActionFactory.getInstance();
 		Action ac = af.getAction(command);
 		
+		//System.out.println("11");
 		if(ac != null) ac.execute(request, response);
 		else System.out.println("ac가 null 입니다.");
+		
 		
 	}
 
