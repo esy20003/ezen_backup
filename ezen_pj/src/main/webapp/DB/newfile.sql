@@ -145,6 +145,7 @@ CREATE TABLE locationNum
 (
 	locationNum number(5) NOT NULL,
 	locationName varchar2(50) NOT NULL UNIQUE,
+	areaImage varchar2(1000) default 'images/content/blankIMG.jpg',
 	PRIMARY KEY (locationNum)
 );
 

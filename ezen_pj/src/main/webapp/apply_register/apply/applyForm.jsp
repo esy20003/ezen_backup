@@ -2,13 +2,13 @@
 <%@ include file="../../header.jsp" %>
 
 
-<form name="frm" action="ticket.do" method="post" class="form">
-<input type="hidden" name="command" value="applyselectCommissioner"/>
+<form name="frm" method="post" class="form">
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
 
 			<div class="applyTitleBox">
+			
 				<ul class="applyTitle">
 					<li>공연 종류</li>
 					<li>공연</li>
@@ -50,14 +50,14 @@
 							</ul>
 				</div>
 				<div class="timeBox bodyBox">
-								<ul>
-					<c:forEach items="${contentTimeList}" var="contentTil" varStatus="state">
-									<li onclick="saveTime('${state.count}')"><a href="#" onclick="return false">${contentTil.contentTime}</a>
-									<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
-									</li>
-					</c:forEach>
+					<ul>
+						<c:forEach items="${contentTimeList}" var="contentTil" varStatus="state">
+							<li onclick="saveTime('${state.count}')"><a href="#" onclick="return false">${contentTil.contentTime}</a>
+							<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
+							</li>
+						</c:forEach>
 									
-								</ul>
+					</ul>
 				</div>
 				<div class="detailBox bodyBox">
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
