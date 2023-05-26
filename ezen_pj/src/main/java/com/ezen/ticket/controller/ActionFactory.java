@@ -28,10 +28,16 @@ import com.ezen.ticket.controller.action.mypage.MyAllRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisteredAction;
 import com.ezen.ticket.controller.action.mypage.MypageAction;
+import com.ezen.ticket.controller.action.qna.DeleteQnaAction;
+import com.ezen.ticket.controller.action.qna.QnaCheckPassAction;
 import com.ezen.ticket.controller.action.qna.QnaListAction;
+import com.ezen.ticket.controller.action.qna.QnaPassFormAction;
 import com.ezen.ticket.controller.action.qna.QnaViewAction;
+import com.ezen.ticket.controller.action.qna.QnaViewNoCountAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
+import com.ezen.ticket.controller.action.qna.UpdateQnaAction;
+import com.ezen.ticket.controller.action.qna.UpdateQnaFormAction;
 import com.ezen.ticket.controller.action.review.ReviewListAction;
 import com.ezen.ticket.controller.action.review.ReviewViewAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteAction;
@@ -49,11 +55,20 @@ public class ActionFactory {
 		Action ac = null;
 		
 		if(command.equals("index")) ac = new IndexAction();
-
+		
+		//qna
 		else if(command.equals("qnaList")) ac = new QnaListAction();
 		else if (command.equals("qnaView")) ac = new QnaViewAction();
 		else if (command.equals("qnaWriteForm")) ac = new QnaWriteFormAction();
 		else if (command.equals("qnaWrite")) ac = new QnaWriteAction();
+		else if (command.equals("qnaWrite")) ac = new QnaWriteAction();
+		else if (command.equals("deleteQna")) ac = new DeleteQnaAction();
+		else if (command.equals("updateQna")) ac = new UpdateQnaAction();
+		else if (command.equals("updateQnaForm")) ac = new UpdateQnaFormAction();
+		else if( command.equals("qnaViewNoCount") ) ac = new QnaViewNoCountAction();
+		else if( command.equals("qnaPassForm") ) ac = new QnaPassFormAction();
+		else if( command.equals("qnaCheckPass") ) ac = new QnaCheckPassAction();
+		
 		
 		//anr
 		else if (command.equals("applyAndRegister")) ac = new ApplyAndRegisterAction();
