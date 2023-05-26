@@ -102,6 +102,7 @@ public class ActionFactory {
 		else if(command.equals("myRegister")) ac = new MyRegisterAction();
 		else if(command.equals("myRegistered")) ac = new MyRegisteredAction();
 		
+		
 		// main 화면 헤더부분
 		else if(command.equals("contentForm")) ac = new ContentFormAction();
 		

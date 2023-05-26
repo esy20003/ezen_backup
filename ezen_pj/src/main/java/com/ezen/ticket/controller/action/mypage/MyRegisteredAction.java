@@ -27,7 +27,7 @@ public class MyRegisteredAction implements Action {
 			RegisterTimeDao rgtdao = RegisterTimeDao.getInstance();
 			ArrayList<RegisterTimeVO> registerTime = rgtdao.getMyRegister(mvo);
 			String member = mvo.getNickname();
-			request.setAttribute("registeted", registerTime);
+			request.setAttribute("registered", registerTime);
 			request.setAttribute("member", member);
 		}
 		
