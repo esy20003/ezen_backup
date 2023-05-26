@@ -2,9 +2,11 @@
     pageEncoding="UTF-8"%>
 <meta charset="UTF-8">
 
+
 <div id="sub_img">
-	<img src="images/qna/sub_image.jpg" style="border-radius:20px 20px 20px 20px; ">
+	<img src="images/qna/sub_image.jpg" >
 </div>
+
 
 <div id="clear"></div>
 
