@@ -34,9 +34,8 @@ public class RegisterTimeDao {
 				rgtVO = new RegisterTimeVO();
 				rgtVO.setRtseq(rs.getInt("rtseq"));
 				rgtVO.setMseq(rs.getInt("mseq"));
-				rgtVO.setRegisterdate(rs.getString("registerdate"));
-				rgtVO.setStarttime(rs.getString("starttime"));
-				rgtVO.setEndtime(rs.getString("endtime"));
+				rgtVO.setStartdatetime(rs.getString("startdatetime"));
+				rgtVO.setEnddatetime(rs.getString("enddatetime"));
 				registerTime.add(rgtVO);
 			}
 		} catch (SQLException e) { e.printStackTrace();
