@@ -9,8 +9,8 @@
 	sessionStorage.removeItem('selectedTime');
 	sessionStorage.removeItem('selectedArea');
 	sessionStorage.removeItem('selectedQuantity');
-	 document.frm.action='ticket.do?command=categorySelect&category=0';
-	 document.frm.submit();
+	document.frm.action='ticket.do?command=categorySelect&category=0';
+	document.frm.submit();
  }
  
  function go_register(){
@@ -110,9 +110,12 @@ function applyFormCheck(){
 
 
 
- function gotime(){
-    document.registerForm.action="ticket.do?command=registerTimeForm";
-
- }
+/*function gotime(){
+	 var date = registerForm.date.value;
+	 var starttime = registerForm.starttime.value;
+	 var endtime = registerForm.endtime.value;
+    document.registerForm.action="ticket.do?command=registerTimeForm&date="+ date + "&starttime=" + starttime + "&endtime="
+    + endtime;
+ }*/
 
  

@@ -29,9 +29,11 @@
             }
             time.value = hours + ":" + minute;
         }
+     
     }
     
     function addTime() {
+    	
     	var date = document.getElementById("date").value;
         var startTime = document.getElementById("starttime").value;
         var endTime = document.getElementById("endtime").value;
@@ -50,10 +52,21 @@
         document.getElementById("date").value = "";
         document.getElementById("starttime").value = "";
         document.getElementById("endtime").value = "";
+        
+    }
+    
+    function gotime(){
+    	
+    	var date = document.getElementById("date").value;
+    	var starttime = document.getElementById("starttime").value;
+    	var endtime = document.getElementById("endtime").value;
+    	alert(date);
+    	document.registerForm.action = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + starttime + "&endtime=" + endtime;
+    	document.registerForm.submit();
     }
 </script>
 
-<form method="post" name="registerForm" style="margin: 0 auto;">
+<form method="post" name="registerForm" style="margin: 0 auto;" encType="UTF-8">
     <!-- <input type="hidden" name="command" value="registerTimeForm"> -->
 
     <section name="registerBody" id="bodyBox_register">
@@ -62,13 +75,15 @@
                 <tr class="tableHead">
                     <th><h1>날짜와 시간</h1></th>
                 </tr>
+                <tr>
                 <td class="datetime">
                     <div class="datetimeBox">
                         <input type="date" name="date" id="date">
-                        <input type="text" id="starttime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/> ~
-                        <input type="text" id="endtime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/>
+                        <input type="text" id="starttime" name="starttime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/> ~
+                        <input type="text" id="endtime" name="endtime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/>
                     </div>
                 </td>
+                </tr>
             </table>
             <button type="button" id="addButton" onclick="addTime()">추가</button>
             <input type="submit" id="submit_Button" value="저장" onClick="gotime()">
@@ -76,6 +91,6 @@
     </section>
 </form>
 
-<ul id="output"></ul>
+<ul id="output" name></ul>
 
 <%@ include file="../../footer.jsp"%>

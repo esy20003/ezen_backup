@@ -50,7 +50,7 @@
          <!----------------------------------register 날짜 시작시간 끝날시간 저장(mrDate, mrEndTime, mrStartTime 사용)-------------------------->
          <!-- register 날짜 mrDate 변수이름으로 만듦 jsp로 사용 -->
          <fmt:parseDate var="registerDate"
-            value="${ myRegisterVO.registerdate }" pattern="yyyy-MM-dd" />
+            value="${ myRegisterVO.registerdate }" pattern="yyyyMMdd" />
          <fmt:formatDate var="mrDate" value="${ registerDate }"
             pattern="yyyy-MM-dd" />
 
