@@ -72,7 +72,6 @@ function saveCseq(num){
 	
 	sessionStorage.setItem('selectedCseq',document.getElementById('cseq'+num).value);
 }
-
 function saveDate(num){
 	
 	sessionStorage.setItem('selectedDate',document.getElementById('date'+num).value);
@@ -88,23 +87,30 @@ function saveQuantity() {
 }
 
 function applyFormCheck(){
-	if(sessionStorage.getItem('selectedCseq')==null){
+	var cseq=sessionStorage.getItem('selectedCseq');
+	var date=sessionStorage.getItem('selectedDate');
+	var time=sessionStorage.getItem('selectedTime');
+	var area=sessionStorage.getItem('selectedArea');
+	var quantity=sessionStorage.getItem('selectedQuantity');
+	if(cseq==null){
 		alert("공연을 선택해 주세요.");
 		return false;
-	}else if(sessionStorage.getItem('selectedDate')==null){
+	}else if(date==null){
 		alert("공연 날짜를 선택해 주세요.");
 		return false;
-	}else if(sessionStorage.getItem('selectedTime')==null){
+	}else if(time==null){
 		alert("공연 시간을 선택해 주세요.");
 		return false;
-	}else if(sessionStorage.getItem('selectedArea')==null){
+	}else if(area==null){
 		alert("공연 구역을 선택해 주세요.");
 		return false;
-	}else if(sessionStorage.getItem('selectedQuantity')==null){
+	}else if(quantity==null){
 		alert("티켓 수량을 선택해 주세요.");
 		return false;
 	}else{
-		return true;	
+		document.frm.action='ticket.do?command=applySelectCommissioner&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
+		document.frm.submit();
+		
 	}	
 }
 

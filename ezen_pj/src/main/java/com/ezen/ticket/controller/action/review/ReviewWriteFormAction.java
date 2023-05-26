@@ -15,15 +15,14 @@ public class ReviewWriteFormAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url="review/reviewWriteForm.jsp";
+		String url = "review/reviewWriteForm.jsp";
 		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-		
-		if(mvo == null ) {
-			url ="ticket.do?command=loginForm";
-		} else {
-			request.getRequestDispatcher(url).forward(request, response);
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if (mvo == null) {
+			url = "ticket.do?command=loginForm";
 		}
+
+		request.getRequestDispatcher(url).forward(request, response);
 
 	}
 

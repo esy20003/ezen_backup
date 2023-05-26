@@ -44,6 +44,7 @@ public class RegisterTimeDao {
 		return registerTime;
 	}
 
+
 	public void insertRegisterTime(String date, String starttime, String endtime, MemberVO mvo) {
 		
 		con = Dbman.getConnection();
@@ -59,5 +60,14 @@ public class RegisterTimeDao {
 		} finally { Dbman.close(con, pstmt, rs); }
 		
 	}
+
+	public ArrayList<RegisterTimeVO> getCommissioner(String tDateTime) {
+		ArrayList<RegisterTimeVO> list=new ArrayList<RegisterTimeVO>();
+		RegisterTimeVO rtvo=null;
+		con=Dbman.getConnection();
+		String
+		return list;
+	}
+	
 	
 }

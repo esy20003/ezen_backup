@@ -4,6 +4,7 @@ public class RegisterTimeVO {
 	
 	private int rtseq;
 	private int mseq;
+
 	private String registerdate;
 	private String starttime;
 	private String endtime;
@@ -25,6 +26,7 @@ public class RegisterTimeVO {
 	}
 	public void setEndtime(String endtime) {
 		this.endtime = endtime;
+
 	}
 	public int getRtseq() {
 		return rtseq;
