@@ -42,5 +42,14 @@ public class RegisterTimeDao {
 		} finally { Dbman.close(con, pstmt, rs); }
 		return registerTime;
 	}
+
+	public ArrayList<RegisterTimeVO> getCommissioner(String tDateTime) {
+		ArrayList<RegisterTimeVO> list=new ArrayList<RegisterTimeVO>();
+		RegisterTimeVO rtvo=null;
+		con=Dbman.getConnection();
+		String
+		return list;
+	}
+	
 	
 }

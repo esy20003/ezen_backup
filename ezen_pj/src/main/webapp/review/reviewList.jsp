@@ -17,12 +17,14 @@
 				<c:forEach items="${reviewList }" var="reviewVO">
 					<tr>
 						<td>${reviewVO.rseq }</td>
-						<td><a href="ticket.do?command=reviewView&rseq=${ reviewVO.rseq }">${reviewVO.title}</a></td>
+						<td>
+							<a href="ticket.do?command=reviewView&rseq=${ reviewVO.rseq }">${reviewVO.title}</a>
+						</td>
 						<td>${ reviewVO.id}</td>
 						<td>
-								<fmt:parseDate var="indateStr" value="${reviewVO.indate}" pattern="yyyy-MM-dd"/>
-								<fmt:formatDate var="indate" value="${indateStr}" pattern="yyyy-MM-dd"/>
-								${indate}
+							<fmt:parseDate var="indateStr" value="${reviewVO.indate}" pattern="yyyy-MM-dd" />
+							<fmt:formatDate var="indate" value="${indateStr}" pattern="yyyy-MM-dd" />
+							${indate}
 						</td>
 						<td>
 							<c:choose>
@@ -36,20 +38,23 @@
 			<div class="clear"></div>
 			<div id="paging" style="font-size: 120%; font-weight: bold;">
 				<c:url var="action" value="ticket.do?command=reviewList" />
-				<c:if test="${paging.prev}"><a href="${action }&page=${paging.beginPage-1}">◀</a>&nbsp;</c:if>
+				<c:if test="${paging.prev}">
+					<a href="${action }&page=${paging.beginPage-1}">◀</a>&nbsp;</c:if>
 				<c:forEach begin="${paging.beginPage }" end="${paging.endPage }" var="index">
 					<c:choose>
 						<c:when test="${paging.page==index }">[${index }]</c:when>
-						<c:otherwise><a href="${action }&page=${index}">${index }</a> &nbsp;</c:otherwise>
+						<c:otherwise>
+							<a href="${action }&page=${index}">${index }</a> &nbsp;</c:otherwise>
 					</c:choose>
 				</c:forEach>
-				<c:if test="${paging.next }"><a href="${action }&page=${paging.endPage+1}">▶</a> &nbsp;</c:if>
+				<c:if test="${paging.next }">
+					<a href="${action }&page=${paging.endPage+1}">▶</a> &nbsp;</c:if>
 			</div>
 			<div class="clear"></div>
 			<br>
-			<div id="buttons" class="rev_btn_box" style="float: right">
-				<input type="button" value="글쓰기" class="submit" onClick="location.href='ticket.do?command=reviewWriteForm'">
-				<input type="button" value="계속하기" class="cancel" onClick="location.href='ticket.do?command=index'">
+			<div id="buttons" style="float: right">
+				<input type="button" value="글쓰기" class="submit" style="color: black" onclick="location.href='ticket.do?command=reviewWriteForm'">
+				<input type="button" value="돌아가기" class="cancel" style="color: black" onclick="location.href='ticket.do?command=index'">
 			</div>
 			<div class="clear"></div>
 			<br>
