@@ -18,7 +18,7 @@
 <table class="qna_view_table">
 	<tr><th>제목</th><td width="500" background="pink" style="text-align:left; ">${QnaVO.title}</td></tr>
 	<tr><th>질문내용</th>
-	<td align="left" style="text-align:left;font-size:100%;"><pre>${QnaVO.content}</pre></td></tr>
+	<td align="left" style="text-align:left;font-size:100%; box-sizing: border-box; resize: none; padding:10px;"><pre>${QnaVO.content}</pre></td></tr>
 	<tr><th>답변내용</th><td align="left" style="text-align:left; color:white;">${QnaVO.reply}</td></tr>
 	<tr><th>작성자</th><td align="left" style="text-align:left; font-size:115%;"><pre>${QnaVO.id}</pre></td></tr>
 	<tr><th>등록일</th><td align="left" style="text-align:left;">
