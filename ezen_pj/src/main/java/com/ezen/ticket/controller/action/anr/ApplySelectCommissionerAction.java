@@ -45,7 +45,7 @@ public class ApplySelectCommissionerAction implements Action {
 		RegisterTimeDao rtdao=RegisterTimeDao.getInstance();
 		String tDateTime=list.get(0).getTDateTime();
 		System.out.println(tDateTime);
-//		ArrayList<RegisterTimeVO> commissionerList=rtdao.getCommissioner(tDateTime);
+		ArrayList<RegisterTimeVO> commissionerList=rtdao.getCommissioner(tDateTime);
 
 		
 		request.setAttribute("detailList",list); //제목, 아티스트, 위치명, 포스터

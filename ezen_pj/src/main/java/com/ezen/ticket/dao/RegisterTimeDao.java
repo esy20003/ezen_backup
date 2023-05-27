@@ -65,7 +65,6 @@ public class RegisterTimeDao {
 		ArrayList<RegisterTimeVO> list=new ArrayList<RegisterTimeVO>();
 		RegisterTimeVO rtvo=null;
 		con=Dbman.getConnection();
-		String
 		return list;
 	}
 	
