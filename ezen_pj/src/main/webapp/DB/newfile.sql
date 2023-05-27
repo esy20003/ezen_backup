@@ -1,3 +1,24 @@
+select * from ADDRESS;
+select * from admin;
+select * from cart;
+select * from contentTime;
+select * from ORDER_DETAIL;
+select * from CONTENT;
+select * from GRADE;
+select * from ORDERS;
+select * from QNA_BOARD;
+select * from REVIEW_BOARD;
+select * from success_board;
+select * from SEAT;
+select * from MEMBER;
+select*from registerTime;
+select*from locationNum;
+
+select* from content_loc_seat_view order by locationNum;
+select*from content_time_view order by cseq;
+select * from member_grade_view;
+select * from cart_total_view;
+select*from order_view order by oseq;
 
 /* Drop Tables */
 
