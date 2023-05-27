@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Ticket Shop</title>
-<link rel="shortcut icon" href="#">
+<!-- <link rel="shortcut icon" href="#"> -->
 <link href="css/ticketing.css" rel="stylesheet">
 <link rel="stylesheet" href="css/apply.css?ver=1" />
 <link rel="stylesheet" href="css/review.css?ver=1" />
