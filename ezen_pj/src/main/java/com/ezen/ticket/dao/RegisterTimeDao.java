@@ -61,10 +61,36 @@ public class RegisterTimeDao {
 		
 	}
 
-	public ArrayList<RegisterTimeVO> getCommissioner(String tDateTime) {
+	//등록한 대리인 정보와 등록 날짜, 시간 불러오는 곳
+	public ArrayList<RegisterTimeVO> getCommissioner(String tDate, String tTime) {
 		ArrayList<RegisterTimeVO> list=new ArrayList<RegisterTimeVO>();
 		RegisterTimeVO rtvo=null;
 		con=Dbman.getConnection();
+		String sql="select * from commissioner_view where registerDate=? and startTime<? and ?<endTime";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, tDate);
+			pstmt.setString(2, tTime);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				rtvo=new RegisterTimeVO();
+				rtvo.setMseq(rs.getInt("mseq"));
+				rtvo.setCid(rs.getString("cid"));
+				rtvo.setCnickname(rs.getString("cnickname"));
+				rtvo.setGrade(rs.getInt("grade"));
+				rtvo.setGname(rs.getString("gname"));
+				rtvo.setSuccess(rs.getInt("success"));
+				rtvo.setRegisterdate(rs.getString("registerDate"));
+				rtvo.setStarttime(rs.getString("startTime"));
+				rtvo.setEndtime(rs.getString("endTime"));
+				rtvo.setCom_price(rs.getInt("com_price"));
+				list.add(rtvo);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		
 		return list;
 	}
 	

@@ -95,7 +95,19 @@ where o.oseq=d.oseq and o.mseq=m.mseq and d.cseq=clv.cseq and d.area=clv.area an
 select*from order_view order by oseq;
 
 
+---------------
+--member_grade_view+registerTime 합친 view
 
+select*from registerTime;
+select*from member_grade_view;
+select*from commissioner_view;
+
+create or replace view commissioner_view 
+as
+select r.mseq, m.cid, m.cnickname, m.grade,m.gname, m.success, r.registerDate ,r.startTime, r.endTime, m.gprice as com_price
+from registerTime r
+inner join member_grade_view m 
+on r.mseq=m.cmseq;
 
 
 

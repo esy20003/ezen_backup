@@ -43,9 +43,10 @@ public class ApplySelectCommissionerAction implements Action {
 
 //		list의 tDateTime으로 registerTime이랑 비교해서 대리인 추출
 		RegisterTimeDao rtdao=RegisterTimeDao.getInstance();
-		String tDateTime=list.get(0).getTDateTime();
-		System.out.println(tDateTime);
-		ArrayList<RegisterTimeVO> commissionerList=rtdao.getCommissioner(tDateTime);
+		String tDate=list.get(0).getTDateTime().substring(0, 8);
+		String tTime=list.get(0).getTDateTime().substring(8,12);
+		System.out.println("티켓팅날짜:"+tDate+" 시간:"+tTime);
+		ArrayList<RegisterTimeVO> commissionerList=rtdao.getCommissioner(tDate, tTime);
 
 		
 		request.setAttribute("detailList",list); //제목, 아티스트, 위치명, 포스터
@@ -53,6 +54,7 @@ public class ApplySelectCommissionerAction implements Action {
 		request.setAttribute("time", request.getParameter("time"));//이건 다음페이지 콘텐츠용
 		request.setAttribute("areaList", list2); //area, 가격, 좌석배치도
 		request.setAttribute("quantity", request.getParameter("quantity")); //수량
+		request.setAttribute("comList", commissionerList);//대리인 리스트~!
 		
 		request.getRequestDispatcher(url).forward(request, response);
 		}

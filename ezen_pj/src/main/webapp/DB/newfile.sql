@@ -85,8 +85,9 @@ CREATE TABLE registerTime
 	registerDate varchar2(100) default '00000000',
 	startTime varchar2(100) NOT NULL,
 	endTime varchar2(100) NOT NULL,
-	primary key(rtseq)
+	primary key(rtseq,mseq,registerDate,startTime,endTime)
 );
+--전체를 pk로 줘서 한 사람이 시간 중복 등록 못하게 막음
 
 CREATE TABLE address
 (
