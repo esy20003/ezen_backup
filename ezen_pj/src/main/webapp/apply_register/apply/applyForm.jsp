@@ -97,7 +97,10 @@
 						</div>
 					</div>
 					<div class="quantityBox">
-						<input type="number" min="1" max="10" id="quantity" onchange="saveQuantity()">
+						<div class="quantityTitle">수량</div>
+						<div class="quantityArea">
+							<input type="number" min="1" max="10" id="quantity" onchange="saveQuantity()">
+						</div>
 					</div>
 				</div>
 			</div>
