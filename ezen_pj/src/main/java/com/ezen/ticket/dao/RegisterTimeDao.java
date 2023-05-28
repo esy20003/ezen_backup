@@ -62,30 +62,48 @@ public class RegisterTimeDao {
 	}
 
 	//등록한 대리인 정보와 등록 날짜, 시간 불러오는 곳
-	public ArrayList<RegisterTimeVO> getCommissioner(String tDate, String tTime) {
+	public ArrayList<RegisterTimeVO> getCommissioner(String tDate, int tTime) {
 		ArrayList<RegisterTimeVO> list=new ArrayList<RegisterTimeVO>();
 		RegisterTimeVO rtvo=null;
 		con=Dbman.getConnection();
-		String sql="select * from commissioner_view where registerDate=? and startTime<? and ?<endTime";
+		String sql="select * from commissioner_view where registerDate=?";
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setString(1, tDate);
-			pstmt.setString(2, tTime);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
-				rtvo=new RegisterTimeVO();
-				rtvo.setMseq(rs.getInt("mseq"));
-				rtvo.setCid(rs.getString("cid"));
-				rtvo.setCnickname(rs.getString("cnickname"));
-				rtvo.setGrade(rs.getInt("grade"));
-				rtvo.setGname(rs.getString("gname"));
-				rtvo.setSuccess(rs.getInt("success"));
-				rtvo.setRegisterdate(rs.getString("registerDate"));
-				rtvo.setStarttime(rs.getString("startTime"));
-				rtvo.setEndtime(rs.getString("endTime"));
-				rtvo.setCom_price(rs.getInt("com_price"));
-				list.add(rtvo);
+				String starttime=rs.getString("starttime").replace(":", "");
+				String endtime=rs.getString("endtime").replace(":", "");
+				int startTime=Integer.parseInt(starttime);
+				int endTime=Integer.parseInt(endtime);
+				System.out.println("startTime: "+startTime);
+				System.out.println("endTime: "+endTime);
+				
+				sql="select * from commissioner_view where registerDate=? and ?<=? and ?<=? order by success desc";
+				pstmt=con.prepareStatement(sql);
+				pstmt.setString(1, tDate);
+				pstmt.setInt(2, startTime);
+				pstmt.setInt(3, tTime);
+				pstmt.setInt(4, tTime);
+				pstmt.setInt(5, endTime);
+				rs=pstmt.executeQuery();
+				while(rs.next()) {
+					rtvo=new RegisterTimeVO();
+					rtvo.setMseq(rs.getInt("mseq"));
+					rtvo.setCid(rs.getString("cid"));
+					rtvo.setCnickname(rs.getString("cnickname"));
+					rtvo.setGrade(rs.getInt("grade"));
+					rtvo.setGname(rs.getString("gname"));
+					rtvo.setSuccess(rs.getInt("success"));
+					rtvo.setRegisterdate(rs.getString("registerDate"));
+					rtvo.setStarttime(rs.getString("startTime"));
+					rtvo.setEndtime(rs.getString("endTime"));
+					rtvo.setCom_price(rs.getInt("com_price"));
+					list.add(rtvo);
+				}
 			}
+			
+			
 
 		} catch (SQLException e) {
 			e.printStackTrace();

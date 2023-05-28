@@ -275,7 +275,7 @@ public class ContentDao {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		con=Dbman.getConnection();
 		ContentVO cvo=null;
-		String sql="select cseq, area, areaImage from content_loc_seat_view where cseq=? and area=?";
+		String sql="select cseq, locationName, area, areaImage from content_loc_seat_view where cseq=? and area=?";
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, cseq);
@@ -284,6 +284,7 @@ public class ContentDao {
 			if(rs.next()) {
 				cvo=new ContentVO();
 				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setLocationName(rs.getString("locationName"));
 				cvo.setArea(rs.getString("area"));
 				cvo.setAreaImage(rs.getString("area"));
 				list.add(cvo);
