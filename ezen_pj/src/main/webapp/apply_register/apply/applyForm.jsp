@@ -62,12 +62,16 @@
 				<div class="detailBox bodyBox">
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
 					<div class="contentDetail">
-					<c:forEach items="${contentTableList}" var="contentTL">
 						<div class="poster">
+					<c:forEach items="${contentTableList}" var="contentTL">
 							<img src="${contentTL.image}">
+					</c:forEach>
 						</div>
 						<div class="detail">
+					<c:forEach items="${contentTableList}" var="contentTL">
 							<div class="title">${contentTL.title}</div>
+					</c:forEach>
+					<c:forEach items="${contentTableList}" var="contentTL">
 							<div class="artist">아티스트 : ${contentTL.artist}</div>
 					</c:forEach>
 					<c:forEach items="${contentLocationList}" var="contentLL">
