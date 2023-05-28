@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.dto.RegisterTimeVO;
@@ -95,7 +98,16 @@ public class RegisterTimeDao {
 					rtvo.setGrade(rs.getInt("grade"));
 					rtvo.setGname(rs.getString("gname"));
 					rtvo.setSuccess(rs.getInt("success"));
-					rtvo.setRegisterdate(rs.getString("registerDate"));
+					try {
+						SimpleDateFormat sdf= new SimpleDateFormat("yyyyMMdd");
+						SimpleDateFormat sdfReal= new SimpleDateFormat("yyyy-MM-dd");
+						Date formatDate;
+						formatDate = sdf.parse(rs.getString("registerDate"));
+						String registerDate= sdfReal.format(formatDate);
+						rtvo.setRegisterdate(registerDate);
+					} catch (ParseException e) {
+						e.printStackTrace();
+					}
 					rtvo.setStarttime(rs.getString("startTime"));
 					rtvo.setEndtime(rs.getString("endTime"));
 					rtvo.setCom_price(rs.getInt("com_price"));
