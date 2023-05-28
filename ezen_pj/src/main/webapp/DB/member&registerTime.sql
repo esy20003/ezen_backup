@@ -12,7 +12,7 @@ select * from success_board;
 select * from SEAT;
 select * from MEMBER;
 
-
+update member set useyn='Y' where useyn='N';
 
 select * from user_sequences;
 
