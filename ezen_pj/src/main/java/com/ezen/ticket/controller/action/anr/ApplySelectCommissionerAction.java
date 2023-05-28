@@ -1,7 +1,10 @@
 package com.ezen.ticket.controller.action.anr;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -44,13 +47,31 @@ public class ApplySelectCommissionerAction implements Action {
 //		list의 tDateTime으로 registerTime이랑 비교해서 대리인 추출
 		RegisterTimeDao rtdao=RegisterTimeDao.getInstance();
 		String tDate=list.get(0).getTDateTime().substring(0, 8);
-		int tTime=Integer.parseInt(list.get(0).getTDateTime().substring(8,12));
-		System.out.println("티켓팅날짜:"+tDate+" 시간:"+tTime);
+		String tTimeStr=list.get(0).getTDateTime().substring(8,12);
+		int tTime=Integer.parseInt(tTimeStr);
+		
+		
+		SimpleDateFormat sdf= new SimpleDateFormat("yyyyMMdd");
+		SimpleDateFormat sdfReal= new SimpleDateFormat("yyyy-MM-dd");
+		// String 타입을 Date 타입으로 변환
+		Date formatDate;
+		try {
+			formatDate = sdf.parse(tDate);
+			String parseTDate= sdfReal.format(formatDate);
+			tTimeStr=tTimeStr.substring(0, 2)+":"+tTimeStr.substring(2);
+			System.out.println("티켓팅날짜:"+parseTDate+" 시간:"+tTimeStr);
+			request.setAttribute("tDateTime", parseTDate+"  "+tTimeStr);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		// Date타입의 변수를 새롭게 지정한 포맷으로 변환
+		
 		ArrayList<RegisterTimeVO> commissionerList=rtdao.getCommissioner(tDate, tTime);
 
-		
+		String date=request.getParameter("date").substring(0, 10);
+		System.out.println("date:"+date);
 		request.setAttribute("detailList",list); //제목, 아티스트,포스터
-		request.setAttribute("date", request.getParameter("date")); //이건 다음페이지 콘텐츠용
+		request.setAttribute("date", date); //이건 다음페이지 콘텐츠용
 		request.setAttribute("time", request.getParameter("time"));//이건 다음페이지 콘텐츠용
 		request.setAttribute("areaList", list2); //위치명, area, 가격, 좌석배치도
 		request.setAttribute("quantity", request.getParameter("quantity")); //수량

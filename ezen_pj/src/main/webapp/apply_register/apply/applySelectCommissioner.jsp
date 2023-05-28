@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ include file="../../header.jsp" %>
 
 <form name="frm" action="ticket.do" method="post" class="form">
@@ -9,16 +10,24 @@
 			<div class="detailBody">
 				<div class="posterZone">
 					<div class="posterBox">
-						<img alt="공연 포스터" src="{detailList.image}" width=300 height=400>
+					<c:forEach items="${detailList}" var="dl">
+						<img alt="공연 포스터" src="${dl.image}" width=300 height=400>
+					</c:forEach>
 					</div>
 				</div>
 				<div class="detailZone">
-					<div class="detail title">공연명 : {detailList.title}</div>
-					<div class="detail artist">아티스트 : {detailList.artist}</div>
-					<div class="detail location">공연 위치 : {areaList.locationName}</div>
-					<div class="detail dateTime">공연 일정 : ${date}&nbsp;${time}</div>
-					<div class="detail area">공연 구역 : {areaList.area}</div>
-					<div class="detail tTime">티켓팅 일정 : {detailList.tDateTime}</div>
+					<c:forEach items="${detailList}" var="dl">
+						<div class="detail title">공연명 : <c:out value="${dl.title}"/></div>
+						<div class="detail artist">아티스트 : <c:out value="${dl.artist}"/></div>
+					</c:forEach>
+					<c:forEach items="${areaList}" var="al">
+						<div class="detail location">공연 위치 : ${al.locationName}</div>
+					</c:forEach>
+					<div class="detail dateTime">공연 일정 : ${date}&nbsp;${param.time}</div>
+					<c:forEach items="${areaList}" var="al">
+						<div class="detail area">공연 구역 : ${al.area}</div>
+					</c:forEach>
+						<div class="detail tTime">티켓팅 일정 : ${tDateTime}</div>
 				</div>
 			</div>
 		</div>

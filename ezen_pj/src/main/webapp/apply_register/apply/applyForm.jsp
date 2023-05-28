@@ -69,11 +69,11 @@
 						<div class="detail">
 							<div class="title">${contentTL.title}</div>
 							<div class="artist">아티스트 : ${contentTL.artist}</div>
+					</c:forEach>
 					<c:forEach items="${contentLocationList}" var="contentLL">
 							<div class="location">장소 : ${contentLL.locationName}</div>
 					</c:forEach>
 						</div>
-					</c:forEach>
 					</div>
 				</div>
 				<div class="seatingChartBox bodyBox">
@@ -82,7 +82,9 @@
 						<div class="seatingChartDetailBox">
 							<div class="seatingChartImg">
 							<!-- 좌석도도 content_loc_seat_view에서 가져와야함 -->
+					<c:forEach items="${contentLocationList}" var="contentLL">
 								<img alt="" src="${contentLL.areaImage}">
+					</c:forEach>
 							</div>
 						</div>
 						<div class="AreaBox">
