@@ -114,15 +114,18 @@
 	</section>
 	<section class=buttonSection>
 		<div class=buttonBox>
+			<div class=buttonSmallBox>
+				<input class="button1" type="button" value="뒤로">
+			</div>
 			<div class=groupBox>
 					<div class=buttonSmallBox>
-						<input id="button" type="button" value="뒤로">
+						<input class="button1" type="button" value="다시 선택">
 					</div>
 					<div class=buttonSmallBox>
-						<input id="button" type="button" value="장바구니">
+						<input class="button1" type="button" value="장바구니">
 					</div>
 					<div class=buttonSmallBox>
-						<input type="submit" id="button" value="다음" onclick="return applyFormCheck()"/>
+						<input type="submit" class="button1 next" value="다음" onclick="return applyFormCheck()"/>
 					</div>
 			</div>
 		</div>
