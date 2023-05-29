@@ -12,9 +12,9 @@
 				<ul class="applyTitle">
 					<li>공연 종류</li>
 					<li>공연</li>
+					<li>상세 정보</li>
 					<li>날짜</li>
 					<li>시간</li>
-					<li>상세 정보</li>
 					<li>좌석 구역</li>
 				</ul>
 			</div>
@@ -39,9 +39,30 @@
 					</c:forEach>
 						</ul>
 				</div>
+				<div class="detailBox bodyBox">
+					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
+					<div class="contentDetail">
+						<div class="poster">
+					<c:forEach items="${contentTableList}" var="contentTL">
+							<img src="${contentTL.image}" width="220px" height="294">
+					</c:forEach>
+						</div>
+						<div class="detail">
+					<c:forEach items="${contentTableList}" var="contentTL">
+							<div class="header1">공연명</div><div class="box3">${contentTL.title}</div>
+					</c:forEach>
+					<c:forEach items="${contentTableList}" var="contentTL">
+							<div class="header1">아티스트</div><div class="artist box3">${contentTL.artist}</div>
+					</c:forEach>
+					<c:forEach items="${contentLocationList}" var="contentLL">
+							<div class="header1">공연 위치</div><div class="location box3">${contentLL.locationName}</div>
+					</c:forEach>
+						</div>
+					</div>
+				</div>
 				<div class="dateBox bodyBox">
 							<ul class="date">
-						<c:forEach items="${contentDateList}" var="contentDL" varStatus="state">
+						<c:forEach items="${contentDateList}" var="contentDL" varStatus="state" begin="1">
 								<li onclick="saveDate('${state.count}')"><a href="ticket.do?command=applyContentSelect&cseq=${contentDL.cseq}&category=${category}&locationNum=${contentDL.locationNum}&contentDate=${contentDL.contentDate}">
 								<input type="hidden" value="${contentDL.contentDate}" name="date" id='${"date"+=state.count}'>
 								<fmt:formatDate value="${contentDL.contentDate}" pattern="yyyy-MM-dd" /></a>
@@ -59,27 +80,6 @@
 									
 					</ul>
 				</div>
-				<div class="detailBox bodyBox">
-					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
-					<div class="contentDetail">
-						<div class="poster">
-					<c:forEach items="${contentTableList}" var="contentTL">
-							<img src="${contentTL.image}">
-					</c:forEach>
-						</div>
-						<div class="detail">
-					<c:forEach items="${contentTableList}" var="contentTL">
-							<div class="title">${contentTL.title}</div>
-					</c:forEach>
-					<c:forEach items="${contentTableList}" var="contentTL">
-							<div class="artist">아티스트 : ${contentTL.artist}</div>
-					</c:forEach>
-					<c:forEach items="${contentLocationList}" var="contentLL">
-							<div class="location">장소 : ${contentLL.locationName}</div>
-					</c:forEach>
-						</div>
-					</div>
-				</div>
 				<div class="seatingChartBox bodyBox">
 					<!-- 좌석 선택-좌석도 위에 보여주고 밑에 좌석 선택 -->
 					<div class="seatingChartBoxSeparate">
@@ -87,19 +87,19 @@
 							<div class="seatingChartImg">
 							<!-- 좌석도도 content_loc_seat_view에서 가져와야함 -->
 					<c:forEach items="${contentLocationList}" var="contentLL">
-								<img alt="" src="${contentLL.areaImage}">
+								<img alt="좌석도" src="${contentLL.areaImage}" width="220" height="220">
 					</c:forEach>
 							</div>
-						</div>
 						<div class="AreaBox">
 									<ul>
 							<c:forEach  items="${contentAreaList}" var="contentAL" varStatus="state">
 										<li onclick="saveArea('${state.count}')">
-										<a href="#" onclick="return false">${contentAL.area}&nbsp;&nbsp;&nbsp;${contentAL.price}원</a>
+										<div class="area1">${contentAL.area}</div><div class="price1">${contentAL.price}원</div>
 										<input type="hidden" value="${contentAL.area}" name="area" id='${"area"+=state.count}'>
 										</li>
 							</c:forEach>
 									</ul>
+						</div>
 						</div>
 					</div>
 					<div class="quantityBox">
