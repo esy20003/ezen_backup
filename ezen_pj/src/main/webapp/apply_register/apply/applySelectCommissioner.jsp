@@ -4,7 +4,7 @@
 <%@ include file="../../header.jsp" %>
 
 <form name="frm" action="ticket.do" method="post" class="form">
-	<section class="body_Choose">
+	<section class="body_Choose2">
 		<div class="buttonBoxArea">
 			<div class="Header">선택하신 공연</div>
 			<div class="detailBody">
@@ -25,14 +25,14 @@
 					</c:forEach>
 					<div class="detail dateTime">공연 일정 : ${date}&nbsp;${param.time}</div>
 					<c:forEach items="${areaList}" var="al">
-						<div class="detail area">공연 구역 : ${al.area}</div>
+						<div class="detail area">공연 구역 : ${al.area}&nbsp;${al.price}원</div>
 					</c:forEach>
 						<div class="detail tTime">티켓팅 일정 : ${tDateTime}</div>
 				</div>
 			</div>
 		</div>
-		<div class="buttonBoxArea">
-			<div class="Header lastheader">대리인 리스트</div>
+		<div class="buttonBoxArea2">
+			<div class="Header">대리인 리스트</div>
 			<div class="detailBody">
 				<table>
 					<tr><th>닉네임</th><th>등급</th><th>성공 횟수</th><th>가능한 시간대</th><th>커미션비</th></tr>
@@ -47,6 +47,21 @@
 					</c:forEach>
 					</ul>
 				</div>
+			</div>
+		</div>
+	</section>
+		<section class=buttonSection>
+		<div class=buttonBox>
+			<div class=groupBox>
+					<div class=buttonSmallBox>
+						<input class="button1" type="button" value="뒤로">
+					</div>
+					<div class=buttonSmallBox>
+						<input type="submit" class="button1 next" value="다음" onclick="return applyFormCheck()"/>
+					</div>
+					<div class=buttonSmallBox>
+						<input class="button1" type="button" value="장바구니">
+					</div>
 			</div>
 		</div>
 	</section>
