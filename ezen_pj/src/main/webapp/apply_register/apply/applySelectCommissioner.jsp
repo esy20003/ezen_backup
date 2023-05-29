@@ -32,18 +32,21 @@
 			</div>
 		</div>
 		<div class="buttonBoxArea">
-			<div class="Header">대리인 리스트</div>
+			<div class="Header lastheader">대리인 리스트</div>
 			<div class="detailBody">
 				<table>
 					<tr><th>닉네임</th><th>등급</th><th>성공 횟수</th><th>가능한 시간대</th><th>커미션비</th></tr>
-					<c:forEach items="${comList}" var="cl" varStatus="state">
-					<tr <%-- onclick="saveTime('${state.count}')" --%>>
-						<td>${cl.cnickname}</td><td>${cl.gname}</td><td>${cl.success}</td><td>${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</td><td>${cl.com_price}원</td>
-<%-- 						<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'> --%>
-					</tr>
-					</c:forEach>
-					
 				</table>
+				<div class="com_list">
+					<ul>
+					<c:forEach items="${comList}" var="cl" varStatus="state">
+						<li onclick="saveTime('${state.count}')">
+						<div>${cl.cnickname}</div><div>${cl.gname}</div><div>${cl.success}</div><div>${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</div><div>${cl.com_price}원</div>
+						<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
+						</li>
+					</c:forEach>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</section>
