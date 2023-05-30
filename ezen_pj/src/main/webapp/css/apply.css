@@ -42,6 +42,7 @@ font-size:2em; line-height:50px;}
 .applyTitle li:nth-child(4){width:150px;}
 .applyTitle li:nth-child(5){width:125px;}
 .applyTitle li:last-child{width:250px; border-right:0; }
+#category:hover{background:#919191; color:#fff;}
 
 .applyBodyBox{ background:#EEEEEE;postion:relative; width:1200px; height:650px;}
 .bodyBox{box-sizing:border-box; border-right:1px solid black;postion:relative; float:left; height:100%;}

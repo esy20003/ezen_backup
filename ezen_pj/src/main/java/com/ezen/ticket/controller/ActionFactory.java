@@ -3,6 +3,7 @@ package com.ezen.ticket.controller;
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.IndexAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
+import com.ezen.ticket.controller.action.anr.ApplyCartAction;
 import com.ezen.ticket.controller.action.anr.ApplyContentSelectAction;
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
 import com.ezen.ticket.controller.action.anr.ApplySelectCommissionerAction;
@@ -77,6 +78,7 @@ public class ActionFactory {
 		else if (command.equals("categorySelect")) ac = new CategorySelectAction();
 		else if (command.equals("applyContentSelect")) ac = new ApplyContentSelectAction();
 		else if (command.equals("applySelectCommissioner")) ac = new ApplySelectCommissionerAction();
+		else if (command.equals("applyCart")) ac = new ApplyCartAction();
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("registerTimeForm")) ac = new RegisterTimeFormAction();

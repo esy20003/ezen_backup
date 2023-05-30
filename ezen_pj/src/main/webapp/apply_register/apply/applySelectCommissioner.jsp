@@ -57,7 +57,7 @@
 						<input class="button1" type="button" value="뒤로">
 					</div>
 					<div class=buttonSmallBox>
-						<input type="submit" class="button1 next" value="다음" onclick="return applyFormCheck()"/>
+						<input type="submit" class="button1 next" value="결제" onclick="return applyFormCheck()"/>
 					</div>
 					<div class=buttonSmallBox>
 						<input class="button1" type="button" value="장바구니">
