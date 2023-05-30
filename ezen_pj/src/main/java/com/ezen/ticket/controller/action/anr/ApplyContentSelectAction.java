@@ -33,22 +33,24 @@ public class ApplyContentSelectAction implements Action {
 			ContentDao cdao=ContentDao.getInstance();
 			
 			if(request.getParameter("contentDate")!=null) {
-				System.out.println(request.getParameter("contentDate"));
+				System.out.println("contendDate:"+request.getParameter("contentDate"));
 				String contentDate=request.getParameter("contentDate").substring(0, 10);
-				System.out.println(contentDate);
 				contentDate=contentDate.replace("-", "");
-				System.out.println(contentDate);
+				System.out.println("contentDate:"+contentDate);
+				
 				int category=Integer.parseInt(request.getParameter("category"));
 				list = cdao.selectContent(category);
 				
 				int cseq=Integer.parseInt(request.getParameter("cseq"));
-				int locationNum=Integer.parseInt(request.getParameter("locationNum"));
 				
 				list2=cdao.selectFromContentByTitle(cseq);
+				int locationNum=list2.get(0).getLocationNum();
+				System.out.println("locationNum:"+locationNum);
+
 				list3=cdao.selectFromContentTimeByTitle(cseq);
 				list4=cdao.selectFromLocationViewByTitle(cseq);
-				list5=cdao.selectFromContentAreaByTitle(cseq);
-				list6=cdao.selectTimeByDate(contentDate);
+				list5=cdao.selectFromContentAreaByTitle(locationNum);
+				list6=cdao.selectTimeByDate(cseq, contentDate);
 				
 				request.setAttribute("category", category);
 				
@@ -66,11 +68,12 @@ public class ApplyContentSelectAction implements Action {
 			
 			int cseq=Integer.parseInt(request.getParameter("cseq"));
 			int locationNum=Integer.parseInt(request.getParameter("locationNum"));
-			
+			System.out.println("locationNum:"+locationNum);
+
 			list2=cdao.selectFromContentByTitle(cseq);
 			list3=cdao.selectFromContentTimeByTitle(cseq);
 			list4=cdao.selectFromLocationViewByTitle(cseq);
-			list5=cdao.selectFromContentAreaByTitle(cseq);
+			list5=cdao.selectFromContentAreaByTitle(locationNum);
 			
 			request.setAttribute("category", category);
 

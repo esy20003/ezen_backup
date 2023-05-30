@@ -1,3 +1,24 @@
+select * from ADDRESS;
+select * from admin;
+select * from cart;
+select * from contentTime;
+select * from ORDER_DETAIL;
+select * from CONTENT;
+select * from GRADE;
+select * from ORDERS;
+select * from QNA_BOARD;
+select * from REVIEW_BOARD;
+select * from success_board;
+select * from SEAT;
+select * from MEMBER;
+select*from registerTime;
+select*from locationNum;
+
+select* from content_loc_seat_view order by locationNum;
+select*from content_time_view order by cseq;
+select * from member_grade_view;
+select * from cart_total_view;
+select*from order_view order by oseq;
 
 /* Drop Tables */
 
@@ -64,8 +85,9 @@ CREATE TABLE registerTime
 	registerDate varchar2(100) default '00000000',
 	startTime varchar2(100) NOT NULL,
 	endTime varchar2(100) NOT NULL,
-	primary key(rtseq)
+	primary key(rtseq,mseq,registerDate,startTime,endTime)
 );
+--전체를 pk로 줘서 한 사람이 시간 중복 등록 못하게 막음
 
 CREATE TABLE address
 (

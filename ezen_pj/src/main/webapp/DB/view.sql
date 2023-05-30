@@ -63,10 +63,10 @@ select * from cart_view;
 
 CREATE OR REPLACE VIEW cart_total_view
 AS 
-SELECT  ca.mseq,ca.cseq, ca.title, ca.locationNum, ca.locationname, ca.area,  m.nickname, m.gprice,
+SELECT  ca.mseq,ca.cseq, ca.title, ca.locationNum, ca.locationname, ca.area,  m.cnickname, m.gprice,
 ca.price, ca.mseq2,ca.quantity, ca.indate, ca.buyyn 
 FROM cart_view ca , member_grade_view m
-where ca.mseq2=m.mseq(+);
+where ca.mseq2=m.cmseq(+);
 
 select * from cart_total_view;
 
@@ -85,18 +85,29 @@ AS
 SELECT  d.odseq, o.oseq, o.indate, o.mseq, 
 m.id, m.name as buyer_name, m.nickname as buyer_nickname, m.zip_num,m.address1, m.address2, m.phone,
 d.cseq, d.locationNum, clv.title,clv.locationName, clv.artist, d.contentDate, d.contentTime, clv.area, clv.price as content_price,
-d.mseq2, mgv.nickname as com_nickname, mgv.gname as com_grade, mgv.gprice as com_price,
+d.mseq2, mgv.cnickname as com_nickname, mgv.gname as com_grade, mgv.gprice as com_price,
 d.quantity,
 d.result 
 FROM orders o, order_detail d, member m, content_loc_seat_view clv, member_grade_view mgv 
-where o.oseq=d.oseq and o.mseq=m.mseq and d.cseq=clv.cseq and d.area=clv.area and d.mseq2=mgv.mseq;
+where o.oseq=d.oseq and o.mseq=m.mseq and d.cseq=clv.cseq and d.area=clv.area and d.mseq2=mgv.cmseq;
 
 
 select*from order_view order by oseq;
 
 
+---------------
+--member_grade_view+registerTime 합친 view
 
+select*from registerTime;
+select*from member_grade_view;
+select*from commissioner_view;
 
+create or replace view commissioner_view 
+as
+select r.mseq, m.cid, m.cnickname, m.grade,m.gname, m.success, r.registerDate ,r.startTime, r.endTime, m.gprice as com_price
+from registerTime r
+inner join member_grade_view m 
+on r.mseq=m.cmseq;
 
 
 
