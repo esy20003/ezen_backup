@@ -122,13 +122,14 @@ public class ReviewDao {
 	}
 	public void updateReview(ReviewVO rvo) {
 		
-		String sql ="update review_board set title=?, content=?, image=?";
+		String sql ="update review_board set title=?, content=?, image=? where rseq=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, rvo.getTitle());
 			pstmt.setString(2, rvo.getContent());
 			pstmt.setString(3, rvo.getImage());
+			pstmt.setInt(4, rvo.getRseq());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {e.printStackTrace();

@@ -18,8 +18,8 @@ public class ReviewViewAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url = "review/reviewView.jsp";
+		System.out.println("2222222222222@@@@"+request.getParameter("rseq"));
 		int rseq = Integer.parseInt(request.getParameter("rseq"));
-		System.out.println(rseq);
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		if(mvo == null) {

@@ -1,0 +1,34 @@
+public void updateReview(ReviewVO rvo) {
+		
+		String sql =rvo.getImage() != null ? "update review_board set title=?, content=?, image=? where rseq=?"
+				: "update review_board set title=?, content=? where rseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			if (rvo.getImage() != null) {
+				pstmt.setString(1, rvo.getTitle());
+				pstmt.setString(2, rvo.getContent());
+				pstmt.setString(3, rvo.getImage());
+				pstmt.setInt(4, rvo.getRseq());
+				
+			}else {
+				pstmt.setString(1, rvo.getTitle());
+				pstmt.setString(2, rvo.getContent());
+				pstmt.setInt(3, rvo.getRseq());
+				
+			}
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);
+		}
+		
+	}
+
+
+
+
+
+// 분기처리자체를 잘못함
+			// 이미지 선택을 했을경우 if 선택하지 않았을 경우 else 로 타는것은 맞지만
+			// 이미지를 선택했던 선택하지 않았던 update 자체는 실행을 해야함

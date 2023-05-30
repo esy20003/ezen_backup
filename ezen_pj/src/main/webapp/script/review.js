@@ -37,6 +37,7 @@ function go_upd(rseq) {
 
 
 function review_update() {
+	console.log('??? ', document.formm.rseq.value);
 	if(document.formm.pwd.value == "" ) {
 		alert("리뷰 수정 시 비밀번호 입력은 필수입니다.");
 		document.formm.pwd.focud();
