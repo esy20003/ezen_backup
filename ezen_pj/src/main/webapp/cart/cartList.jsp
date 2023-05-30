@@ -21,12 +21,12 @@
 						<c:forEach items="${ notBuy_cartList }" var="cartListVO">
 							<tr>
 								<td>${ cartListVO.cseq }</td>
-								<td><fmt:formatDate value="${ cartListVO.contentdate }" type="date" /></td>
+								<td><fmt:formatDate value="${ cartListVO.contentdate }" pattern="yyyy-MM-dd" /></td>
 								<td>${ cartListVO.contenttime }</td>
 								<td>${ cartListVO.locationnum }</td>
 								<td>${ cartListVO.area }</td>
-								<td>${ cartListVO.mseq2 }</td>
-								<td><fmt:formatDate value="${ cartListVO.indate }" type="date" /></td>
+								<td name="mseq2">${ cartListVO.mseq2 }</td>
+								<td><fmt:formatDate value="${ cartListVO.indate }" pattern="yyyy-MM-dd" /></td>
 								<c:forEach items="${ defuty }" end="0" var="defutyVO">
 								<td>${ defutyVO.cnickname }</td>
 								</c:forEach>
@@ -37,9 +37,9 @@
 					<div id="buttons">
 						<input type="button" value="계속 쇼핑" class="comeon" onclick="location.href='ticket.do?command=index'"/>
 						<c:if test="${ notBuy_cartList.size() != 0 }">
-							<input type="button" value="주문하기" class="submit" onclick="location.href='ticket.do?command=cartDetail'"/>
-							<!-- 체크된 카트번호와 멤버 번호를 가져와야한다. 어떡해하면 가져올 수 있을까.. -->
-							<!-- 우선 마이페이지를 완성하고 다시오자.. -->
+							<input type="button" value="주문하기" class="submit" onclick="go_cart_order();"/>
+							<input type="button" value="수정하기" class="update" onclick="go_cart_update();"/>
+							<!-- command=cartOrderDetail, jsp = detail/orderDetail -->
 							<input type="button" value="삭제하기" class="cancel" onclick="go_cart_delete();" />
 						</c:if>
 					</div>
@@ -59,12 +59,12 @@
 						<c:forEach items="${ buy_cartList }" var="cartListVO">
 							<tr>
 								<td>${ cartListVO.cseq }</td>
-								<td><fmt:formatDate value="${ cartListVO.contentdate }" type="date" /></td>
+								<td><fmt:formatDate value="${ cartListVO.contentdate }" pattern="yyyy-MM-dd"/></td>
 								<td>${ cartListVO.contenttime }</td>
 								<td>${ cartListVO.locationnum }</td>
 								<td>${ cartListVO.area }</td>
 								<td>${ cartListVO.quantity }</td>
-								<td><fmt:formatDate value="${ cartListVO.indate }" type="date" /></td>
+								<td><fmt:formatDate value="${ cartListVO.indate }" pattern="yyyy-MM-dd" /></td>
 							</tr>
 						</c:forEach>
 					</table>

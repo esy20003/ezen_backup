@@ -21,7 +21,7 @@ public class CartListAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "cart/cartListForm.jsp";
+		String url = "cart/cartList.jsp";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if(mvo == null) {
