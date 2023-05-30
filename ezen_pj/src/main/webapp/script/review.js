@@ -25,3 +25,40 @@ function review_write() {
 	}
 
 }
+
+
+function reviewUpdateChk() {
+	if(document.formm.pwd.value == "" ) {
+		alert("리뷰 수정 시 비밀번호 입력은 필수입니다.");
+		document.formm.pwd.focud();
+		//return false;
+	}else if(document.formm.title.value == "") {
+		alert("제목은 필수 입력 사항입니다.");
+		document.formm.title.focus();
+		//return false;
+	} else if(document.formm.content.value == "") {
+		alert("내용은 필수 입력 사항입니다.");
+		document.formm.content.focus();
+		//return false;
+	} else {
+		if(confirm("수정 ㄱ?")) {
+			document.formm.action ="ticket.do?command=reviewEdit";
+			document.formm.submit();
+		}
+	}
+}
+
+
+
+//function review_chk_pwd(reviewrseq, popupWinName) {
+//	var url = "ticket.do?command=reviewChkForm&rseq=" + reviewrseq;
+//	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=300";
+//	window.open(url, popupWinName, opt);
+//}
+
+
+
+
+
+
+

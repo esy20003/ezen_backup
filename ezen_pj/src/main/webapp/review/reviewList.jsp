@@ -52,9 +52,9 @@
 			</div>
 			<div class="clear"></div>
 			<br>
-			<div id="buttons" style="float: right">
-				<input type="button" value="글쓰기" class="submit" style="color: black" onclick="location.href='ticket.do?command=reviewWriteForm'">
-				<input type="button" value="돌아가기" class="cancel" style="color: black" onclick="location.href='ticket.do?command=index'">
+			<div id="buttons" class="rev_btn_box" style="float: right">
+				<input type="button" value="글쓰기" class="submit" onclick="location.href='ticket.do?command=reviewWriteForm'">
+				<input type="button" value="돌아가기" class="cancel" onclick="location.href='ticket.do?command=index'">
 			</div>
 			<div class="clear"></div>
 			<br>

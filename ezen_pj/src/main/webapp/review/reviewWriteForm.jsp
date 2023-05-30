@@ -36,7 +36,7 @@
 				<div class="clear"></div>
 				<div id="buttons" class="rev_btn_box" style="float: right">
 					<input type="button" value="작성완료" class="submit" onclick="review_write()">
-					<input type="reset" value="취소" class="cancel">
+					<input type="reset" value="다시작성" class="cancel">
 					<input type="button" value=" 돌아가기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
 				</div>
 			</form>

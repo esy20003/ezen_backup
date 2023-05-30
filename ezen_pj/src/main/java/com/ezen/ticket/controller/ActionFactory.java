@@ -40,6 +40,7 @@ import com.ezen.ticket.controller.action.qna.QnaWriteAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
 import com.ezen.ticket.controller.action.qna.UpdateQnaAction;
 import com.ezen.ticket.controller.action.qna.UpdateQnaFormAction;
+import com.ezen.ticket.controller.action.review.ReviewEditAction;
 import com.ezen.ticket.controller.action.review.ReviewEditFormAction;
 import com.ezen.ticket.controller.action.review.ReviewListAction;
 import com.ezen.ticket.controller.action.review.ReviewViewAction;
@@ -108,6 +109,8 @@ public class ActionFactory {
 		else if(command.equals("reviewWriteForm")) ac = new ReviewWriteFormAction();
 		else if(command.equals("reviewWrite")) ac = new ReviewWriteAction();  
 		else if(command.equals("reviewEditForm")) ac = new ReviewEditFormAction();
+		else if(command.equals("reviewEdit")) ac = new ReviewEditAction();
+		
 		
 		// cart
 		else if(command.equals("cartList")) ac = new CartListAction();
