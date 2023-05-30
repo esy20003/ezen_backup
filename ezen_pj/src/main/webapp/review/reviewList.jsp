@@ -4,10 +4,10 @@
 <div id="review_box">
 	<div class="review_content">
 		<h2 class="review_title">후기 게시판</h2>
-		<h3>고객님들의 티켓팅 후기를 작성하는 후기 게시판입니다.</h3>
+		<h3>고객님들의 티켓팅 후기를 볼 수 있는 게시판 입니다.</h3>
 		<form name="formm" method="post" class="review_form">
 			<table id="reviewList">
-				<tr>
+				<tr class="review_list_h">
 					<th>번호</th>
 					<th>제목</th>
 					<th>작성자</th>
