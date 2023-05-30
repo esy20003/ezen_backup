@@ -44,7 +44,7 @@
          <th>시작 시각</th>
          <th>마감 시각</th>
       </tr>
-      <c:forEach items="${ myAllRegister }" var="myRegisterVO">
+      <c:forEach items="${ myAllRegister }" var="myRegisterVO" varStatus="status">
 
 
          <!----------------------------------register 날짜 시작시간 끝날시간 저장(mrDate, mrEndTime, mrStartTime 사용)-------------------------->
@@ -71,9 +71,8 @@
 
 
 
-
          <tr>
-            <td>${ myRegisterVO.rtseq }</td>
+            <td>${status.count}</td>
             <c:forEach items="${ member }" var="memberNickname">
                <td>${ memberNickname }</td>
             </c:forEach>

@@ -58,11 +58,14 @@
 			<fmt:formatDate var="mrEndTime" value="${ registerEndTime }" pattern="HH:mm" />
 			<!------------------------------------------------------------------------------------------------------------------------------------------->
 
+			<%! int seq=1; %>
 
 			<c:if	test="${ mrDate < date || (mrDate == date && mrEndTime < time) }">
 				<c:forEach items="${ member }" var="memberNickname" end="0">
 					<tr>
-						<td>${ myRegisterVO.rtseq }</td>
+						
+						<td><%=seq %></td>
+						<% seq +=1; %>
 						<td>${ memberNickname }</td>
 						<td>${ mrDate }</td>
 						<td>${ mrStartTime }</td>
@@ -71,6 +74,8 @@
 				</c:forEach>
 			</c:if>
 		</c:forEach>
+		
+	  <% seq=1; %>
 	</table>
 </div>
 
