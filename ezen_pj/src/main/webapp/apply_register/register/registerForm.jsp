@@ -2,6 +2,7 @@
 <%@ include file="../../header.jsp"%>
 
 <script type="text/javascript">
+
     function inputTimeColon(time) {
         // replace 함수를 사용하여 콜론( : )을 공백으로 치환한다.
         var replaceTime = time.value.replace(/\:/g, "");
@@ -33,54 +34,140 @@
     }
     
     function addTime() {
-    	sessionStorage.removeItem('date');
-    	sessionStorage.removeItem('startTime');
-    	sessionStorage.removeItem('endTime');
-    	 
-    	var date =document.getElementById("date").value;
+        var date = document.getElementById("date").value;
         var startTime = document.getElementById("starttime").value;
         var endTime = document.getElementById("endtime").value;
-        
-        sessionStorage.setItem('date',date);
-        sessionStorage.setItem('startTime',startTime);
-        sessionStorage.setItem('endTime',endTime);
-        
+
         if (date === "" || startTime === "" || endTime === "") {
             alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
             return;
         }
-        
+
         var output = document.getElementById("output");
         var li = document.createElement("li");
         li.textContent = date + " " + startTime + " ~ " + endTime;
-        
+
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "삭제";
         deleteButton.className = "deleteButton";
         deleteButton.onclick = function() {
             output.removeChild(li);
         };
-        
+
         li.appendChild(deleteButton);
         output.appendChild(li);
-        
+
+        // 입력한 값을 배열로 저장
+        var dates = sessionStorage.getItem('dates');
+        var times = sessionStorage.getItem('times');
+
+        // 기존에 저장된 값이 없으면 빈 배열로 초기화
+        if (!dates) {
+            dates = [];
+        } else {
+            dates = JSON.parse(dates);
+        }
+
+        if (!times) {
+            times = [];
+        } else {
+            times = JSON.parse(times);
+        }
+
+        // 배열에 입력한 값을 추가
+        dates.push(date);
+        times.push({ startTime: startTime, endTime: endTime });
+
+        // 수정된 배열을 sessionStorage에 저장
+        sessionStorage.setItem('dates', JSON.stringify(dates));
+        sessionStorage.setItem('times', JSON.stringify(times));
+
         // 입력 후에 입력 필드를 초기화합니다.
         document.getElementById("date").value = "";
         document.getElementById("starttime").value = "";
         document.getElementById("endtime").value = "";
-        
     }
-    
-    function gotime(){
-    	
-    	var date = sessionStorage.getItem('date');
-    	var date = date.replace("-","").replace("-","");
-    	var starttime = sessionStorage.getItem('startTime');
-    	var endtime = sessionStorage.getItem('endTime');
-    	document.registerForm.action = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + starttime + "&endtime=" + endtime;
-    	document.registerForm.submit();
-    	
+
+    function addTime() {
+        var date = document.getElementById("date").value;
+        var startTime = document.getElementById("starttime").value;
+        var endTime = document.getElementById("endtime").value;
+
+        if (date === "" || startTime === "" || endTime === "") {
+            alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
+            return;
+        }
+
+        var output = document.getElementById("output");
+        var li = document.createElement("li");
+        li.textContent = date + " " + startTime + " ~ " + endTime;
+
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "삭제";
+        deleteButton.className = "deleteButton";
+        deleteButton.onclick = function() {
+            output.removeChild(li);
+        };
+
+        li.appendChild(deleteButton);
+        output.appendChild(li);
+
+        // 입력한 값을 배열로 저장
+        var dates = sessionStorage.getItem('dates');
+        var times = sessionStorage.getItem('times');
+
+        // 기존에 저장된 값이 없으면 빈 배열로 초기화
+        if (!dates) {
+            dates = [];
+        } else {
+            dates = JSON.parse(dates);
+        }
+
+        if (!times) {
+            times = [];
+        } else {
+            times = JSON.parse(times);
+        }
+
+        // 배열에 입력한 값을 추가
+        dates.push(date);
+        times.push({ startTime: startTime, endTime: endTime });
+
+        // 수정된 배열을 sessionStorage에 저장
+        sessionStorage.setItem('dates', JSON.stringify(dates));
+        sessionStorage.setItem('times', JSON.stringify(times));
+
+        // 입력 후에 입력 필드를 초기화합니다.
+        document.getElementById("date").value = "";
+        document.getElementById("starttime").value = "";
+        document.getElementById("endtime").value = "";
     }
+
+    function gotime() {
+        var dates = JSON.parse(sessionStorage.getItem('dates'));
+        var times = JSON.parse(sessionStorage.getItem('times'));
+
+        if (dates && times && dates.length === times.length) {
+            for (var i = 0; i < dates.length; i++) {
+                var date = dates[i].replace(/-/g, '');
+                var startTime = times[i].startTime;
+                var endTime = times[i].endTime;
+                var url = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + startTime + "&endtime=" + endTime;
+
+                var form = document.createElement("form");
+                form.method = "post";
+                form.action = url;
+
+                document.body.appendChild(form);
+                form.submit();
+                document.body.removeChild(form);
+            }
+        } else {
+            alert("날짜와 시간 정보를 확인할 수 없습니다.");
+        }
+    }
+
+
 </script>
 
 <style>
@@ -134,7 +221,7 @@ border-radius: 5px; cursor: pointer;}
                 </td>
                 </tr>
             </table>
-            <ul id="output" name></ul>
+            <ul id="output"></ul>
             <button type="button" id="addButton" onclick="addTime()">추가</button>
             <input type="submit" id="submit_Button" value="저장" onClick="gotime()">
         </div>
