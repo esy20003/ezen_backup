@@ -25,10 +25,15 @@
 								<td>${ cartListVO.contenttime }</td>
 								<td>${ cartListVO.locationnum }</td>
 								<td>${ cartListVO.area }</td>
-								<td name="mseq2">${ cartListVO.mseq2 }</td>
+								<td>${ cartListVO.quantity }</td>
 								<td><fmt:formatDate value="${ cartListVO.indate }" pattern="yyyy-MM-dd" /></td>
+								<c:if test="${ cartListVO.mseq2 == 0 }">
+									<td>선택 안함</td>
+								</c:if>
 								<c:forEach items="${ defuty }" end="0" var="defutyVO">
-								<td>${ defutyVO.cnickname }</td>
+									<c:if test="${ not empty defutyVO.cnickname }">
+										<td>${ defutyVO.cnickname }</td>
+									</c:if>
 								</c:forEach>
 								<td><input type="checkbox" name="cartseq" value="${ cartListVO.cseq }"/></td>
 							</tr>
