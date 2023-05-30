@@ -12,7 +12,7 @@
 #cartlistwrap #frmcartList .cartList_box #buttons .submit{color: black; background: white; font-weight: bold; cursor:pointer;}
 #cartlistwrap #frmcartList .cartList_box #buttons .comeon{height: 30px; width: 150px; border: 1px solid #666; border-radius: 10px;
  box-shadow: 3px 3px 2px #ccc; font-size: 14px; background-repeat: repeat-x; background-position: center center; color: #fff; margin: 0 0 0 20px;
- color: black; background: white; font-weight: bold;}
+ color: black; background: white; font-weight: bold; cursor:pointer;}
 #cartlistwrap #frmcartList #notbuyanything{font-size: 30px; line-height: 50px; text-align: center; font-weight: bold;}
 #cartlistwrap #frmcartList .cartItemList{width:1200px;}
 #cartlistwrap #frmcartList .cartItemList tbody tr th{height: 50px; line-height: 50px; font-size: 120%;

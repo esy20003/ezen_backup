@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezen.ticket.dto.QnaVO;
+import com.ezen.ticket.dto.ReplyVO;
 import com.ezen.ticket.util.Dbman;
 import com.ezen.ticket.util.Paging;
 
@@ -67,24 +68,27 @@ public class QnaDao {
 
 	public QnaVO getQna(int qseq) {
 		QnaVO qvo = new QnaVO();
-		String sql = " select * from qna_board where qseq = ? ";
 		con = Dbman.getConnection();
+		String sql = "select * from qna_board where qseq=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qseq);
 			rs = pstmt.executeQuery();
-			if( rs.next() ) {
-				qvo.setQseq(qseq);
+			if (rs.next()) {
+				qvo.setQseq(rs.getInt("qseq"));
+				System.out.println(rs.getInt("qseq"));
+				qvo.setPwd(rs.getString("pwd"));
+				qvo.setId(rs.getString("id"));
 				qvo.setTitle(rs.getString("title"));
 				qvo.setContent(rs.getString("content"));
-				qvo.setId(rs.getString("id"));
 				qvo.setIndate(rs.getTimestamp("indate"));
-				qvo.setReply(rs.getString("reply"));
-				qvo.setRepyn(rs.getString("repyn"));
+				
 			}
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs);
-	}
+		} catch (SQLException var8) {
+			var8.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 		return qvo;
 	}
 
@@ -94,12 +98,14 @@ public class QnaDao {
 		String sql = "insert into qna_board( qseq, id, title, content, mseq, pwd) "
 				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?, ?)";
 		try {
+			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, qvo.getId());
-			pstmt.setString(2, qvo.getTitle());
-			pstmt.setString(3, qvo.getContent());
-			pstmt.setInt(4, qvo.getMseq());
-			pstmt.setString(5, qvo.getPwd());
+			pstmt.setInt(1, qvo.getQseq());
+			pstmt.setString(2, qvo.getId());
+			pstmt.setString(3, qvo.getTitle());
+			pstmt.setString(4, qvo.getContent());
+			pstmt.setInt(5, qvo.getMseq());
+			pstmt.setString(6, qvo.getPwd());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
@@ -107,5 +113,101 @@ public class QnaDao {
 	
 	}
 
+	public void deleteQna(int qseq) {
+		con = Dbman.getConnection();
+		String sql = "delete from qna_board where qseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 
+	}
+
+	public void deleteReplyByQnaqseq(int qseq) {
+		String sql = "delete from reply where qnaqseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt( 1,  qseq );
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);  }	
+	
+		
+	}
+
+	public void updateQna(QnaVO qvo) {
+		String sql = "update qna_board set id=?, pwd=?, title=?, content=? where qseq=? ";
+		this.con = Dbman.getConnection();
+
+		try {
+			this.pstmt = this.con.prepareStatement(sql);
+			this.pstmt.setString(1, qvo.getId());
+			this.pstmt.setString(2, qvo.getPwd());
+			this.pstmt.setString(3, qvo.getTitle());
+			this.pstmt.setString(4, qvo.getContent());
+			this.pstmt.setInt(5, qvo.getQseq());
+			this.pstmt.executeUpdate();
+		} catch (SQLException var7) {
+			var7.printStackTrace();
+		} finally {
+			Dbman.close(this.con, this.pstmt, this.rs); 
+		}
+		
 }
+
+	public ArrayList<ReplyVO> selectReply(int qseq) {
+		ArrayList<ReplyVO> list = new ArrayList();
+		this.con = Dbman.getConnection();
+		String sql = "select * from reply where qnaqseq=? order by qnaqseq desc";
+
+		try {
+			this.pstmt = this.con.prepareStatement(sql);
+			this.pstmt.setInt(1, qseq);
+			this.rs = this.pstmt.executeQuery();
+
+			while (this.rs.next()) {
+				ReplyVO rvo = new ReplyVO();
+				rvo.setReplynum(this.rs.getInt("replynum"));
+				rvo.setQnanum(this.rs.getInt("qnanum"));
+				rvo.setUserid(this.rs.getString("id"));
+				rvo.setWritedate(this.rs.getTimestamp("writedate"));
+				rvo.setContent(this.rs.getNString("content"));
+				list.add(rvo);
+			}
+		} catch (SQLException var8) {
+			var8.printStackTrace();
+		} finally {
+			Dbman.close(this.con, this.pstmt, this.rs);
+		}
+
+		return list;
+	}
+
+	public void deleteReply(String reply) {
+		String sql = "delete from reply where reply=?";
+		this.con = Dbman.getConnection();
+
+		try {
+			this.pstmt = this.con.prepareStatement(sql);
+			this.pstmt.setInt(1, Integer.parseInt(reply));
+			this.pstmt.executeUpdate();
+		} catch (SQLException var7) {
+			var7.printStackTrace();
+		} finally {
+			Dbman.close(this.con, this.pstmt, this.rs);
+		}
+
+	}
+		
+	}
+	
+	
+	
+	
+	
