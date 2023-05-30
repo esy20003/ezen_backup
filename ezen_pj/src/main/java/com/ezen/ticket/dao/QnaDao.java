@@ -114,15 +114,14 @@ public class QnaDao {
 	}
 
 	public void deleteQna(int qseq) {
-		String sql = "delete from qna where qseq = ?";
 		con = Dbman.getConnection();
-
+		String sql = "delete from qna_board where qseq=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qseq);
 			pstmt.executeUpdate();
-		} catch (SQLException var7) {
-			var7.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		} finally {
 			Dbman.close(con, pstmt, rs);
 		}
