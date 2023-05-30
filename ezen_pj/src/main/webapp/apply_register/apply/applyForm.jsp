@@ -3,6 +3,7 @@
 
 
 <form name="frm" method="post" class="form">
+<input type="hidden" name="command" value="apply">
 <section name="applyBody" id="bodyBox_apply">
 	<div class="applyBox" name="applyBoxForm">
 	
@@ -125,7 +126,7 @@
 						<input class="button1" type="button" value="장바구니" onclick="insertCart()">
 					</div>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="다시 선택" onclick="refresh()">
+						<input class="button1" type="button" value="다시 선택" onclick="go_apply()">
 					</div>
 			</div>
 		</div>

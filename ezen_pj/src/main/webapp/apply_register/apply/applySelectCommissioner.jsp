@@ -40,9 +40,10 @@
 				<div class="com_list">
 					<ul>
 					<c:forEach items="${comList}" var="cl" varStatus="state">
-						<li<%--  onclick="saveTime('${state.count}')" --%>>
+						<li onclick="saveCommissioner('${state.count}')"><a href="#">
 						<div>${cl.cnickname}</div><div>${cl.gname}</div><div>${cl.success}</div><div>${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</div><div>${cl.com_price}원</div>
-						<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
+						<input type="hidden" value="${cl.mseq}" name="time" id='${"Com"+=state.count}'>
+						</a>
 						</li>
 					</c:forEach>
 					</ul>
@@ -57,10 +58,13 @@
 						<input class="button1" type="button" value="뒤로" onclick="goMain()">
 					</div>
 					<div class=buttonSmallBox>
-						<input type="submit" class="button1 next" value="결제" onclick="return applyFormCheck()"/>
+						<input type="submit" class="button1 next" value="신청하기" onclick="return apply()"/>
 					</div>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="장바구니"onclick="insertCart()">
+						<input class="button1" type="button" value="장바구니" onclick="insertCart()">
+					</div>
+					<div class=buttonSmallBox>
+						<input class="button1" type="button" value="다시 선택" onclick="refresh()">
 					</div>
 			</div>
 		</div>
