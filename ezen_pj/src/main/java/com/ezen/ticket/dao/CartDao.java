@@ -45,7 +45,7 @@ public class CartDao {
 				cartVO.setArea(rs.getString("area"));
 				cartVO.setQuantity(rs.getInt("quantity"));
 				cartVO.setIndate(rs.getTimestamp("indate"));
-				cartVO.setMseq2(rs.getInt(rs.getInt("mseq2")));
+				cartVO.setMseq2(rs.getInt("mseq2"));
 				cartVO.setBuyyn(rs.getString("buyyn").charAt(0));
 				list.add(cartVO);
 			}
