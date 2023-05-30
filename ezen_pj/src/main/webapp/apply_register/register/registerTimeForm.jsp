@@ -6,4 +6,5 @@
 <c:forEach items="${ register }" var="regi">
 	${regi.rtseq }
 </c:forEach>
+
 <%@ include file="../../footer.jsp" %>

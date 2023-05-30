@@ -53,6 +53,15 @@
         var output = document.getElementById("output");
         var li = document.createElement("li");
         li.textContent = date + " " + startTime + " ~ " + endTime;
+        
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "삭제";
+        deleteButton.className = "deleteButton";
+        deleteButton.onclick = function() {
+            output.removeChild(li);
+        };
+        
+        li.appendChild(deleteButton);
         output.appendChild(li);
         
         // 입력 후에 입력 필드를 초기화합니다.
@@ -65,13 +74,92 @@
     function gotime(){
     	
     	var date = sessionStorage.getItem('date');
+    	var date = date.replace("-","").replace("-","");
     	var starttime = sessionStorage.getItem('startTime');
     	var endtime = sessionStorage.getItem('endTime');
     	alert(date);
     	document.registerForm.action = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + starttime + "&endtime=" + endtime;
     	document.registerForm.submit();
+    	
     }
 </script>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+}
+
+form {
+  margin: 0 auto;
+}
+
+.registerBox {
+  margin: 20px;
+  padding: 20px;
+  background-color: #FFEFD5;
+  border-radius: 5px;
+  text-align : center;
+}
+
+.registerDate {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.tableHead th {
+  background-color: #FFDAB9;
+  color: #fff;
+  padding: 10px;
+}
+
+.datetimeBox {
+  display: flex;
+  align-items: center;
+}
+
+.datetimeBox input[type="date"],
+.datetimeBox input[type="text"] {
+  padding: 5px;
+  margin-right: 10px;
+  margin : 0 auto;
+}
+
+#addButton,
+#submit_Button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#addButton {
+  margin-right: 10px;
+}
+
+#output {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#output li {
+  margin-bottom: 10px;
+ }
+ 
+.deleteButton {
+ margin-left: 10px;
+ padding: 5px 10px;
+ background-color: #f44336;
+ color: #fff;
+ border: none;
+ border-radius: 5px;
+ cursor: pointer;
+}
+
+</style>
 
 <form method="post" name="registerForm" style="margin: 0 auto;" encType="UTF-8">
     <!-- <input type="hidden" name="command" value="registerTimeForm"> -->
@@ -92,12 +180,13 @@
                 </td>
                 </tr>
             </table>
+            <ul id="output" name></ul>
             <button type="button" id="addButton" onclick="addTime()">추가</button>
             <input type="submit" id="submit_Button" value="저장" onClick="gotime()">
         </div>
     </section>
 </form>
 
-<ul id="output" name></ul>
+
 
 <%@ include file="../../footer.jsp"%>
