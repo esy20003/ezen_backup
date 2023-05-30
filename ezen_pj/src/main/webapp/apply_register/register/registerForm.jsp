@@ -85,79 +85,34 @@
 </script>
 
 <style>
-body {
-  font-family: Arial, sans-serif;
-}
+body { font-family: Arial, sans-serif; }
 
-form {
-  margin: 0 auto;
-}
+form { margin: 0 auto; }
 
-.registerBox {
-  margin: 20px;
-  padding: 20px;
-  background-color: #FFEFD5;
-  border-radius: 5px;
-  text-align : center;
-}
+.registerBox {margin: 20px; padding: 20px; background-color: #FFEFD5; border-radius: 5px;
+text-align : center;}
 
-.registerDate {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
+.registerDate {width: 100%; border-collapse: collapse; margin-bottom: 20px;}
 
-.tableHead th {
-  background-color: #FFDAB9;
-  color: #fff;
-  padding: 10px;
-}
+.tableHead th {background-color: #FFDAB9; color: #fff; padding: 10px;}
 
-.datetimeBox {
-  display: flex;
-  align-items: center;
-}
+.datetimeBox {display: flex; align-items: center;}
 
 .datetimeBox input[type="date"],
-.datetimeBox input[type="text"] {
-  padding: 5px;
-  margin-right: 10px;
-  margin : 0 auto;
-}
+.datetimeBox input[type="text"] {padding: 5px; margin-right: 10px; margin : 0 auto;}
 
 #addButton,
-#submit_Button {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+#submit_Button {padding: 10px 20px; background-color: #333; color: #fff; border: none;
+border-radius: 5px; cursor: pointer;}
 
-#addButton {
-  margin-right: 10px;
-}
+#addButton {margin-right: 10px;}
 
-#output {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+#output {list-style-type: none; margin: 0; padding: 0;}
 
-#output li {
-  margin-bottom: 10px;
- }
+#output li {margin-bottom: 10px;}
  
-.deleteButton {
- margin-left: 10px;
- padding: 5px 10px;
- background-color: #f44336;
- color: #fff;
- border: none;
- border-radius: 5px;
- cursor: pointer;
-}
+.deleteButton {margin-left: 10px; padding: 5px 10px; background-color: #f44336; color: #fff;
+ border: none; border-radius: 5px; cursor: pointer;}
 
 </style>
 
