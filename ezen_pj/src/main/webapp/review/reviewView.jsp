@@ -47,7 +47,7 @@
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
 				<input type="button" value="돌아가기" class="cancel" onClick="location.href='ticket.do?command=index'">
 				<c:if test="${ reviewVO.id == loginUser.id }">
-					<input type="button" value="수정" class="review_update_btn" onclick="location.href='ticket.do?command=reviewEditForm&rseq=${ reviewVO.rseq}'">
+					<input type="button" value="수정하기" class="review_update_btn" onclick="location.href='ticket.do?command=reviewEditForm&rseq=${ reviewVO.rseq}'">
 				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 			</div>
 		</form>

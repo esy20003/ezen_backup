@@ -26,7 +26,7 @@ public class ReviewViewAction implements Action {
 			url ="ticket.do?command=loginForm";
 		} else {
 			ReviewDao rdao = ReviewDao.getInstance();
-			ReviewVO rvo = rdao.getRiview(rseq);
+			ReviewVO rvo = rdao.getReview(rseq);
 			
 //			ServletContext context = session.getServletContext();
 //			String path = context.getRealPath("images");

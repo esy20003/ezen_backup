@@ -15,7 +15,7 @@ public class ReviewDao {
 	private ReviewDao() {};
 	private static ReviewDao instance = new ReviewDao();
 	public static ReviewDao getInstance() {return instance;}
-	
+
 	Connection con = null;
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
@@ -44,39 +44,39 @@ public class ReviewDao {
 				rvo.setReply(rs.getString("reply"));
 				rvo.setRepyn(rs.getString("repyn"));
 				rvo.setImage(rs.getString("image"));
-				
+
 				list.add(rvo);
 			}
-			
+
 		} catch (SQLException e) { e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);}
-		
+
 		return list;
-		
+
 	}
 	public int getAllcount() {
 		int count = 0;
 		String sql ="select count(*) as count from review_board";
 		con = Dbman.getConnection();
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			if(rs.next() ) {
 				count = rs.getInt("count");
 			}
-			
+
 		} catch (SQLException e) { e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);
 		}
-		
+
 		return count;
 	}
-	public ReviewVO getRiview(int rseq) {
+	public ReviewVO getReview(int rseq) {
 		ReviewVO rvo = new ReviewVO();
 		con = Dbman.getConnection();
 		String sql ="select * from review_board where rseq=?";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rseq);
@@ -84,6 +84,7 @@ public class ReviewDao {
 			if(rs.next() ) {
 				rvo.setRseq(rseq);
 				rvo.setId(rs.getString("id"));
+				rvo.setPwd(rs.getString("pwd"));
 				rvo.setTitle(rs.getString("title"));
 				rvo.setIndate(rs.getString("indate"));
 				rvo.setContent(rs.getString("content"));
@@ -91,19 +92,19 @@ public class ReviewDao {
 				rvo.setRepyn(rs.getString("repyn"));
 				rvo.setImage(rs.getString("image"));
 			}
-			
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);}
-		
-		
 		return rvo;
 	}
-public void insertReview(ReviewVO rvo) {
-		
+
+	
+	
+	public void insertReview(ReviewVO rvo) {
+
 		con = Dbman.getConnection();
 		String sql="insert into review_board(rseq, mseq, id, pwd, title, content, image) "
 				+ " values(review_board_rseq.nextVal, member_mseq.nextVal, ?, ?, ?, ?, ?)";
-		
+
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, rvo.getId());
@@ -112,32 +113,44 @@ public void insertReview(ReviewVO rvo) {
 			pstmt.setString(4, rvo.getContent());
 			pstmt.setString(5, rvo.getImage());
 			pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) { e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);
 		}
+
+	}
+	public void updateReview(ReviewVO rvo) {
+		
+		String sql ="update review_board set title=?, content=?, image=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, rvo.getTitle());
+			pstmt.setString(2, rvo.getContent());
+			pstmt.setString(3, rvo.getImage());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);
+		}
+		
 		
 	}
-	public ReviewVO getReview(int rseq) {
-		ReviewVO rvo = new ReviewVO();
-		
-		return rvo;
-	}
 
 
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
