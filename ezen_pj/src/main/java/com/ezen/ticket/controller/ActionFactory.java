@@ -3,6 +3,7 @@ package com.ezen.ticket.controller;
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.IndexAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
+import com.ezen.ticket.controller.action.anr.ApplyCartAction;
 import com.ezen.ticket.controller.action.anr.ApplyContentSelectAction;
 import com.ezen.ticket.controller.action.anr.ApplyFormAction;
 import com.ezen.ticket.controller.action.anr.ApplySelectCommissionerAction;
@@ -10,7 +11,9 @@ import com.ezen.ticket.controller.action.anr.CategorySelectAction;
 import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 import com.ezen.ticket.controller.action.anr.RegisterTimeFormAction;
 import com.ezen.ticket.controller.action.cart.CartDeleteAction;
+import com.ezen.ticket.controller.action.cart.CartDetailAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
+import com.ezen.ticket.controller.action.cart.CartUpdateAction;
 import com.ezen.ticket.controller.action.content.ContentFormAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
 import com.ezen.ticket.controller.action.member.EditFormAction;
@@ -36,6 +39,7 @@ import com.ezen.ticket.controller.action.qna.QnaWriteAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
 import com.ezen.ticket.controller.action.qna.UpdateQnaAction;
 import com.ezen.ticket.controller.action.qna.UpdateQnaFormAction;
+import com.ezen.ticket.controller.action.review.ReviewEditFormAction;
 import com.ezen.ticket.controller.action.review.ReviewListAction;
 import com.ezen.ticket.controller.action.review.ReviewViewAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteAction;
@@ -76,11 +80,13 @@ public class ActionFactory {
 		else if (command.equals("applyForm")) ac = new ApplyFormAction();
 		else if (command.equals("categorySelect")) ac = new CategorySelectAction();
 		else if (command.equals("applyContentSelect")) ac = new ApplyContentSelectAction();
-
 		else if (command.equals("applySelectCommissioner")) ac = new ApplySelectCommissionerAction();
+		else if (command.equals("applyCart")) ac = new ApplyCartAction();
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("registerTimeForm")) ac = new RegisterTimeFormAction();
+		
+		
 		// login
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("login")) ac = new LoginAction();
@@ -100,9 +106,13 @@ public class ActionFactory {
 		else if(command.equals("reviewView")) ac = new ReviewViewAction();
 		else if(command.equals("reviewWriteForm")) ac = new ReviewWriteFormAction();
 		else if(command.equals("reviewWrite")) ac = new ReviewWriteAction();  
+		else if(command.equals("reviewEditForm")) ac = new ReviewEditFormAction();
+		
 		// cart
 		else if(command.equals("cartList")) ac = new CartListAction();
 		else if(command.equals("cartDelete")) ac = new CartDeleteAction();
+		else if(command.equals("cartDetail")) ac = new CartDetailAction();
+		else if(command.equals("cartUpdate")) ac = new CartUpdateAction();
 		// mypage
 		else if(command.equals("mypage")) ac = new MypageAction();
 		else if(command.equals("myRegister")) ac = new MyRegisterAction();
