@@ -99,6 +99,7 @@ public class ReviewDao {
 
 	
 	
+	
 	public void insertReview(ReviewVO rvo) {
 
 		con = Dbman.getConnection();
@@ -134,21 +135,7 @@ public class ReviewDao {
 		} finally { Dbman.close(con, pstmt, rs);
 		}
 		
-		
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
