@@ -31,9 +31,9 @@
 	<input type="button" value="메인 화면으로 돌아가기"
 				onClick="location.href='ticket.do?command=index'"> 
 		<input type="button" value="수정"
-				onClick="checkPass('${qna.qseq}' ,  'update');"> 
+				onClick="checkPass('${QnaVO.qseq}' ,  'update');"> 
 		<input	type="button" value="삭제"
-				onClick="checkPass('${qna.qseq}' ,  'delete');"> <br>
+				onClick="checkPass('${QnaVO.qseq}' ,  'delete');"> <br>
 		<br>
 		
 		<div class="clear"></div>

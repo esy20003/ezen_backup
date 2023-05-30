@@ -22,7 +22,7 @@ public class QnaViewNoCountAction implements Action {
 		int qseq = Integer.parseInt(request.getParameter("qseq"));
 		QnaDao qdao = QnaDao.getInstance();
 		ArrayList<ReplyVO> list = qdao.selectReply(qseq);
-		request.setAttribute("replyList", list);
+		request.setAttribute("list", list);
 		QnaVO qvo = qdao.getQna(qseq);
 		request.setAttribute("qna", qvo);
 		HttpSession session = request.getSession();

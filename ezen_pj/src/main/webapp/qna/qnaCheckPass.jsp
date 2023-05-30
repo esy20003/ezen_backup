@@ -10,7 +10,7 @@
 
 <div align="center">
 	<h1>비밀번호 확인</h1>
-	<form action="ticket.do" name="frm" method="get">
+	<form action="ticket.do" name="frm" method="post">
 			<input type="hidden" name="command" value="qnaCheckPass">
 			<input type="hidden" name="qseq" value="${param.qseq}">
 			<table style="width:80%">

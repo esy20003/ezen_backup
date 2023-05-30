@@ -92,8 +92,9 @@ function reply_check(){
 
 
 
-function checkPass( qnaNum,  popupWinName ){
-	var url = "ticket.do?command=qnaPassForm&num=" + qnaNum;
+function checkPass( qnaqseq,  popupWinName ){
+	console.log(qnaqseq);
+	var url = "ticket.do?command=qnaPassForm&qseq=" + qnaqseq;
 	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=300";
 	window.open( url, popupWinName , opt);
 }
@@ -101,9 +102,9 @@ function checkPass( qnaNum,  popupWinName ){
 
 
 function passCheck(){
-	if (document.frm.pass.value.length == 0) {
+	if (document.frm.pwd.value.length == 0) {
 		alert("비밀번호를 입력하세요.");
-		document.frm.pass.focus();
+		document.frm.pwd.focus();
 		return false;
 	}
 	return true;

@@ -32,9 +32,11 @@ public class CartListAction implements Action {
 			ArrayList<CartVO> list = cartdao.getMyCartList_notBuy(mvo.getMseq());
 			ArrayList<CartVO> buycartlist = cartdao.getMyCartList_Buy(mvo.getMseq());
 			ArrayList<Member_Grade_View_VO> defutylist = mgvdao.setDefutyList(list, list.size());
+			System.out.println(defutylist);
 			request.setAttribute("notBuy_cartList", list);
 			request.setAttribute("buy_cartList", buycartlist);
 			request.setAttribute("defuty", defutylist);
+			// commissioner
 		}
 		
 		/* request.getRequestDispatcher("main.jsp").forward(request, response); */

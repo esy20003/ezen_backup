@@ -9,21 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.dao.QnaDao;
-import com.ezen.ticket.dto.QnaVO;
 
-public class UpdateQnaFormAction implements Action {
-
-	@Override
+public class DeleteReplyAction implements Action {
+	
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int qseq = Integer.parseInt( request.getParameter("qseq") );
+		String reply = request.getParameter("reply");
+		String qnaqseq = request.getParameter("qnaqseq");
 		QnaDao qdao = QnaDao.getInstance();
-		QnaVO  qvo = qdao.getQna(qseq);
-		
-		request.setAttribute("qna", qvo);
-		RequestDispatcher dp = request.getRequestDispatcher("qna/updateqnaForm.jsp");
-		dp.forward(request, response);
-
+		qdao.deleteReply(reply);
+		String url = "ticket.do?command=qnaViewNoCount&qseq=" + qnaqseq;
+		RequestDispatcher rd = request.getRequestDispatcher(url);
+		rd.forward(request, response);
 	}
-
 }
