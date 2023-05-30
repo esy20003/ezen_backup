@@ -33,141 +33,82 @@
      
     }
     
-    function addTime() {
-        var date = document.getElementById("date").value;
-        var startTime = document.getElementById("starttime").value;
-        var endTime = document.getElementById("endtime").value;
-
-        if (date === "" || startTime === "" || endTime === "") {
-            alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
-            return;
-        }
-
-        var output = document.getElementById("output");
-        var li = document.createElement("li");
-        li.textContent = date + " " + startTime + " ~ " + endTime;
-
-        var deleteButton = document.createElement("button");
-        deleteButton.textContent = "삭제";
-        deleteButton.className = "deleteButton";
-        deleteButton.onclick = function() {
-            output.removeChild(li);
-        };
-
-        li.appendChild(deleteButton);
-        output.appendChild(li);
-
-        // 입력한 값을 배열로 저장
-        var dates = sessionStorage.getItem('dates');
-        var times = sessionStorage.getItem('times');
-
-        // 기존에 저장된 값이 없으면 빈 배열로 초기화
-        if (!dates) {
-            dates = [];
-        } else {
-            dates = JSON.parse(dates);
-        }
-
-        if (!times) {
-            times = [];
-        } else {
-            times = JSON.parse(times);
-        }
-
-        // 배열에 입력한 값을 추가
-        dates.push(date);
-        times.push({ startTime: startTime, endTime: endTime });
-
-        // 수정된 배열을 sessionStorage에 저장
-        sessionStorage.setItem('dates', JSON.stringify(dates));
-        sessionStorage.setItem('times', JSON.stringify(times));
-
-        // 입력 후에 입력 필드를 초기화합니다.
-        document.getElementById("date").value = "";
-        document.getElementById("starttime").value = "";
-        document.getElementById("endtime").value = "";
-    }
-
-    function addTime() {
-        var date = document.getElementById("date").value;
-        var startTime = document.getElementById("starttime").value;
-        var endTime = document.getElementById("endtime").value;
-
-        if (date === "" || startTime === "" || endTime === "") {
-            alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
-            return;
-        }
-
-        var output = document.getElementById("output");
-        var li = document.createElement("li");
-        li.textContent = date + " " + startTime + " ~ " + endTime;
-
-        var deleteButton = document.createElement("button");
-        deleteButton.textContent = "삭제";
-        deleteButton.className = "deleteButton";
-        deleteButton.onclick = function() {
-            output.removeChild(li);
-        };
-
-        li.appendChild(deleteButton);
-        output.appendChild(li);
-
-        // 입력한 값을 배열로 저장
-        var dates = sessionStorage.getItem('dates');
-        var times = sessionStorage.getItem('times');
-
-        // 기존에 저장된 값이 없으면 빈 배열로 초기화
-        if (!dates) {
-            dates = [];
-        } else {
-            dates = JSON.parse(dates);
-        }
-
-        if (!times) {
-            times = [];
-        } else {
-            times = JSON.parse(times);
-        }
-
-        // 배열에 입력한 값을 추가
-        dates.push(date);
-        times.push({ startTime: startTime, endTime: endTime });
-
-        // 수정된 배열을 sessionStorage에 저장
-        sessionStorage.setItem('dates', JSON.stringify(dates));
-        sessionStorage.setItem('times', JSON.stringify(times));
-
-        // 입력 후에 입력 필드를 초기화합니다.
-        document.getElementById("date").value = "";
-        document.getElementById("starttime").value = "";
-        document.getElementById("endtime").value = "";
-    }
-
     function gotime() {
-        var dates = JSON.parse(sessionStorage.getItem('dates'));
-        var times = JSON.parse(sessionStorage.getItem('times'));
-
-        if (dates && times && dates.length === times.length) {
-            for (var i = 0; i < dates.length; i++) {
-                var date = dates[i].replace(/-/g, '');
-                var startTime = times[i].startTime;
-                var endTime = times[i].endTime;
-                var url = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + startTime + "&endtime=" + endTime;
-
-                var form = document.createElement("form");
-                form.method = "post";
-                form.action = url;
-
-                document.body.appendChild(form);
-                form.submit();
-                document.body.removeChild(form);
+        var date = sessionStorage.getItem('date');
+        var date = date.replace("-", "").replace("-", "");
+        var startTime = sessionStorage.getItem('startTime');
+        var endTime = sessionStorage.getItem('endTime');
+        
+        var checkboxes = document.getElementsByName("registerCheck");
+        var checkedItems = [];
+        
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                checkedItems.push(checkboxes[i].value);
             }
-        } else {
-            alert("날짜와 시간 정보를 확인할 수 없습니다.");
         }
+        
+        if (checkedItems.length === 0) {
+            alert("체크된 아이템이 없습니다.");
+            return;
+        }
+        
+        var url = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + startTime + "&endtime=" + endTime;
+        
+        // 체크된 아이템들을 쿼리 파라미터로 추가합니다.
+        for (var j = 0; j < checkedItems.length; j++) {
+            url += "&item" + (j+1) + "=" + checkedItems[j];
+        }
+        
+        document.registerForm.action = url;
+        document.registerForm.submit();
     }
-
-
+    
+    function addTime() {
+        sessionStorage.removeItem('date');
+        sessionStorage.removeItem('startTime');
+        sessionStorage.removeItem('endTime');
+        
+        var date = document.getElementById("date").value;
+        var startTime = document.getElementById("starttime").value;
+        var endTime = document.getElementById("endtime").value;
+        sessionStorage.setItem('date', date);
+        sessionStorage.setItem('startTime', startTime);
+        sessionStorage.setItem('endTime', endTime);
+        
+        if (date === "" || startTime === "" || endTime === "") {
+            alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
+            return;
+        }
+        
+        var output = document.getElementById("output");
+        var li = document.createElement("li");
+        
+        var checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.name = "registerCheck";
+        checkbox.value = date + " " + startTime + " ~ " + endTime;
+        
+        var label = document.createElement("label");
+        label.appendChild(checkbox);
+        label.innerHTML += " " + date + " " + startTime + " ~ " + endTime;
+        
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "삭제";
+        deleteButton.className = "deleteButton";
+        deleteButton.onclick = function() {
+            output.removeChild(li);
+        };
+        
+        li.appendChild(label);
+        li.appendChild(deleteButton);
+        output.appendChild(li);
+        
+        // 입력 후에 입력 필드를 초기화합니다.
+        document.getElementById("date").value = "";
+        document.getElementById("starttime").value = "";
+        document.getElementById("endtime").value = "";
+    }
 </script>
 
 <style>
