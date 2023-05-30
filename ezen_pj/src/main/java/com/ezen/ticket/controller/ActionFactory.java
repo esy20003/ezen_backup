@@ -2,6 +2,7 @@ package com.ezen.ticket.controller;
 
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.IndexAction;
+import com.ezen.ticket.controller.action.anr.ApplyAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
 import com.ezen.ticket.controller.action.anr.ApplyCartAction;
 import com.ezen.ticket.controller.action.anr.ApplyContentSelectAction;
