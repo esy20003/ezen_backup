@@ -74,11 +74,10 @@
 				<div class="timeBox bodyBox">
 					<ul>
 						<c:forEach items="${contentTimeList}" var="contentTil" varStatus="state">
-							<li onclick="saveTime('${state.count}')">${contentTil.contentTime}
-							<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
+							<li onclick="saveTime('${state.count}')" class="liclick_time">${contentTil.contentTime}
+							<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}' >
 							</li>
 						</c:forEach>
-									
 					</ul>
 				</div>
 				<div class="seatingChartBox bodyBox">
@@ -94,12 +93,24 @@
 						<div class="AreaBox">
 									<ul>
 							<c:forEach  items="${contentAreaList}" var="contentAL" varStatus="state">
-										<li onclick="saveArea('${state.count}')">
+										<li onclick="saveArea('${state.count}')" class="liclick_area">
 										<div class="area1">${contentAL.area}</div><div class="price1">${contentAL.price}원</div>
 										<input type="hidden" value="${contentAL.area}" name="area" id='${"area"+=state.count}'>
 										</li>
 							</c:forEach>
 									</ul>
+					<script>
+					$(function(){
+						 $('.liclick_time').click(function(){
+							$('.liclick_time').css({"background":"red"})
+						})
+					})
+					$(function(){
+						 $('.liclick_area').click(function(){
+							$('.liclick_area').css({"background":"red"})
+						})
+					})
+					</script>
 						</div>
 						</div>
 					</div>

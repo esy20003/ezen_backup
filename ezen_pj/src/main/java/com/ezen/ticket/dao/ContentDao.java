@@ -127,6 +127,7 @@ public class ContentDao {
 					cvo.setTitle(rs.getString("title"));
 					cvo.setArtist(rs.getString("artist"));
 					cvo.setLocationNum(rs.getInt("locationNum"));
+					System.out.println("제대로 말해라 "+rs.getInt("locationNum"));
 					cvo.setContent(rs.getString("content"));
 					cvo.setImage(rs.getString("image"));
 					cvo.setAge(rs.getString("age"));

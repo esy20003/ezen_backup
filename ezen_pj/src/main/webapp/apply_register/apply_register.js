@@ -82,7 +82,10 @@ function saveDate(num){
 }
 function saveTime(num){
 	sessionStorage.setItem('selectedTime',document.getElementById('time'+num).value);
+    /*document.getElementById('time'+num).style.backgroundColor = 'red';*/
+   
 }
+
 function saveArea(num){
 	sessionStorage.setItem('selectedArea',document.getElementById('area'+num).value);
 }
