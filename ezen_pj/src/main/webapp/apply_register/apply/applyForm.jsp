@@ -21,12 +21,12 @@
 			<div class="applyBodyBox">
 				<div class="categoryBox bodyBox">
 					<ul>
-						<li onclick="select_category(0)">전체</li>
-						<li onclick="select_category(1)">콘서트</li>
-						<li onclick="select_category(2)">뮤지컬</li>
-						<li onclick="select_category(3)">스포츠</li>
-						<li onclick="select_category(4)">페스티벌</li>
-						<li onclick="select_category(5)">전시/행사</li>
+						<li id="category" onclick="select_category(0)">전체</li>
+						<li id="category" onclick="select_category(1)">콘서트</li>
+						<li id="category" onclick="select_category(2)">뮤지컬</li>
+						<li id="category" onclick="select_category(3)">스포츠</li>
+						<li id="category" onclick="select_category(4)">페스티벌</li>
+						<li id="category" onclick="select_category(5)">전시/행사</li>
 					</ul>
 				</div>
 				<div class="contentNameBox bodyBox">
@@ -116,16 +116,16 @@
 		<div class=buttonBox>
 			<div class=groupBox>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="뒤로">
+						<input class="button1" type="button" value="뒤로" onclick="goMain()">
 					</div>
 					<div class=buttonSmallBox>
 						<input type="submit" class="button1 next" value="다음" onclick="return applyFormCheck()"/>
 					</div>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="장바구니">
+						<input class="button1" type="button" value="장바구니" onclick="goCart()">
 					</div>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="다시 선택">
+						<input class="button1" type="button" value="다시 선택" onclick="refresh()">
 					</div>
 			</div>
 		</div>

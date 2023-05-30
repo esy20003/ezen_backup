@@ -74,9 +74,6 @@ CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 
 
 
-drop table registerTime;
-
-select * from REGISTERTIME;
 CREATE TABLE registerTime
 (
 	-- 대리인 일정 등록 정보
