@@ -4,6 +4,7 @@ select * from CONTENTTime order by cseq;
 --category==>콘서트=1, 뮤지컬=2, 스포츠=3, 페스티벌=4, 전시/행사=5
 --콘서트 데이터 추가
 
+update content set locationNum=4 where cseq=7;
 update content set tDateTime='20230609110000' where cseq=1;
 update content set tDateTime='20230523140000' where cseq=2;
 update content set tDateTime='20230510113000' where cseq=3;

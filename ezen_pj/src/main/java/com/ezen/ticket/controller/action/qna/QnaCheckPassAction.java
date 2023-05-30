@@ -39,4 +39,5 @@ public class QnaCheckPassAction implements Action {
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);
 	}
+
 }

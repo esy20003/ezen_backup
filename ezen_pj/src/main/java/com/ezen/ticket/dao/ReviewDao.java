@@ -98,18 +98,19 @@ public class ReviewDao {
 		
 		return rvo;
 	}
-		public void insertReview(ReviewVO rvo) {
+public void insertReview(ReviewVO rvo) {
 		
 		con = Dbman.getConnection();
-		String sql="insert into review_board(rseq, id,  title,  content) "
-				+ " values(review_board_rseq.nextVal, ?, ?, ?)";
+		String sql="insert into review_board(rseq, mseq, id, pwd, title, content, image) "
+				+ " values(review_board_rseq.nextVal, member_mseq.nextVal, ?, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rvo.getRseq());
-			pstmt.setString(2, rvo.getId());
+			pstmt.setString(1, rvo.getId());
+			pstmt.setString(2, rvo.getPwd());
 			pstmt.setString(3, rvo.getTitle());
 			pstmt.setString(4, rvo.getContent());
+			pstmt.setString(5, rvo.getImage());
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) { e.printStackTrace();
@@ -117,6 +118,12 @@ public class ReviewDao {
 		}
 		
 	}
+	public ReviewVO getReview(int rseq) {
+		ReviewVO rvo = new ReviewVO();
+		
+		return rvo;
+	}
+
 
 
 	

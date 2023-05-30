@@ -4,7 +4,7 @@
 <div id="review_box">
 	<div class="review_content">
 		<h2>후기 게시판</h2>
-		<h3>후기 글쓰기 게시판</h3>
+		<h3>후기를 작성할 수 있는 게시판 입니다.</h3>
 		<article>
 			<form name="formm" method="post" class="review_form review_write" enctype="multipart/form-data">
 				<fieldset>

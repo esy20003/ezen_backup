@@ -4,7 +4,7 @@
 <div id="review_box">
 	<div class="review_content">
 		<h2 class="review_title">후기 게시판</h2>
-		<h3>고객님들의 티켓팅 후기를 작성하는 후기 게시판입니다.</h3>
+		<h3>고객님들의 티켓팅 후기를 상세히 볼 수 있는 게시판 입니다.</h3>
 		<form name="formm" method="post" class="review_form" enctype="multipart/form-data">
 			<table class="review_view_table">
 				<tr>
@@ -39,13 +39,16 @@
 				</tr>
 				<tr>
 					<th>이미지</th>
-					<td align="left" style=" color: white;">${reviewVO.image }
+					<td align="left" style=" color: white;"><img src="./images/content/${reviewVO.image }" style="width:200px; "></td>
 				</tr>
 			</table>
 			<div class="clear"></div>
 			<div id="buttons" class="rev_btn_box" style="float: right">
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
 				<input type="button" value="돌아가기" class="cancel" onClick="location.href='ticket.do?command=index'">
+				<c:if test="${ reviewVO.id == loginUser.id }">
+					<input type="button" value="수정" class="review_update_btn" onclick="location.href='ticket.do?command=reviewEditForm&rseq=${ reviewVO.rseq}'">
+				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 			</div>
 		</form>
 	</div>
