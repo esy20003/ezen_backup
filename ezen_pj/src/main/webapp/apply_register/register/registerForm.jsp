@@ -33,11 +33,11 @@
     }
     
     function addTime() {
-    	 sessionStorage.removeItem('date');
-    	 sessionStorage.removeItem('startTime');
-    	 sessionStorage.removeItem('endTime');
+    	sessionStorage.removeItem('date');
+    	sessionStorage.removeItem('startTime');
+    	sessionStorage.removeItem('endTime');
     	 
-    	var date = document.getElementById("date").value;
+    	var date =document.getElementById("date").value;
         var startTime = document.getElementById("starttime").value;
         var endTime = document.getElementById("endtime").value;
         
@@ -77,7 +77,6 @@
     	var date = date.replace("-","").replace("-","");
     	var starttime = sessionStorage.getItem('startTime');
     	var endtime = sessionStorage.getItem('endTime');
-    	alert(date);
     	document.registerForm.action = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + starttime + "&endtime=" + endtime;
     	document.registerForm.submit();
     	
