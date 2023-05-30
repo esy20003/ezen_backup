@@ -18,13 +18,16 @@ public class ReviewEditFormAction implements Action {
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String url = "review/reviewEditForm.jsp";
-		int rseq = Integer.parseInt(request.getParameter("rseq"));
-		System.out.println(rseq);
+		
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		if(mvo == null) {
 			url ="ticket.do?command=loginForm";
 		} else {
+			
+			int rseq = Integer.parseInt(request.getParameter("rseq"));
+			System.out.println(rseq);
+			
 			ReviewDao rdao = ReviewDao.getInstance();
 			ReviewVO rvo = rdao.getReview(rseq);
 
@@ -32,7 +35,6 @@ public class ReviewEditFormAction implements Action {
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 		
-
 	}
 
 }

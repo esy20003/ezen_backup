@@ -20,7 +20,7 @@ public class ReviewEditAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "review/reviewList.jsp";
+		String url = "ticket.do?command=reviewView";
 		//String pwd = request.getParameter("pwd");
 
 		HttpSession session = request.getSession();
@@ -50,7 +50,7 @@ public class ReviewEditAction implements Action {
 				rvo.setImage(multi.getFilesystemName("image"));
 				ReviewDao rdao = ReviewDao.getInstance();
 				rdao.updateReview(rvo);
-				
+				url = url + "&rseq=" + rvo.getRseq(); 
 			}
 		}
 		request.getRequestDispatcher(url).forward(request, response);
