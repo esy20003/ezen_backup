@@ -1,8 +1,13 @@
 --장바구니
 
 select * from cart;
+
+select * from CART
+delete from CART;
+alter table cart modify mseq2 number(5,0) default 0;
 select * from member_grade_view where cmseq=0;
 select * from order_view
+
 insert into cart(mseq, cseq, CONTENTDATE,contentTime, locationNum, area) 
 values(7,11, to_date('20230528','yyyy-mm-dd'),'14:00',12,'테이블석');
 insert into cart(mseq, cseq, CONTENTDATE,contentTime, locationNum, area) 
