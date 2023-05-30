@@ -19,21 +19,15 @@ public class QnaViewNoCountAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int num = Integer.parseInt( request.getParameter("num") );
+		int qseq = Integer.parseInt(request.getParameter("qseq"));
 		QnaDao qdao = QnaDao.getInstance();
-
-		ArrayList<ReplyVO> list = qdao.selectQna( num );
+		ArrayList<ReplyVO> list = qdao.selectReply(qseq);
 		request.setAttribute("replyList", list);
-		
-		QnaVO qvo = qdao.getQna(num);
+		QnaVO qvo = qdao.getQna(qseq);
 		request.setAttribute("qna", qvo);
-		
 		HttpSession session = request.getSession();
-		session.removeAttribute("pass");
-		
+		session.removeAttribute("pwd");
 		RequestDispatcher rd = request.getRequestDispatcher("qna/qnaView.jsp");
 		rd.forward(request, response);
-
 	}
-
 }

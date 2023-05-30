@@ -15,6 +15,7 @@ public class QnaVO {
 	private String repyn;
 	private Timestamp indate;
 	private String num;
+	private String imgfilename;
 	
 	
 	public String getNum() {
@@ -83,6 +84,13 @@ public class QnaVO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
+	public String getImgfilename() {
+		return imgfilename;
+	}
+	public void setImgfilename(String imgfilename) {
+		this.imgfilename = imgfilename;
+	}
+
 	
 	
 	
