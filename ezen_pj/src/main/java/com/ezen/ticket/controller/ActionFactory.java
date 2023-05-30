@@ -84,6 +84,7 @@ public class ActionFactory {
 		else if (command.equals("applyContentSelect")) ac = new ApplyContentSelectAction();
 		else if (command.equals("applySelectCommissioner")) ac = new ApplySelectCommissionerAction();
 		else if (command.equals("applyCart")) ac = new ApplyCartAction();
+		else if (command.equals("apply")) ac = new ApplyAction();
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("registerTimeForm")) ac = new RegisterTimeFormAction();
@@ -133,3 +134,4 @@ public class ActionFactory {
 	
 
 }
+		// joi

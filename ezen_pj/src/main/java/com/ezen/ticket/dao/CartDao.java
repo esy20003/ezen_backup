@@ -33,7 +33,7 @@ public class CartDao {
 	public ArrayList<CartVO> getMyCartList_notBuy(int mseq) {
 		ArrayList<CartVO> list = new ArrayList<CartVO>();
 		CartVO cartVO = null;
-		String sql = "select * from cart where mseq = ? and buyyn = 'N'";
+		String sql = "select * from orderview where mseq = ? and buyyn = 'N'";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
