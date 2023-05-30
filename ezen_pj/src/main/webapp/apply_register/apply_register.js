@@ -130,7 +130,7 @@ function refresh(){
 		sessionStorage.removeItem('selectedQuantity');
 }
 
-function goCart(){
+function insertCart(){
 	var cseq=sessionStorage.getItem('selectedCseq');
 	var date=sessionStorage.getItem('selectedDate');
 	var time=sessionStorage.getItem('selectedTime');

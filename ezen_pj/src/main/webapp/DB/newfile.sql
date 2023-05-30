@@ -73,7 +73,6 @@ CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 /* Create Tables */
 
 
-
 CREATE TABLE registerTime
 (
 	-- 대리인 일정 등록 정보
@@ -118,7 +117,7 @@ CREATE TABLE cart
 	contentTime varchar2(10) NOT NULL,
 	locationNum number(5) NOT NULL,
 	area varchar2(50) NOT NULL,
-	mseq2 number(5,0),
+	mseq2 number(5,0) default 0,
 	quantity number(5,0) default 1,
 	indate date DEFAULT sysdate,
 	buyyn char DEFAULT 'N',

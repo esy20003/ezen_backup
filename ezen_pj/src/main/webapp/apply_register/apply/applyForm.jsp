@@ -122,7 +122,7 @@
 						<input type="submit" class="button1 next" value="다음" onclick="return applyFormCheck()"/>
 					</div>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="장바구니" onclick="goCart()">
+						<input class="button1" type="button" value="장바구니" onclick="insertCart()">
 					</div>
 					<div class=buttonSmallBox>
 						<input class="button1" type="button" value="다시 선택" onclick="refresh()">
