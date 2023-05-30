@@ -76,11 +76,12 @@ public class ActionFactory {
 		else if (command.equals("applyForm")) ac = new ApplyFormAction();
 		else if (command.equals("categorySelect")) ac = new CategorySelectAction();
 		else if (command.equals("applyContentSelect")) ac = new ApplyContentSelectAction();
-
 		else if (command.equals("applySelectCommissioner")) ac = new ApplySelectCommissionerAction();
 
 		else if (command.equals("registerForm")) ac = new RegisterFormAction();
 		else if (command.equals("registerTimeForm")) ac = new RegisterTimeFormAction();
+		
+		
 		// login
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("login")) ac = new LoginAction();

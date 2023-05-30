@@ -21,12 +21,12 @@
 			<div class="applyBodyBox">
 				<div class="categoryBox bodyBox">
 					<ul>
-						<li onclick="select_category(0)">전체</li>
-						<li onclick="select_category(1)">콘서트</li>
-						<li onclick="select_category(2)">뮤지컬</li>
-						<li onclick="select_category(3)">스포츠</li>
-						<li onclick="select_category(4)">페스티벌</li>
-						<li onclick="select_category(5)">전시/행사</li>
+						<li id="category" onclick="select_category(0)">전체</li>
+						<li id="category" onclick="select_category(1)">콘서트</li>
+						<li id="category" onclick="select_category(2)">뮤지컬</li>
+						<li id="category" onclick="select_category(3)">스포츠</li>
+						<li id="category" onclick="select_category(4)">페스티벌</li>
+						<li id="category" onclick="select_category(5)">전시/행사</li>
 					</ul>
 				</div>
 				<div class="contentNameBox bodyBox">

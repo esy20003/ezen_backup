@@ -21,9 +21,13 @@
  
  
  function select_category(category){
+		 var divItems = getElementById('category');
+  		  this.clear();
+		  category.style.backgroundColor = 'red';
 	 switch(category){
+	
 		 case 0: location.href="ticket.do?command=categorySelect&category=0";
-	sessionStorage.removeItem('selectedCseq');
+		sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');

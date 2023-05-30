@@ -40,7 +40,7 @@
 				<div class="com_list">
 					<ul>
 					<c:forEach items="${comList}" var="cl" varStatus="state">
-						<li onclick="saveTime('${state.count}')">
+						<li<%--  onclick="saveTime('${state.count}')" --%>>
 						<div>${cl.cnickname}</div><div>${cl.gname}</div><div>${cl.success}</div><div>${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</div><div>${cl.com_price}원</div>
 						<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
 						</li>
