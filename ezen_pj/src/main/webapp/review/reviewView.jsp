@@ -5,7 +5,7 @@
 	<div class="review_content">
 		<h2 class="review_title">후기 게시판</h2>
 		<h3>고객님들의 티켓팅 후기를 상세히 볼 수 있는 게시판 입니다.</h3>
-		<form name="formm" method="post" class="review_form" enctype="multipart/form-data">
+		<form name="formm" method="post" class="review_form">
 			<table class="review_view_table">
 				<tr>
 					<th>번호</th>
@@ -47,7 +47,7 @@
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
 				<input type="button" value="돌아가기" class="cancel" onClick="location.href='ticket.do?command=index'">
 				<c:if test="${ reviewVO.id == loginUser.id }">
-					<input type="button" value="수정하기" class="review_update_btn" onclick="location.href='ticket.do?command=reviewEditForm&rseq=${ reviewVO.rseq}'">
+					<input type="button" value="수정하기" class="review_update_btn" onclick="go_upd('${ ReviewVO.rseq}')">
 				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 			</div>
 		</form>

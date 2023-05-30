@@ -8,11 +8,12 @@
 		<form name="formm" method="post" class="review_form"  enctype="multipart/form-data">
 			<input type="hidden" name="rseq" value="${ reviewVO.rseq }">
 			<input type="hidden" name="oldimage" value="${ reviewVO.image }">
+			
 			<table class="review_update_table review_view_table"> 
 				<tr>
 					<th>작성자</th>
 					<td>${ reviewVO.id }
-						<input type="hidden" name="userid" value="${ loginUser.id }">
+						<input type="hidden" name="id" value="${ loginUser.id }">
 					</td>
 				</tr>
 				<tr>
@@ -44,7 +45,7 @@
 				</tr>
 			</table>
 			<div id="buttons" class="rev_btn_box" style="float:right;">
-				<input type="submit" value="수정" onclick="reviewUpdateChk()">
+				<input type="submit" value="수정" onclick="review_update()">
 				<input type="reset" value="다시작성">
 				<input type="button" value="돌아가기" onclick="location.href='ticket.do?command=reviewView&rseq=${ reviewVO.rseq }'">
 			</div>

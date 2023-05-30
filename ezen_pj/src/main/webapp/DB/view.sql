@@ -110,5 +110,12 @@ inner join member_grade_view m
 on r.mseq=m.cmseq;
 
 
+select * from order_view where mseq = 2 and result = 'N'
+
+
+
+
+
+
 
 

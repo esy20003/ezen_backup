@@ -27,7 +27,16 @@ function review_write() {
 }
 
 
-function reviewUpdateChk() {
+// 수정 버튼 클릭  // 수정 폼으로 이동
+function go_upd(rseq) {
+	var url = "ticket.do?command=reviewEditForm&rseq=" + rseq
+	location.href = url
+}
+
+
+
+
+function review_update() {
 	if(document.formm.pwd.value == "" ) {
 		alert("리뷰 수정 시 비밀번호 입력은 필수입니다.");
 		document.formm.pwd.focud();
