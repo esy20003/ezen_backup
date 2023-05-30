@@ -18,11 +18,12 @@
 <form>
 
 <table class="qna_view_table">
-	<tr><th>제목</th><td width="500" background="pink" style="text-align:left; ">${QnaVO.title}</td></tr>
+	<tr><th>번호</th><td width="500" style="text-align:left; ">${QnaVO.qseq}</td></tr>
+	<tr><th>제목</th><td width="500" style="text-align:left; ">${QnaVO.title}</td></tr>
 	<tr><th>질문내용</th>
 	<td align="left" style="text-align:left;font-size:100%; box-sizing: border-box; resize: none; padding:10px;"><pre>${QnaVO.content}</pre></td></tr>
 	<tr><th>답변내용</th><td align="left" style="text-align:left; color:white;">${QnaVO.reply}</td></tr>
-	<tr><th>작성자</th><td align="left" style="text-align:left; font-size:115%;"><pre>${QnaVO.id}</pre></td></tr>
+	<tr><th>작성자</th><td align="left" style="text-align:left; font-size:115%;"><pre>&nbsp;&nbsp;${QnaVO.id}</pre></td></tr>
 	<tr><th>등록일</th><td align="left" style="text-align:left;">
 	<fmt:formatDate value="${QnaVO.indate}" type="date"/></td></tr>
 	
@@ -30,9 +31,9 @@
 	<input type="button" value="메인 화면으로 돌아가기"
 				onClick="location.href='ticket.do?command=index'"> 
 		<input type="button" value="수정"
-				onClick="checkPass('${qna.num}' ,  'update');"> 
+				onClick="checkPass('${qna.qseq}' ,  'update');"> 
 		<input	type="button" value="삭제"
-				onClick="checkPass('${qna.num}' ,  'delete');"> <br>
+				onClick="checkPass('${qna.qseq}' ,  'delete');"> <br>
 		<br>
 		
 		<div class="clear"></div>

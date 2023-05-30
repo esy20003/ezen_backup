@@ -2,6 +2,7 @@
  * 
  */
  
+ /* apply_Or_Register.jsp의 js*/
  function go_apply(){
 	 
 	sessionStorage.removeItem('selectedCseq');
@@ -20,10 +21,12 @@
  }
  
  
+ /* 여기부턴 applyForm.jsp의 js*/
+ 
  function select_category(category){
 	 switch(category){
 		 case 0: location.href="ticket.do?command=categorySelect&category=0";
-	sessionStorage.removeItem('selectedCseq');
+		sessionStorage.removeItem('selectedCseq');
 		 sessionStorage.removeItem('selectedDate');
 		 sessionStorage.removeItem('selectedTime');
 		 sessionStorage.removeItem('selectedArea');
@@ -114,7 +117,46 @@ function applyFormCheck(){
 	}	
 }
 
+function goMain(){
+	document.frm.action='ticket.do?command=index';
+	document.frm.submit();
+}
 
+function refresh(){
+		sessionStorage.removeItem('selectedCseq');
+		sessionStorage.removeItem('selectedDate');
+		sessionStorage.removeItem('selectedTime');
+		sessionStorage.removeItem('selectedArea');
+		sessionStorage.removeItem('selectedQuantity');
+}
+
+function goCart(){
+	var cseq=sessionStorage.getItem('selectedCseq');
+	var date=sessionStorage.getItem('selectedDate');
+	var time=sessionStorage.getItem('selectedTime');
+	var area=sessionStorage.getItem('selectedArea');
+	var quantity=sessionStorage.getItem('selectedQuantity');
+	if(cseq==null){
+		alert("공연을 선택해 주세요.");
+		return false;
+	}else if(date==null){
+		alert("공연 날짜를 선택해 주세요.");
+		return false;
+	}else if(time==null){
+		alert("공연 시간을 선택해 주세요.");
+		return false;
+	}else if(area==null){
+		alert("공연 구역을 선택해 주세요.");
+		return false;
+	}else if(quantity==null){
+		alert("티켓 수량을 선택해 주세요.");
+		return false;
+	}else{
+	var url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
+	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
+	window.open(url, "InsertCart", opt);
+	}	
+}
 
 /*function gotime(){
 	 var date = registerForm.date.value;
@@ -123,5 +165,6 @@ function applyFormCheck(){
     document.registerForm.action="ticket.do?command=registerTimeForm&date="+ date + "&starttime=" + starttime + "&endtime="
     + endtime;
  }*/
+ 
 
  
