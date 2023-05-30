@@ -16,6 +16,7 @@ public class QnaVO {
 	private Timestamp indate;
 	private String num;
 	private String imgfilename;
+	private int readcount;
 	
 	
 	public String getNum() {
@@ -89,6 +90,12 @@ public class QnaVO {
 	}
 	public void setImgfilename(String imgfilename) {
 		this.imgfilename = imgfilename;
+	}
+	public int getReadcount() {
+		return readcount;
+	}
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
 	}
 
 	
