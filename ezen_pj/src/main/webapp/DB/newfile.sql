@@ -54,6 +54,11 @@ DROP SEQUENCE seat_seatseq;
 DROP SEQUENCE success_board_sucseq;
 drop SEQUENCE registerTime_rtseq;
 
+----------------새로추가
+drop SEQUENCE review_reply_repseq;
+drop SEQUENCE success_reply_srseq;
+drop SEQUENCE adminQna_reply_qrseq;
+----------------------
 
 
 /* Create Sequences */
@@ -68,9 +73,53 @@ CREATE SEQUENCE success_board_sucseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE locationNum_seq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 
+--------------------새로추가
+CREATE SEQUENCE review_reply_repseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE success_reply_srseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE adminQna_reply_qrseq INCREMENT BY 1 START WITH 1;
+-------------------------------
 
 
 /* Create Tables */
+
+
+-----------------------------------새로추가
+
+CREATE TABLE review_reply
+(
+--리뷰 댓글
+	repseq number(5,0) not null,
+	mseq number(5,0) NOT NULL,
+	rseq number(5,0) not null,
+	replyContent varchar2(3000) NOT NULL,
+	writeDate date default sysdate,
+	primary key(repseq)
+);
+
+CREATE TABLE success_reply
+(
+--성공내역 댓글
+	srseq number(5,0) not null,
+	mseq number(5,0) NOT NULL,
+	sucseq number(5,0) not null,
+	successContent varchar2(3000) NOT NULL,
+	writeDate date default sysdate,
+	primary key(srseq)
+);
+
+CREATE TABLE adminQna_reply
+(
+--어드민 qna 댓글
+	qrseq number(5,0) not null,
+	id varchar2(50) NOT NULL,
+	qseq number(5,0) not null,
+	qnaContent varchar2(3000) NOT NULL,
+	writeDate date default sysdate,
+	primary key(qrseq)
+);
+
+
+--------------------------------------------------------------------------
 
 
 CREATE TABLE registerTime
@@ -281,6 +330,35 @@ CREATE TABLE success_board
 
 /* Create Foreign Keys */
 
+-------새로 추가
+ALTER TABLE review_reply
+	ADD FOREIGN KEY (rseq)
+	REFERENCES review_board (rseq) on delete cascade;
+	
+ALTER TABLE review_reply
+	ADD FOREIGN KEY (mseq)
+	REFERENCES member (mseq) on delete cascade;
+	
+ALTER TABLE success_reply
+	ADD FOREIGN KEY (sucseq)
+	REFERENCES success_board (sucseq) on delete cascade;
+	
+ALTER TABLE success_reply
+	ADD FOREIGN KEY (mseq)
+	REFERENCES member (mseq) on delete cascade;
+	
+ALTER TABLE adminQna_reply
+	ADD FOREIGN KEY (id)
+	REFERENCES admin (id) on delete cascade;
+	
+ALTER TABLE adminQna_reply
+	ADD FOREIGN KEY (qseq)
+	REFERENCES qna_board (qseq) on delete cascade;
+	
+	-----------
+	
+	
+	
 ALTER TABLE registerTime
 	ADD FOREIGN KEY (mseq)
 	REFERENCES member (mseq) on delete cascade
