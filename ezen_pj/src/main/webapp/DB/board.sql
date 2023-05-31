@@ -119,47 +119,6 @@ select * from qna_board
 select * from seat
 select * from QNA_BOARD
 
-create table reply(
-	replynum	number(7)primary key, --댓글 순번
-	qnanum number(5),	--댓글의 해당 게시물 번호
-	id varchar2(20),		--댓글 쓰니
-	indate date default sysdate,	--작성일
-	content varchar2(1000)		--작성내용
-);
-select*from reply;
---댓글은 board 테이블에 저장되지 않음.
---한 두개의 댓글만 달리고 말것이라면 board 테이블에 댓글 필드를 두 세개 생성하고 저장해도 되지만, 
---게시판에 있는 각 게시물들에 대한 댓글은 작성될 수 있는 갯수가 제한이 없기 때문에, 모든 댓글을 하나의 테이블에 저장함
---이 대 반드시 저장되는 댓글에는 어느 게시물의 댓글인지 게시물 번호를 같이 저장해야함
---그래야 해당 게시물이 화면에 표시될 때 그 게시물의 댓글만 조회(검색)해서 따로 화면에 표시할 수 있음
 
-create sequence reply_seq start with 1 increment by 1;
-
-insert into reply values(reply_seq.nextVal,1,'somi',sysdate,'게시판 개설을 축하드립니다.');
-insert into reply values(reply_seq.nextVal,2,'light',sysdate,'첫 글 축하드립니다.');
-insert into reply values(reply_seq.nextVal,3,'scott',sysdate,'저도 궁금합니다.');
-
-
-select*from member;
---시험문제 출제 ★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★
-select *from(
-	select *from(
-		select rownum as rn , b.* from(
-			(select *from qna_board order by qseq desc) b
-		)
-	) where rn>=1
-)where rn<=10;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+select * from tabs;
+select * from reply;

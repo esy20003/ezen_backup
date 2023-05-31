@@ -100,7 +100,7 @@ body{overflow-x:hidden; }
 table#zipcode{border-collapse:collapse; border-top:3px solid #6F0C78;   border-bottom:3px solid #6F0C78;
       margin-top:15px; width:100%; font-size:110%;}
 table#zipcode th, table#zipcode td{text-align:center; border-bottom: 1px dotted  #6F0C78;}
-table th, td{  padding: 10px;}
+table th, td{  padding: 5px;}
 table#zipcode  a{display:block; height:20px; text-decoration:none; padding:10px;}
 table#zipcode a:hover{font-weight: bold;}
 
