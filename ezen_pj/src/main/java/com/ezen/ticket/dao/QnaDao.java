@@ -128,8 +128,8 @@ public class QnaDao {
 
 	}
 
-	public void deleteReplyByQnaqseq(int qseq) {
-		String sql = "delete from reply where qnaqseq=?";
+	public void deleteReplyByQnanum(int qseq) {
+		String sql = "delete from reply where qnanum=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -164,7 +164,7 @@ public class QnaDao {
 	public ArrayList<ReplyVO> selectReply(int qseq) {
 		ArrayList<ReplyVO> list = new ArrayList();
 		this.con = Dbman.getConnection();
-		String sql = "select * from reply where qnaqseq=? order by qnaqseq desc";
+		String sql = "select * from reply where qnanum=? order by qnanum desc";
 
 		try {
 			this.pstmt = this.con.prepareStatement(sql);
@@ -175,8 +175,8 @@ public class QnaDao {
 				ReplyVO rvo = new ReplyVO();
 				rvo.setReplynum(this.rs.getInt("replynum"));
 				rvo.setQnanum(this.rs.getInt("qnanum"));
-				rvo.setUserid(this.rs.getString("id"));
-				rvo.setWritedate(this.rs.getTimestamp("writedate"));
+				rvo.setId(this.rs.getString("id"));
+				rvo.setIndate(this.rs.getTimestamp("indate"));
 				rvo.setContent(this.rs.getNString("content"));
 				list.add(rvo);
 			}
@@ -204,8 +204,26 @@ public class QnaDao {
 		}
 
 	}
-		
+
+	public void insertReply(ReplyVO rvo) {
+		String sql = "insert into reply( replynum, qnanum, id, content )  values( reply_seq.nextVal, ? , ? , ? )";
+		con = Dbman.getConnection();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rvo.getQnanum());
+			pstmt.setString(2, rvo.getId());
+			pstmt.setString(3, rvo.getContent());
+			pstmt.executeUpdate();
+		} catch (SQLException var7) {
+			var7.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
 	}
+	
+}
 	
 	
 	

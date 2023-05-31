@@ -1,5 +1,5 @@
 function loginCheck(){
-	if( document.frm.userid.value.length==0){
+	if( document.frm.id.value.length==0){
 		alert("아이디를 입력하세요");
 		document.frm.userid.focus();
 		return false;
@@ -15,33 +15,33 @@ function loginCheck(){
 
 
 function idCheck(){
-	if( document.frm.userid.value==""){
+	if( document.frm.id.value==""){
 		alert("아이디를 입력하세요");
-		document.frm.userid.focus();
+		document.frm.id.focus();
 		return;
 	}
-	var inputid = document.frm.userid.value;
+	var inputid = document.frm.id.value;
 	var opt = "toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=500, height=200";
 	window.open("board.do?command=idcheck&userid=" + inputid , "idcheck", opt);
 }
 
 
 
-function idok( userid  ){
-	opener.frm.userid.value = userid;
-	opener.frm.reid.value = userid;
+function idok( id  ){
+	opener.frm.id.value = id;
+	opener.frm.reid.value = id;
 	self.close();
 }
 
 
 function joinCheck(){
-	if( document.frm.userid.value.length<4){
+	if( document.frm.id.value.length<4){
 		alert("아이디는 4글자 이상이어야 합니다.");  
-		document.frm.userid.focus();	
+		document.frm.id.focus();	
 		return false;
-	}else if( document.frm.userid.value != document.frm.reid.value){
+	}else if( document.frm.id.value != document.frm.reid.value){
 		alert("아이디 중복체크를 하지 않았습니다"); 	
-		document.frm.userid.focus();	 
+		document.frm.id.focus();	 
 		return false;
 	}else if( document.frm.name.value.length==0){
 		alert("이름은 필수입력사항입니다");		
@@ -62,9 +62,9 @@ function joinCheck(){
 
 
 function qnaCheck(){
-	if( document.frm.pass.value=="" ){
+	if( document.frm.pwd.value=="" ){
 		alert("비밀번호는 수정/삭제시에 필요합니다");
-		document.frm.pass.focus();
+		document.frm.pwd.focus();
 		return false;
 	}
 	if( document.frm.title.value=="" ){

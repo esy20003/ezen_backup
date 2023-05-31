@@ -30,6 +30,7 @@ import com.ezen.ticket.controller.action.mypage.MyAllRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisteredAction;
 import com.ezen.ticket.controller.action.mypage.MypageAction;
+import com.ezen.ticket.controller.action.qna.AddReplyAction;
 import com.ezen.ticket.controller.action.qna.DeleteQnaAction;
 import com.ezen.ticket.controller.action.qna.DeleteReplyAction;
 import com.ezen.ticket.controller.action.qna.QnaCheckPassAction;
@@ -76,6 +77,7 @@ public class ActionFactory {
 		else if( command.equals("qnaPassForm") ) ac = new QnaPassFormAction();
 		else if( command.equals("qnaCheckPass") ) ac = new QnaCheckPassAction();
 		else if( command.equals("deleteReply") ) ac = new DeleteReplyAction();
+		else if( command.equals("addReplyReply") ) ac = new AddReplyAction();
 		
 
 		//anr

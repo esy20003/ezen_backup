@@ -14,10 +14,10 @@ public class DeleteReplyAction implements Action {
 	
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String reply = request.getParameter("reply");
-		String qnaqseq = request.getParameter("qnaqseq");
+		String qnanum = request.getParameter("qnanum");
 		QnaDao qdao = QnaDao.getInstance();
 		qdao.deleteReply(reply);
-		String url = "ticket.do?command=qnaViewNoCount&qseq=" + qnaqseq;
+		String url = "ticket.do?command=qnaViewNoCount&qseq=" + qnanum;
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);
 	}
