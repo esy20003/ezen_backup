@@ -159,7 +159,7 @@ function insertCart(){
 	window.open(url, "InsertCart", opt);
 	}	
 }
-
+}
 function saveCommissioner(num){
 	
 	sessionStorage.removeItem('selectedCom');
@@ -191,5 +191,4 @@ function apply(){
     + endtime;
  }*/
  
-
  
