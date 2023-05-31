@@ -75,6 +75,7 @@
 function saveCseq(num){
 	
 	sessionStorage.setItem('selectedCseq',document.getElementById('cseq'+num).value);
+	
 }
 function saveDate(num){
 	
@@ -82,7 +83,10 @@ function saveDate(num){
 }
 function saveTime(num){
 	sessionStorage.setItem('selectedTime',document.getElementById('time'+num).value);
+    /*document.getElementById('time'+num).style.backgroundColor = 'red';*/
+   
 }
+
 function saveArea(num){
 	sessionStorage.setItem('selectedArea',document.getElementById('area'+num).value);
 }
@@ -130,6 +134,7 @@ function insertCart(){
 	var time=sessionStorage.getItem('selectedTime');
 	var area=sessionStorage.getItem('selectedArea');
 	var quantity=sessionStorage.getItem('selectedQuantity');
+
 	if(cseq==null){
 		alert("공연을 선택해 주세요.");
 		return false;
@@ -147,6 +152,9 @@ function insertCart(){
 		return false;
 	}else{
 	var url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
+	if(sessionStorage.getItem('selectedCom')!=null){
+	var mseq2=sessionStorage.getItem('selectedCom');
+	url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2'+mseq2;
 	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "InsertCart", opt);
 	}	
@@ -156,6 +164,9 @@ function saveCommissioner(num){
 	
 	sessionStorage.removeItem('selectedCom');
 	sessionStorage.setItem('selectedCom',document.getElementById('Com'+num).value);
+
+	localStorage.removeItem('');
+	localStorage.setItem('com_price',document.getElementById('com_price'+num).value);
 }
 
 function refresh(){

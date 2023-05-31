@@ -1,5 +1,7 @@
 select * from locationNum;
+select * from seat;
 
+delete from seat;
 
 insert into locationNum values(locationNum_seq.nextVal,'KBS부산홀');
 insert into locationNum values(locationNum_seq.nextVal,'잠실 실내체육관');
@@ -34,9 +36,9 @@ insert into seat (locationNum, area, price)
 values(2, 'seated', 10000);
 
 insert into seat (locationNum, area, price)
-values(3,  'R석', 150000);
+values(3,'3일권', 100000);
 insert into seat (locationNum, area, price)
-values(3, 'S석', 100000);
+values(3,'1일권', 100000);
 
 insert into seat (locationNum, area, price)
 values(4,  'G1석', 250000);
@@ -82,29 +84,31 @@ values(9,  'vip석', 200000);
 insert into seat (locationNum, area, price)
 values(9, 'R석', 150000);
 
-insert into seat (locationNum, area, price)
-values(10, 'R석', 150000);
-insert into seat (locationNum, area, price)
-values(10, 'S석', 100000);
-insert into seat (locationNum, area, price)
-values(10, 'A석', 80000);
-insert into seat (locationNum, area, price)
-values(10, 'B석', 50000);
-insert into seat (locationNum, area, price)
-values(10, 'C석', 30000);
-
-insert into seat (locationNum, area, price)
-values(11,'블루석', 30000);
-insert into seat (locationNum, area, price)
-values(11,'오렌지석', 50000);
-insert into seat (locationNum, area, price)
-values(11,'레드석', 2000);
-insert into seat (locationNum, area, price)
-values(11,'네이비석', 10000);
-insert into seat (locationNum, area, price)
-values(11,'외야석', 0);
 
 
+insert into seat (locationNum, area, price)
+values(10,'블루석', 30000);
+insert into seat (locationNum, area, price)
+values(10,'오렌지석', 50000);
+insert into seat (locationNum, area, price)
+values(10,'레드석', 2000);
+insert into seat (locationNum, area, price)
+values(10,'네이비석', 10000);
+insert into seat (locationNum, area, price)
+values(10,'외야석', 0);
+
+insert into seat (locationNum, area, price)
+values(11,'프리미엄석', 50000);
+insert into seat (locationNum, area, price)
+values(11,'벤치석', 30000);
+insert into seat (locationNum, area, price)
+values(11,'W석', 20000);
+insert into seat (locationNum, area, price)
+values(11,'E석', 10000);
+insert into seat (locationNum, area, price)
+values(11,'N석', 10000);
+insert into seat (locationNum, area, price)
+values(11,'원정석', 0);
 
 insert into seat (locationNum, area, price)
 values(12,'테이블석', 50000);
@@ -126,24 +130,22 @@ values(13,'1루내야지정석',10000);
 insert into seat (locationNum, area, price)
 values(13,'잔디석',10000);
 
-insert into seat (locationNum, area, price)
-values(14,'프리미엄석', 50000);
-insert into seat (locationNum, area, price)
-values(14,'벤치석', 30000);
-insert into seat (locationNum, area, price)
-values(14,'W석', 20000);
-insert into seat (locationNum, area, price)
-values(14,'E석', 10000);
-insert into seat (locationNum, area, price)
-values(14,'N석', 10000);
-insert into seat (locationNum, area, price)
-values(14,'원정석', 0);
 
 insert into seat (locationNum, area, price)
-values(15,'3일권', 100000);
+values(14, 'R석', 150000);
 insert into seat (locationNum, area, price)
-values(15,'1일권', 100000);
+values(14, 'S석', 100000);
+insert into seat (locationNum, area, price)
+values(14, 'A석', 80000);
+insert into seat (locationNum, area, price)
+values(14, 'B석', 50000);
+insert into seat (locationNum, area, price)
+values(14, 'C석', 30000);
 
+insert into seat (locationNum, area, price)
+values(15,  'R석', 150000);
+insert into seat (locationNum, area, price)
+values(15, 'S석', 100000);
 
 insert into seat (locationNum, area, price)
 values(16, '공식티켓', 50000);

@@ -34,19 +34,29 @@
 		<div class="buttonBoxArea2">
 			<div class="Header">대리인 리스트</div>
 			<div class="detailBody">
-				<table>
-					<tr><th>닉네임</th><th>등급</th><th>성공 횟수</th><th>가능한 시간대</th><th>커미션비</th></tr>
-				</table>
-				<div class="com_list">
-					<ul>
-					<c:forEach items="${comList}" var="cl" varStatus="state">
-						<li onclick="saveCommissioner('${state.count}')"><a href="#">
-						<div>${cl.cnickname}</div><div>${cl.gname}</div><div>${cl.success}</div><div>${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</div><div>${cl.com_price}원</div>
-						<input type="hidden" value="${cl.mseq}" name="time" id='${"Com"+=state.count}'>
-						</a>
-						</li>
-					</c:forEach>
-					</ul>
+				<div class="detailBody2">
+					<table>
+						<tr><td>닉네임</td><td>등급</td><td>성공</td><td>가능한 시간대</td><td>커미션비</td></tr>
+					</table>
+					<div class="com_list">
+						<ul>
+						<c:forEach items="${comList}" var="cl" varStatus="state">
+							<li onclick="saveCommissioner('${state.count}')">
+							<div>${cl.cnickname}</div><div>${cl.gname}</div><div>${cl.success}</div><div>${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</div><div>${cl.com_price}원</div>
+							<input type="hidden" value="${cl.mseq}" name="mseq2" id='${"Com"+=state.count}'>
+							<input type="hidden" value="${cl.com_price}" name="com_price" id='${"com_price"+=state.count}'>
+							</li>
+						</c:forEach>
+						</ul>
+					</div>
+				</div>
+				<div class="detailBody3">
+					<div class="priceBox">
+						<c:forEach items="${areaList}" var="al">
+							<div>${al.price} +</div>
+						</c:forEach>
+						<!-- 선택한 li의 가격을 여기 넣고 싶은데 어떻게 할가????? -->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -55,7 +65,7 @@
 		<div class=buttonBox>
 			<div class=groupBox>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="뒤로" onclick="goMain()">
+						<input class="button1" type="button" value="뒤로" onclick="history.go(-1)">
 					</div>
 					<div class=buttonSmallBox>
 						<input type="submit" class="button1 next" value="신청하기" onclick="return apply()"/>

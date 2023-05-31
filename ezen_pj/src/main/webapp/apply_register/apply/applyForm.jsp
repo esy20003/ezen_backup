@@ -35,10 +35,11 @@
 					<c:forEach items="${contentList}" var="contentVO" varStatus="state">
 							<li onclick="saveCseq('${state.count}')"><a href="ticket.do?command=applyContentSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">
 							${contentVO.title}</a>
-								<input type="hidden" value="${contentVO.cseq}" name="cseq" id='${"cseq"+=state.count}'>
+								<input type="hidden" value="${contentVO.cseq}" name="cseq" id='${"cseq"+=state.count}' class="li_count">
 							</li>
 					</c:forEach>
 						</ul>
+						<!-- 제목 눌렀을때 배경색이 바뀌면 참 좋겠다,,, -->
 				</div>
 				<div class="detailBox bodyBox">
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
@@ -74,11 +75,10 @@
 				<div class="timeBox bodyBox">
 					<ul>
 						<c:forEach items="${contentTimeList}" var="contentTil" varStatus="state">
-							<li onclick="saveTime('${state.count}')">${contentTil.contentTime}
-							<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}'>
+							<li onclick="saveTime('${state.count}')" class="liclick_time">${contentTil.contentTime}
+							<input type="hidden" value="${contentTil.contentTime}" name="time" id='${"time"+=state.count}' >
 							</li>
 						</c:forEach>
-									
 					</ul>
 				</div>
 				<div class="seatingChartBox bodyBox">
@@ -94,12 +94,24 @@
 						<div class="AreaBox">
 									<ul>
 							<c:forEach  items="${contentAreaList}" var="contentAL" varStatus="state">
-										<li onclick="saveArea('${state.count}')">
+										<li onclick="saveArea('${state.count}')" class="liclick_area">
 										<div class="area1">${contentAL.area}</div><div class="price1">${contentAL.price}원</div>
 										<input type="hidden" value="${contentAL.area}" name="area" id='${"area"+=state.count}'>
 										</li>
 							</c:forEach>
 									</ul>
+					<script>
+					$(function(){
+						 $('.liclick_time').click(function(){
+							$('.liclick_time').css({"background":"red"})
+						})
+					})
+					$(function(){
+						 $('.liclick_area').click(function(){
+							$('.liclick_area').css({"background":"red"})
+						})
+					})
+					</script>
 						</div>
 						</div>
 					</div>
