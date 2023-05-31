@@ -160,6 +160,9 @@ function insertCart(){
 	}}	
 }
 }
+
+}
+
 function saveCommissioner(num){
 	
 	sessionStorage.removeItem('selectedCom');
