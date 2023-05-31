@@ -35,17 +35,13 @@ function go_upd(rseq) {
 
 
 
-
+// 작성 아이디와 로그인한 아이디가 일치하지 않는다면 수정하기 버튼 자체를 노출시키지 않음
 function review_update() {
-	if(document.formm.pwd.value == "" ) {
-		alert("리뷰 수정 시 비밀번호 입력은 필수입니다.");
-		document.formm.pwd.focud();
-		//return false;
-	}else if(document.formm.title.value == "") {
+	if(document.formm.title.value == "" ) {
 		alert("제목은 필수 입력 사항입니다.");
-		document.formm.title.focus();
+		document.formm.title.focud();
 		//return false;
-	} else if(document.formm.content.value == "") {
+	}else if(document.formm.content.value == "") {
 		alert("내용은 필수 입력 사항입니다.");
 		document.formm.content.focus();
 		//return false;
@@ -57,6 +53,17 @@ function review_update() {
 	}
 }
 
+/* 리뷰 삭제  */
+function review_delete(rseq) {
+	console.log(document.formm.rseq);
+	console.log(document.formm.rseq.value);
+	if(confirm("정말 삭제하시겠습니까?")) {
+		//return;
+		document.formm.action ="ticket.do?command=reviewDelete&rseq=" + rseq;
+		document.formm.submit();
+	}
+}
+
 
 
 //function review_chk_pwd(reviewrseq, popupWinName) {
@@ -64,6 +71,12 @@ function review_update() {
 //	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=300";
 //	window.open(url, popupWinName, opt);
 //}
+
+
+
+
+
+
 
 
 

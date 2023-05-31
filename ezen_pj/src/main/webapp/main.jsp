@@ -113,4 +113,23 @@
 </div>
 
 
+
+ <!-- 어드민 작성 시 부트스트랩   -->
+ 
+<!-- <div class="form-check"> -->
+<!--   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
+<!--   <label class="form-check-label" for="flexCheckDefault"> -->
+<!--     Default checkbox -->
+<!--   </label> -->
+<!-- </div> -->
+<!-- <div class="form-check"> -->
+<!--   <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked> -->
+<!--   <label class="form-check-label" for="flexCheckChecked"> -->
+<!--     Checked checkbox -->
+<!--   </label> -->
+<!-- </div> -->
+
+
+
+
 <%@ include file="footer.jsp"%>
