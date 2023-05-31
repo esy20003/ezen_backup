@@ -13,6 +13,7 @@ import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 import com.ezen.ticket.controller.action.anr.RegisterTimeFormAction;
 import com.ezen.ticket.controller.action.cart.CartDeleteAction;
 import com.ezen.ticket.controller.action.cart.CartDetailAction;
+import com.ezen.ticket.controller.action.cart.CartDetailUpdateAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
 import com.ezen.ticket.controller.action.cart.CartUpdateAction;
 import com.ezen.ticket.controller.action.content.ContentFormAction;
@@ -42,6 +43,7 @@ import com.ezen.ticket.controller.action.qna.QnaWriteAction;
 import com.ezen.ticket.controller.action.qna.QnaWriteFormAction;
 import com.ezen.ticket.controller.action.qna.UpdateQnaAction;
 import com.ezen.ticket.controller.action.qna.UpdateQnaFormAction;
+import com.ezen.ticket.controller.action.review.ReviewDeleteAction;
 import com.ezen.ticket.controller.action.review.ReviewEditAction;
 import com.ezen.ticket.controller.action.review.ReviewEditFormAction;
 import com.ezen.ticket.controller.action.review.ReviewListAction;
@@ -114,6 +116,7 @@ public class ActionFactory {
 		else if(command.equals("reviewWrite")) ac = new ReviewWriteAction();  
 		else if(command.equals("reviewEditForm")) ac = new ReviewEditFormAction();
 		else if(command.equals("reviewEdit")) ac = new ReviewEditAction();
+		else if(command.equals("reviewDelete")) ac = new ReviewDeleteAction();
 		
 		
 		// cart
@@ -121,6 +124,7 @@ public class ActionFactory {
 		else if(command.equals("cartDelete")) ac = new CartDeleteAction();
 		else if(command.equals("cartDetail")) ac = new CartDetailAction();
 		else if(command.equals("cartUpdate")) ac = new CartUpdateAction();
+		else if(command.equals("cartDetailUpdate")) ac = new CartDetailUpdateAction();
 		// mypage
 		else if(command.equals("mypage")) ac = new MypageAction();
 		else if(command.equals("myRegister")) ac = new MyRegisterAction();
@@ -137,3 +141,4 @@ public class ActionFactory {
 	
 
 }
+		// joi

@@ -14,7 +14,7 @@ on c.locationNum=s.locationNum;
 select* from content_loc_seat_view order by locationNum;
 select* from content_loc_seat_view order by cseq;
 
-
+select*from content
 select*from CONTENT order by cseq;
 select*from locationNum;
 select*from seat;
@@ -111,9 +111,10 @@ on r.mseq=m.cmseq;
 
 
 select * from order_view where mseq = 2 and result = 'N'
-
-
-
+select * from locationnum
+select * from cart
+select distinct(mseq), cnickname from commissioner_view order by mseq asc
+select * from commissioner_view
 
 
 

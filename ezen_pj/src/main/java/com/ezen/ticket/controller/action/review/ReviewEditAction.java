@@ -22,7 +22,6 @@ public class ReviewEditAction implements Action {
 
 		String url = "ticket.do?command=reviewView";
 		//String pwd = request.getParameter("pwd");
-
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		if(mvo == null) {
@@ -45,13 +44,14 @@ public class ReviewEditAction implements Action {
 			rvo.setContent(multi.getParameter("content"));
 
 			if(multi.getFilesystemName("image") == null) {
-				rvo.setImage("oldimage");
+				rvo.setImage(multi.getParameter("oldimage"));
 			} else {
 				rvo.setImage(multi.getFilesystemName("image"));
-				ReviewDao rdao = ReviewDao.getInstance();
-				rdao.updateReview(rvo);
-				url = url + "&rseq=" + rvo.getRseq(); 
 			}
+			
+			ReviewDao rdao = ReviewDao.getInstance();
+			rdao.updateReview(rvo);
+			url = url + "&rseq=" + rvo.getRseq(); 
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

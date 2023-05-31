@@ -163,7 +163,7 @@ public class ContentDao {
 				System.out.println("locationNum="+cvo.getLocationNum());
 				list.add(cvo);
 			}
-			sql="select * from contentTime where cseq=?";
+			sql="select distinct contentDate, cseq from contentTime where cseq=?";
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1,cseq);
 			rs=pstmt.executeQuery();

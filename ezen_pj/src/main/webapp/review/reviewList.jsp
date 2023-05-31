@@ -52,9 +52,12 @@
 			</div>
 			<div class="clear"></div>
 			<br>
-			<div id="buttons" class="rev_btn_box" style="float: right">
+			<div class="rev_btn_box btn_box" style="float: left">
+				<input type="button" value="메인으로" class="cancel" onclick="location.href='ticket.do?command=index'">
+			</div>
+			<!--  버튼 위치 좌우로 수정 -->
+			<div id="buttons" class="rev_btn_box btn_box" style="float: right">
 				<input type="button" value="글쓰기" class="submit" onclick="location.href='ticket.do?command=reviewWriteForm'">
-				<input type="button" value="돌아가기" class="cancel" onclick="location.href='ticket.do?command=index'">
 			</div>
 			<div class="clear"></div>
 			<br>

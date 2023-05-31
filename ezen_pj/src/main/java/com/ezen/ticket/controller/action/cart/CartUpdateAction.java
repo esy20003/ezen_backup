@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.dao.CartDao;
 import com.ezen.ticket.dto.CartVO;
+import com.ezen.ticket.dto.CommissionerVO;
+import com.ezen.ticket.dto.ContentVO;
 import com.ezen.ticket.dto.MemberVO;
 
 public class CartUpdateAction implements Action {
@@ -23,7 +25,7 @@ public class CartUpdateAction implements Action {
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		
-		String [] cseqArr = request.getParameterValues("cartseq");
+		String cseq = request.getParameter("cartseq");
 		
 		if(mvo == null) {
 			url = "member/login.jsp";
@@ -31,11 +33,14 @@ public class CartUpdateAction implements Action {
 			// 대리인, 수량 수정
 			CartDao cdao = CartDao.getInstance();
 			ArrayList<CartVO> cartList = new ArrayList<CartVO>();
-			
-			for(String cseq : cseqArr)
-				cartList = cdao.selectCart(Integer.parseInt(cseq), mvo);
-			
+			ArrayList<ContentVO> contentList = new ArrayList<ContentVO>();
+			ArrayList<CommissionerVO> defutyList = new ArrayList<CommissionerVO>();
+			cartList = cdao.selectCart(Integer.parseInt(cseq), mvo);
+			contentList = cdao.selectContent(Integer.parseInt(cseq));
+			defutyList = cdao.selectAllDefuty();
 			request.setAttribute("cart", cartList);
+			request.setAttribute("content", contentList);
+			request.setAttribute("defuty", defutyList);
 			
 		}
 		

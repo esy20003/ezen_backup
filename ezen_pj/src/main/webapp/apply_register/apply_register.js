@@ -157,7 +157,10 @@ function insertCart(){
 	url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2'+mseq2;
 	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "InsertCart", opt);
-	}	
+	}}	
+}
+}
+
 }
 
 function saveCommissioner(num){
@@ -191,5 +194,4 @@ function apply(){
     + endtime;
  }*/
  
-
  

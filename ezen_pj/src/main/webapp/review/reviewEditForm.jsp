@@ -17,13 +17,6 @@
 					</td>
 				</tr>
 				<tr>
-					<th>비밀번호</th>
-					<td>
-						<input type="password" style="background:none;" name="pwd" size="12">
-						* (게시물 수정 삭제시 필요)
-					</td>
-				</tr>
-				<tr>
 					<th>제목</th>
 					<td>
 						<input type="text" name="title" size="20" value="${ reviewVO.title }">
@@ -39,19 +32,20 @@
 					<th>이미지</th>
 					<td>
 						<img src="./images/content/${ reviewVO.image }" width="200">
-						<input type="file" name="newfile" />
-						<input type="hidden" name="oldfile" value="${ reviewVO.image }">
+						<input type="file" name="image" />
 					</td>
 				</tr>
 			</table>
-			<div id="buttons" class="rev_btn_box" style="float:right;">
+			<div id="buttons" class="rev_btn_box btn_box" style="float:right;">
 				<input type="submit" value="수정" onclick="review_update()">
+				<input type="submit" value="삭제" onclick="review_delete(${ reviewVO.rseq })">
 				<input type="reset" value="다시작성">
 				<input type="button" value="돌아가기" onclick="location.href='ticket.do?command=reviewView&rseq=${ reviewVO.rseq }'">
 			</div>
 		</form>
 	</div>
 </div>
+
 
 
 <%@ include file="../footer.jsp"%>

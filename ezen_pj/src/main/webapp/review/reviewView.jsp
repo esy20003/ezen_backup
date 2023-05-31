@@ -43,13 +43,18 @@
 				</tr>
 			</table>
 			<div class="clear"></div>
-			<div id="buttons" class="rev_btn_box" style="float: right">
+			
+			<div class="rev_btn_box btn_box" style="float: left">
+				<input type="button" value="메인으로" class="cancel" onClick="location.href='ticket.do?command=index'">
+			</div>
+			
+			<div id="buttons" class="rev_btn_box btn_box" style="float: right">
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
-				<input type="button" value="돌아가기" class="cancel" onClick="location.href='ticket.do?command=index'">
 				<c:if test="${ reviewVO.id == loginUser.id }">
-					<input type="button" value="수정하기" class="review_update_btn" onclick="go_upd('${ ReviewVO.rseq}')">
+					<input type="button" value="수정하기" class="review_update_btn" onclick="go_upd('${ reviewVO.rseq}')">
 				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 			</div>
+						
 		</form>
 	</div>
 </div>

@@ -40,14 +40,32 @@
 					</table>
 					<div class="com_list">
 						<ul>
-						<c:forEach items="${comList}" var="cl" varStatus="state">
-							<li onclick="saveCommissioner('${state.count}')">
-							<div>${cl.cnickname}</div><div>${cl.gname}</div><div>${cl.success}</div><div>${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</div><div>${cl.com_price}원</div>
-							<input type="hidden" value="${cl.mseq}" name="mseq2" id='${"Com"+=state.count}'>
-							<input type="hidden" value="${cl.com_price}" name="com_price" id='${"com_price"+=state.count}'>
-							</li>
-						</c:forEach>
-						</ul>
+						  	<c:forEach items="${comList}" var="cl" varStatus="state">
+                                <li onclick="saveCommissioner('${state.count}')" class="liclick_com">
+                                    <div class="noClickDiv">${cl.cnickname}</div>
+                                    <div class="noClickDiv">${cl.gname}</div>
+                                    <div class="noClickDiv">${cl.success}</div>
+                                    <div class="noClickDiv">${cl.registerdate}&nbsp;${cl.starttime}~${cl.endtime}</div>
+                                    <div class="noClickDiv">${cl.com_price}원</div>
+                                    <input type="hidden" value="${cl.mseq}" name="mseq2" id='${"Com"+=state.count}'>
+                                    <input type="hidden" value="${cl.com_price}" name="com_price" id='${"com_price"+=state.count}'>
+                                </li>
+                            </c:forEach>
+                        </ul>
+                        <script>
+                            const non_Click1 = document.querySelectorAll(".liclick_com");
+
+                            function handleClick2(event) {
+                                non_Click1.forEach((e) => {
+                                    e.classList.remove("click");
+                                });
+                                event.currentTarget.classList.add("click");
+                            }
+
+                            non_Click1.forEach((e) => {
+                                e.addEventListener("click", handleClick2);
+                            });
+                        </script>
 					</div>
 				</div>
 				<div class="detailBody3">

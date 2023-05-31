@@ -16,8 +16,8 @@
 #reviewList tr {height:40px; line-height:40px;}
 #reviewList tr td {border:1px solid #eee; border-top-color:#ddd; border-bottom-color:#ddd;}
 #reviewList tr td a {display: block; }
-#buttons.rev_btn_box input {background:#444; color:#fff; cursor: pointer; vertical-align: middle; width:150px; height:30px; line-height: 30px; cursor: pointer; border-radius:10px;}
-
+.rev_btn_box.btn_box {margin-top:20px;}
+.rev_btn_box.btn_box input {background:#444; color:#fff; cursor: pointer; vertical-align: middle; width:120px; height:30px; line-height: 30px; cursor: pointer; border-radius:10px;}
 /* review_view */
 .review_view_table {width:100%; border:1px solid #ddd;}
 .review_view_table th {width:15%; vertical-align: middle; border-right:1px solid #ddd; border-bottom:1px solid #ddd;}
@@ -39,7 +39,7 @@
 
 
 
-#buttons .review_update_btn {height: 30px;width: 150px;border: 1px solid #666;border-radius: 10px;box-shadow: 3px 3px 2px #ccc;font-size: 14px;background-repeat: repeat-x;background-position: center center;color: #fff;line-height: 30px;margin: 0 0 0 20px;}
+ .review_update_btn {height: 30px;width: 150px;border: 1px solid #666;border-radius: 10px;box-shadow: 3px 3px 2px #ccc;font-size: 14px;background-repeat: repeat-x;background-position: center center;color: #fff;line-height: 30px;margin: 0 0 0 20px;}
 /*  로그인 한 아이디와 리뷰 작성한 아이디가 같을떄만 리뷰 수정하기 버튼 등장  */
 
 
