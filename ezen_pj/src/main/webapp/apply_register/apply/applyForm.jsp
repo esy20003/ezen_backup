@@ -35,10 +35,11 @@
 					<c:forEach items="${contentList}" var="contentVO" varStatus="state">
 							<li onclick="saveCseq('${state.count}')"><a href="ticket.do?command=applyContentSelect&cseq=${contentVO.cseq}&category=${category}&locationNum=${contentVO.locationNum}">
 							${contentVO.title}</a>
-								<input type="hidden" value="${contentVO.cseq}" name="cseq" id='${"cseq"+=state.count}'>
+								<input type="hidden" value="${contentVO.cseq}" name="cseq" id='${"cseq"+=state.count}' class="li_count">
 							</li>
 					</c:forEach>
 						</ul>
+						<!-- 제목 눌렀을때 배경색이 바뀌면 참 좋겠다,,, -->
 				</div>
 				<div class="detailBox bodyBox">
 					<!-- 선택한 공연 정보(포스터, 제목, 위치, 아티스트) -->
