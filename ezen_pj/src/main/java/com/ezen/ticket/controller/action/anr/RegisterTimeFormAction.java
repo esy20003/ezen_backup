@@ -26,18 +26,13 @@ public class RegisterTimeFormAction implements Action {
 		String date = request.getParameter("date");
 		String starttime = request.getParameter("starttime");
 		String endtime = request.getParameter("endtime");
-		
-		if(mvo ==null) {
-			url="ticket.do?command=loginForm";
-		} else {
+	
+		RegisterTimeDao rdao = RegisterTimeDao.getInstance();
+		rdao.insertRegisterTime(mseq, date, starttime, endtime);
+		ArrayList<RegisterTimeVO> regi = new ArrayList<RegisterTimeVO>();
+		regi = rdao.getMyRegister(mvo);
+		request.setAttribute("register", regi);
 			
-			 RegisterTimeDao rdao = RegisterTimeDao.getInstance();
-			 rdao.insertRegisterTime(mseq, date, starttime, endtime);
-			 ArrayList<RegisterTimeVO> regi = new ArrayList<RegisterTimeVO>();
-			 regi = rdao.getMyRegister(mvo);
-			 request.setAttribute("register", regi);
-			
-		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 
