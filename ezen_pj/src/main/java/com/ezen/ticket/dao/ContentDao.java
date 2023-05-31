@@ -250,7 +250,7 @@ public class ContentDao {
 		ArrayList<ContentVO> content = new ArrayList<ContentVO>();
 		ContentVO cvo = null;
 		con = Dbman.getConnection();
-		String sql = "select * from content";
+		String sql = "select * from content order by category asc";
 		try {
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();

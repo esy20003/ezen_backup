@@ -56,9 +56,9 @@
 				<a href="ticket.do?command=contentDetail&cseq=${ concertVO.cseq }">
 					<img src="${ concertVO.image }" />
 				</a>
-				<h1 style="line-height:30px; height:90px;">${ concertVO.title }</h1>
-				<h3 style="width: 258px; height: 40px; font-size: 25px; margin-left: 10px; line-height: 40px; font-weight: bold; 
-					background: black; color: papayawhip; cursor: pointer;">신청하기</h3>
+				<h1 style="line-height: 30px; height: 90px;">${ concertVO.title }</h1>
+				<h3
+					style="width: 270px; height: 40px; font-size: 25px; margin-left: 10px; line-height: 40px; font-weight: bold; background: black; color: papayawhip; cursor: pointer;">신청하기</h3>
 			</div>
 		</c:forEach>
 	</div>
@@ -74,10 +74,9 @@
 				<a href="ticket.do?command=contentDetail&cseq=${ musicalVO.cseq }">
 					<img src="${ musicalVO.image }" />
 				</a>
-				<h1 style="line-height:30px; height:90px;">${ musicalVO.title }</h1>
+				<h1 style="line-height: 30px; height: 90px;">${ musicalVO.title }</h1>
 				<h3
-					style="width: 258px; height: 40px; font-size: 25px; margin-left: 10px; line-height: 40px; font-weight: bold;
-                              color: red; border:2px dashed black; cursor: pointer; ">신청하기</h3>
+					style="width: 270px; height: 40px; font-size: 25px; margin-left: 5px; line-height: 40px; font-weight: bold; color: red; border: 2px dashed black; cursor: pointer;">신청하기</h3>
 			</div>
 		</c:forEach>
 	</div>
@@ -93,7 +92,10 @@
 				<c:forEach items="${ success }" end="3" var="successVO">
 					<div class="successitem">
 						<div class="successlisttitle">
-							<h2>${ successVO.title }</h2>
+							<a
+								href="ticket.do?command=successView&title=${ successVO.title }">
+								<h2>${ successVO.title }</h2>
+							</a>
 						</div>
 						<div class="successlistid">
 							<h2>${ successVO.sucseq }.&nbsp;${ successVO.id }</h2>
@@ -114,8 +116,8 @@
 
 
 
- <!-- 어드민 작성 시 부트스트랩   -->
- 
+<!-- 어드민 작성 시 부트스트랩   -->
+
 <!-- <div class="form-check"> -->
 <!--   <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> -->
 <!--   <label class="form-check-label" for="flexCheckDefault"> -->

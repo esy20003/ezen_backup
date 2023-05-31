@@ -53,23 +53,50 @@ function go_cart_order(){
 /* 카트리스트 수정하기 버튼*/
 
 function go_cart_update(){
+	   
+	   sessionStorage.removeItem('selectedCseq');
+       sessionStorage.removeItem('selectedDate');
+       sessionStorage.removeItem('selectedTime');
+       sessionStorage.removeItem('selectedArea');
+       sessionStorage.removeItem('selectedQuantity');
+		
 	var count = 0;
 	if(document.frm.cartseq.length == undefined){
-		if(document.frm.cartseq.checked == true)
+		if(document.frm.cartseq.checked == true){
 			count++;
+			var cseq = document.frm.cseq[i].value;
+			var date = document.frm.contentdate[i].value;
+			var time = document.frm.contenttime[i].value;
+			var area = document.frm.area[i].value;
+			var quantity = document.frm.quantity[i].value;
+		}
 	}else{
 		for(var i=0; i < document.frm.cartseq.length; i++){
-			if(document.frm.cartseq[i].checked == true)
+			if(document.frm.cartseq[i].checked == true){
 				count++;
+				var cseq = document.getElementById('cseq').value;
+				var date = document.getElementById('contentdate').value;
+				var time = document.getElementById('contenttime').value;
+				var area = document.getElementById('area').value;
+				var quantity = document.getElementById('quantity').value;
+			}
+				
 		}
 	}
+	
+	sessionStorage.setItem('selectedCseq',document.getElementById('cseq').value);
+	sessionStorage.setItem('selectedDate',document.getElementById('contentdate').value);
+	sessionStorage.setItem('selectedTime',document.getElementById('contenttime').value);
+	sessionStorage.setItem('selectedArea',document.getElementById('area').value);
+	sessionStorage.setItem('selectedQuantity',document.getElementById('quantity').value);
 	
 	if(count == 0){
 		alert('수정할 항목을 선택하세요');
 	}else if(count >= 2){
 		alert('수정할 항목은 하나만 선택이 가능합니다');
 	}else{
-		document.frm.action = "ticket.do?command=cartUpdate";
+		
+		document.frm.action = "ticket.do?command=applySelectCommissioner&cseq="+ cseq + "&date=" + date + "&time=" + time + "&area=" + area + "&quantity=" + quantity;
 		document.frm.submit();
 	}
 }
