@@ -244,6 +244,7 @@ CREATE TABLE orders
 	oseq number(5,0) NOT NULL,
 	indate date DEFAULT sysdate,
 	mseq number(5,0) NOT NULL,
+	cseq number(5,0) not null,
 	PRIMARY KEY (oseq)
 );
 
@@ -354,6 +355,10 @@ ALTER TABLE adminQna_reply
 ALTER TABLE adminQna_reply
 	ADD FOREIGN KEY (qseq)
 	REFERENCES qna_board (qseq) on delete cascade;
+	
+ALTER TABLE orders
+	ADD FOREIGN KEY (cseq)
+	REFERENCES content (cseq) on delete cascade;
 	
 	-----------
 	

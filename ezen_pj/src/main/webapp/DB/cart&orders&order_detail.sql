@@ -17,11 +17,13 @@ values(2,3, to_date('20230610','yyyy-mm-dd'),'17:00',1,'R석', 'Y');
 UPDATE cart SET mseq2=0 WHERE mseq=2 and cseq=6;
 UPDATE cart SET mseq2=1 WHERE mseq=2 and cseq=6
 --orders
-insert into orders(oseq,mseq) values(orders_oseq.nextVal,1);
-insert into orders(oseq,mseq) values(orders_oseq.nextVal,2);
-insert into orders(oseq,mseq) values(orders_oseq.nextVal,3);
-insert into orders(oseq,mseq) values(orders_oseq.nextVal,4);
-insert into orders(oseq,mseq) values(orders_oseq.nextVal,5);
+insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,1,5);
+insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,2,6);
+insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,3,10);
+insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,4,7);
+
+delete from orders;
+alter table orders add cseq number(5,0) not null;
 
 select * from orders;
 select * from member;
