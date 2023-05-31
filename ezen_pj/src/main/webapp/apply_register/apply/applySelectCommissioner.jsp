@@ -53,6 +53,23 @@
                             </c:forEach>
                         </ul>
                         <script>
+                        
+                        
+                        function saveCommissioner(num){
+                     		var comPrice = document.getElementById('com_price'+num).value;
+                     	 	var cprice = document.querySelector('.cprice');
+                   		  	cprice.innerText = comPrice;
+                     		var ticketPrice = document.getElementById('ticketPriceH').value;
+                     	 	var totalPrice = document.querySelector('.totprice');
+                     	 	totalPrice.innerText=Number(ticketPrice)+Number(comPrice)+'원';
+                     	
+                        	
+                        	sessionStorage.removeItem('selectedCom');
+                        	sessionStorage.setItem('selectedCom',document.getElementById('Com'+num).value);
+                        }
+                        
+                        
+                        
                             const non_Click1 = document.querySelectorAll(".liclick_com");
 
                             function handleClick2(event) {
@@ -70,10 +87,11 @@
 				</div>
 				<div class="detailBody3">
 					<div class="priceBox">
+						<div class="totprice p"></div><div class="p css1">=</div><div class="cprice p"></div><div class="p css1">+</div>
 						<c:forEach items="${areaList}" var="al">
-							<div>${al.price} +</div>
+							<div class="tprice p">${al.price}</div>
+							<input type="hidden" id="ticketPriceH" value="${al.price}">
 						</c:forEach>
-						<!-- 선택한 li의 가격을 여기 넣고 싶은데 어떻게 할가????? -->
 					</div>
 				</div>
 			</div>

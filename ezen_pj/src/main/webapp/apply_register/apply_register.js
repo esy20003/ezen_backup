@@ -159,18 +159,8 @@ function insertCart(){
 	window.open(url, "InsertCart", opt);
 	}}	
 }
-}
 
-}
 
-function saveCommissioner(num){
-	
-	sessionStorage.removeItem('selectedCom');
-	sessionStorage.setItem('selectedCom',document.getElementById('Com'+num).value);
-
-	localStorage.removeItem('');
-	localStorage.setItem('com_price',document.getElementById('com_price'+num).value);
-}
 
 function refresh(){
 	sessionStorage.removeItem('selectedCom');
