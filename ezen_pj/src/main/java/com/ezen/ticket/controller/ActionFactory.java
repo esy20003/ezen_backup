@@ -46,7 +46,9 @@ import com.ezen.ticket.controller.action.review.ReviewDeleteAction;
 import com.ezen.ticket.controller.action.review.ReviewEditAction;
 import com.ezen.ticket.controller.action.review.ReviewEditFormAction;
 import com.ezen.ticket.controller.action.review.ReviewListAction;
+import com.ezen.ticket.controller.action.review.ReviewReplyAction;
 import com.ezen.ticket.controller.action.review.ReviewViewAction;
+import com.ezen.ticket.controller.action.review.ReviewViewNoCountAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteFormAction;
 
@@ -115,6 +117,9 @@ public class ActionFactory {
 		else if(command.equals("reviewEditForm")) ac = new ReviewEditFormAction();
 		else if(command.equals("reviewEdit")) ac = new ReviewEditAction();
 		else if(command.equals("reviewDelete")) ac = new ReviewDeleteAction();
+		// review 댓글
+		else if(command.equals("reviewReply")) ac = new ReviewReplyAction();
+		else if(command.equals("reviewViewNoCount")) ac = new ReviewViewNoCountAction();
 		
 		
 		// cart

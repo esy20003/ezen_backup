@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.ezen.ticket.dto.ReviewReplyVO;
 import com.ezen.ticket.dto.ReviewVO;
 import com.ezen.ticket.util.Dbman;
 import com.ezen.ticket.util.Paging;
@@ -96,9 +97,6 @@ public class ReviewDao {
 		} finally {Dbman.close(con, pstmt, rs);}
 		return rvo;
 	}
-
-	
-	
 	
 	public void insertReview(ReviewVO rvo) {
 
@@ -118,7 +116,6 @@ public class ReviewDao {
 		} catch (SQLException e) { e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);
 		}
-
 	}
 	public void updateReview(ReviewVO rvo) {
 		
@@ -151,6 +148,32 @@ public class ReviewDao {
 		}
 		
 		
+	}
+	public void insertReply(ReviewReplyVO rvo) {
+												       //댓글번호 //리뷰번호 //멤버번호 
+		String sql ="insert into review_reply( rseq, repseq, mseq, replycontent) values("
+				+ " reply_seq.nextVal, ?, ?, ? )";
+		
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rvo.getRepseq());
+			pstmt.setInt(2, rvo.getMseq());
+			pstmt.setString(3, rvo.getReplycontent());
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		
+	}
+	public ArrayList<ReviewReplyVO> selectReply(int num) {
+		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
+		con = Dbman.getConnection();
+		String sql ="select * from reply where  ";
+	
+		
+		
+		
+		return list;
 	}
 
 

@@ -17,7 +17,7 @@
 				<c:forEach items="${reviewList }" var="reviewVO">
 					<tr>
 						<td>${reviewVO.rseq }</td>
-						<td>
+						<td width="30%">
 							<a href="ticket.do?command=reviewView&rseq=${ reviewVO.rseq }">${reviewVO.title}</a>
 						</td>
 						<td>${ reviewVO.id}</td>

@@ -75,6 +75,15 @@ function review_delete(rseq) {
 
 
 
+/* review reply 리뷰댓글작성 */
+function reply_chk() {
+	if(document.rev_formm.reply.value == "") {
+		alert("댓글 내용을 입력해주세요");
+		document.rev_formm.reply.focus();
+		return false;
+	}
+	return true;
+}
 
 
 
