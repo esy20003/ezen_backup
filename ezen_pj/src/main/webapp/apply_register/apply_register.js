@@ -176,12 +176,5 @@ function apply(){
 	}
 }
 
-/*function gotime(){
-	 var date = registerForm.date.value;
-	 var starttime = registerForm.starttime.value;
-	 var endtime = registerForm.endtime.value;
-    document.registerForm.action="ticket.do?command=registerTimeForm&date="+ date + "&starttime=" + starttime + "&endtime="
-    + endtime;
- }*/
  
  
