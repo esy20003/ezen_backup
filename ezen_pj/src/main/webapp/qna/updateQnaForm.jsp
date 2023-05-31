@@ -25,7 +25,7 @@
 	<input type="hidden" name="qseq" value="${QnaVO.qseq}">
 	<table>
 		<tr><th>작성자</th><td>${board.userid}
-			<input type="hidden" name=0"id" value="${loginUser.id}"></td></tr>
+			<input type="hidden" name="id" value="${loginUser.id}"></td></tr>
 		<tr><th>비밀번호</th>
 			<td><input type="password" name="pwd" size="12">* (게시물 수정 삭제시 필요합니다.)</td></tr>
 		<tr><th>제목</th>
