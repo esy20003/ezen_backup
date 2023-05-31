@@ -34,10 +34,10 @@
 					</table>
 				</fieldset>
 				<div class="clear"></div>
-				<div id="buttons" class="rev_btn_box" style="float: right">
+				<div id="buttons" class="rev_btn_box btn_box" style="float: right">
 					<input type="button" value="작성완료" class="submit" onclick="review_write()">
 					<input type="reset" value="다시작성" class="cancel">
-					<input type="button" value=" 돌아가기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
+					<input type="button" value=" 목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
 				</div>
 			</form>
 		</article>
