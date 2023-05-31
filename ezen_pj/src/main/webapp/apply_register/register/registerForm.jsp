@@ -3,6 +3,9 @@
 
 <script type="text/javascript">
 
+	//시간 슬롯을 저장하기 위한 배열을 정의합니다.
+	var timeSlots = [];
+	
     function inputTimeColon(time) {
         // replace 함수를 사용하여 콜론( : )을 공백으로 치환한다.
         var replaceTime = time.value.replace(/\:/g, "");
@@ -33,48 +36,18 @@
      
     }
     
-    function gotime() {
-        var date = sessionStorage.getItem('date');
-        var date = date.replace("-", "").replace("-", "");
-        var startTime = sessionStorage.getItem('startTime');
-        var endTime = sessionStorage.getItem('endTime');
-        
-        var checkboxes = document.getElementsByName("registerCheck");
-        var checkedItems = [];
-        
-        for (var i = 0; i < checkboxes.length; i++) {
-            if (checkboxes[i].checked) {
-                checkedItems.push(checkboxes[i].value);
-            }
-        }
-        
-        if (checkedItems.length === 0) {
-            alert("체크된 아이템이 없습니다.");
-            return;
-        }
-        
-        var url = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + startTime + "&endtime=" + endTime;
-        
-        // 체크된 아이템들을 쿼리 파라미터로 추가합니다.
-        for (var j = 0; j < checkedItems.length; j++) {
-            url += "&item" + (j+1) + "=" + checkedItems[j];
-        }
-        
-        document.registerForm.action = url;
-        document.registerForm.submit();
-    }
-    
     function addTime() {
-        sessionStorage.removeItem('date');
-        sessionStorage.removeItem('startTime');
-        sessionStorage.removeItem('endTime');
-        
-        var date = document.getElementById("date").value;
+    	sessionStorage.removeItem('date');
+    	sessionStorage.removeItem('startTime');
+    	sessionStorage.removeItem('endTime');
+    	 
+    	var date =document.getElementById("date").value;
         var startTime = document.getElementById("starttime").value;
         var endTime = document.getElementById("endtime").value;
-        sessionStorage.setItem('date', date);
-        sessionStorage.setItem('startTime', startTime);
-        sessionStorage.setItem('endTime', endTime);
+        
+        sessionStorage.setItem('date',date);
+        sessionStorage.setItem('startTime',startTime);
+        sessionStorage.setItem('endTime',endTime);
         
         if (date === "" || startTime === "" || endTime === "") {
             alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
@@ -83,15 +56,7 @@
         
         var output = document.getElementById("output");
         var li = document.createElement("li");
-        
-        var checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.name = "registerCheck";
-        checkbox.value = date + " " + startTime + " ~ " + endTime;
-        
-        var label = document.createElement("label");
-        label.appendChild(checkbox);
-        label.innerHTML += " " + date + " " + startTime + " ~ " + endTime;
+        li.textContent = date + " " + startTime + " ~ " + endTime;
         
         var deleteButton = document.createElement("button");
         deleteButton.textContent = "삭제";
@@ -100,7 +65,6 @@
             output.removeChild(li);
         };
         
-        li.appendChild(label);
         li.appendChild(deleteButton);
         output.appendChild(li);
         
@@ -108,6 +72,18 @@
         document.getElementById("date").value = "";
         document.getElementById("starttime").value = "";
         document.getElementById("endtime").value = "";
+        
+    }
+    
+    function gotime(){
+    	
+    	var date = sessionStorage.getItem('date');
+    	var date = date.replace("-","").replace("-","");
+    	var starttime = sessionStorage.getItem('startTime');
+    	var endtime = sessionStorage.getItem('endTime');
+    	document.registerForm.action = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + starttime + "&endtime=" + endtime;
+    	document.registerForm.submit();
+    	
     }
 </script>
 
@@ -137,7 +113,8 @@ border-radius: 5px; cursor: pointer;}
 #output {list-style-type: none; margin: 0; padding: 0;}
 
 #output li {margin-bottom: 10px;}
- 
+#output li label {float:none;}
+
 .deleteButton {margin-left: 10px; padding: 5px 10px; background-color: #f44336; color: #fff;
  border: none; border-radius: 5px; cursor: pointer;}
 
