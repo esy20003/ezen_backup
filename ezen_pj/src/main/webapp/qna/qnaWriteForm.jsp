@@ -14,6 +14,7 @@
 		<label>Title</label> <input type="text" name="title" size="70"><br>
 		<label>Content</label> <textarea rows="10" cols="80" name="content"></textarea><br>
 		<label>Image</label> <input type="image" name="image" size="60"><br>
+		
 	</fieldset>
 	
 	<div class="clear"></div>

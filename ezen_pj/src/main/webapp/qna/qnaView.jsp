@@ -26,16 +26,56 @@
 	<tr><th>작성자</th><td align="left" style="text-align:left; font-size:115%;"><pre>&nbsp;&nbsp;${QnaVO.id}</pre></td></tr>
 	<tr><th>등록일</th><td align="left" style="text-align:left;">
 	<fmt:formatDate value="${QnaVO.indate}" type="date"/></td></tr>
+	<tr><th>조회수</th><td>${QnaVO.readcount}</td></tr>
 	
 </table>
 	<input type="button" value="메인 화면으로 돌아가기"
 				onClick="location.href='ticket.do?command=index'"> 
-		<input type="button" value="수정"
+		<input type="button" value="수정 "
 				onClick="checkPass('${QnaVO.qseq}' ,  'update');"> 
-		<input	type="button" value="삭제"
+		<input	type="button" value="삭제 "
 				onClick="checkPass('${QnaVO.qseq}' ,  'delete');"> <br>
 		<br>
 		
+<c:set var="now" value="<%=new java.util.Date()%>" />
+
+		<form action="ticket.do" method="get" name="frm_reply">
+			<input type="hidden" name="command" value="AddReply" /> <input
+				type="hidden" name="qnanum" value="${QnaVO.qseq}" />
+			<table>
+				<tr>
+					<th width="100">작성자</th>
+					<th width="100">작성일시</th>
+					<th>내용</th>
+					<th width="100">추가/삭제</th>
+				</tr>
+
+				<tr align="center">
+					<td>${loginUser.id}<input type="hidden" name="id"
+						value="${loginUser.id}"></td>
+					<td><fmt:formatDate value="${now}" pattern="MM/dd HH:mm" /></td>
+					<td><input type="text" name="reply" size="80"></td>
+					<td><input type="submit" value="답글 작성"
+						onClick="return reply_check();"></td>
+				</tr>
+
+				<c:forEach items="${replyList}" var="reply">
+					<tr align="center">
+						<td>${reply.id}</td>
+						<td><fmt:formatDate value="${reply.indate}"
+								pattern="MM/dd HH:mm" /></td>
+						<td align="left">&nbsp;${reply.content}</td>
+						<td>
+							<c:if test="${reply.id==loginUser.id}">
+								<input type="button" value="삭제"	
+								onClick = "location.href='ticket.do?command=deleteReply&replynum=${reply.replynum}&qnanum=${QnaVO.qseq}'">
+							</c:if>&nbsp;</td>
+					</tr>
+				</c:forEach>
+			</table>
+		</form>
+
+	
 		<div class="clear"></div>
 <div id="buttons" style="float:right">
 	<input type="button" value="돌아가기" class="cancel" style="color:black" onclick="location.href='ticket.do?command=qnaList'">

@@ -76,7 +76,6 @@ public class QnaDao {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				qvo.setQseq(rs.getInt("qseq"));
-				System.out.println(rs.getInt("qseq"));
 				qvo.setPwd(rs.getString("pwd"));
 				qvo.setId(rs.getString("id"));
 				qvo.setTitle(rs.getString("title"));
@@ -100,12 +99,11 @@ public class QnaDao {
 		try {
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, qvo.getQseq());
-			pstmt.setString(2, qvo.getId());
-			pstmt.setString(3, qvo.getTitle());
-			pstmt.setString(4, qvo.getContent());
-			pstmt.setInt(5, qvo.getMseq());
-			pstmt.setString(6, qvo.getPwd());
+			pstmt.setString(1, qvo.getId());
+			pstmt.setString(2, qvo.getTitle());
+			pstmt.setString(3, qvo.getContent());
+			pstmt.setInt(4, qvo.getMseq());
+			pstmt.setString(5, qvo.getPwd());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
@@ -128,8 +126,8 @@ public class QnaDao {
 
 	}
 
-	public void deleteReplyByQnaqseq(int qseq) {
-		String sql = "delete from reply where qnaqseq=?";
+	public void deleteReplyByQnanum(int qseq) {
+		String sql = "delete from reply where qnanum=?";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -164,7 +162,7 @@ public class QnaDao {
 	public ArrayList<ReplyVO> selectReply(int qseq) {
 		ArrayList<ReplyVO> list = new ArrayList();
 		this.con = Dbman.getConnection();
-		String sql = "select * from reply where qnaqseq=? order by qnaqseq desc";
+		String sql = "select * from reply where qnanum=? order by qnanum desc";
 
 		try {
 			this.pstmt = this.con.prepareStatement(sql);
@@ -175,8 +173,8 @@ public class QnaDao {
 				ReplyVO rvo = new ReplyVO();
 				rvo.setReplynum(this.rs.getInt("replynum"));
 				rvo.setQnanum(this.rs.getInt("qnanum"));
-				rvo.setUserid(this.rs.getString("id"));
-				rvo.setWritedate(this.rs.getTimestamp("writedate"));
+				rvo.setId(this.rs.getString("id"));
+				rvo.setIndate(this.rs.getTimestamp("indate"));
 				rvo.setContent(this.rs.getNString("content"));
 				list.add(rvo);
 			}
@@ -204,8 +202,58 @@ public class QnaDao {
 		}
 
 	}
-		
+
+	public void insertReply(ReplyVO rvo) {
+		String sql = "insert into reply( replynum, qnanum, id, content )  values( reply_seq.nextVal, ? , ? , ? )";
+		con = Dbman.getConnection();
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rvo.getQnanum());
+			pstmt.setString(2, rvo.getId());
+			pstmt.setString(3, rvo.getContent());
+			pstmt.executeUpdate();
+		} catch (SQLException var7) {
+			var7.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
 	}
+
+	public void plusOneReadcount(int qseq) {
+		
+		con = Dbman.getConnection();
+		String sql = "update qna_board set readcount = readcount+1 where qseq=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			pstmt.executeUpdate();
+		} catch (SQLException var7) {
+			var7.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
+	}
+	
+	public int getReplycnt(int qseq) {
+		int count=0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from reply where qnanum=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) count = rs.getInt("cnt");
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);  }
+		
+		return count;	
+	}
+	
+}
 	
 	
 	

@@ -20,11 +20,11 @@
 
 <div id="wrap" align="center">
 	<h1>게시글 수정</h1>
-	<form name="frm" method="post" action="ticket.do?command=updateQna"
+	<form name="frm" method="post" action="ticket.do?command=updateqna"
 	enctype="multipart/form-data">
 	<input type="hidden" name="qseq" value="${QnaVO.qseq}">
 	<table>
-		<tr><th>작성자</th><td>${board.userid}
+		<tr><th>작성자</th><td>${QnaVO.id}
 			<input type="hidden" name="id" value="${loginUser.id}"></td></tr>
 		<tr><th>비밀번호</th>
 			<td><input type="password" name="pwd" size="12">* (게시물 수정 삭제시 필요합니다.)</td></tr>
@@ -33,7 +33,7 @@
 		<tr><th>내용</th>
 			<td><textarea cols="70" rows="15" name="content">${QnaVO.content}</textarea>*</td></tr>
 		
-		<!-- <tr>
+		 <tr>
 			<th>이미지</th>
 			<td>
 			<c:choose>
@@ -49,10 +49,10 @@
 			<input type="file" name="newFile"/>
 			<input type="hidden" name="oldFile" value="${QnaVO.imgfilename}">
 			</td>
-		</tr> -->
+		</tr>
 	
 	</table><br>
-	<input type="submit" value="수정" onClick="return boardCheck()">
+	<input type="submit" value="수정" onClick="return qnaCheck()">
 	<input type="reset" value="다시 작성">
 	<input type="button" value="돌아가기" 
 		onClick="location.href='ticket.do?command=qnaViewNoCount&qseq=${QnaVO.qseq}'">
