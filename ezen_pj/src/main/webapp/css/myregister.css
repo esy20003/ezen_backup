@@ -27,6 +27,7 @@
 
 #myRegister_box #registeringtable tbody tr th{
 	border:1px solid black;
+	text-align:center;
 }
 
 #myRegister_box #registeringtable tbody tr td{
@@ -43,6 +44,7 @@
 
 #myRegister_box #registeredtable tbody tr th{
 	border:1px solid black;
+	text-align:center;
 }
 
 #myRegister_box #registeredtable tbody tr td{

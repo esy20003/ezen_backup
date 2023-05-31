@@ -24,18 +24,16 @@
 							<!-- <th>일시</th><th>시간</th><th>총수량</th><th>신청날짜</th><th>대리인</th><th>선택</th> -->
 						</tr>
 						<c:forEach items="${ notBuy }" var="contentVO">
+							<input type="hidden" id="cseq" name="cseq" value="${ contentVO.cseq }"/>
+							<input type="hidden" id="area" name="area" value="${ contentVO.area }"/>
 							<tr>
 								<%!int seq = 1;%>
 								<td><%=seq%></td>
-								
-								<%
-								seq += 1;
-								%>
-
 								<td>${ contentVO.title }</td>
 								<td>${ contentVO.artist }</td>
 								<td>${ contentVO.locationname }</td>
 								<td>${ contentVO.area }</td>
+								<% seq += 1;%>
 							</tr>
 						</c:forEach>
 						<%
@@ -53,6 +51,9 @@
 							<th>선택</th>
 						</tr>
 						<c:forEach items="${ notBuy_cartList }" var="cartListVO">
+							<input type="hidden" id="quantity" name="quantity" value="${ cartListVO.quantity }"/>
+							<input type="hidden" id="contentdate" name="contentdate" value="${ cartListVO.contentdate }"/>
+							<input type="hidden" id="contenttime" name="contenttime" value="${ cartListVO.contenttime }"/>
 							<tr>
 								<td><%=seq%></td>
 								<%
