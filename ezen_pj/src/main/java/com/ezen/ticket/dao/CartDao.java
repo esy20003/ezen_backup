@@ -7,11 +7,10 @@ import java.sql.SQLException;
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import com.ezen.ticket.dto.CartVO;
+import com.ezen.ticket.dto.CommissionerVO;
 import com.ezen.ticket.dto.ContentVO;
+import com.ezen.ticket.dto.Content_Loc_Seat_ViewVO;
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.util.Dbman;
 
@@ -33,7 +32,7 @@ public class CartDao {
 	public ArrayList<CartVO> getMyCartList_notBuy(int mseq) {
 		ArrayList<CartVO> list = new ArrayList<CartVO>();
 		CartVO cartVO = null;
-		String sql = "select * from orderview where mseq = ? and buyyn = 'N'";
+		String sql = "select * from cart where mseq = ? and buyyn = 'N'";
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -179,19 +178,19 @@ public class CartDao {
 	}
 
 	public int insertCart(int mseq, int cseq, String date, String time, String area, int mseq2, String quantity) {
-		int result=0;
-		CartVO cvo=null;
-		String sql="insert into cart(mseq, cseq, contentDate,contentTime,locationNum,area, mseq2, quantity) values(?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?,?)";
-		
-		//여긴 이제 locationNum얻으려고하는 거
-		CartDao cdao=CartDao.getInstance();
-		ArrayList<ContentVO> forLocationNum=cdao.selectContent(cseq);
-		int locationNum=forLocationNum.get(0).getLocationNum();//locationNum 얻음
-		
-		con=Dbman.getConnection();
+		int result = 0;
+		CartVO cvo = null;
+		String sql = "insert into cart(mseq, cseq, contentDate,contentTime,locationNum,area, mseq2, quantity) values(?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?,?)";
+
+		// 여긴 이제 locationNum얻으려고하는 거
+		CartDao cdao = CartDao.getInstance();
+		ArrayList<ContentVO> forLocationNum = cdao.selectContent(cseq);
+		int locationNum = forLocationNum.get(0).getLocationNum();// locationNum 얻음
+
+		con = Dbman.getConnection();
 		try {
-			pstmt=con.prepareStatement(sql);
-			cvo=new CartVO();
+			pstmt = con.prepareStatement(sql);
+			cvo = new CartVO();
 			pstmt.setInt(1, mseq);
 			pstmt.setInt(2, cseq);
 			pstmt.setString(3, date);
@@ -200,29 +199,31 @@ public class CartDao {
 			pstmt.setString(6, area);
 			pstmt.setInt(7, mseq2);
 			pstmt.setString(8, quantity);
-			result=pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		} catch (SQLIntegrityConstraintViolationException e) {
 			return 3;
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {Dbman.close(con, pstmt, rs);}
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 		return result;
 	}
 
 	public int insertCartMseq2Null(int mseq, int cseq, String date, String time, String area, String quantity) {
-		int result=0;
-		CartVO cvo=null;
-		String sql="insert into cart(mseq, cseq, contentDate,contentTime,locationNum,area, quantity) values(?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?)";
-		
-		//여긴 이제 locationNum얻으려고하는 거
-		CartDao cdao=CartDao.getInstance();
-		ArrayList<ContentVO> forLocationNum=cdao.selectContent(cseq);
-		int locationNum=forLocationNum.get(0).getLocationNum();//locationNum 얻음
-		
-		con=Dbman.getConnection();
+		int result = 0;
+		CartVO cvo = null;
+		String sql = "insert into cart(mseq, cseq, contentDate,contentTime,locationNum,area, quantity) values(?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?)";
+
+		// 여긴 이제 locationNum얻으려고하는 거
+		CartDao cdao = CartDao.getInstance();
+		ArrayList<ContentVO> forLocationNum = cdao.selectContent(cseq);
+		int locationNum = forLocationNum.get(0).getLocationNum();// locationNum 얻음
+
+		con = Dbman.getConnection();
 		try {
-			pstmt=con.prepareStatement(sql);
-			cvo=new CartVO();
+			pstmt = con.prepareStatement(sql);
+			cvo = new CartVO();
 			pstmt.setInt(1, mseq);
 			pstmt.setInt(2, cseq);
 			pstmt.setString(3, date);
@@ -230,13 +231,68 @@ public class CartDao {
 			pstmt.setInt(5, locationNum);
 			pstmt.setString(6, area);
 			pstmt.setString(7, quantity);
-			result=pstmt.executeUpdate();
+			result = pstmt.executeUpdate();
 		} catch (SQLIntegrityConstraintViolationException e) {
 			return 3;
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally {Dbman.close(con, pstmt, rs);}
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 		return result;
 	}
-	
+
+	public ArrayList<Content_Loc_Seat_ViewVO> select_Content_Loc_Seat_View(ArrayList<CartVO> list, int size) {
+		ArrayList<Content_Loc_Seat_ViewVO> clsvlist = new ArrayList<Content_Loc_Seat_ViewVO>();
+		Content_Loc_Seat_ViewVO clsvVO = null;
+		con = Dbman.getConnection();
+		String sql = "select * from content_loc_seat_view where cseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			for (int i = 0; i < size; i++) {
+				pstmt.setInt(1, list.get(i).getCseq());
+				rs = pstmt.executeQuery();
+				if (rs.next()) {
+					clsvVO = new Content_Loc_Seat_ViewVO();
+					clsvVO.setCseq(rs.getInt("cseq"));
+					clsvVO.setTitle(rs.getString("title"));
+					clsvVO.setLocationnum(rs.getInt("locationnum"));
+					clsvVO.setLocationname(rs.getString("locationname"));
+					clsvVO.setArtist(rs.getString("artist"));
+					clsvVO.setArea(rs.getString("area"));
+					clsvVO.setPrice(rs.getInt("price"));
+					clsvVO.setAreaimage(rs.getString("areaimage"));
+					clsvlist.add(clsvVO);
+				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
+		return clsvlist;
+	}
+
+	public ArrayList<CommissionerVO> selectAllDefuty() {
+		ArrayList<CommissionerVO> defutyList = new ArrayList<CommissionerVO>();
+		CommissionerVO cvo = null;
+		con = Dbman.getConnection();
+		String sql = "select distinct(mseq), cnickname from commissioner_view order by mseq asc";
+		try {
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				cvo = new CommissionerVO();
+				cvo.setCnickname(rs.getString("cnickname"));
+				defutyList.add(cvo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+		return defutyList;
+	}
+
 }

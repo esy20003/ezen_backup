@@ -13,6 +13,7 @@ import com.ezen.ticket.controller.action.anr.RegisterFormAction;
 import com.ezen.ticket.controller.action.anr.RegisterTimeFormAction;
 import com.ezen.ticket.controller.action.cart.CartDeleteAction;
 import com.ezen.ticket.controller.action.cart.CartDetailAction;
+import com.ezen.ticket.controller.action.cart.CartDetailUpdateAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
 import com.ezen.ticket.controller.action.cart.CartUpdateAction;
 import com.ezen.ticket.controller.action.content.ContentFormAction;
@@ -119,6 +120,7 @@ public class ActionFactory {
 		else if(command.equals("cartDelete")) ac = new CartDeleteAction();
 		else if(command.equals("cartDetail")) ac = new CartDetailAction();
 		else if(command.equals("cartUpdate")) ac = new CartUpdateAction();
+		else if(command.equals("cartDetailUpdate")) ac = new CartDetailUpdateAction();
 		// mypage
 		else if(command.equals("mypage")) ac = new MypageAction();
 		else if(command.equals("myRegister")) ac = new MyRegisterAction();
