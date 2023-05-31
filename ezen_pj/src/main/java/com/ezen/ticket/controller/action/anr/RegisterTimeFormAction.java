@@ -29,10 +29,12 @@ public class RegisterTimeFormAction implements Action {
 		if(mvo ==null) {
 			url="ticket.do?command=loginForm";
 		} else {
-			RegisterTimeDao rdao = RegisterTimeDao.getInstance();
-			rdao.insertRegisterTime(date, starttime, endtime, mvo);
-			ArrayList<RegisterTimeVO> regi = rdao.getMyRegister(mvo);
-			request.setAttribute("register", regi);
+			
+			 RegisterTimeDao rdao = RegisterTimeDao.getInstance();
+			 ArrayList<RegisterTimeVO> regi = rdao.getMyRegister(mvo);
+			 rdao.insertRegisterTime(date, starttime, endtime, mvo);
+			 request.setAttribute("register", regi);
+			
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
