@@ -120,16 +120,5 @@ select * from seat
 select * from QNA_BOARD
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+select * from tabs;
+select * from reply;
