@@ -22,6 +22,7 @@ public class RegisterTimeFormAction implements Action {
 		HttpSession session=request.getSession();
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
 		
+		int mseq=mvo.getMseq();
 		String date = request.getParameter("date");
 		String starttime = request.getParameter("starttime");
 		String endtime = request.getParameter("endtime");
@@ -31,8 +32,9 @@ public class RegisterTimeFormAction implements Action {
 		} else {
 			
 			 RegisterTimeDao rdao = RegisterTimeDao.getInstance();
-			 ArrayList<RegisterTimeVO> regi = rdao.getMyRegister(mvo);
-			 rdao.insertRegisterTime(date, starttime, endtime, mvo);
+			 rdao.insertRegisterTime(mseq, date, starttime, endtime);
+			 ArrayList<RegisterTimeVO> regi = new ArrayList<RegisterTimeVO>();
+			 regi = rdao.getMyRegister(mvo);
 			 request.setAttribute("register", regi);
 			
 		}

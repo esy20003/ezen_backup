@@ -3,9 +3,6 @@
 
 <script type="text/javascript">
 
-	//시간 슬롯을 저장하기 위한 배열을 정의합니다.
-	var timeSlots = [];
-	
     function inputTimeColon(time) {
         // replace 함수를 사용하여 콜론( : )을 공백으로 치환한다.
         var replaceTime = time.value.replace(/\:/g, "");
@@ -26,7 +23,7 @@
                 return false;
             }
             // 입력한 분의 값이 60분을 넘는지 체크한다.
-            if(minute > 60) {
+            if(minute > 59) {
                 alert("분은 60분을 넘길 수 없습니다.");
                 time.value = hours + ":00";
                 return false;
@@ -37,54 +34,106 @@
     }
     
     function addTime() {
-    	sessionStorage.removeItem('date');
-    	sessionStorage.removeItem('startTime');
-    	sessionStorage.removeItem('endTime');
-    	 
-    	var date =document.getElementById("date").value;
+        var date = document.getElementById("date").value;
+        var date = date.replace("-","").replace("-","");
         var startTime = document.getElementById("starttime").value;
         var endTime = document.getElementById("endtime").value;
-        
-        sessionStorage.setItem('date',date);
-        sessionStorage.setItem('startTime',startTime);
-        sessionStorage.setItem('endTime',endTime);
-        
+
         if (date === "" || startTime === "" || endTime === "") {
             alert("날짜와 시작 시간, 종료 시간을 입력해주세요.");
             return;
         }
-        
-        var output = document.getElementById("output");
-        var li = document.createElement("li");
-        li.textContent = date + " " + startTime + " ~ " + endTime;
-        
-        var deleteButton = document.createElement("button");
-        deleteButton.textContent = "삭제";
-        deleteButton.className = "deleteButton";
-        deleteButton.onclick = function() {
-            output.removeChild(li);
+
+        var item = {
+            date: date,
+            startTime: startTime,
+            endTime: endTime
         };
-        
-        li.appendChild(deleteButton);
-        output.appendChild(li);
-        
+
+        var items = sessionStorage.getItem('items');
+        if (items) {
+            items = JSON.parse(items);
+            items.push(item);
+        } else {
+            items = [item];
+        }
+
+        sessionStorage.setItem('items', JSON.stringify(items));
+
+        displayItems();
+
         // 입력 후에 입력 필드를 초기화합니다.
         document.getElementById("date").value = "";
         document.getElementById("starttime").value = "";
         document.getElementById("endtime").value = "";
+    }
+
+    function deleteItem(index) {
+        var items = sessionStorage.getItem('items');
+        if (items) {
+            items = JSON.parse(items);
+            items.splice(index, 1);
+            sessionStorage.setItem('items', JSON.stringify(items));
+            displayItems();
+        }
+    }
+
+    function displayItems() {
+        var items = sessionStorage.getItem('items');
+        var output = document.getElementById("output");
+        output.innerHTML = "";
+
+        if (items) {
+            items = JSON.parse(items);
+
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+
+                var li = document.createElement("li");
+                li.textContent = item.date + " " + item.startTime + " ~ " + item.endTime;
+
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "삭제";
+                deleteButton.className = "deleteButton";
+                deleteButton.onclick = (function (index) {
+                    return function () {
+                        deleteItem(index);
+                    };
+                })(i);
+
+                li.appendChild(deleteButton);
+                output.appendChild(li);
+            }
+        }
+    }
+
+    function gotime() {
+        var items = sessionStorage.getItem('items');
+        if (!items) {
+            alert("리스트에 아이템을 추가해주세요.");
+            return;
+        }
+
+        var itemsArray = JSON.parse(items);
+        var queryString = "";
+        for (var i = 0; i < itemsArray.length; i++) {
+            var item = itemsArray[i];
+            queryString += "date=" + item.date + "&starttime=" + item.startTime + "&endtime=" + item.endTime;
+            if (i !== itemsArray.length - 1) {
+                queryString += "&";
+            }
+        }
+
+        document.registerForm.action = "ticket.do?command=registerTimeForm&" + queryString;
+        document.registerForm.submit();
         
+     	// 폼 제출 후 sessionStorage를 초기화합니다
+        sessionStorage.removeItem('items');
+        displayItems();
     }
+
     
-    function gotime(){
-    	
-    	var date = sessionStorage.getItem('date');
-    	var date = date.replace("-","").replace("-","");
-    	var starttime = sessionStorage.getItem('startTime');
-    	var endtime = sessionStorage.getItem('endTime');
-    	document.registerForm.action = "ticket.do?command=registerTimeForm&date=" + date + "&starttime=" + starttime + "&endtime=" + endtime;
-    	document.registerForm.submit();
-    	
-    }
+    
 </script>
 
 <style>
@@ -114,7 +163,6 @@ border-radius: 5px; cursor: pointer;}
 
 #output li {margin-bottom: 10px;}
 #output li label {float:none;}
-
 .deleteButton {margin-left: 10px; padding: 5px 10px; background-color: #f44336; color: #fff;
  border: none; border-radius: 5px; cursor: pointer;}
 
