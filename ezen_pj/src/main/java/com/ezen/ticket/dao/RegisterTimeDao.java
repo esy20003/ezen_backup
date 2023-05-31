@@ -1,5 +1,7 @@
 package com.ezen.ticket.dao;
 
+
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,41 +25,41 @@ public class RegisterTimeDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public ArrayList<RegisterTimeVO> getMyRegister(MemberVO mvo) {
+   public ArrayList<RegisterTimeVO> getMyRegister(MemberVO mvo) {
+	      
+	      ArrayList<RegisterTimeVO> registerTime = new ArrayList<RegisterTimeVO>();
+	      RegisterTimeVO rgtVO = null;
+	      con = Dbman.getConnection();
+	      String sql = "select * from registertime where mseq = ?";
+      try {
+         pstmt = con.prepareStatement(sql);
+         pstmt.setInt(1, mvo.getMseq());
+         rs = pstmt.executeQuery();
+         while(rs.next()) {
+            rgtVO = new RegisterTimeVO();
+            rgtVO.setRtseq(rs.getInt("rtseq"));
+            rgtVO.setMseq(rs.getInt("mseq"));
+            rgtVO.setRegisterdate(rs.getString("registerdate"));
+            rgtVO.setStarttime(rs.getString("starttime"));
+            rgtVO.setEndtime(rs.getString("endtime"));
+	            registerTime.add(rgtVO);
+	         }
+	      } catch (SQLException e) { e.printStackTrace();
+	      } finally { Dbman.close(con, pstmt, rs); }
+	      return registerTime;
+   }
+
+	public void insertRegisterTime(int mseq, String registerDate, String startTime, String endTime) {
 		
-		ArrayList<RegisterTimeVO> registerTime = new ArrayList<RegisterTimeVO>();
-		RegisterTimeVO rgtVO = null;
 		con = Dbman.getConnection();
-		String sql = "select * from registertime where mseq = ?";
+		String sql = "insert into registerTime(rtseq, mseq, registerDate, startTime, endTime) "
+				+ "values( registerTime_rtseq.nextVal, ?, ?, ?, ?)";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mvo.getMseq());
-			rs = pstmt.executeQuery();
-			while(rs.next()) {
-				rgtVO = new RegisterTimeVO();
-				rgtVO.setRtseq(rs.getInt("rtseq"));
-				rgtVO.setMseq(rs.getInt("mseq"));
-				rgtVO.setRegisterdate(rs.getString("registerdate"));
-				rgtVO.setStarttime(rs.getString("starttime"));
-				rgtVO.setEndtime(rs.getString("endtime"));
-				registerTime.add(rgtVO);
-			}
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs); }
-		return registerTime;
-	}
-
-
-	public void insertRegisterTime(String date, String starttime, String endtime, MemberVO mvo) {
-		
-		con = Dbman.getConnection();
-		String sql = "insert into registertime(rtseq, mseq, registerdate, starttime, endtime) values(registerTime_rtseq.nextVal, ?, ?, ?, ?)";
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mvo.getMseq());
-			pstmt.setString(2, date);
-			pstmt.setString(3, starttime);
-			pstmt.setString(4, endtime);
+			pstmt.setInt(1, mseq);
+			pstmt.setString(2, registerDate);
+			pstmt.setString(3, startTime);
+			pstmt.setString(4, endTime);
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs); }
@@ -114,9 +116,6 @@ public class RegisterTimeDao {
 					list.add(rtvo);
 				}
 			}
-			
-			
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);}

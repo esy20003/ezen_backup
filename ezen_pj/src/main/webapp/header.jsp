@@ -9,6 +9,7 @@
 <title>Ticket Shop</title>
 
 <!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+
 <link rel="stylesheet" href="css/ticketing.css">
 <link rel="stylesheet" href="css/apply.css?ver=1" />
 <link rel="stylesheet" href="css/review.css?ver=1" />
@@ -129,8 +130,8 @@ $(function(){
                      <li><a href="ticket.do?command=contentForm">대리 티켓팅</a>
                         <ul class="depth2_menu">
                            <li><a href="ticket.do?command=contentForm">전체</a></li>
-                           <li><a href="ticket.do?command=musicalForm">콘서트</a></li>
-                           <li><a href="ticket.do?command=concertForm">뮤지컬</a></li>
+                           <li><a href="ticket.do?command=concertForm">콘서트</a></li>
+                           <li><a href="ticket.do?command=musicalForm">뮤지컬</a></li>
                            <li><a href="ticket.do?command=sportsForm">스포츠</a></li>
                            <li><a href="ticket.do?command=festivalForm">페스티벌</a></li>
                            <li><a href="ticket.do?command=exhibitionForm">전시/행사</a></li>

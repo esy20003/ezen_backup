@@ -16,7 +16,12 @@ import com.ezen.ticket.controller.action.cart.CartDetailAction;
 import com.ezen.ticket.controller.action.cart.CartDetailUpdateAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
 import com.ezen.ticket.controller.action.cart.CartUpdateAction;
+import com.ezen.ticket.controller.action.content.ConcertFormAction;
 import com.ezen.ticket.controller.action.content.ContentFormAction;
+import com.ezen.ticket.controller.action.content.ExhibitionFormAction;
+import com.ezen.ticket.controller.action.content.FestivalFormAction;
+import com.ezen.ticket.controller.action.content.MusicalFormAction;
+import com.ezen.ticket.controller.action.content.SportsFormAction;
 import com.ezen.ticket.controller.action.member.ContractAction;
 import com.ezen.ticket.controller.action.member.EditFormAction;
 import com.ezen.ticket.controller.action.member.FindZipNumAction;
@@ -31,6 +36,7 @@ import com.ezen.ticket.controller.action.mypage.MyAllRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisteredAction;
 import com.ezen.ticket.controller.action.mypage.MypageAction;
+import com.ezen.ticket.controller.action.qna.AddReplyAction;
 import com.ezen.ticket.controller.action.qna.DeleteQnaAction;
 import com.ezen.ticket.controller.action.qna.DeleteReplyAction;
 import com.ezen.ticket.controller.action.qna.QnaCheckPassAction;
@@ -65,7 +71,16 @@ public class ActionFactory {
 		Action ac = null;
 		
 		if(command.equals("index")) ac = new IndexAction();
-
+		
+		// main 화면 헤더부분
+		else if(command.equals("contentForm")) ac = new ContentFormAction();
+		else if(command.equals("concertForm")) ac = new ConcertFormAction();
+		else if(command.equals("musicalForm")) ac = new MusicalFormAction();
+		else if(command.equals("sportsForm")) ac = new SportsFormAction();
+		else if(command.equals("festivalForm")) ac = new FestivalFormAction();
+		else if(command.equals("exhibitionForm")) ac = new ExhibitionFormAction();
+		
+		
 		//qna
 
 		else if(command.equals("qnaList")) ac = new QnaListAction();
@@ -73,13 +88,14 @@ public class ActionFactory {
 		else if (command.equals("qnaWriteForm")) ac = new QnaWriteFormAction();
 		else if (command.equals("qnaWrite")) ac = new QnaWriteAction();
 
-		else if (command.equals("deleteQna")) ac = new DeleteQnaAction();
-		else if (command.equals("updateQna")) ac = new UpdateQnaAction();
-		else if (command.equals("updateQnaForm")) ac = new UpdateQnaFormAction();
+		else if (command.equals("deleteqna")) ac = new DeleteQnaAction();
+		else if (command.equals("updateqna")) ac = new UpdateQnaAction();
+		else if (command.equals("updateqnaForm")) ac = new UpdateQnaFormAction();
 		else if( command.equals("qnaViewNoCount") ) ac = new QnaViewNoCountAction();
 		else if( command.equals("qnaPassForm") ) ac = new QnaPassFormAction();
 		else if( command.equals("qnaCheckPass") ) ac = new QnaCheckPassAction();
 		else if( command.equals("deleteReply") ) ac = new DeleteReplyAction();
+		else if( command.equals("AddReply") ) ac = new AddReplyAction();
 		
 
 		//anr
@@ -133,8 +149,7 @@ public class ActionFactory {
 		else if(command.equals("myRegister")) ac = new MyRegisterAction();
 		else if(command.equals("myRegistered")) ac = new MyRegisteredAction();
 		else if(command.equals("myAllRegister")) ac = new MyAllRegisterAction();
-		// main 화면 헤더부분
-		else if(command.equals("contentForm")) ac = new ContentFormAction();
+		
 		//System.out.println("33 "+ command);
 		return ac;
 	}

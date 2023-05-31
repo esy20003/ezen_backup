@@ -6,8 +6,8 @@ public class ReplyVO {
 	
 	private int replynum;
 	private int qnanum;
-	private String userid;
-	private Timestamp writedate;
+	private String id;
+	private Timestamp indate;
 	private String content;
 	public int getReplynum() {
 		return replynum;
@@ -21,17 +21,17 @@ public class ReplyVO {
 	public void setQnanum(int qnanum) {
 		this.qnanum = qnanum;
 	}
-	public String getUserid() {
-		return userid;
+	public String getId() {
+		return id;
 	}
-	public void setUserid(String userid) {
-		this.userid = userid;
+	public void setId(String id) {
+		this.id = id;
 	}
-	public Timestamp getWritedate() {
-		return writedate;
+	public Timestamp getIndate() {
+		return indate;
 	}
-	public void setWritedate(Timestamp writedate) {
-		this.writedate = writedate;
+	public void setIndate(Timestamp indate) {
+		this.indate = indate;
 	}
 	public String getContent() {
 		return content;
@@ -39,7 +39,7 @@ public class ReplyVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	
+
 	
 
 }

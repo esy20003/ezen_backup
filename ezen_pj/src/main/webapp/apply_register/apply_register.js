@@ -157,20 +157,10 @@ function insertCart(){
 	url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2'+mseq2;
 	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "InsertCart", opt);
-	}}	
-}
-}
-
+	}
 }
 
-function saveCommissioner(num){
-	
-	sessionStorage.removeItem('selectedCom');
-	sessionStorage.setItem('selectedCom',document.getElementById('Com'+num).value);
 
-	localStorage.removeItem('');
-	localStorage.setItem('com_price',document.getElementById('com_price'+num).value);
-}
 
 function refresh(){
 	sessionStorage.removeItem('selectedCom');
@@ -186,12 +176,5 @@ function apply(){
 	}
 }
 
-/*function gotime(){
-	 var date = registerForm.date.value;
-	 var starttime = registerForm.starttime.value;
-	 var endtime = registerForm.endtime.value;
-    document.registerForm.action="ticket.do?command=registerTimeForm&date="+ date + "&starttime=" + starttime + "&endtime="
-    + endtime;
- }*/
  
  
