@@ -132,8 +132,7 @@
         displayItems();
     }
 
-    
-    
+
 </script>
 
 <style>
