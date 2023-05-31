@@ -81,6 +81,24 @@
 						</c:forEach>
 					</ul>
 				</div>
+				
+				<script>
+					//클릭하면 색 바뀌게 하는거!
+					//time
+					const non_Click = document.querySelectorAll(".liclick_time");
+					function handleClick1(event) {
+					  // div에서 모든 "click" 클래스 제거
+					  non_Click.forEach((e) => {
+					    e.classList.remove("click");
+					  });
+					  // 클릭한 div만 "click"클래스 추가
+					  event.target.classList.add("click");
+					}
+					non_Click.forEach((e) => {
+					  e.addEventListener("click", handleClick1);
+					});
+					</script>
+				
 				<div class="seatingChartBox bodyBox">
 					<!-- 좌석 선택-좌석도 위에 보여주고 밑에 좌석 선택 -->
 					<div class="seatingChartBoxSeparate">
@@ -100,18 +118,24 @@
 										</li>
 							</c:forEach>
 									</ul>
+					
 					<script>
-					$(function(){
-						 $('.liclick_time').click(function(){
-							$('.liclick_time').css({"background":"red"})
-						})
-					})
-					$(function(){
-						 $('.liclick_area').click(function(){
-							$('.liclick_area').css({"background":"red"})
-						})
-					})
+					//area
+					    const nonClick = document.querySelectorAll(".liclick_area");
+
+					    function handleClick3(event) {
+					        nonClick.forEach((e) => {
+					            e.classList.remove("click");
+					        });
+					        event.currentTarget.classList.add("click");
+					    }
+					
+					    nonClick.forEach((e) => {
+					        e.addEventListener("click", handleClick3);
+					    });
+						 
 					</script>
+
 						</div>
 						</div>
 					</div>

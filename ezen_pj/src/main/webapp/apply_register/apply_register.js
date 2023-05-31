@@ -159,6 +159,7 @@ function insertCart(){
 	window.open(url, "InsertCart", opt);
 	}	
 }
+}
 
 function saveCommissioner(num){
 	
