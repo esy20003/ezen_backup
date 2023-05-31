@@ -3,10 +3,15 @@
 #cartlistwrap #frmcartList {width:1200px; margin:0 auto;}
 #cartlistwrap #frmcartList .cartList_box h1{line-height:100px; margin: 20px 5px;}
 #cartlistwrap #frmcartList .cartList_box #buttons .cancel{color: black; background: white; font-weight: bold; cursor:pointer;}
-#cartlistwrap #frmcartList .cartList_box .cartItemList{width:1200px;}
-#cartlistwrap #frmcartList .cartList_box .cartItemList tbody tr th{height: 50px; line-height: 50px; font-size: 120%;
+#cartlistwrap #frmcartList .cartList_box .cartItemList1{width:1200px;}
+#cartlistwrap #frmcartList .cartList_box .cartItemList1 tbody tr th{height: 50px; line-height: 50px; font-size: 120%;
  font-weight: bold; border: 1px solid black;}
-#cartlistwrap #frmcartList .cartList_box .cartItemList tbody tr td{height: 50px; line-height: 50px; font-size: 120%;
+#cartlistwrap #frmcartList .cartList_box .cartItemList1 tbody tr td{height: 50px; line-height: 50px; font-size: 120%;
+ font-weight: bold; border: 1px solid black;}
+ #cartlistwrap #frmcartList .cartList_box .cartItemList2{width:1200px;}
+#cartlistwrap #frmcartList .cartList_box .cartItemList2 tbody tr th{height: 50px; line-height: 50px; font-size: 120%;
+ font-weight: bold; border: 1px solid black;}
+#cartlistwrap #frmcartList .cartList_box .cartItemList2 tbody tr td{height: 50px; line-height: 50px; font-size: 120%;
  font-weight: bold; border: 1px solid black;}
 #cartlistwrap #frmcartList .cartList_box #buttons{margin-top: 50px; width: 600px; height: 50px; margin-left: 600px;}
 #cartlistwrap #frmcartList .cartList_box #buttons .submit{color: black; background: white; font-weight: bold; cursor:pointer;}

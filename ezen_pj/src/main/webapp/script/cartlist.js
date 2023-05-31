@@ -73,3 +73,13 @@ function go_cart_update(){
 		document.frm.submit();
 	}
 }
+
+/* 수량, 대리인 수정하기 버튼 */
+
+function go_cart_detailUpdate(){
+	var quantity = document.frmm.quantity.value();
+	var defuty = document.frmm.defuty.value();
+	
+	document.frm.action = "ticket.do?command=cartDetailUpdate&quantity=" + quantity + "&defuty=" + defuty;
+	document.frm.submit();
+}

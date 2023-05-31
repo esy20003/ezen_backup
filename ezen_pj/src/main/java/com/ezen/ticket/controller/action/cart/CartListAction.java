@@ -13,6 +13,7 @@ import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.membergradeview.Member_Grade_View_Dao;
 import com.ezen.ticket.dao.CartDao;
 import com.ezen.ticket.dto.CartVO;
+import com.ezen.ticket.dto.Content_Loc_Seat_ViewVO;
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.dto.Member_Grade_View_VO;
 
@@ -29,12 +30,17 @@ public class CartListAction implements Action {
 		}else {
 			CartDao cartdao = CartDao.getInstance();
 			Member_Grade_View_Dao mgvdao = Member_Grade_View_Dao.getInstance();
+			
 			ArrayList<CartVO> list = cartdao.getMyCartList_notBuy(mvo.getMseq());
 			ArrayList<CartVO> buycartlist = cartdao.getMyCartList_Buy(mvo.getMseq());
 			ArrayList<Member_Grade_View_VO> defutylist = mgvdao.setDefutyList(list, list.size());
-			System.out.println(defutylist);
+			ArrayList<Content_Loc_Seat_ViewVO> clsv_list = cartdao.select_Content_Loc_Seat_View(list, list.size());
+			ArrayList<Content_Loc_Seat_ViewVO> bclsv_list = cartdao.select_Content_Loc_Seat_View(buycartlist, buycartlist.size());
+			
 			request.setAttribute("notBuy_cartList", list);
+			request.setAttribute("notBuy", clsv_list);
 			request.setAttribute("buy_cartList", buycartlist);
+			request.setAttribute("buy", bclsv_list);
 			request.setAttribute("defuty", defutylist);
 			// commissioner
 		}

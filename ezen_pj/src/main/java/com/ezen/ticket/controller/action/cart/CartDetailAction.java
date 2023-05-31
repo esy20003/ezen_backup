@@ -23,7 +23,7 @@ public class CartDetailAction implements Action {
 		String url = "cart/cartDetail.jsp";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-		System.out.println(request.getParameter("mseq2"));
+		
 		
 		if(mvo == null) {
 			url = "member/login.jsp";
