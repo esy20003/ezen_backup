@@ -76,7 +76,6 @@ public class QnaDao {
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
 				qvo.setQseq(rs.getInt("qseq"));
-				System.out.println(rs.getInt("qseq"));
 				qvo.setPwd(rs.getString("pwd"));
 				qvo.setId(rs.getString("id"));
 				qvo.setTitle(rs.getString("title"));
@@ -100,12 +99,11 @@ public class QnaDao {
 		try {
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, qvo.getQseq());
-			pstmt.setString(2, qvo.getId());
-			pstmt.setString(3, qvo.getTitle());
-			pstmt.setString(4, qvo.getContent());
-			pstmt.setInt(5, qvo.getMseq());
-			pstmt.setString(6, qvo.getPwd());
+			pstmt.setString(1, qvo.getId());
+			pstmt.setString(2, qvo.getTitle());
+			pstmt.setString(3, qvo.getContent());
+			pstmt.setInt(4, qvo.getMseq());
+			pstmt.setString(5, qvo.getPwd());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
@@ -221,6 +219,38 @@ public class QnaDao {
 			Dbman.close(con, pstmt, rs);
 		}
 
+	}
+
+	public void plusOneReadcount(int qseq) {
+		
+		con = Dbman.getConnection();
+		String sql = "update qna_board set readcount = readcount+1 where qseq=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			pstmt.executeUpdate();
+		} catch (SQLException var7) {
+			var7.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
+	}
+	
+	public int getReplycnt(int qseq) {
+		int count=0;
+		con = Dbman.getConnection();
+		String sql = "select count(*) as cnt from reply where qnanum=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			rs = pstmt.executeQuery();
+			if( rs.next() ) count = rs.getInt("cnt");
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);  }
+		
+		return count;	
 	}
 	
 }

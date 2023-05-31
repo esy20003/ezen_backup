@@ -41,7 +41,7 @@
 
 		<form action="ticket.do" method="get" name="frm_reply">
 			<input type="hidden" name="command" value="AddReply" /> <input
-				type="hidden" name="qnaqseq" value="${QnaVO.qseq}" />
+				type="hidden" name="qnanum" value="${QnaVO.qseq}" />
 			<table>
 				<tr>
 					<th width="100">작성자</th>
@@ -69,7 +69,7 @@
 							<c:if test="${reply.id==loginUser.id}">
 								<input type="button" value="삭제"	
 								onClick = "location.href='ticket.do?command=deleteReply&replynum=${reply.replynum}&qnanum=${QnaVO.qseq}'">
-							</c:if>&nbsp;<!-- 로그인 한 유저가 쓴 댓글만 삭제할수 있게 버튼을 표시합니다 --></td>
+							</c:if>&nbsp;</td>
 					</tr>
 				</c:forEach>
 			</table>

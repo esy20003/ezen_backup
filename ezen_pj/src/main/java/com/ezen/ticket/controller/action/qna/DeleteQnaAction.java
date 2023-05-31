@@ -15,18 +15,12 @@ public class DeleteQnaAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int qseq = Integer.parseInt( request.getParameter("qseq") ); 
-		
+		int qseq = Integer.parseInt(request.getParameter("qseq"));
 		QnaDao qdao = QnaDao.getInstance();
-		
-		qdao.deleteQna( qseq );
-		qdao.deleteReplyByQnanum( qseq );
-		
+		qdao.deleteQna(qseq);
+		qdao.deleteReplyByQnanum(qseq);
 		String url = "ticket.do?command=index";
-		
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);
-
 	}
-
 }

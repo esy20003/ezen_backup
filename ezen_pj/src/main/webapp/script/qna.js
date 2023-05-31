@@ -92,9 +92,9 @@ function reply_check(){
 
 
 
-function checkPass( qnaqseq,  popupWinName ){
-	console.log(qnaqseq);
-	var url = "ticket.do?command=qnaPassForm&qseq=" + qnaqseq;
+function checkPass( qnanum,  popupWinName ){
+	console.log(qnanum);
+	var url = "ticket.do?command=qnaPassForm&qseq=" + qnanum;
 	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=300";
 	window.open( url, popupWinName , opt);
 }

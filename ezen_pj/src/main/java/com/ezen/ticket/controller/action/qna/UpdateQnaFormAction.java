@@ -21,7 +21,7 @@ public class UpdateQnaFormAction implements Action {
 		QnaVO  qvo = qdao.getQna(qseq);
 		
 		request.setAttribute("qna", qvo);
-		RequestDispatcher dp = request.getRequestDispatcher("qna/updateqnaForm.jsp");
+		RequestDispatcher dp = request.getRequestDispatcher("qna/updateQnaForm.jsp");
 		dp.forward(request, response);
 
 	}

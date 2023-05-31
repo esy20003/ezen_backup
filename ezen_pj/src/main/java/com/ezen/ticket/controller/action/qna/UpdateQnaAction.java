@@ -19,27 +19,35 @@ public class UpdateQnaAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		 
+		
 		QnaDao qdao = QnaDao.getInstance();
 		QnaVO qvo = new QnaVO();
+		
 		HttpSession session = request.getSession();
 		ServletContext context = session.getServletContext();
 		String path = context.getRealPath("upload");
-		MultipartRequest multi = new MultipartRequest(request, path, 20971520, "UTF-8", new DefaultFileRenamePolicy());
+		
+		MultipartRequest multi = new MultipartRequest(
+				request,path,20*1024*1024,"UTF-8",new DefaultFileRenamePolicy()
+		);
+		
+
 		qvo.setId(multi.getParameter("id"));
 		qvo.setPwd(multi.getParameter("pwd"));
 		qvo.setTitle(multi.getParameter("title"));
 		qvo.setContent(multi.getParameter("content"));
 		qvo.setQseq(Integer.parseInt(multi.getParameter("qseq")));
-		if (multi.getFilesystemName("newFile") == null) {
+		
+		
+		if(multi.getFilesystemName("newFile")==null)
 			qvo.setImgfilename(multi.getParameter("oldFile"));
-		} else {
+		else
 			qvo.setImgfilename(multi.getFilesystemName("newFile"));
-		}
-
-		qdao.updateQna(qvo);
-		String url = "ticket.do?command=qnaViewNoCount&num=" + qvo.getNum();
+		
+		qdao.updateQna( qvo );
+		String url  = "ticket.do?command=qnaViewNoCount&qseq=" + qvo.getQseq();
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);
 	}
+
 }

@@ -72,14 +72,14 @@ public class ActionFactory {
 		else if (command.equals("qnaWriteForm")) ac = new QnaWriteFormAction();
 		else if (command.equals("qnaWrite")) ac = new QnaWriteAction();
 
-		else if (command.equals("deleteQna")) ac = new DeleteQnaAction();
-		else if (command.equals("updateQna")) ac = new UpdateQnaAction();
-		else if (command.equals("updateQnaForm")) ac = new UpdateQnaFormAction();
+		else if (command.equals("deleteqna")) ac = new DeleteQnaAction();
+		else if (command.equals("updateqna")) ac = new UpdateQnaAction();
+		else if (command.equals("updateqnaForm")) ac = new UpdateQnaFormAction();
 		else if( command.equals("qnaViewNoCount") ) ac = new QnaViewNoCountAction();
 		else if( command.equals("qnaPassForm") ) ac = new QnaPassFormAction();
 		else if( command.equals("qnaCheckPass") ) ac = new QnaCheckPassAction();
 		else if( command.equals("deleteReply") ) ac = new DeleteReplyAction();
-		else if( command.equals("addReplyReply") ) ac = new AddReplyAction();
+		else if( command.equals("AddReply") ) ac = new AddReplyAction();
 		
 
 		//anr
