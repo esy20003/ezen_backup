@@ -3,11 +3,7 @@
     <%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
 <%@ include file="../../header.jsp" %>
 
-<form name="frm" action="ticket.do" method="post" class="form">
-<input type="hidden" name="command" value="apply">
-<c:forEach items="${detailList}" var="dl">
-	<input type="hidden" name="cseq" value="${dl.cseq}">
-</c:forEach>
+<form name="frm" method="post" class="form">
 	<section class="body_Choose2">
 		<div class="buttonBoxArea">
 			<div class="Header">선택하신 공연</div>

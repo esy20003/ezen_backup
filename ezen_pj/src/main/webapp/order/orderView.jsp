@@ -19,8 +19,9 @@
 				<tr>
 					<td>${ol.oseq}</td>
 					<td>${ol.title}</td>
-					<td>${ol.content_price+ol.com_price}</td>
+					<td>${(ol.content_price+ol.com_price)*ol.quantity}</td>
 					<td><fmt:formatDate value="${ol.oindate}" pattern="yyyy-MM-dd" /></td>
+					<td><input type="button" value="주문 상세 보기" onclick="location.href='ticket.do?command=orderDetail&oseq='+${ol.oseq}" /></td>
 				</tr>
 			</c:forEach>
 			</table>

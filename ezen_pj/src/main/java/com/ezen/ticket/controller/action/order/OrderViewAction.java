@@ -24,8 +24,6 @@ public class OrderViewAction implements Action {
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if(mvo == null) {
 			url = "ticket.do?command=loginForm";
-		}else if(mvo.getMseq()!=Integer.parseInt(request.getParameter("mseq"))) {
-			url = "ticket.do?command=loginForm";
 		}else {
 			OrderDao odao=OrderDao.getInstance();
 			ArrayList<OrderVO> list=new ArrayList<OrderVO>();
