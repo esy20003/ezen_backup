@@ -1,3 +1,24 @@
+select * from ADDRESS;
+select * from admin;
+select * from cart;
+select * from contentTime;
+select * from ORDER_DETAIL;
+select * from CONTENT;
+select * from GRADE;
+select * from ORDERS;
+select * from QNA_BOARD;
+select * from REVIEW_BOARD;
+select * from success_board;
+select * from SEAT;
+select * from MEMBER;
+select*from registerTime;
+select*from locationNum;
+
+select* from content_loc_seat_view order by locationNum;
+select*from content_time_view order by cseq;
+select * from member_grade_view;
+select * from cart_total_view;
+select*from order_view order by oseq;
 
 /* Drop Tables */
 
@@ -15,6 +36,7 @@ DROP TABLE qna_board CASCADE CONSTRAINTS;
 DROP TABLE review_board CASCADE CONSTRAINTS;
 DROP TABLE success_board CASCADE CONSTRAINTS;
 DROP TABLE member CASCADE CONSTRAINTS;
+DROP TABLE registerTime CASCADE CONSTRAINTS;
 
 
 
@@ -30,8 +52,13 @@ DROP SEQUENCE qna_board_sucseq;
 DROP SEQUENCE review_board_rseq;
 DROP SEQUENCE seat_seatseq;
 DROP SEQUENCE success_board_sucseq;
+drop SEQUENCE registerTime_rtseq;
 
-
+----------------새로추가
+drop SEQUENCE review_reply_repseq;
+drop SEQUENCE success_reply_srseq;
+drop SEQUENCE adminQna_reply_qrseq;
+----------------------
 
 
 /* Create Sequences */
@@ -44,10 +71,68 @@ CREATE SEQUENCE qna_board_qseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE review_board_rseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE success_board_sucseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE locationNum_seq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 
+--------------------새로추가
+CREATE SEQUENCE review_reply_repseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE success_reply_srseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE adminQna_reply_qrseq INCREMENT BY 1 START WITH 1;
+-------------------------------
 
 
 /* Create Tables */
+
+
+-----------------------------------새로추가
+
+CREATE TABLE review_reply
+(
+--리뷰 댓글
+	repseq number(5,0) not null,
+	mseq number(5,0) NOT NULL,
+	rseq number(5,0) not null,
+	replyContent varchar2(3000) NOT NULL,
+	writeDate date default sysdate,
+	primary key(repseq)
+);
+
+CREATE TABLE success_reply
+(
+--성공내역 댓글
+	srseq number(5,0) not null,
+	mseq number(5,0) NOT NULL,
+	sucseq number(5,0) not null,
+	successContent varchar2(3000) NOT NULL,
+	writeDate date default sysdate,
+	primary key(srseq)
+);
+
+CREATE TABLE adminQna_reply
+(
+--어드민 qna 댓글
+	qrseq number(5,0) not null,
+	id varchar2(50) NOT NULL,
+	qseq number(5,0) not null,
+	qnaContent varchar2(3000) NOT NULL,
+	writeDate date default sysdate,
+	primary key(qrseq)
+);
+
+
+--------------------------------------------------------------------------
+
+
+CREATE TABLE registerTime
+(
+	-- 대리인 일정 등록 정보
+	rtseq number(5) not null,
+	mseq number(5,0) NOT NULL,
+	registerDate varchar2(100) default '00000000',
+	startTime varchar2(100) NOT NULL,
+	endTime varchar2(100) NOT NULL,
+	primary key(rtseq,mseq,registerDate,startTime,endTime)
+);
+--전체를 pk로 줘서 한 사람이 시간 중복 등록 못하게 막음
 
 CREATE TABLE address
 (
@@ -81,7 +166,7 @@ CREATE TABLE cart
 	contentTime varchar2(10) NOT NULL,
 	locationNum number(5) NOT NULL,
 	area varchar2(50) NOT NULL,
-	mseq2 number(5,0),
+	mseq2 number(5,0) default 0,
 	quantity number(5,0) default 1,
 	indate date DEFAULT sysdate,
 	buyyn char DEFAULT 'N',
@@ -99,6 +184,7 @@ CREATE TABLE content
 	content varchar2(3000) NOT NULL,
 	category number(2,0) NOT NULL,
 	age varchar2(20) DEFAULT '전체관람가',
+	tDateTime varchar2(100) default '0',
 	bestyn char(1) DEFAULT 'N',
 	PRIMARY KEY (cseq)
 );
@@ -126,6 +212,7 @@ CREATE TABLE locationNum
 (
 	locationNum number(5) NOT NULL,
 	locationName varchar2(50) NOT NULL UNIQUE,
+	areaImage varchar2(1000) default 'images/content/blankIMG.jpg',
 	PRIMARY KEY (locationNum)
 );
 
@@ -157,6 +244,7 @@ CREATE TABLE orders
 	oseq number(5,0) NOT NULL,
 	indate date DEFAULT sysdate,
 	mseq number(5,0) NOT NULL,
+	cseq number(5,0) not null,
 	PRIMARY KEY (oseq)
 );
 
@@ -195,6 +283,7 @@ CREATE TABLE qna_board
 	reply varchar2(1000),
 	repyn char(1) DEFAULT 'N',
 	image varchar2(1000),
+	readCount number(5) default 0,
 	PRIMARY KEY (qseq)
 );
 
@@ -242,6 +331,44 @@ CREATE TABLE success_board
 
 
 /* Create Foreign Keys */
+
+-------새로 추가
+ALTER TABLE review_reply
+	ADD FOREIGN KEY (rseq)
+	REFERENCES review_board (rseq) on delete cascade;
+	
+ALTER TABLE review_reply
+	ADD FOREIGN KEY (mseq)
+	REFERENCES member (mseq) on delete cascade;
+	
+ALTER TABLE success_reply
+	ADD FOREIGN KEY (sucseq)
+	REFERENCES success_board (sucseq) on delete cascade;
+	
+ALTER TABLE success_reply
+	ADD FOREIGN KEY (mseq)
+	REFERENCES member (mseq) on delete cascade;
+	
+ALTER TABLE adminQna_reply
+	ADD FOREIGN KEY (id)
+	REFERENCES admin (id) on delete cascade;
+	
+ALTER TABLE adminQna_reply
+	ADD FOREIGN KEY (qseq)
+	REFERENCES qna_board (qseq) on delete cascade;
+	
+ALTER TABLE orders
+	ADD FOREIGN KEY (cseq)
+	REFERENCES content (cseq) on delete cascade;
+	
+	-----------
+	
+	
+	
+ALTER TABLE registerTime
+	ADD FOREIGN KEY (mseq)
+	REFERENCES member (mseq) on delete cascade
+;
 
 ALTER TABLE contentTime
 	ADD FOREIGN KEY (cseq)

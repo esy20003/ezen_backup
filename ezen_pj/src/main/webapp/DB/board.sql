@@ -1,4 +1,7 @@
 --qna
+select * from QNA_BOARD;
+alter table qna_board add readCount number(5) default 0;
+
 insert into qna_board(qseq, mseq, title, content, id, pwd)
 values (qna_board_qseq.nextval, 1, '종료된 티켓팅', '종료된 티켓팅도 취켓팅으로 가능한가요?','dsan','1234');
 
@@ -120,16 +123,5 @@ select * from seat
 select * from QNA_BOARD
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+select * from tabs;
+select * from reply;

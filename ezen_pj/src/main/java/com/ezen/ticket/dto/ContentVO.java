@@ -19,10 +19,18 @@ public class ContentVO {
 	private String age;
 	private char bestyn;
 	private String areaImage;
+	private String tDateTime;
 	
 	
 	
 	
+	
+	public String gettDateTime() {
+		return tDateTime;
+	}
+	public void settDateTime(String tDateTime) {
+		this.tDateTime = tDateTime;
+	}
 	public String getAreaImage() {
 		return areaImage;
 	}

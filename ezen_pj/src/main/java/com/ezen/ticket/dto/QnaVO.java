@@ -14,6 +14,17 @@ public class QnaVO {
 	private String pwd;
 	private String repyn;
 	private Timestamp indate;
+	private String num;
+	private String imgfilename;
+	private int readcount;
+	
+	
+	public String getNum() {
+		return num;
+	}
+	public void setNum(String num) {
+		this.num = num;
+	}
 	public Integer getQseq() {
 		return qseq;
 	}
@@ -74,6 +85,21 @@ public class QnaVO {
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
+	public String getImgfilename() {
+		return imgfilename;
+	}
+	public void setImgfilename(String imgfilename) {
+		this.imgfilename = imgfilename;
+	}
+	public int getReadcount() {
+		return readcount;
+	}
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
+	}
+
+	
+
 	
 	
 	

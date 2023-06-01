@@ -5,22 +5,30 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ticket Shop</title>
 
-<link href="css/ticketing.css" rel="stylesheet">
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+
+<link rel="stylesheet" href="css/ticketing.css">
 <link rel="stylesheet" href="css/apply.css?ver=1" />
 <link rel="stylesheet" href="css/review.css?ver=1" />
 <link rel="stylesheet" href="css/member.css?ver=1" />
 <link rel="stylesheet" href="css/qna.css?ver=1" />
 <link rel="stylesheet" href="css/main.css?ver=1" />
 <link rel="stylesheet" href="css/cartlist.css?ver=1" />
+<link rel="stylesheet" href="css/contentDetail.css?ver1"/>
+
+<!-- <script src="script/bootstrap.min.js"></script> -->
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
 <script src="script/cartlist.js"></script>
-<script src="apply_register/apply_register.js"></script>
+<script src="script/apply_register.js"></script>
 <script src="script/review.js"></script>
-<link rel="stylesheet" href="css/main.css?ver=1" />
+<script src="script/contentDetail.js"></script>
+<link rel="stylesheet" href="css/mypage.css?ver=1" />
+
 <script type="text/javascript">
 var imgNum = 0;
 var dist = 0;
@@ -121,11 +129,11 @@ $(function(){
 
                <nav id="category_menu">
                   <ul>
-                     <li><a href="ticket.do?command=proxyTicketingForm">대리
-                           티켓팅</a>
+                     <li><a href="ticket.do?command=contentForm">대리 티켓팅</a>
                         <ul class="depth2_menu">
-                           <li><a href="ticket.do?command=musicalForm">콘서트</a></li>
-                           <li><a href="ticket.do?command=concertForm">뮤지컬</a></li>
+                           <li><a href="ticket.do?command=contentForm">전체</a></li>
+                           <li><a href="ticket.do?command=concertForm">콘서트</a></li>
+                           <li><a href="ticket.do?command=musicalForm">뮤지컬</a></li>
                            <li><a href="ticket.do?command=sportsForm">스포츠</a></li>
                            <li><a href="ticket.do?command=festivalForm">페스티벌</a></li>
                            <li><a href="ticket.do?command=exhibitionForm">전시/행사</a></li>

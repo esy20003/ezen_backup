@@ -12,9 +12,6 @@ public class ReviewVO {
 	private String repyn;
 	private String image;
 	
-	
-	
-	
 	public int getRseq() {
 		return rseq;
 	}
