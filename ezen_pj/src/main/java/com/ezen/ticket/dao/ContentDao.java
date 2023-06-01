@@ -133,7 +133,7 @@ public class ContentDao {
 					cvo.setImage(rs.getString("image"));
 					cvo.setAge(rs.getString("age"));
 					cvo.setBestyn(rs.getString("bestyn").charAt(0));
-					cvo.setTDateTime(rs.getString("tDateTime"));
+					cvo.settDateTime(rs.getString("tDateTime"));
 					list.add(cvo);
 					
 				}
@@ -320,7 +320,7 @@ public class ContentDao {
 				cvo.setCategory(rs.getInt("category"));
 				cvo.setAge(rs.getString("age"));
 				cvo.setBestyn(rs.getString("bestyn").charAt(0));
-				cvo.setTDateTime(rs.getString("tdatetime"));
+				cvo.settDateTime(rs.getString("tdatetime"));
 				content.add(cvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
