@@ -140,31 +140,38 @@ body { font-family: Arial, sans-serif; }
 
 form { margin: 0 auto; }
 
-.registerBox {margin: 20px; padding: 20px; background-color: #FFEFD5; border-radius: 5px;
+.registerBox {margin: 20px; padding: 20px; background-color: #EEEEEE; border-radius: 5px;
 text-align : center;}
 
 .registerDate {width: 100%; border-collapse: collapse; margin-bottom: 20px;}
 
-.tableHead th {background-color: #FFDAB9; color: #fff; padding: 10px;}
+.tableHead th {background-color: #FFA5A5; color: #fff; padding: 10px;}
 
-.datetimeBox {display: flex; align-items: center;}
+.datetimeBox { display: flex; align-items: center; justify-content: center; margin: 0 600px; }
+
+.datetimeBox input[type="date"], .datetimeBox input[type="text"] { margin: 0 5px; }
+
+.timeBox { width: 80px; }
 
 .datetimeBox input[type="date"],
-.datetimeBox input[type="text"] {padding: 5px; margin-right: 10px; margin : 0 auto;}
+.datetimeBox input[type="text"] {padding: 5px; margin-right: 10px; margin : 0 auto; text-align: center;}
 
 #addButton,
-#submit_Button {padding: 10px 20px; background-color: #333; color: #fff; border: none;
-border-radius: 5px; cursor: pointer;}
+#submit_Button {padding: 10px 20px; background-color: #FFE3E3;  border: none;
+border-radius: 5px; cursor: pointer; font-weight: bold;}
 
 #addButton {margin-right: 10px;}
 
 #output {list-style-type: none; margin: 0; padding: 0;}
 
 #output li {margin-bottom: 10px;}
+
 #output li label {float:none;}
+
 .deleteButton {margin-left: 10px; padding: 5px 10px; background-color: #f44336; color: #fff;
  border: none; border-radius: 5px; cursor: pointer;}
 
+input[type="date"]::-webkit-calendar-picker-indicator {background-color: #f44336;}
 </style>
 
 <form method="post" name="registerForm" style="margin: 0 auto;" encType="UTF-8">
