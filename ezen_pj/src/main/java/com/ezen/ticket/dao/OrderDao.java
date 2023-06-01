@@ -20,11 +20,10 @@ public class OrderDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public ArrayList<OrderVO> insertAndSelectOrders(MemberVO mvo, int cseq) {
-		ArrayList<OrderVO> list=new ArrayList<OrderVO>();
+	public OrderVO insertAndSelectOrders(MemberVO mvo, int cseq) {
 		OrderVO ovo=null;
 		con=Dbman.getConnection();
-		String sql="insert into orders(oseq,mseq,cseq) values(orders_oseq,?,?)";
+		String sql="insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,?,?)";
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, mvo.getMseq());
@@ -41,15 +40,14 @@ public class OrderDao {
 				ovo.setMseq(rs.getInt("mseq"));
 				ovo.setCseq(rs.getInt("cseq"));
 				ovo.setOindate(rs.getTimestamp("indate"));
-				list.add(ovo);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);}
 		
-		return list;
+		return ovo;
 	}
-	
+
 	
 
 }

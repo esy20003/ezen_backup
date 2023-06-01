@@ -33,6 +33,10 @@ insert into REGISTERTIME values(registerTime_rtseq.nextVal,4, '20230601','10:00'
 insert into REGISTERTIME values(registerTime_rtseq.nextVal,6, '20230601','10:00','16:00');
 insert into REGISTERTIME values(registerTime_rtseq.nextVal,1, '20230601','12:30','17:00');
 
+insert into REGISTERTIME values(registerTime_rtseq.nextVal,4, '20230511','09:00','14:00');
+insert into REGISTERTIME values(registerTime_rtseq.nextVal,6, '20230511','09:30','16:00');
+insert into REGISTERTIME values(registerTime_rtseq.nextVal,1, '20230511','08:30','17:00');
+
 --------------------------여기부턴 member 테이블
 
 

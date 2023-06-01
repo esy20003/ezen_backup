@@ -151,15 +151,16 @@ function insertCart(){
 		alert("티켓 수량을 선택해 주세요.");
 		return false;
 	}else{
-	var url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
-	if(sessionStorage.getItem('selectedCom')!=null){
-	var mseq2=sessionStorage.getItem('selectedCom');
-	url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2'+mseq2;
+	var url;
+		if(sessionStorage.getItem('selectedCom')!=null){
+		var mseq2=sessionStorage.getItem('selectedCom');
+		url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2'+mseq2;}
+	url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
 	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "InsertCart", opt);
 	}
 }
-
+}
 
 
 function refresh(){
