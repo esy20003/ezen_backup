@@ -39,43 +39,32 @@
 					<th>이미지</th>
 					<td align="left" style=" color: white;"><img src="./images/content/${reviewVO.image }" style="width:200px; "></td>
 				</tr>
-				<tr>
-					<th>댓글</th>
-					<td align="left" style=" color: white;">${reviewVO.reply }
-				</tr>		
+<!-- 				<tr> -->
+<!-- 					<th>댓글</th> -->
+<%-- 					<td align="left" style=" color: white;">${reviewVO.reply } --%>
+<!-- 				</tr>		 -->
 			</table>
 			<!--  리뷰 댓글box  -->
 			<c:set var="now" value="<%=new java.util.Date()%>" />
 			<table class="reply_box">
 				<tr>
 					<th>댓글 작성자</th>
+					<th>작성일</th>
 					<th>댓글내용</th>
-					<th>추가/삭제</th>
-				</tr>
-				<tr>
-					<td>${ loginUser.id }<input type="hidden" name="id" value="${ loginUser.id }">
-					</td>
-					<td style="width:80%;">
-						<input type="text" name="reply" size="">
-					</td>
-					<td>
-						<input type="submit" value="댓글 작성" onclick="return reply_chk();">
-					</td>
 				</tr>
 				<c:forEach items="${ replyList }" var="reply">
 					<tr align="center">
 						<td>${ reply.id }</td>
-						<td>
-							<fmt:formatDate value="${ reply.writedate }" pattern="MM/dd HH:mm" />
-						</td>
-						<td align="left">&nbsp;${ reply.content }</td>
+						<td><fmt:formatDate value="${ reply.writedate }" pattern="MM/dd HH:mm" /></td>
+						<td align="left">&nbsp;${ reply.replycontent }</td>
 						<td>
 							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReply&replynum=${ reply.replynum }&replyrseq=${ reviewVO.rseq }'">
+								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReply&replynum=${ reply.repseq }&replyrseq=${ reviewVO.rseq }'">
 							</c:if>
 							&nbsp;
 							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 						</td>
+<%-- 						<td>${ loginUser.id }<input type="hidden" name="id" value="${ loginUser.id }"></td>  현재 로그인유저 --%> 
 					</tr>
 				</c:forEach>
 			</table>

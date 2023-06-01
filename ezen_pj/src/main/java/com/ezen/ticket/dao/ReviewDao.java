@@ -151,13 +151,13 @@ public class ReviewDao {
 	}
 	public void insertReply(ReviewReplyVO rvo) {
 												       //댓글번호 //리뷰번호 //멤버번호 
-		String sql ="insert into review_reply( rseq, repseq, mseq, replycontent) values("
+		String sql ="insert into review_reply(repseq, mseq, rseq, replycontent) values("
 				+ " reply_seq.nextVal, ?, ?, ? )";
 		
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rvo.getRepseq());
+			pstmt.setInt(1, rvo.getRseq());
 			pstmt.setInt(2, rvo.getMseq());
 			pstmt.setString(3, rvo.getReplycontent());
 			pstmt.executeUpdate();
@@ -165,16 +165,64 @@ public class ReviewDao {
 		} finally {Dbman.close(con, pstmt, rs);}
 		
 	}
-	public ArrayList<ReviewReplyVO> selectReply(int num) {
+	public void plusOneReadcount(int rseq) {
+		
+		con = Dbman.getConnection();
+		String sql="update review_board set readcount = readcount + 1 where rseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		
+	}
+	public ArrayList<ReviewReplyVO> selectReply(int rseq) {
 		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
 		con = Dbman.getConnection();
-		String sql ="select * from reply where  ";
-	
+		String sql ="select * from review_reply where rseq =? order by repseq desc";
 		
-		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rseq);
+			rs = pstmt.executeQuery();
+			while(rs.next() ) {
+				ReviewReplyVO rvo = new ReviewReplyVO();
+				rvo.setRepseq(rs.getInt("repseq"));
+				rvo.setRseq(rs.getInt("rseq"));
+				rvo.setReplycontent(rs.getString("replycontent"));
+				rvo.setWritedate(rs.getTimestamp("writedate"));
+				list.add(rvo);
+			} 
+			
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
 		
 		return list;
 	}
-
-
+	
+//	public ArrayList<ReviewReplyVO> selectReply(int num) {
+//		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
+//		con = Dbman.getConnection();
+//		String sql ="select * from review_reply where rseq =? order by repseq desc";
+//		
+//		try {
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setInt(1, num);
+//			rs = pstmt.executeQuery();
+//			
+//			while(rs.next() ) {
+//				ReviewReplyVO rvo = new ReviewReplyVO();
+//				rvo.setRepseq(rs.getInt("repseq"));
+//				rvo.setRseq(rs.getInt("rseq"));
+//				rvo.setMseq(rs.getInt("mseq"));
+//				rvo.setReplycontent(rs.getString("replycontent"));
+//				rvo.setWritedate(rs.getTimestamp("writedate"));
+//				list.add(rvo);
+//				
+//			} 
+//		} catch (SQLException e) {e.printStackTrace();
+//		} finally {Dbman.close(con, pstmt, rs);}
+//		return list;
+//	}
 }
