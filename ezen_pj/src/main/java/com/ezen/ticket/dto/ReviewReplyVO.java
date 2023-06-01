@@ -8,7 +8,6 @@ public class ReviewReplyVO {
 	private int mseq; // member_sequence/ 번호
 	private int rseq; // 댓글번호
 	private String id;
-
 	private String replycontent;
 	private Timestamp writedate;
 	

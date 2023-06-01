@@ -21,7 +21,8 @@ public class ReviewReplyAction implements Action {
 		ReviewReplyVO rvo = new ReviewReplyVO();
 		//댓글 추가할 리뷰의 번호
 		int rseq = Integer.parseInt(request.getParameter("rseq"));
-		rvo.setId(request.getParameter("id"));
+		System.out.println("rseq = >" + rseq); // 번호 가져와지는거 확인함
+//		rvo.setId(request.getParameter("id"));
 		rvo.setReplycontent(request.getParameter("reply"));
 		rvo.setMseq(mvo.getMseq());
 		rvo.setRseq(rseq);
@@ -31,7 +32,7 @@ public class ReviewReplyAction implements Action {
 		
 		// 조회수가 늘어나지 않는 reviewViewNocount 를 생성해서 실행
 		
-		response.sendRedirect("ticket.do?command=reviewViewNoCount&num=" + rseq);
+		response.sendRedirect("ticket.do?command=reviewViewNoCount&rseq=" + rseq);
 	}
 
 }
