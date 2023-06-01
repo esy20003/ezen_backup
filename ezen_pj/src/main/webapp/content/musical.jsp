@@ -1,4 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp"%>
 
 <div id="musical">
@@ -12,8 +13,9 @@
 					<img src="${ musicalVO.image }" />
 				</a>
 				<h1 style="line-height: 30px; height: 90px;">${ musicalVO.title }</h1>
-				<h3
-					style="width: 270px; height: 40px; font-size: 25px; margin-left: 5px; line-height: 40px; font-weight: bold; color: red; border: 2px dashed black; cursor: pointer;">신청하기</h3>
+				<a
+					href="ticket.do?command=applyContentSelect&cseq=${ musicalVO.cseq }&category=${ musicalVO.category }&locationNum=${ musicalVO.locationNum }"><h3>신청하기</h3>
+				</a>
 			</div>
 		</c:forEach>
 	</div>
@@ -24,8 +26,9 @@
 					<img src="${ musicalVO.image }" />
 				</a>
 				<h1 style="line-height: 30px; height: 90px;">${ musicalVO.title }</h1>
-				<h3
-					style="width: 270px; height: 40px; font-size: 25px; margin-left: 5px; line-height: 40px; font-weight: bold; color: red; border: 2px dashed black; cursor: pointer;">신청하기</h3>
+				<a
+					href="ticket.do?command=applyContentSelect&cseq=${ musicalVO.cseq }&category=${ musicalVO.category }&locationNum=${ musicalVO.locationNum }"><h3>신청하기</h3>
+				</a>
 			</div>
 		</c:forEach>
 	</div>
