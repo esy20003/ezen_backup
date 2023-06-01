@@ -97,7 +97,7 @@ public class ReviewDao {
 		} finally {Dbman.close(con, pstmt, rs);}
 		return rvo;
 	}
-	
+
 	public void insertReview(ReviewVO rvo) {
 
 		con = Dbman.getConnection();
@@ -118,7 +118,7 @@ public class ReviewDao {
 		}
 	}
 	public void updateReview(ReviewVO rvo) {
-		
+
 		String sql ="update review_board set title=?, content=?, image=? where rseq=?";
 		con = Dbman.getConnection();
 		try {
@@ -128,43 +128,28 @@ public class ReviewDao {
 			pstmt.setString(3, rvo.getImage());
 			pstmt.setInt(4, rvo.getRseq());
 			pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
 		}
-		
+
 	}
 	public void deleteReview(int rseq) {
-		
+
 		con = Dbman.getConnection();
 		String sql ="delete review_board where rseq=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rseq);
 			pstmt.executeUpdate();
-			
+
 		} catch (SQLException e) {e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);
 		}
 	}
-	public void insertReply(ReviewReplyVO rvo) {
-												       //댓글번호 //리뷰번호 //멤버번호 
-		String sql ="insert into review_reply(repseq, mseq, rseq, replycontent) values("
-				+ " reply_seq.nextVal, ?, ?, ? )";
-		
-		con = Dbman.getConnection();
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rvo.getRseq());
-			pstmt.setInt(2, rvo.getMseq());
-			pstmt.setString(3, rvo.getReplycontent());
-			pstmt.executeUpdate();
-		} catch (SQLException e) { e.printStackTrace();
-		} finally {Dbman.close(con, pstmt, rs);}
-		
-	}
+
 	public void plusOneReadcount(int rseq) {
-		
+
 		con = Dbman.getConnection();
 		String sql="update review_board set readcount = readcount + 1 where rseq=?";
 		try {
@@ -173,55 +158,57 @@ public class ReviewDao {
 			pstmt.executeUpdate();
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);}
-		
+
 	}
+
 	public ArrayList<ReviewReplyVO> selectReply(int rseq) {
 		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
 		con = Dbman.getConnection();
-		String sql ="select * from review_reply where rseq =? order by repseq desc";
-		//select R.*, M.id from review_reply R, member M where R.mseq = M.mseq;
+		String sql ="select * from review_reply_member where rseq =? order by repseq desc";
+		//String sql ="select R.*, M.id from review_reply R, member M where R.mseq = M.mseq (select * from review_reply where rseq=?)";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rseq);
 			rs = pstmt.executeQuery();
+			ReviewReplyVO rvo = new ReviewReplyVO();
 			while(rs.next() ) {
-				ReviewReplyVO rvo = new ReviewReplyVO();
 				rvo.setRepseq(rs.getInt("repseq"));
 				rvo.setRseq(rs.getInt("rseq"));
-				
+				//			rvo.setId(rs.getString("id"));
+				rvo.setMseq(rs.getInt("mseq"));
 				rvo.setReplycontent(rs.getString("replycontent"));
 				rvo.setWritedate(rs.getTimestamp("writedate"));
+				rvo.setId(rs.getString("id"));
+
 				list.add(rvo);
+				// rs 을 두번 썼을때는 위ㅔ에 선언해서 불러다 쓴 이미 선언했던rs 가 지워짐 result set 을 rs2로 하나 더 만들던가  뷰 쓰던가(조인쓰던지)
 			} 
-			
 		} catch (SQLException e) {e.printStackTrace();
-		} finally {Dbman.close(con, pstmt, rs);}
-		
+		} finally {Dbman.close(con, pstmt, rs);
+		}
 		return list;
 	}
-	
-//	public ArrayList<ReviewReplyVO> selectReply(int num) {
-//		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
-//		con = Dbman.getConnection();
-//		String sql ="select * from review_reply where rseq =? order by repseq desc";
-//		
-//		try {
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setInt(1, num);
-//			rs = pstmt.executeQuery();
-//			
-//			while(rs.next() ) {
-//				ReviewReplyVO rvo = new ReviewReplyVO();
-//				rvo.setRepseq(rs.getInt("repseq"));
-//				rvo.setRseq(rs.getInt("rseq"));
-//				rvo.setMseq(rs.getInt("mseq"));
-//				rvo.setReplycontent(rs.getString("replycontent"));
-//				rvo.setWritedate(rs.getTimestamp("writedate"));
-//				list.add(rvo);
-//				
-//			} 
-//		} catch (SQLException e) {e.printStackTrace();
-//		} finally {Dbman.close(con, pstmt, rs);}
-//		return list;
-//	}
+
+	public void insertReply(ReviewReplyVO rvo) {
+		//댓글번호 //리뷰번호 //멤버번호 
+		String sql ="insert into review_reply(repseq, rseq , mseq, replycontent) values("
+				+ " reply_seq.nextVal, ?, ? ,?)";
+
+		con = Dbman.getConnection();
+		try {
+			System.out.println("insertReply" + rvo.getRseq());
+			System.out.println("insertReply" +  rvo.getMseq());
+			System.out.println("insertReply" + rvo.getReplycontent());
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, rvo.getRseq());
+			pstmt.setInt(2, rvo.getMseq());
+			pstmt.setString(3, rvo.getReplycontent());
+
+			pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+
+	}
+
+
 }
