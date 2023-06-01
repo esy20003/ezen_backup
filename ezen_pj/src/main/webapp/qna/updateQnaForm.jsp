@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:if test="${empty pwd}">
-	<jsp:forward page='../ticket.do?command=qnaViewNoCount&qseq=${QnaVO.qseq}' />
+	<jsp:forward page='../ticket.do?command=qnaViewNoCount&qseq=${qna.qseq}' />
 </c:if>
 
 <c:if test="${empty loginUser}">
@@ -55,7 +55,7 @@
 	<input type="submit" value="수정" onClick="return qnaCheck()">
 	<input type="reset" value="다시 작성">
 	<input type="button" value="돌아가기" 
-		onClick="location.href='ticket.do?command=qnaViewNoCount&qseq=${QnaVO.qseq}'">
+		onClick="location.href='ticket.do?command=qnaViewNoCount&qseq=${qna.qseq}'">
 	</form>
 </div>
 </body>

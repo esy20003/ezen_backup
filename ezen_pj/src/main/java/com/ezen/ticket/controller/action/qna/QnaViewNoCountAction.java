@@ -23,8 +23,8 @@ public class QnaViewNoCountAction implements Action {
 		QnaDao qdao = QnaDao.getInstance();
 		qdao.plusOneReadcount( qseq ); //조회수 증가 메서드 호출
 		
-		ArrayList<ReplyVO> list = qdao.selectReply(qseq);
-		request.setAttribute("list", list);
+		//ArrayList<ReplyVO> list = qdao.selectReply(qseq);
+		//request.setAttribute("list", list);
 		
 		QnaVO qvo = qdao.getQna(qseq);
 		request.setAttribute("QnaVO", qvo);

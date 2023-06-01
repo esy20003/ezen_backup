@@ -29,8 +29,8 @@
 	<tr><th>조회수</th><td>${QnaVO.readcount}</td></tr>
 	
 </table>
-	<input type="button" value="메인 화면으로 돌아가기"
-				onClick="location.href='ticket.do?command=index'"> 
+	<input type="button" value="돌아가기"
+				onClick="location.href='ticket.do?command=qnaList'"> 
 		<input type="button" value="수정 "
 				onClick="checkPass('${QnaVO.qseq}' ,  'update');"> 
 		<input	type="button" value="삭제 "
@@ -78,7 +78,7 @@
 	
 		<div class="clear"></div>
 <div id="buttons" style="float:right">
-	<input type="button" value="돌아가기" class="cancel" style="color:black" onclick="location.href='ticket.do?command=qnaList'">
+	<input type="button" value="메인화면으로 돌아가기" class="cancel" style="color:black" onclick="location.href='ticket.do?command=index'">
 </div>
 </form>
 </article>

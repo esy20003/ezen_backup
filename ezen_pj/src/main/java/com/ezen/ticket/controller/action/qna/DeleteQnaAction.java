@@ -19,7 +19,7 @@ public class DeleteQnaAction implements Action {
 		QnaDao qdao = QnaDao.getInstance();
 		qdao.deleteQna(qseq);
 		qdao.deleteReplyByQnanum(qseq);
-		String url = "ticket.do?command=index";
+		String url = "ticket.do?command=qnaList";
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);
 	}

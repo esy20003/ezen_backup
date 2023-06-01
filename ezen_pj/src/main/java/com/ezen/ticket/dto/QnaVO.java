@@ -97,6 +97,7 @@ public class QnaVO {
 	public void setReadcount(int readcount) {
 		this.readcount = readcount;
 	}
+
 	
 
 	
