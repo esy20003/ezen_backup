@@ -47,28 +47,40 @@
 			<!--  리뷰 댓글box  -->
 			<c:set var="now" value="<%=new java.util.Date()%>" />
 			<table class="reply_box">
-				<tr>
-					<th>댓글 작성자</th>
-					<th>작성일</th>
-					<th>댓글내용</th>
+				<tr style="height:30px; border-bottom:1px solid #ddd;">
+					<th style="width:20%;">댓글 작성자</th>
+					<th style="width:20%; border-right:1px solid #ddd; border-left:1px solid #ddd;">작성일</th>
+					<th style="width:60%;">댓글내용</th>
 				</tr>
 				<c:forEach items="${ replyList }" var="reply">
-					<tr align="center">
-						<td>${ reply.id }</td>
-						<td><fmt:formatDate value="${ reply.writedate }" pattern="MM/dd HH:mm" /></td>
-						<td align="left">&nbsp;${ reply.replycontent }</td>
-						<td>
+					<tr align="center" style="height:30px;">
+						<td style="line-height:30px;">${ reply.id }</td>
+						<td style="line-height:30px; border-right:1px solid #ddd; border-left:1px solid #ddd;" ><fmt:formatDate value="${ reply.writedate }" pattern="MM/dd HH:mm" /></td>
+						<td style="line-height:30px;" align="left">&nbsp;${ reply.replycontent }</td>
+						<td style="line-height:30px;">
 							<c:if test="${ reply.id == loginUser.id }">
 								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReply&replynum=${ reply.repseq }&replyrseq=${ reviewVO.rseq }'">
 							</c:if>
 							&nbsp;
 							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 						</td>
-<%-- 						<td>${ loginUser.id }<input type="hidden" name="id" value="${ loginUser.id }"></td>  현재 로그인유저 --%> 
 					</tr>
 				</c:forEach>
 			</table>
-			
+			<table>
+			<tr>
+				<th width="100">작성자</th>
+				<th width="100">작성일</th>
+				<th>내용</th>
+				<th width="100">추가</th>
+			</tr>
+			<tr align="center">
+				<td>${ loginUser.id }<input type="hidden" name="id" value="${ loginUser.id }"></td>
+				<td><fmt:formatDate value="${ now }" pattern="MM/dd HH:mm"/></td>
+				<td><input type="text" name="reply" size="80"></td>
+				<td><input type="submit" value="답글 작성" onclick="return reply_chk();"></td>
+			</tr>
+		</table>
 			<div class="clear"></div>
 			<div class="rev_btn_box btn_box" style="float: left">
 				<input type="button" value="메인으로" class="cancel" onClick="location.href='ticket.do?command=index'">

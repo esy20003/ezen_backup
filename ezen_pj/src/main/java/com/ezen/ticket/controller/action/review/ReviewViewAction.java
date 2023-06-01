@@ -34,6 +34,8 @@ public class ReviewViewAction implements Action {
 			ArrayList<ReviewReplyVO> list = rdao.selectReply(rseq);
 			request.setAttribute("replyList", list); /// 댓글 리스트 긁어와서 뿌려
 			
+			System.out.println("댓글 리스트 = >" +  list.size());
+			
 			ReviewVO rvo = rdao.getReview(rseq);
 			request.setAttribute("reviewVO", rvo);
 		}

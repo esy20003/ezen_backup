@@ -27,7 +27,9 @@ public class ReviewViewNoCountAction implements Action {
 		request.setAttribute("replyList", list); // list 긁어온걸 replyList 에 파라미터전달
 		
 		ReviewVO rvo = rdao.getReview(num);
-		request.setAttribute("review", rvo); // 파라미터전달
+		request.setAttribute("reviewVO", rvo); // 파라미터전달
+		
+		System.out.println("댓글 리스트 = >" +  list.size());
 		
 		RequestDispatcher dp = request.getRequestDispatcher("review/reviewView.jsp");
 		dp.forward(request, response);

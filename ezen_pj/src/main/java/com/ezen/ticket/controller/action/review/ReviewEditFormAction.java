@@ -31,6 +31,8 @@ public class ReviewEditFormAction implements Action {
 			ReviewDao rdao = ReviewDao.getInstance();
 			ReviewVO rvo = rdao.getReview(rseq);
 
+		
+			
 			request.setAttribute("reviewVO", rvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);

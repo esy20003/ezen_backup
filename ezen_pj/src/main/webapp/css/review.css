@@ -2,11 +2,11 @@
 
 .review_img_box {background: url(../images/sub_bg.jpg) no-repeat; height:130px;}
 #review_box {width:100%; border:1px solid red; margin:0 auto;}
-#review_box .review_content {width:1200px; height:1000px; border:1px solid black; margin:0 auto;  text-align: center;}
+#review_box .review_content {width:1200px;  border:1px solid black; margin:0 auto;  text-align: center;}
 #review_box .review_content .review_title { margin:10px 0;  background: none;}
 #review_box .review_content h3 {margin : 10px 0;}
 /* review_form review_list  */
-#review_box .review_content .review_form {width:1000px; height:1000px; margin:0 auto;}
+#review_box .review_content .review_form {width:1000px; margin:0 auto;}
 #review_box .review_content .review_form input[type="text"] , input[type="file"] {background:none; width:100%; box-sizing:border-box; height:40px;}
 #reviewList {border-collapse: collapse;border-top: 2px solid #333;border-bottom: 1px solid #333;width: 100%;margin-bottom: 20px;}
 
@@ -43,7 +43,7 @@
 /*  로그인 한 아이디와 리뷰 작성한 아이디가 같을떄만 리뷰 수정하기 버튼 등장  */
 
 /*  리플 box table   */
-.reply_box {width:100%;}
+.reply_box {    width: 100%; margin-top: 50px;border-top: 1px solid #cdcdcd;}
 
 
 
