@@ -283,6 +283,7 @@ CREATE TABLE qna_board
 	reply varchar2(1000),
 	repyn char(1) DEFAULT 'N',
 	image varchar2(1000),
+	readCount number(5) default 0,
 	PRIMARY KEY (qseq)
 );
 
