@@ -48,6 +48,32 @@ public class OrderDao {
 		return ovo;
 	}
 
+	public ArrayList<OrderVO> getOrderList(int mseq) {
+		ArrayList<OrderVO> list=new ArrayList<OrderVO>();
+		OrderVO ovo=null;
+		con=Dbman.getConnection();
+		String sql="select * from orders_view where mseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, mseq);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ovo=new OrderVO();
+				ovo.setOindate(rs.getTimestamp("indate"));
+				ovo.setOseq(rs.getInt("oseq"));
+				ovo.setMseq(mseq);
+				ovo.setTitle(rs.getString("title"));
+				ovo.setCseq(rs.getInt("cseq"));
+				ovo.setContent_price(rs.getInt("content_price"));
+				ovo.setCom_price(rs.getInt("com_price"));
+				list.add(ovo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return list;
+	}
+
 	
 
 }
