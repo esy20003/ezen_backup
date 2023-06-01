@@ -87,7 +87,7 @@ public class ContentDao {
 		ArrayList<ContentVO> list=new ArrayList<ContentVO>();
 		ContentVO cvo=null;
 		con=Dbman.getConnection();
-		String sql="select cseq, category, title, image from content where category=?";
+		String sql="select cseq, category, title, image, locationnum from content where category=?";
 		try {
 			
 			pstmt=con.prepareStatement(sql);
@@ -99,6 +99,7 @@ public class ContentDao {
 				cvo.setTitle(rs.getString("title"));
 				cvo.setCategory(rs.getInt("category"));
 				cvo.setImage(rs.getString("image"));
+				cvo.setLocationNum(rs.getInt("locationnum"));
 				list.add(cvo);
 			}
 		} catch (SQLException e) {
@@ -297,6 +298,34 @@ public class ContentDao {
 		
 		
 		return list;
+	}
+
+	public ArrayList<ContentVO> selectContentByCseq(int cseq) {
+		ArrayList<ContentVO> content = new ArrayList<ContentVO>();
+		ContentVO cvo = null;
+		String sql = "select * from content where cseq = ?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cseq);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				cvo = new ContentVO();
+				cvo.setCseq(rs.getInt("cseq"));
+				cvo.setTitle(rs.getString("title"));
+				cvo.setLocationNum(rs.getInt("locationnum"));
+				cvo.setArtist(rs.getString("artist"));
+				cvo.setImage(rs.getString("image"));
+				cvo.setContent(rs.getString("content"));
+				cvo.setCategory(rs.getInt("category"));
+				cvo.setAge(rs.getString("age"));
+				cvo.setBestyn(rs.getString("bestyn").charAt(0));
+				cvo.setTDateTime(rs.getString("tdatetime"));
+				content.add(cvo);
+			}
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		return content;
 	}
 	
 }

@@ -39,6 +39,7 @@ public class ApplyContentSelectAction implements Action {
 				System.out.println("contentDate:"+contentDate);
 				
 				int category=Integer.parseInt(request.getParameter("category"));
+				System.out.println("category:" + category);
 				list = cdao.selectContent(category);
 				
 				int cseq=Integer.parseInt(request.getParameter("cseq"));
@@ -61,7 +62,6 @@ public class ApplyContentSelectAction implements Action {
 				request.setAttribute("contentAreaList", list5);
 				request.setAttribute("contentTimeList", list6);
 			}else {
-				
 			
 			int category=Integer.parseInt(request.getParameter("category"));
 			list = cdao.selectContent(category);

@@ -1,35 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ include file="../header.jsp"%>
 
-<div id="musical">
+<div id="exhibition">
 	<div class="title">
 		<h1>전시/행사</h1>
 	</div>
 	<div class="panel">
-		<c:forEach items="${ exhibition }" end="3" var="musicalVO">
+		<c:forEach items="${ exhibition }" end="3" var="exhibitionVO">
 			<div id="item">
-				<a href="ticket.do?command=contentDetail&cseq=${ musicalVO.cseq }">
-					<img src="${ musicalVO.image }" />
+				<a href="ticket.do?command=contentDetail&cseq=${ exhibition.cseq }">
+					<img src="${ exhibitionVO.image }" />
 				</a>
-				<h1 style="line-height: 30px; height: 90px;">${ musicalVO.title }</h1>
-				<h3
-					style="width: 270px; height: 40px; font-size: 25px; margin-left: 5px; line-height: 40px; font-weight: bold; color: red; border: 2px dashed black; cursor: pointer;">신청하기</h3>
+				<h1 style="line-height: 30px; height: 90px;">${ exhibitionVO.title }</h1>
+				<a
+					href="ticket.do?command=applyContentSelect&cseq=${ exhibitionVO.cseq }&category=${ exhibitionVO.category }&locationNum=${ exhibitionVO.locationNum }"><h3>신청하기</h3>
+				</a>
 			</div>
 		</c:forEach>
 	</div>
 	<div class="panel">
-		<c:forEach items="${ exhibition }" begin="4" end="7" var="musicalVO">
+		<c:forEach items="${ exhibition }" begin="4" end="7"
+			var="exhibitionVO">
 			<div id="item">
-				<a href="ticket.do?command=contentDetail&cseq=${ musicalVO.cseq }">
-					<img src="${ musicalVO.image }" />
+				<a href="ticket.do?command=contentDetail&cseq=${ exhibition.cseq }">
+					<img src="${ exhibitionVO.image }" />
 				</a>
-				<h1 style="line-height: 30px; height: 90px;">${ musicalVO.title }</h1>
-				<h3
-					style="width: 270px; height: 40px; font-size: 25px; margin-left: 5px; line-height: 40px; font-weight: bold; color: red; border: 2px dashed black; cursor: pointer;">신청하기</h3>
+				<h1 style="line-height: 30px; height: 90px;">${ exhibitionVO.title }</h1>
+				<a
+					href="ticket.do?command=applyContentSelect&cseq=${ exhibitionVO.cseq }&category=${ exhibitionVO.category }&locationNum=${ exhibitionVO.locationNum }"><h3>신청하기</h3>
+				</a>
 			</div>
 		</c:forEach>
 	</div>
 </div>
 
-<%@ include file="../footer.jsp" %>
+
+<%@ include file="../footer.jsp"%>
 

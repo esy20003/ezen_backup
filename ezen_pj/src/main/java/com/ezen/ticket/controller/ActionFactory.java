@@ -17,6 +17,7 @@ import com.ezen.ticket.controller.action.cart.CartDetailUpdateAction;
 import com.ezen.ticket.controller.action.cart.CartListAction;
 import com.ezen.ticket.controller.action.cart.CartUpdateAction;
 import com.ezen.ticket.controller.action.content.ConcertFormAction;
+import com.ezen.ticket.controller.action.content.ContentDetailAction;
 import com.ezen.ticket.controller.action.content.ContentFormAction;
 import com.ezen.ticket.controller.action.content.ExhibitionFormAction;
 import com.ezen.ticket.controller.action.content.FestivalFormAction;
@@ -72,14 +73,14 @@ public class ActionFactory {
 		
 		if(command.equals("index")) ac = new IndexAction();
 		
-		// main 화면 헤더부분
+		// main 화면
 		else if(command.equals("contentForm")) ac = new ContentFormAction();
 		else if(command.equals("concertForm")) ac = new ConcertFormAction();
 		else if(command.equals("musicalForm")) ac = new MusicalFormAction();
 		else if(command.equals("sportsForm")) ac = new SportsFormAction();
 		else if(command.equals("festivalForm")) ac = new FestivalFormAction();
 		else if(command.equals("exhibitionForm")) ac = new ExhibitionFormAction();
-		
+		else if(command.equals("contentDetail")) ac = new ContentDetailAction();
 		
 		//qna
 
