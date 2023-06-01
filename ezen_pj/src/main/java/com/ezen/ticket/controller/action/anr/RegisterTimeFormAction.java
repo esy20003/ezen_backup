@@ -23,12 +23,14 @@ public class RegisterTimeFormAction implements Action {
 		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
 		
 		int mseq=mvo.getMseq();
-		String date = request.getParameter("date");
-		String starttime = request.getParameter("starttime");
-		String endtime = request.getParameter("endtime");
+		String[] date = request.getParameterValues("date");
+		String[] starttime = request.getParameterValues("starttime");
+		String[] endtime = request.getParameterValues("endtime");
 	
 		RegisterTimeDao rdao = RegisterTimeDao.getInstance();
-		rdao.insertRegisterTime(mseq, date, starttime, endtime);
+		for(int i=0; i<date.length; i++) {
+			rdao.insertRegisterTime(mseq, date[i], starttime[i], endtime[i]);
+		}
 		ArrayList<RegisterTimeVO> regi = new ArrayList<RegisterTimeVO>();
 		regi = rdao.getMyRegister(mvo);
 		request.setAttribute("register", regi);
