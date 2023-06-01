@@ -146,8 +146,6 @@ public class ReviewDao {
 		} catch (SQLException e) {e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);
 		}
-		
-		
 	}
 	public void insertReply(ReviewReplyVO rvo) {
 												       //댓글번호 //리뷰번호 //멤버번호 
@@ -181,7 +179,7 @@ public class ReviewDao {
 		ArrayList<ReviewReplyVO> list = new ArrayList<ReviewReplyVO>();
 		con = Dbman.getConnection();
 		String sql ="select * from review_reply where rseq =? order by repseq desc";
-		
+		//select R.*, M.id from review_reply R, member M where R.mseq = M.mseq;
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rseq);
@@ -190,6 +188,7 @@ public class ReviewDao {
 				ReviewReplyVO rvo = new ReviewReplyVO();
 				rvo.setRepseq(rs.getInt("repseq"));
 				rvo.setRseq(rs.getInt("rseq"));
+				
 				rvo.setReplycontent(rs.getString("replycontent"));
 				rvo.setWritedate(rs.getTimestamp("writedate"));
 				list.add(rvo);
