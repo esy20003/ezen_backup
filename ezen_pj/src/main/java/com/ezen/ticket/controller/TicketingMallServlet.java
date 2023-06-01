@@ -34,7 +34,6 @@ public class TicketingMallServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
-		
 		String command = request.getParameter("command");
 		System.out.println("command => : " + command);
 		//System.out.println("00");

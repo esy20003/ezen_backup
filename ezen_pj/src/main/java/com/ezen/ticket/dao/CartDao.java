@@ -164,7 +164,7 @@ public class CartDao {
 				cvo.setCategory(rs.getInt("category"));
 				cvo.setAge(rs.getString("age"));
 				cvo.setBestyn(rs.getString("bestyn").charAt(0));
-				cvo.setTDateTime(rs.getString("tdatetime"));
+				cvo.settDateTime(rs.getString("tdatetime"));
 				contentList.add(cvo);
 			}
 		} catch (SQLException e) {

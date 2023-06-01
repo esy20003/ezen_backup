@@ -24,10 +24,11 @@ public class ContentVO {
 	
 	
 	
-	public String getTDateTime() {
+	
+	public String gettDateTime() {
 		return tDateTime;
 	}
-	public void setTDateTime(String tDateTime) {
+	public void settDateTime(String tDateTime) {
 		this.tDateTime = tDateTime;
 	}
 	public String getAreaImage() {

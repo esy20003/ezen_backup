@@ -99,7 +99,7 @@ public class ActionFactory {
 		else if( command.equals("deleteReply") ) ac = new DeleteReplyAction();
 		else if( command.equals("AddReply") ) ac = new AddReplyAction();
 		
-
+		
 		//anr
 		else if (command.equals("applyAndRegister")) ac = new ApplyAndRegisterAction();
 		else if (command.equals("applyForm")) ac = new ApplyFormAction();
@@ -117,7 +117,7 @@ public class ActionFactory {
 		else if(command.equals("loginForm")) ac = new LoginFormAction();
 		else if(command.equals("login")) ac = new LoginAction();
 		else if(command.equals("logout")) ac = new LogoutAction();
-		// joi
+		// join
 		else if(command.equals("contract")) ac = new ContractAction();
 		else if(command.equals("joinForm")) ac = new JoinFormAction();
 		else if(command.equals("idCheckForm")) ac = new IdCheckFormAction();
