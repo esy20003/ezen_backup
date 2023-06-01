@@ -153,14 +153,16 @@ function insertCart(){
 	}else{
 	var url;
 		if(sessionStorage.getItem('selectedCom')!=null){
-		var mseq2=sessionStorage.getItem('selectedCom');
-		url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2'+mseq2;}
-	url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
+		var mseq2=Number(sessionStorage.getItem('selectedCom'));
+		url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2='+mseq2;
+		}else{
+		url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
+		}
 	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
 	window.open(url, "InsertCart", opt);
 	}
 }
-}
+
 
 
 function refresh(){
