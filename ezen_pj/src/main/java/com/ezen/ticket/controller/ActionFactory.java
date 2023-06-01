@@ -37,6 +37,7 @@ import com.ezen.ticket.controller.action.mypage.MyAllRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisterAction;
 import com.ezen.ticket.controller.action.mypage.MyRegisteredAction;
 import com.ezen.ticket.controller.action.mypage.MypageAction;
+import com.ezen.ticket.controller.action.order.OrderDetailAction;
 import com.ezen.ticket.controller.action.order.OrderViewAction;
 import com.ezen.ticket.controller.action.qna.AddReplyAction;
 import com.ezen.ticket.controller.action.qna.DeleteQnaAction;
@@ -154,6 +155,7 @@ public class ActionFactory {
 		
 		// order
 		else if(command.equals("orderView")) ac = new OrderViewAction();
+		else if(command.equals("orderDetail")) ac = new OrderDetailAction();
 		
 		
 		//System.out.println("33 "+ command);
