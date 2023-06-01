@@ -170,11 +170,17 @@ function refresh(){
 }
 
 function apply(){
-	var com=sessionStorage.getItem('selectedCom');
-	if(com==null){
+	var cseq=sessionStorage.getItem('selectedCseq');
+	var date=sessionStorage.getItem('selectedDate');
+	var time=sessionStorage.getItem('selectedTime');
+	var area=sessionStorage.getItem('selectedArea');
+	var quantity=sessionStorage.getItem('selectedQuantity');
+	var mseq2=sessionStorage.getItem('selectedCom');
+	if(mseq2==null){
 		alert("대리인을 선택해 주세요.");
 		return false;
 	}else{
+		document.frm.action='ticket.do?command=apply&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2='+mseq2;
 		return true;
 	}
 }

@@ -13,24 +13,23 @@ import com.ezen.ticket.dao.OrderDao;
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.dto.OrderVO;
 
-public class OrderViewAction implements Action {
-	
+public class OrderDetailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url = "order/orderView.jsp";
+
+		String url = "order/orderDetail.jsp";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		if(mvo == null) {
 			url = "ticket.do?command=loginForm";
 		}else {
 			OrderDao odao=OrderDao.getInstance();
-			ArrayList<OrderVO> list=new ArrayList<OrderVO>();
-			list=odao.getOrderList(mvo.getMseq());
+			int oseq=Integer.parseInt(request.getParameter("oseq"));
+			ArrayList<OrderVO> odList=odao.getOrderDetailList(mvo.getMseq(),oseq);			
 			
-			request.setAttribute("orderList", list);
-			
+			request.setAttribute("orderDetailList", odList);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
