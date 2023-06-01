@@ -161,13 +161,13 @@ public class QnaDao {
 
 	public ArrayList<ReplyVO> selectReply(int qseq) {
 		ArrayList<ReplyVO> list = new ArrayList();
-		this.con = Dbman.getConnection();
+		con = Dbman.getConnection();
 		String sql = "select * from reply where qnanum=? order by replynum desc";
 
 		try {
-			this.pstmt = this.con.prepareStatement(sql);
-			this.pstmt.setInt(1, qseq);
-			this.rs = this.pstmt.executeQuery();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			rs = pstmt.executeQuery();
 
 			while (this.rs.next()) {
 				ReplyVO qvo = new ReplyVO();
@@ -186,7 +186,7 @@ public class QnaDao {
 
 		return list;
 	}
-
+	
 	public void deleteReply(String reply) {
 		String sql = "delete from reply where reply=?";
 		this.con = Dbman.getConnection();
