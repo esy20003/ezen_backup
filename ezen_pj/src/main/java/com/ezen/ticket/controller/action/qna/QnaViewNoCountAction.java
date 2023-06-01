@@ -24,7 +24,7 @@ public class QnaViewNoCountAction implements Action {
 		qdao.plusOneReadcount( qseq ); //조회수 증가 메서드 호출
 		
 		ArrayList<ReplyVO> list = qdao.selectReply(qseq);
-		request.setAttribute("replylist", list);
+		request.setAttribute("list", list);
 		
 		QnaVO qvo = qdao.getQna(qseq);
 		request.setAttribute("QnaVO", qvo);
