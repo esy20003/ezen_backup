@@ -22,16 +22,16 @@
 	<h1>게시글 수정</h1>
 	<form name="frm" method="post" action="ticket.do?command=updateqna"
 	enctype="multipart/form-data">
-	<input type="hidden" name="qseq" value="${QnaVO.qseq}">
+	<input type="hidden" name="qseq" value="${qna.qseq}">
 	<table>
-		<tr><th>작성자</th><td>${QnaVO.id}
+		<tr><th>작성자</th><td>${qna.id}
 			<input type="hidden" name="id" value="${loginUser.id}"></td></tr>
 		<tr><th>비밀번호</th>
 			<td><input type="password" name="pwd" size="12">* (게시물 수정 삭제시 필요합니다.)</td></tr>
 		<tr><th>제목</th>
-			<td><input type="text" value="${QnaVO.title}" size="20" name="title">*</td></tr>
+			<td><input type="text" value="${qna.title}" size="20" name="title">*</td></tr>
 		<tr><th>내용</th>
-			<td><textarea cols="70" rows="15" name="content">${QnaVO.content}</textarea>*</td></tr>
+			<td><textarea cols="70" rows="15" name="content">${qna.content}</textarea>*</td></tr>
 		
 		 <tr>
 			<th>이미지</th>

@@ -54,7 +54,7 @@
 					<td>${loginUser.id}<input type="hidden" name="id"
 						value="${loginUser.id}"></td>
 					<td><fmt:formatDate value="${now}" pattern="MM/dd HH:mm" /></td>
-					<td><input type="text" name="reply" size="80"></td>
+					<td><input type="text" name="reply" size="100" ></td>
 					<td><input type="submit" value="답글 작성"
 						onClick="return reply_check();"></td>
 				</tr>

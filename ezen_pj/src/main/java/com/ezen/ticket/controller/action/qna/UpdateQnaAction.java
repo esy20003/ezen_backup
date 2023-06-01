@@ -25,19 +25,19 @@ public class UpdateQnaAction implements Action {
 		
 		HttpSession session = request.getSession();
 		ServletContext context = session.getServletContext();
-		String path = context.getRealPath("upload");
+		String path = context.getRealPath("images/qna");
 		
 		MultipartRequest multi = new MultipartRequest(
 				request,path,20*1024*1024,"UTF-8",new DefaultFileRenamePolicy()
 		);
-		
 
+		qvo.setQseq(Integer.parseInt(multi.getParameter("qseq")));
 		qvo.setId(multi.getParameter("id"));
 		qvo.setPwd(multi.getParameter("pwd"));
 		qvo.setTitle(multi.getParameter("title"));
 		qvo.setContent(multi.getParameter("content"));
-		qvo.setQseq(Integer.parseInt(multi.getParameter("qseq")));
 		
+
 		
 		if(multi.getFilesystemName("newFile")==null)
 			qvo.setImgfilename(multi.getParameter("oldFile"));

@@ -20,7 +20,7 @@
 			<c:when test="${QnaVO.repyn=='Y' }">Y</c:when>
 		</c:choose>
 		<td>${QnaVO.readcount}</td>
-		</td>
+		
 		</tr>
 	</c:forEach>
 </table>

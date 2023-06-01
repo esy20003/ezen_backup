@@ -21,13 +21,13 @@ public class QnaViewNoCountAction implements Action {
 		
 		int qseq = Integer.parseInt(request.getParameter("qseq"));
 		QnaDao qdao = QnaDao.getInstance();
-		//qdao.plusOneReadcount( qseq ); //조회수 증가 메서드 호출
+		qdao.plusOneReadcount( qseq ); //조회수 증가 메서드 호출
 		
 		ArrayList<ReplyVO> list = qdao.selectReply(qseq);
 		request.setAttribute("replylist", list);
 		
 		QnaVO qvo = qdao.getQna(qseq);
-		request.setAttribute("qna_board", qvo);
+		request.setAttribute("QnaVO", qvo);
 		
 		HttpSession session = request.getSession();
 		session.removeAttribute("pwd");

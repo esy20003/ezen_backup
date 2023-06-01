@@ -162,7 +162,7 @@ public class QnaDao {
 	public ArrayList<ReplyVO> selectReply(int qseq) {
 		ArrayList<ReplyVO> list = new ArrayList();
 		this.con = Dbman.getConnection();
-		String sql = "select * from reply where qnanum=? order by qnanum desc";
+		String sql = "select * from reply where qnanum=? order by replynum desc";
 
 		try {
 			this.pstmt = this.con.prepareStatement(sql);
@@ -170,18 +170,18 @@ public class QnaDao {
 			this.rs = this.pstmt.executeQuery();
 
 			while (this.rs.next()) {
-				ReplyVO rvo = new ReplyVO();
-				rvo.setReplynum(this.rs.getInt("replynum"));
-				rvo.setQnanum(this.rs.getInt("qnanum"));
-				rvo.setId(this.rs.getString("id"));
-				rvo.setIndate(this.rs.getTimestamp("indate"));
-				rvo.setContent(this.rs.getNString("content"));
-				list.add(rvo);
+				ReplyVO qvo = new ReplyVO();
+				qvo.setReplynum(rs.getInt("replynum"));
+				qvo.setQnanum(rs.getInt("qnanum"));
+				qvo.setId(rs.getString("id"));
+				qvo.setIndate(rs.getTimestamp("indate"));
+				qvo.setContent(rs.getNString("content"));
+				list.add(qvo);
 			}
 		} catch (SQLException var8) {
 			var8.printStackTrace();
 		} finally {
-			Dbman.close(this.con, this.pstmt, this.rs);
+			Dbman.close(con, pstmt, rs);
 		}
 
 		return list;
