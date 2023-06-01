@@ -28,7 +28,7 @@ public class RegisterTimeFormAction implements Action {
 		String[] endtime = request.getParameterValues("endtime");
 	
 		RegisterTimeDao rdao = RegisterTimeDao.getInstance();
-		for(int i=0; i<date.length; i++) {
+		for(int i=0; i<date.length-1; i++) {
 			rdao.insertRegisterTime(mseq, date[i], starttime[i], endtime[i]);
 		}
 		ArrayList<RegisterTimeVO> regi = new ArrayList<RegisterTimeVO>();
