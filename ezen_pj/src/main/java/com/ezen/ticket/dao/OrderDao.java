@@ -52,7 +52,7 @@ public class OrderDao {
 		ArrayList<OrderVO> list=new ArrayList<OrderVO>();
 		OrderVO ovo=null;
 		con=Dbman.getConnection();
-		String sql="select * from orders_view where mseq=?";
+		String sql="select * from order_view where mseq=?";
 		try {
 			pstmt=con.prepareStatement(sql);
 			pstmt.setInt(1, mseq);
