@@ -19,8 +19,8 @@
 				<tr>
 					<td>${ol.oseq}</td>
 					<td>${ol.title}</td>
-					<td>${ol.content_price}+${ol.com_price}</td>
-					<td>${ol.oindate}</td>
+					<td>${ol.content_price+ol.com_price}</td>
+					<td><fmt:formatDate value="${ol.oindate}" pattern="yyyy-MM-dd" /></td>
 				</tr>
 			</c:forEach>
 			</table>

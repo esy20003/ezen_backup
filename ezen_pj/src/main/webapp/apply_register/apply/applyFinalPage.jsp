@@ -4,10 +4,6 @@
 
 <form name="frm" action="ticket.do" method="post" class="form">
 <input type="hidden" name="command" value="orderView">
-<input type="hidden" name="oseq" value="${orderList.oseq }">
-<input type="hidden" name="mseq" value="${orderList.mseq }">
-<input type="hidden" name="cseq" value="${orderList.cseq }">
-<input type="hidden" name="indate" value="${orderList.oindate}">
 <section>
 <h1>신청 완!!!!!!!!!!!!!!!!!!!!!!!!!!</h1>
 <input type="submit" value="신청내역 보기">

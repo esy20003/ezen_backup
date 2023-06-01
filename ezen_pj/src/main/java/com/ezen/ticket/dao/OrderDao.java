@@ -20,7 +20,7 @@ public class OrderDao {
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
-	public OrderVO insertAndSelectOrders(MemberVO mvo, int cseq) {
+	public OrderVO insertOrders(MemberVO mvo, int cseq) {
 		OrderVO ovo=null;
 		con=Dbman.getConnection();
 		String sql="insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,?,?)";
@@ -29,18 +29,6 @@ public class OrderDao {
 			pstmt.setInt(1, mvo.getMseq());
 			pstmt.setInt(2, cseq);
 			pstmt.executeUpdate();
-			
-			sql="select * from orders where mseq=?";
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, mvo.getMseq());
-			rs=pstmt.executeQuery();
-			while(rs.next()) {
-				ovo=new OrderVO();
-				ovo.setOseq(rs.getInt("oseq"));
-				ovo.setMseq(rs.getInt("mseq"));
-				ovo.setCseq(rs.getInt("cseq"));
-				ovo.setOindate(rs.getTimestamp("indate"));
-			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);}

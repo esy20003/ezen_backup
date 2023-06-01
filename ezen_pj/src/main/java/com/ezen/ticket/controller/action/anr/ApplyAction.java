@@ -26,7 +26,7 @@ public class ApplyAction implements Action {
 		}else {
 			int cseq=Integer.parseInt(request.getParameter("cseq"));
 			OrderDao odao=OrderDao.getInstance();
-			OrderVO ovo=odao.insertAndSelectOrders(mvo,cseq);
+			OrderVO ovo=odao.insertOrders(mvo,cseq);
 			
 			request.setAttribute("orderList", ovo);
 		}
