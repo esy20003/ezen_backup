@@ -9,16 +9,38 @@ public class OrderVO {
 	
 	private int odseq;
 	private int cseq;
+	private String title;
 	private int locationNum;
 	private Timestamp contentDate;
 	private String contentTime;
 	private String area;
+	private int content_price;
 	private int mseq2;
+	private int com_price;
 	private int quantity;
 	private char result;
 	private Timestamp odindate; //이건 주문상세내역 날짜
 	
 	
+	
+	public int getContent_price() {
+		return content_price;
+	}
+	public void setContent_price(int content_price) {
+		this.content_price = content_price;
+	}
+	public int getCom_price() {
+		return com_price;
+	}
+	public void setCom_price(int com_price) {
+		this.com_price = com_price;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
 	public int getOseq() {
 		return oseq;
 	}

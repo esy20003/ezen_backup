@@ -1,4 +1,4 @@
-package com.ezen.ticket.controller.action.anr;
+package com.ezen.ticket.controller.action.order;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,22 +13,26 @@ import com.ezen.ticket.dao.OrderDao;
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.dto.OrderVO;
 
-public class ApplyAction implements Action {
+public class OrderViewAction implements Action {
+	
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String url="apply_register/apply/applyFinalPage.jsp";
-		HttpSession session=request.getSession();
-		MemberVO mvo=(MemberVO)session.getAttribute("loginUser");
-		if(mvo ==null) {
-			url="ticket.do?command=loginForm";
+		String url = "order/orderView.jsp";
+		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if(mvo == null) {
+			url = "ticket.do?command=loginForm";
+		}else if(mvo.getMseq()!=Integer.parseInt(request.getParameter("mseq"))) {
+			url = "ticket.do?command=loginForm";
 		}else {
-			int cseq=Integer.parseInt(request.getParameter("cseq"));
 			OrderDao odao=OrderDao.getInstance();
-			OrderVO ovo=odao.insertAndSelectOrders(mvo,cseq);
+			ArrayList<OrderVO> list=new ArrayList<OrderVO>();
+			list=odao.getOrderList(mvo.getMseq());
 			
-			request.setAttribute("orderList", ovo);
+			request.setAttribute("orderList", list);
+			
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}

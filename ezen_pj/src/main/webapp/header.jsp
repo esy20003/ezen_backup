@@ -23,7 +23,7 @@
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
 <script src="script/cartlist.js"></script>
-<script src="apply_register/apply_register.js"></script>
+<script src="script/apply_register.js"></script>
 <script src="script/review.js"></script>
 <link rel="stylesheet" href="css/mypage.css?ver=1" />
 

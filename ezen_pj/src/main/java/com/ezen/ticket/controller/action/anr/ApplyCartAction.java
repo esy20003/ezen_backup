@@ -34,11 +34,14 @@ public class ApplyCartAction implements Action {
 			String area=request.getParameter("area");
 			String quantity=request.getParameter("quantity");
 			int result=0;
+			int mseq2=Integer.parseInt(request.getParameter("mseq2"));
 			if(request.getParameter("mseq2")!=null) {
-				int mseq2=Integer.parseInt(request.getParameter("mseq2"));
+				mseq2=Integer.parseInt(request.getParameter("mseq2"));
 				result=cdao.insertCart(mseq,cseq,date,time,area,mseq2,quantity);
+				System.out.println("대리인 선택했어욤 대리인번호:"+mseq2);
 			}else {
 				result=cdao.insertCartMseq2Null(mseq,cseq,date,time,area,quantity);
+				System.out.println("대리인 선택안함!");
 			}
 			System.out.println(result);
 			if(result==1) {
@@ -48,6 +51,7 @@ public class ApplyCartAction implements Action {
 				System.out.println("중복!");
 				request.setAttribute("message", "장바구니에 동일 내역이 존재합니다.");
 			}else {
+				request.setAttribute("message", "오류 발생. 관리자에게 문의바랍니다.");
 				
 				System.out.println("실패,,,우우우,,,,,,,,,,,,,");
 			}
