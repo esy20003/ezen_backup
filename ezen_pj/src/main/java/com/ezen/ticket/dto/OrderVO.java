@@ -9,13 +9,18 @@ public class OrderVO {
 	
 	private int odseq;
 	private int cseq;
+	private String image;
 	private String title;
+	private String artist;
 	private int locationNum;
+	private String locationName;
 	private Timestamp contentDate;
 	private String contentTime;
 	private String area;
 	private int content_price;
 	private int mseq2;
+	private String com_nickname;
+	private String com_grade;
 	private int com_price;
 	private int quantity;
 	private char result;
@@ -23,6 +28,36 @@ public class OrderVO {
 	
 	
 	
+	public String getLocationName() {
+		return locationName;
+	}
+	public void setLocationName(String locationName) {
+		this.locationName = locationName;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getArtist() {
+		return artist;
+	}
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+	public String getCom_nickname() {
+		return com_nickname;
+	}
+	public void setCom_nickname(String com_nickname) {
+		this.com_nickname = com_nickname;
+	}
+	public String getCom_grade() {
+		return com_grade;
+	}
+	public void setCom_grade(String com_grade) {
+		this.com_grade = com_grade;
+	}
 	public int getContent_price() {
 		return content_price;
 	}

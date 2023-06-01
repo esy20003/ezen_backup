@@ -15,19 +15,19 @@
 				<td>대리인</td>
 				<td>가격</td>
 			</tr>
-			<c:forEach items="${orderList}" var="ol">
+			<c:forEach items="${orderDetailList}" var="odl">
 				<tr>
 					<td>
-						<div>${ol.oseq}</div><div>구매날짜 <fmt:formatDate value="${ol.oindate}" pattern="yyyy-MM-dd" /></div>
+						<div>${odl.oseq}</div><div>구매날짜 <fmt:formatDate value="${odl.oindate}" pattern="yyyy-MM-dd" /></div>
 					</td>
 					<td>
-						<div>${ol.title}</div><div>아티스트</div><div>위치, 구역</div><div>날짜 시간</div>
+						<div>${odl.title}</div><div>odl.artist</div><div>${odl.locationName}&nbsp;&nbsp;${odl.area }</div><div>${odl.contentDate}&nbsp;&nbsp;${odl.contentTime}</div>
 					</td>
 					<td>
-						<div>대리인</div><div>대리인 등급</div>
+						<div>${odl.com_nickname }</div><div>${odl.com_grade}</div>
 					</td>
 					<td>
-						<div>수량</div><div>좌석 가격</div><div>커미션비</div><div>총합가격 ${ol.content_price*ol.quantity+ol.com_price}</div>
+						<div>수량 ${odl.quantity }</div><div>좌석 가격 ${odl.content_price }</div><div>커미션비 ${odl.com_price}</div><div>총합가격 ${odl.content_price*odl.quantity+od.com_price}</div>
 					</td>
 				</tr>
 			</c:forEach>

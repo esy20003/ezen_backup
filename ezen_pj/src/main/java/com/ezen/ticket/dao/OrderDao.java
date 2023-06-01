@@ -91,6 +91,41 @@ public class OrderDao {
 		return list;
 	}
 
+	public ArrayList<OrderVO> getOrderDetailList(int mseq, int oseq) {
+
+		ArrayList<OrderVO> list =new ArrayList<OrderVO>();
+		OrderVO ovo=null;
+		con=Dbman.getConnection();
+		String sql="select * from order_view where mseq=? and oseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, mseq);
+			pstmt.setInt(2, oseq);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				ovo=new OrderVO();
+				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setOdindate(rs.getTimestamp("indate"));
+				ovo.setTitle(rs.getString("title"));
+				ovo.setArtist(rs.getString("artist"));
+				ovo.setLocationName(rs.getString("locationName"));
+				ovo.setArea(rs.getString("area"));
+				ovo.setContent_price(rs.getInt("content_price"));
+				ovo.setContentDate(rs.getTimestamp("contentDate"));
+				ovo.setContentTime(rs.getString("contentTime"));
+				ovo.setMseq2(rs.getInt("mseq2"));
+				ovo.setCom_nickname(rs.getString("com_nickname"));
+				ovo.setCom_grade(rs.getString("com_grade"));
+				ovo.setCom_price(rs.getInt("com_price"));
+				ovo.setQuantity(rs.getInt("quantity"));
+				list.add(ovo);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return list;
+	}
+
 
 	
 

@@ -84,6 +84,9 @@
 		</fieldset>
 		<div class="clear"></div>
 		<div id="buttons" style="margin-left: 600px;">
+			<input type="button" value="신청 내역"
+				onClick="location.href='ticket.do?command=orderView'"
+				style="width: 200px; height: 70px; border-radius: 20px; font-size: 40px; font-weight: bold; background: royalblue; color: white; position: absolute; left: 1100px; top: 400px;" />
 			<input type="button" value="대리 내역"
 				onClick="location.href='ticket.do?command=myRegister'"
 				style="width: 200px; height: 70px; border-radius: 20px; font-size: 40px; font-weight: bold; background: royalblue; color: white; position: absolute; left: 1100px; top: 500px;" />
