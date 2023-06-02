@@ -58,6 +58,7 @@ drop SEQUENCE registerTime_rtseq;
 drop SEQUENCE review_reply_repseq;
 drop SEQUENCE success_reply_srseq;
 drop SEQUENCE adminQna_reply_qrseq;
+drop SEQUENCE cart_cartseq;
 ----------------------
 
 
@@ -77,6 +78,7 @@ CREATE SEQUENCE registerTime_rtseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE review_reply_repseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE success_reply_srseq INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE adminQna_reply_qrseq INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE cart_cartseq INCREMENT BY 1 START WITH 1;
 -------------------------------
 
 
@@ -160,6 +162,7 @@ CREATE TABLE admin
 
 CREATE TABLE cart
 (
+	cartseq number(5,0) NOT NULL,
 	mseq number(5,0) NOT NULL,
 	cseq number(10,0) NOT NULL,
 	contentDate date NOT NULL,
@@ -170,7 +173,7 @@ CREATE TABLE cart
 	quantity number(5,0) default 1,
 	indate date DEFAULT sysdate,
 	buyyn char DEFAULT 'N',
-	PRIMARY KEY (mseq, cseq, contentDate, contentTime, locationNum, area)
+	PRIMARY KEY (cartseq, mseq, cseq, contentDate, contentTime, locationNum, area)
 );
 
 

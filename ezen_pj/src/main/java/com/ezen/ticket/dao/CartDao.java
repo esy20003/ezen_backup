@@ -180,7 +180,7 @@ public class CartDao {
 	public int insertCart(int mseq, int cseq, String date, String time, String area, int mseq2, String quantity) {
 		int result = 0;
 		CartVO cvo = null;
-		String sql = "insert into cart(mseq, cseq, contentDate,contentTime,locationNum,area, mseq2, quantity) values(?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?,?)";
+		String sql = "insert into cart(cartseq,mseq, cseq, contentDate,contentTime,locationNum,area, mseq2, quantity) values(cart_cartseq.nextVal,?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?,?)";
 
 		// 여긴 이제 locationNum얻으려고하는 거
 		CartDao cdao = CartDao.getInstance();
@@ -213,7 +213,7 @@ public class CartDao {
 	public int insertCartMseq2Null(int mseq, int cseq, String date, String time, String area, String quantity) {
 		int result = 0;
 		CartVO cvo = null;
-		String sql = "insert into cart(mseq, cseq, contentDate,contentTime,locationNum,area, quantity) values(?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?)";
+		String sql = "insert into cart(cartseq,mseq, cseq, contentDate,contentTime,locationNum,area, quantity) values(cart_cartseq.nextVal,?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?)";
 
 		// 여긴 이제 locationNum얻으려고하는 거
 		CartDao cdao = CartDao.getInstance();

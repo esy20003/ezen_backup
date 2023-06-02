@@ -103,7 +103,6 @@ public class ActionFactory {
 		
 		//anr
 		else if (command.equals("applyAndRegister")) ac = new ApplyAndRegisterAction();
-		else if (command.equals("applyForm")) ac = new ApplyFormAction();
 		else if (command.equals("categorySelect")) ac = new CategorySelectAction();
 		else if (command.equals("applyContentSelect")) ac = new ApplyContentSelectAction();
 		else if (command.equals("applySelectCommissioner")) ac = new ApplySelectCommissionerAction();

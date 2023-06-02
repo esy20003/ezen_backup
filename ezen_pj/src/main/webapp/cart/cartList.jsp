@@ -4,6 +4,7 @@
 <%@ include file="../header.jsp"%>
 
 <div id="cartlistwrap">
+
    <form id="frmcartList" name="frm" method="post">
       <c:choose>
          <c:when test="${ notBuy_cartList.size() == 0 }">
@@ -33,6 +34,45 @@
                         <%!int seq = 1;%>
                         <td><%=seq%></td>
                         <td>${ contentVO.title }</td>
+                        <td>${ contentVO.artist }</td>
+                        <td>${ contentVO.locationname }</td>
+                        <td>${ contentVO.area }</td>
+                        <% seq += 1;%>
+                     </tr>
+                  </c:forEach>
+                  <%
+                  seq = 1;
+                  %>
+               </table>
+               <table class="cartItemList2">
+                  <tr>
+                     <th>번호</th>
+                     <th>일자</th>
+                     <th>시간</th>
+                     <th>총수량</th>
+                     <th>신청날짜</th>
+                     <th>대리인</th>
+                     <th>선택</th>
+                  </tr>
+                  <c:forEach items="${ notBuy_cartList }" var="cartListVO">
+                     <input type="hidden" id="quantity" name="quantity" value="${ cartListVO.quantity }"/>
+                     <input type="hidden" id="contentdate" name="contentdate" value="${ cartListVO.contentdate }"/>
+                     <input type="hidden" id="contenttime" name="contenttime" value="${ cartListVO.contenttime }"/>
+                     <tr>
+                        <td><%=seq%></td>
+                        <%
+                        seq += 1;
+                        %>
+                        <td><fmt:formatDate value="${ cartListVO.contentdate }"
+                              pattern="yyyy-MM-dd" /></td>
+                        <td>${ cartListVO.contenttime }</td>
+                        <td>${ cartListVO.quantity }</td>
+                        <td><fmt:formatDate value="${ cartListVO.indate }"
+                              pattern="yyyy-MM-dd" /></td>
+                        <c:if test="${ cartListVO.mseq2 == 0 }">
+                           <td>선택 안함</td>
+                        </c:if>
+                        <c:forEach items="${ defuty }" end="0" var="defutyVO">
                         <td>${ contentVO.locationname }</td>
                         <td>${ contentVO.area }</td>
                         

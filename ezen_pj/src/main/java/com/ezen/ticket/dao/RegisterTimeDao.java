@@ -67,7 +67,7 @@ public class RegisterTimeDao {
 	}
 
 	//등록한 대리인 정보와 등록 날짜, 시간 불러오는 곳
-	public ArrayList<RegisterTimeVO> getCommissioner(String tDate, int tTime) {
+	public ArrayList<RegisterTimeVO> getCommissioner(int mseq, String tDate, int tTime) {
 		ArrayList<RegisterTimeVO> list=new ArrayList<RegisterTimeVO>();
 		RegisterTimeVO rtvo=null;
 		con=Dbman.getConnection();
@@ -84,13 +84,14 @@ public class RegisterTimeDao {
 				System.out.println("startTime: "+startTime);
 				System.out.println("endTime: "+endTime);
 				
-				sql="select * from commissioner_view where registerDate=? and ?<=? and ?<=? order by success desc";
+				sql="select * from commissioner_view where registerDate=? and ?<=? and ?<=? and mseq!=? order by success desc";
 				pstmt=con.prepareStatement(sql);
 				pstmt.setString(1, tDate);
 				pstmt.setInt(2, startTime);
 				pstmt.setInt(3, tTime);
 				pstmt.setInt(4, tTime);
 				pstmt.setInt(5, endTime);
+				pstmt.setInt(6, mseq);
 				rs=pstmt.executeQuery();
 				while(rs.next()) {
 					rtvo=new RegisterTimeVO();

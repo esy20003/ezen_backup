@@ -89,8 +89,8 @@
 					<div class="priceBox">
 						<div class="totprice p"></div><div class="p css1">=</div><div class="cprice p"></div><div class="p css1">+</div>
 						<c:forEach items="${areaList}" var="al">
-							<div class="tprice p">${al.price}</div>
-							<input type="hidden" id="ticketPriceH" value="${al.price}">
+							<div class="tprice p">${al.price*quantity}</div>
+							<input type="hidden" id="ticketPriceH" value="${al.price*quantity}">
 						</c:forEach>
 					</div>
 				</div>
