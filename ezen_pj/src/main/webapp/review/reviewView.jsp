@@ -63,7 +63,7 @@
 						<td style="line-height:30px;" align="left">&nbsp;${ reply.replycontent }</td>
 						<td style="line-height:30px;">
 							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReply&repseq=${ reply.repseq }&rseq=${ reviewVO.rseq }'">
+								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReplyDelete&repseq=${ reply.repseq }&rseq=${ reviewVO.rseq }'">
 							</c:if>
 							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 						</td>
@@ -72,8 +72,8 @@
 			</table>
 			<table>
 			<tr>
-				<th style="width:60%;">작성자</th>
-				<th style="width:60%;">작성일</th>
+				<th style="width:20%;">작성자</th>
+				<th style="width:20%;">작성일</th>
 				<th style="width:60%;">내용</th>
 			</tr>
 			<tr align="center">
@@ -87,7 +87,7 @@
 			<div class="rev_btn_box btn_box" style="float: left">
 				<input type="button" value="메인으로" class="cancel" onClick="location.href='ticket.do?command=index'">
 			</div>
-			
+			 
 			<!--  리뷰 수정box -->
 			<div id="buttons" class="rev_btn_box btn_box" style="float: right">
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
