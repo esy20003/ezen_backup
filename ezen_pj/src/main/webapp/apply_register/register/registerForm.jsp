@@ -143,11 +143,11 @@ form { margin: 0 auto; }
 .registerBox {margin: 20px; padding: 20px; background-color: #EEEEEE; border-radius: 5px;
 text-align : center;}
 
-.registerDate {width: 100%; border-collapse: collapse; margin-bottom: 20px;}
+.registerDate {width: 100%; border-collapse: collapse; margin-bottom: 20px; }
 
-.tableHead th {background-color: #FFA5A5; color: #fff; padding: 10px;}
+.datetime_tit {background-color: #FFA5A5; color: #fff; padding: 10px; color: #000;}
 
-.datetimeBox { display: flex; align-items: center; justify-content: center; margin: 0 600px; }
+.datetimeBox {  align-items: center; justify-content: center; }
 
 .datetimeBox input[type="date"], .datetimeBox input[type="text"] { margin: 0 5px; }
 
@@ -168,10 +168,11 @@ border-radius: 5px; cursor: pointer; font-weight: bold;}
 
 #output li label {float:none;}
 
-.deleteButton {margin-left: 10px; padding: 5px 10px; background-color: #f44336; color: #fff;
+.deleteButton {margin-left: 10px; padding: 5px 10px; background-color: #f44336; color: #000;
  border: none; border-radius: 5px; cursor: pointer;}
 
 input[type="date"]::-webkit-calendar-picker-indicator {background-color: #f44336;}
+.registerDate .date{background-color: #fff;}
 </style>
 
 <form method="post" name="registerForm" style="margin: 0 auto;" encType="UTF-8">
@@ -179,24 +180,22 @@ input[type="date"]::-webkit-calendar-picker-indicator {background-color: #f44336
 
     <section name="registerBody" id="bodyBox_register">
         <div class="registerBox" name="registerBoxform">
-            <table class="registerDate" name="registerDate">
-                <tr class="tableHead">
-                    <th><h1>날짜와 시간</h1></th>
-                </tr>
-                <tr>
-                <td class="datetime">
+            <div class="registerDate" name="registerDate">
+                <div class="datetime">
+                   <h1 class="datetime_tit">날짜와 시간</h1>
                     <div class="datetimeBox">
                         <input type="date" name="date" id="date">
                         <input type="text" id="starttime" name="starttime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/> ~
                         <input type="text" id="endtime" name="endtime" class="timeBox" onKeyup="inputTimeColon(this);" placeholder="HH:MM" maxlength="5"/>
                     </div>
-                </td>
-                </tr>
-            </table>
+                </div>
+            </div>
             <ul id="output"></ul>
-            <button type="button" id="addButton" onclick="addTime()">추가</button>
-            <input type="submit" id="submit_Button" value="저장" onClick="gotime()">
-        </div>
+			<div class="btn_box">
+				<button type="button" id="addButton" onclick="addTime()">추가</button>
+				<input type="submit" id="submit_Button" value="저장" onClick="gotime()">
+			</div>
+		</div>
     </section>
 </form>
 

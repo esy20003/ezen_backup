@@ -60,6 +60,8 @@ import com.ezen.ticket.controller.action.review.ReviewViewAction;
 import com.ezen.ticket.controller.action.review.ReviewViewNoCountAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteFormAction;
+import com.ezen.ticket.controller.action.success.SuccessListAction;
+import com.ezen.ticket.controller.action.success.SuccessViewAction;
 
 
 public class ActionFactory {
@@ -156,6 +158,9 @@ public class ActionFactory {
 		else if(command.equals("orderView")) ac = new OrderViewAction();
 		else if(command.equals("orderDetail")) ac = new OrderDetailAction();
 		
+		//success
+		else if(command.equals("successList")) ac = new SuccessListAction();
+		else if(command.equals("successView")) ac = new SuccessViewAction();
 		
 		//System.out.println("33 "+ command);
 		return ac;

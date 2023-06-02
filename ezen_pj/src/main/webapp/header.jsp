@@ -140,7 +140,7 @@ $(function(){
                         </ul></li>
                      <li><a
                         href="ticket.do?command=applyAndRegister">신청/등록</a></li>
-                     <li><a href="ticket.do?command=successHistoryForm">성공내역</a></li>
+                     <li><a href="ticket.do?command=successList">성공내역</a></li>
                      <li><a href="ticket.do?command=reviewList">후기</a></li>
                   </ul>
                </nav>
