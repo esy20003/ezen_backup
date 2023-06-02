@@ -27,6 +27,9 @@ public class ReviewDeleteAction implements Action {
 			System.out.println("들어오냐?" + rseq);
 			ReviewDao rdao = ReviewDao.getInstance();
 			rdao.deleteReview(rseq);
+			
+			// 리뷰를 삭제하면 리뷸에 달린 댓글도 같이 삭제
+			rdao.deleteReplyByrseq(rseq);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 		
