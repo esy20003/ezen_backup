@@ -82,6 +82,9 @@
                             non_Click1.forEach((e) => {
                                 e.addEventListener("click", handleClick2);
                             });
+                            
+                            
+                            
                         </script>
 					</div>
 				</div>
@@ -110,8 +113,13 @@
 						<input class="button1" type="button" value="장바구니" onclick="insertCart()">
 					</div>
 					<div class=buttonSmallBox>
-						<input class="button1" type="button" value="다시 선택" onclick="refresh()">
+						<input class="button1" class="refreshBtn" type="button" value="다시 선택" onclick="refresh()">
 					</div>
+					
+					<script>
+					
+					</script>
+					
 			</div>
 		</div>
 	</section>

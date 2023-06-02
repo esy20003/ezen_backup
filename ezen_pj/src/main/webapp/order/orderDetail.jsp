@@ -18,10 +18,11 @@
 			<c:forEach items="${orderDetailList}" var="odl">
 				<tr>
 					<td>
-						<div>${odl.oseq}</div><div>구매날짜 <fmt:formatDate value="${odl.oindate}" pattern="yyyy-MM-dd" /></div>
+						<div>${odl.oseq}</div><div>구매날짜 <fmt:formatDate value="${odl.odindate}" pattern="yyyy-MM-dd" /></div>
 					</td>
 					<td>
-						<div>${odl.title}</div><div>odl.artist</div><div>${odl.locationName}&nbsp;&nbsp;${odl.area }</div><div>${odl.contentDate}&nbsp;&nbsp;${odl.contentTime}</div>
+						<div>${odl.title}</div><div>odl.artist</div><div>${odl.locationName}&nbsp;&nbsp;${odl.area }</div>
+						<div><fmt:formatDate value="${odl.contentDate}" pattern="yyyy-MM-dd" />&nbsp;&nbsp;${odl.contentTime}</div>
 					</td>
 					<td>
 						<div>${odl.com_nickname }</div><div>${odl.com_grade}</div>

@@ -25,8 +25,7 @@ insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,2,6);
 insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,3,10);
 insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,4,7);
 
-delete from orders;
-alter table orders add cseq number(5,0) not null;
+delete from order_detail;
 
 select * from order_view;
 select * from orders;

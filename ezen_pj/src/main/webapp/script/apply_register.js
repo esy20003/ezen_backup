@@ -166,6 +166,12 @@ function insertCart(){
 
 
 function refresh(){
+	var clickedLi = document.querySelector('.liclick_com.click');
+
+  // 배경색을 원래대로 돌립니다.
+  if (clickedLi) {
+    clickedLi.classList.remove('click');
+  }
 	sessionStorage.removeItem('selectedCom');
 }
 

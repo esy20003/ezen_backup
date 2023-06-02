@@ -15,6 +15,7 @@
 	<div>${message}</div>
 	<input type="button" onclick="opener.location.href='ticket.do?command=cartList';self.close()" value="장바구니로 이동">
 	<input type="button" onclick="opener.location.href='ticket.do?command=index';self.close()" value="메인으로">
+	<input type="button" onclick="self.close()" value="닫기">
 	
 </div>
 </form>
