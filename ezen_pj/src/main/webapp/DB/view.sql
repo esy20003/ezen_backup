@@ -126,8 +126,13 @@ commit
 select * from review_reply_member;
 
 
+-- success_reply , member view
+-- member테이블과 success_reply 테이블에서 mseq 가 일치하면 
+-- success_reply 테이블에서는 모든 내용을, member 테이블에서는 id 를 가져오겠다
+create or replace view success_reply_member as select s.*, m.id from success_reply s, member m where s.mseq = m.mseq;
 
-
+commit
+select * from success_reply_member;
 
 
 
