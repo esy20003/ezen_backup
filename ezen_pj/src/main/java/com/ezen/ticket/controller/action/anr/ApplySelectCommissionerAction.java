@@ -74,7 +74,7 @@ public class ApplySelectCommissionerAction implements Action {
 		request.setAttribute("date", date); //이건 다음페이지 콘텐츠용
 		request.setAttribute("time", request.getParameter("time"));//이건 다음페이지 콘텐츠용
 		request.setAttribute("areaList", list2); //위치명, area, 가격, 좌석배치도
-		request.setAttribute("quantity", request.getParameter("quantity")); //수량
+		request.setAttribute("quantity", Integer.parseInt(request.getParameter("quantity"))); //수량
 		request.setAttribute("comList", commissionerList);//대리인 리스트~!
 		
 		request.getRequestDispatcher(url).forward(request, response);
