@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezen.ticket.dto.ReviewReplyVO;
+import com.ezen.ticket.dto.ReviewVO;
 import com.ezen.ticket.dto.SuccessReplyVO;
 import com.ezen.ticket.dto.SuccessVO;
 import com.ezen.ticket.util.Dbman;
@@ -141,6 +142,31 @@ public class SuccessDao {
 		} finally {Dbman.close(con, pstmt, rs);
 		}
 		return list;
+	}
+
+	public SuccessVO getSuccess(int sucseq) {
+		SuccessVO svo = new SuccessVO();
+		con = Dbman.getConnection();
+		String sql ="select * from success_board where sucseq=?";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sucseq);
+			rs = pstmt.executeQuery();
+			if(rs.next() ) {
+				svo.setSucseq(sucseq);
+				svo.setId(rs.getString("id"));
+				svo.setPwd(rs.getString("pwd"));
+				svo.setTitle(rs.getString("title"));
+				svo.setIndate(rs.getTimestamp("indate"));
+				svo.setContent(rs.getString("content"));
+				svo.setReply(rs.getString("reply"));
+				svo.setRepyn(rs.getString("repyn").charAt(0));
+				svo.setImage(rs.getString("image"));
+			}
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		return svo;
 	}
 	
 }
