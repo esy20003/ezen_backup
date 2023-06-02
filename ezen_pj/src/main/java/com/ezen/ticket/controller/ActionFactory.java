@@ -62,6 +62,7 @@ import com.ezen.ticket.controller.action.review.ReviewWriteAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteFormAction;
 import com.ezen.ticket.controller.action.success.SuccessListAction;
 import com.ezen.ticket.controller.action.success.SuccessViewAction;
+import com.ezen.ticket.controller.action.success.SuccessWriteFormAction;
 
 
 public class ActionFactory {
@@ -162,6 +163,7 @@ public class ActionFactory {
 		//success
 		else if(command.equals("successList")) ac = new SuccessListAction();
 		else if(command.equals("successView")) ac = new SuccessViewAction();
+		else if(command.equals("successWriteForm")) ac = new SuccessWriteFormAction();
 		
 		//System.out.println("33 "+ command);
 		return ac;
