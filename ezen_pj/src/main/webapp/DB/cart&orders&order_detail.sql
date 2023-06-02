@@ -8,7 +8,8 @@ alter table cart modify mseq2 number(5,0) default 0;
 select * from member_grade_view where cmseq=0;
 select * from order_view
 
-alter table cart add cartseq number(5,0) not null;
+alter table cart drop primary key;
+alter table cart add PRIMARY KEY (cartseq, mseq, cseq, contentDate, contentTime, locationNum, area, mseq2);
 
 insert into cart(cartseq, mseq, cseq, CONTENTDATE,contentTime, locationNum, area) 
 values(cart_cartseq.nextVal,7,11, to_date('20230528','yyyy-mm-dd'),'14:00',12,'테이블석');
@@ -27,6 +28,7 @@ insert into orders(oseq,mseq,cseq) values(orders_oseq.nextVal,4,7);
 delete from orders;
 alter table orders add cseq number(5,0) not null;
 
+select * from order_view;
 select * from orders;
 select * from member;
 select * from content;
