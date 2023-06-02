@@ -23,9 +23,9 @@ public class ReviewReplyDeleteAction implements Action {
 			ReviewDao rdao = ReviewDao.getInstance();
 			rdao.deleteReviewReply(repseq); // rdao에서 댓글번호를 넣어서 댓글 delete 를 진행
 
-			String irl ="ticket.do?command=reviewViewNoCount&rseq=" + rseq;
+			String url ="ticket.do?command=reviewViewNoCount&rseq=" + rseq;
 
-			request.getRequestDispatcher(irl).forward(request, response);
+			request.getRequestDispatcher(url).forward(request, response);
 		
 
 	}
