@@ -30,6 +30,10 @@
 					</td>
 				</tr>
 				<tr>
+					<th>조회수</th>
+					<td>${ reviewVO.readcount }</td>
+				</tr>
+				<tr>
 					<th>내용</th>
 					<td align="left">
 						<textarea cols="" rows="10" readonly="readonly" >${reviewVO.content}</textarea>
@@ -63,10 +67,8 @@
 							</c:if>
 							
 							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="수정" onclick="location.href='ticket.do?command=reviewReplyEditForm&repseq=${ reply.repseq }&rseq=${ reviewVO.rseq }'">
+								<input type="button" value="수정" onclick="go_rep_edit(${ reviewVO.rseq } , ${ reply.repseq })">
 							</c:if>
-							
-							
 							&nbsp;
 							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 						</td>

@@ -11,7 +11,16 @@ public class ReviewVO {
 	private String reply;
 	private String repyn;
 	private String image;
+	private int readcount;
 	
+	
+	
+	public int getReadcount() {
+		return readcount;
+	}
+	public void setReadcount(int readcount) {
+		this.readcount = readcount;
+	}
 	public int getRseq() {
 		return rseq;
 	}
