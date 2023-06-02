@@ -66,7 +66,7 @@ public class ApplySelectCommissionerAction implements Action {
 		}
 		// Date타입의 변수를 새롭게 지정한 포맷으로 변환
 		
-		ArrayList<RegisterTimeVO> commissionerList=rtdao.getCommissioner(tDate, tTime);
+		ArrayList<RegisterTimeVO> commissionerList=rtdao.getCommissioner(mvo.getMseq(),tDate, tTime);
 
 		String date=request.getParameter("date").substring(0, 10);
 		System.out.println("date:"+date);
