@@ -23,16 +23,18 @@
 <div id="mypage_box">
 	<h2>나의 정보</h2>
 	<form method="post" name="mypageForm" id="mypageactionFrm">
-		<h2 id="legend">${ loginUser.mseq }번 ${ loginUser.name }회원님의 정보</h2>
+		<h2 id="legend">${ loginUser.mseq }번${ loginUser.name }회원님의 정보</h2>
 		<fieldset id="mypagefield">
 
 			<!-- id는 수정 대상이 아니면서, submit 할 떄 전송될 대상이므로, input type="text"로 하되 readonly로 설정해서
           수정을 금지시킴  -->
 			<label id="id">나의 아이디</label> <input type="text" class="myid"
-				name="id" value="${ loginUser.id }" readonly> <br /> <label>이름</label>
-			<input type="text" name="name" value="${ loginUser.name }" readonly />
-			<br /> <label>닉네임</label> <input type="text" name="nickname"
-				value="${ loginUser.nickname }" readonly> <br /> <label>성별</label>
+				name="id" value="${ loginUser.id }" style="height: 45px;" readonly>
+			<br /> <label>이름</label> <input type="text" name="name"
+				value="${ loginUser.name }" style="height: 45px;" readonly /> <br />
+			<label>닉네임</label> <input type="text" name="nickname"
+				value="${ loginUser.nickname }" style="height: 45px;" readonly>
+			<br /> <label>성별</label>
 			<c:choose>
 				<c:when test="${ loginUser.gender == 1 }">
 					<input type="text" name="gender" value="남" readonly />

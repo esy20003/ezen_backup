@@ -33,7 +33,7 @@
 						<td style="height:100px; line-height:20px; font-size: 15px; font-weight: bold; text-align: left; border: 1px solid black;">${ contentVO.content }</td>
 						<td><br/><br/>${ contentVO.age }</td>
 						<td><br/><br/><fmt:parseDate value="${ contentVO.tDateTime }"
-								var="tdatetime" pattern="yyyyMMddHHmm" /> <fmt:formatDate
+								var="tdatetime" pattern="yyyyMMddHHmmss" /> <fmt:formatDate
 								value="${ tdatetime }" pattern="yyyy-MM-dd HH:mm" /></td>
 					</tr>
 				</table>
