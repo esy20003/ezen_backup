@@ -13,8 +13,15 @@ public class SuccessVO {
    private String reply;
    private char repyn;
    private String image;
+   private int readcount;
    
-   public int getSucseq() {
+   public int getReadcount() {
+	return readcount;
+}
+public void setReadcount(int readcount) {
+	this.readcount = readcount;
+}
+public int getSucseq() {
       return sucseq;
    }
    public void setSucseq(int sucseq) {

@@ -68,7 +68,10 @@ values(review_board_rseq.nextval, 10, '뮤지컬 성공후기', '뮤덕이라 �
 insert into review_board(rseq, mseq, title, content, id,pwd)
 values(review_board_rseq.nextval, 11, '연극 환상동화 후기', '진짜 너무너무 기뻐요 ㅠㅠ 제가 이런 자리 가도 되는 걸까요 ㅠㅠ 진짜 너무너무 행복합니다 다음에 또 오겠습니다 ㅠㅠ','nomoney','1234');
 
+
+select * from success_reply_member;
 --success
+alter table success_board add readCount number(5) default 0;
 insert into success_board(sucseq, mseq, id,pwd, title, content) 
 values(success_board_sucseq.nextVal, 3, 'gangji', '1234',
 '임영웅 전국투어-서울 성공내역1',

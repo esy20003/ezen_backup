@@ -42,6 +42,7 @@ public class SuccessDao {
 				svo.setReply(rs.getString("reply"));
 				svo.setRepyn(rs.getString("repyn").charAt(0));
 				svo.setImage(rs.getString("image"));
+				svo.setReadcount(rs.getInt("readcount"));
 				list.add(svo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
@@ -93,7 +94,7 @@ public class SuccessDao {
 				svo.setReply(rs.getString("reply"));
 				svo.setRepyn(rs.getString("repyn").charAt(0));
 				svo.setImage(rs.getString("image"));
-
+				svo.setReadcount(rs.getInt("readcount"));
 				list.add(svo);
 			}
 
@@ -163,10 +164,113 @@ public class SuccessDao {
 				svo.setReply(rs.getString("reply"));
 				svo.setRepyn(rs.getString("repyn").charAt(0));
 				svo.setImage(rs.getString("image"));
+				svo.setReadcount(rs.getInt("readcount"));
 			}
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);}
 		return svo;
 	}
+
+	public void insertSuccess(SuccessVO svo) {
+		con = Dbman.getConnection();
+		String sql="insert into success_board(sucseq, mseq, id, pwd, title, content, image) "
+				+ " values(success_board_sucseq.nextVal, member_mseq.nextVal, ?, ?, ?, ?, ?)";
+
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, svo.getId());
+			pstmt.setString(2, svo.getPwd());
+			pstmt.setString(3, svo.getTitle());
+			pstmt.setString(4, svo.getContent());
+			pstmt.setString(5, svo.getImage());
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) { e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);
+		}
+	}
+
+	public void updateSuccess(SuccessVO svo) {
+		
+		String sql ="update success_board set title=?, content=?, image=? where sucseq=?";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, svo.getTitle());
+			pstmt.setString(2, svo.getContent());
+			pstmt.setString(3, svo.getImage());
+			pstmt.setInt(4, svo.getSucseq());
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);
+		}
+		
+	}
+
+	public void deleteSuccess(int sucseq) {
+		con = Dbman.getConnection();
+		String sql ="delete success_board where sucseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sucseq);
+			pstmt.executeUpdate();
+
+		} catch (SQLException e) {e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);
+		}
+		
+	}
+
+	public void insertReply(SuccessReplyVO svo) {
+		//댓글번호 //리뷰번호 //멤버번호 
+				String sql ="insert into success_reply(scseq, sseq , mseq, replycontent) values("
+						+ " reply_seq.nextVal, ?, ? ,?)";
+
+				con = Dbman.getConnection();
+				try {
+					System.out.println("insertReply" + svo.getSseq());
+					System.out.println("insertReply" +  svo.getMseq());
+					System.out.println("insertReply" + svo.getReplycontent());
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, svo.getSseq());
+					pstmt.setInt(2, svo.getMseq());
+					pstmt.setString(3, svo.getReplycontent());
+
+					pstmt.executeUpdate();
+				} catch (SQLException e) { e.printStackTrace();
+				} finally {Dbman.close(con, pstmt, rs);}
+
+			}
+	// 리뷰 삭제 시 해당 리뷰 댓글도 삭제
+	public void deleteReplyBysseq(int sseq) {
+		
+		con = Dbman.getConnection();
+		String sql ="delete success_reply where sseq =?";
+		
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sseq);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+	}
+
+	public void deleteReviewReply(int scseq) {
+		con = Dbman.getConnection();
+		String sql ="delete from success_reply where scseq=?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, scseq);
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);
+		}
+		
+	}
+		
+	}
 	
-}
+

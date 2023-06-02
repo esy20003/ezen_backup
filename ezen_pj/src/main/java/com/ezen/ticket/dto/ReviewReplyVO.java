@@ -4,9 +4,9 @@ import java.sql.Timestamp;
 
 public class ReviewReplyVO {
 
-	private int repseq; // review_board번호
+	private int repseq; // 댓글번호
 	private int mseq; // member_sequence/ 번호
-	private int rseq; // 댓글번호
+	private int rseq; // 리뷰번호
 	private String id;
 	private String replycontent;
 	private Timestamp writedate;

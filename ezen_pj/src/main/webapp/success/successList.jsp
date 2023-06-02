@@ -28,8 +28,8 @@
 						</td>
 						<td>
 							<c:choose>
-								<c:when test="${successVO.repyn=='N' }">no</c:when>
-								<c:when test="${successVO.repyn=='Y' }">yes</c:when>
+								<c:when test="${successVO.repyn==N }">no</c:when>
+								<c:when test="${successVO.repyn==Y }">yes</c:when>
 							</c:choose>
 						</td>
 					</tr>

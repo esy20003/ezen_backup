@@ -61,8 +61,15 @@ import com.ezen.ticket.controller.action.review.ReviewViewAction;
 import com.ezen.ticket.controller.action.review.ReviewViewNoCountAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteFormAction;
+import com.ezen.ticket.controller.action.success.SuccessDeleteAction;
+import com.ezen.ticket.controller.action.success.SuccessEditAction;
+import com.ezen.ticket.controller.action.success.SuccessEditFormAction;
 import com.ezen.ticket.controller.action.success.SuccessListAction;
+import com.ezen.ticket.controller.action.success.SuccessReplyAction;
+import com.ezen.ticket.controller.action.success.SuccessReplyDeleteAction;
 import com.ezen.ticket.controller.action.success.SuccessViewAction;
+import com.ezen.ticket.controller.action.success.SuccessViewNoCountAction;
+import com.ezen.ticket.controller.action.success.SuccessWriteAction;
 import com.ezen.ticket.controller.action.success.SuccessWriteFormAction;
 
 
@@ -164,6 +171,14 @@ public class ActionFactory {
 		else if(command.equals("successList")) ac = new SuccessListAction();
 		else if(command.equals("successView")) ac = new SuccessViewAction();
 		else if(command.equals("successWriteForm")) ac = new SuccessWriteFormAction();
+		else if(command.equals("successWrite")) ac = new SuccessWriteAction();
+		else if(command.equals("successEditForm")) ac = new SuccessEditFormAction();
+		else if(command.equals("successEdit")) ac = new SuccessEditAction();
+		else if(command.equals("successDelete")) ac = new SuccessDeleteAction();
+		//success 댓글
+		else if(command.equals("successReply")) ac = new SuccessReplyAction();
+		else if(command.equals("successViewNoCount")) ac = new SuccessViewNoCountAction();
+		else if(command.equals("successReplyDelete")) ac = new SuccessReplyDeleteAction();
 		
 		//System.out.println("33 "+ command);
 		return ac;
