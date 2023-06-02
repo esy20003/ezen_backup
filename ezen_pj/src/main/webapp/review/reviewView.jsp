@@ -48,8 +48,8 @@
 			<c:set var="now" value="<%=new java.util.Date()%>" />
 			<table class="reply_box">
 				<tr style="height:30px; border-bottom:1px solid #ddd;">
-					<th style="width:20%;">댓글 작성자</th>
-					<th style="width:20%; border-right:1px solid #ddd; border-left:1px solid #ddd;">작성일</th>
+					<th style="width:15%;">댓글 작성자</th>
+					<th style="width:15%; border-right:1px solid #ddd; border-left:1px solid #ddd;">작성일</th>
 					<th style="width:60%;">댓글내용</th>
 				</tr>
 				<c:forEach items="${ replyList }" var="reply">
@@ -57,22 +57,28 @@
 						<td style="line-height:30px;">${ reply.id }</td>
 						<td style="line-height:30px; border-right:1px solid #ddd; border-left:1px solid #ddd;" ><fmt:formatDate value="${ reply.writedate }" pattern="MM/dd HH:mm" /></td>
 						<td style="line-height:30px;" align="left">&nbsp;${ reply.replycontent }</td>
-						<td style="line-height:30px;">
+						<td class="btn_del" style="line-height:0;">
 							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReply&replynum=${ reply.repseq }&replyrseq=${ reviewVO.rseq }'">
+								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReplyDelete&repseq=${ reply.repseq }&rseq=${ reviewVO.rseq }'">
 							</c:if>
+							
+							<c:if test="${ reply.id == loginUser.id }">
+								<input type="button" value="수정" onclick="location.href='ticket.do?command=reviewReplyEditForm&repseq=${ reply.repseq }&rseq=${ reviewVO.rseq }'">
+							</c:if>
+							
+							
 							&nbsp;
 							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
-			<table>
+			<table class="new_reply_box">
 			<tr>
-				<th width="100">작성자</th>
-				<th width="100">작성일</th>
-				<th>내용</th>
-				<th width="100">추가</th>
+				<th style="width:15%;">작성자</th>
+				<th style="width:15%;">작성일</th>
+				<th style="width:70%;">내용</th>
+				<th width="">추가</th>
 			</tr>
 			<tr align="center">
 				<td>${ loginUser.id }<input type="hidden" name="id" value="${ loginUser.id }"></td>
@@ -91,7 +97,7 @@
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
 				<c:if test="${ reviewVO.id == loginUser.id }">
 					<input type="button" value="수정하기" class="review_update_btn" onclick="go_upd('${ reviewVO.rseq}')">
-				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 글만 수정할  수수 있게 버튼을표시  -->
+				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 글만 수정할 수 있게 버튼을표시  -->
 			</div>
 		</form>
 	</div>
