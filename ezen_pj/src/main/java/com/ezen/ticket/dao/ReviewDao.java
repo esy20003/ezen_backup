@@ -45,6 +45,7 @@ public class ReviewDao {
 				rvo.setReply(rs.getString("reply"));
 				rvo.setRepyn(rs.getString("repyn"));
 				rvo.setImage(rs.getString("image"));
+				rvo.setReadcount(rs.getInt("readcount"));
 
 				list.add(rvo);
 			}
@@ -92,6 +93,7 @@ public class ReviewDao {
 				rvo.setReply(rs.getString("reply"));
 				rvo.setRepyn(rs.getString("repyn"));
 				rvo.setImage(rs.getString("image"));
+				rvo.setReadcount(rs.getInt("readcount"));
 			}
 		} catch (SQLException e) {e.printStackTrace();
 		} finally {Dbman.close(con, pstmt, rs);}

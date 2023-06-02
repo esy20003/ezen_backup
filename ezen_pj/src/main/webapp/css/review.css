@@ -23,7 +23,7 @@
 .review_view_table th {width:15%; vertical-align: middle; border-right:1px solid #ddd; border-bottom:1px solid #ddd;}
 .review_view_table td {border-bottom:1px solid #ddd; height:40px; line-height:40px; text-align: left; padding-left:10px;}
 .review_view_table td textarea {padding:10px; box-sizing:border-box;width:100%; resize: none;height:250px; resize: none;}
-.review_view_table tbody tr:nth-child(5) td {padding-left:0;}
+/* .review_view_table tbody tr:nth-child(5) td {padding-left:0;} */
 
 /*  review_write  */
 #review_box .review_content .review_form table th {width:15%; vertical-align: middle; padding:0;}
