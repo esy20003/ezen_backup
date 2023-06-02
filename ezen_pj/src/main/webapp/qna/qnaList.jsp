@@ -5,20 +5,20 @@
 
 <article>
 
-<h2> 고객 게시판 </h2><br><br>
-<h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3><br><br>
+<h2 class= "h21"> 고객 게시판 </h2><br><br>
+<h3> ● 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3><br><br>
 <form name="formm" method="post">
 <table id="cartList">
-	<tr><th>번호</th><th>제목</th><th>등록일</th><th>작성자</th><th>답변여부</th><th>조회수</th></tr>
+	<tr class="tr1"><th>번호</th><th>제목</th><th>작성자</th><th>답변여부</th><th>등록일</th><th>조회수</th></tr>
 	<c:forEach items="${qnaList}" var="QnaVO">
 		<tr><td>${QnaVO.qseq}</td>
 		<td><a href="ticket.do?command=qnaView&qseq=${QnaVO.qseq}">${QnaVO.title}</a>
-		<td><fmt:formatDate value="${QnaVO.indate}" type="date"/></td>
 		<td>${QnaVO.id}</td>
 		<td><c:choose>
 			<c:when test="${QnaVO.repyn=='N' }">N</c:when>
 			<c:when test="${QnaVO.repyn=='Y' }">Y</c:when>
 		</c:choose>
+		<td><fmt:formatDate value="${QnaVO.indate}" type="date"/></td>
 		<td>${QnaVO.readcount}</td>
 		
 		</tr>

@@ -14,7 +14,7 @@
 <script src="script/qna.js"></script>
 </head>
 <article>
-<h2> 고객 게시판 </h2> <br><br> <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3><br><br>
+<h2> 고객 게시판 </h2> <br><br> <h3> ● 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3><br><br>
 <form>
 
 <table class="qna_view_table">
@@ -29,13 +29,15 @@
 	<tr><th>조회수</th><td>${QnaVO.readcount}</td></tr>
 	
 </table>
+<div class="button23">
 	<input type="button" value="돌아가기"
 				onClick="location.href='ticket.do?command=qnaList'"> 
 		<input type="button" value="수정 "
 				onClick="checkPass('${QnaVO.qseq}' ,  'update');"> 
-		<input	type="button" value="삭제 "
+		<input type="button" value="삭제 "
 				onClick="checkPass('${QnaVO.qseq}' ,  'delete');"> <br>
 		<br>
+		</div>
 		
 <c:set var="now" value="<%=new java.util.Date()%>" />
 
@@ -43,18 +45,18 @@
 			<input type="hidden" name="command" value="AddReply" /> <input
 				type="hidden" name="qnanum" value="${QnaVO.qseq}" />
 			<table>
-				<tr>
-					<th width="100">작성자</th>
+				<tr class= "reply22">
+					<!-- <th width="100">작성자</th>-->
 					<th width="100">작성일시</th>
 					<th>내용</th>
-					<th width="100">추가/삭제</th>
+					<th width="100">추가</th>
 				</tr>
 
-				<tr align="center">
-					<td>${loginUser.id}<input type="hidden" name="id"
-						value="${loginUser.id}"></td>
+				<tr class= "reply23" align="center">
+					<!-- <td>${loginUser.id}<input type="hidden" name="id"
+						value="${loginUser.id}"></td>-->
 					<td><fmt:formatDate value="${now}" pattern="MM/dd HH:mm" /></td>
-					<td><input type="text" name="reply" size="100" ></td>
+					<td><input class="reply1" type="text" name="reply" size="110" ></td>
 					<td><input type="submit" value="답글 작성"
 						onClick="return reply_check();"></td>
 				</tr>
@@ -77,7 +79,7 @@
 
 	
 		<div class="clear"></div>
-<div id="buttons" style="float:right">
+<div class="cancel1" id="buttons" style="float:right">
 	<input type="button" value="메인화면으로 돌아가기" class="cancel" style="color:black" onclick="location.href='ticket.do?command=index'">
 </div>
 </form>

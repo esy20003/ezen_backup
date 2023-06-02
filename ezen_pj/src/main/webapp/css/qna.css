@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-h2{ display: inline-block;
+h2{ 
 
 border-color:#ffbb00;
 
@@ -77,12 +77,12 @@ a:hover {   color: #F90;    text-decoration: underline; }
 article h1, div h1 {   font-family: Verdana;    font-size: 45px; color: #6F0C78;   margin: 20px 0;   
       font-weight: normal; }
 article {   margin: 0 auto !important;   width: 1000px;   padding-right: 10px;   font-family: Verdana; font-size: 1em;   
-      line-height: 1.5em; }
+     }
 
 
 form {   margin: 10px 0 0 0;   width: 100%;}
-form fieldset {   padding: 10px 0 20px 5px;   border: none;}
-form fieldset legend {   font-size: 20px;   border-bottom: 1px dotted #666;   width: 600px;   padding: 5px 0; }
+form fieldset {   padding: 10px 0 20px 5px;   border: none; }
+form fieldset legend {   font-size: 20px;   border-bottom: 1px dotted #666;   width: 1000px;   padding: 5px 0; }
 
 form label {    width: 140px;    float: left;    margin: 5px 0; }
 form input {   margin: 5px 0;    border: 1px solid #999;    background-color: #FCFDEA; }
@@ -100,14 +100,14 @@ body{overflow-x:hidden; }
 table#zipcode{border-collapse:collapse; border-top:3px solid #6F0C78;   border-bottom:3px solid #6F0C78;
       margin-top:15px; width:100%; font-size:110%;}
 table#zipcode th, table#zipcode td{text-align:center; border-bottom: 1px dotted  #6F0C78;}
-table th, td{  padding: 5px;}
+table th, td{  padding: 10px;}
 table#zipcode  a{display:block; height:20px; text-decoration:none; padding:10px;}
 table#zipcode a:hover{font-weight: bold;}
 
 
 #itemdetail  img { width: 300px;      margin-right: 20px;  }
 
-table#cartList {background: #fcfcfc; border-collapse: collapse;   border-top: 2px solid #ff0000;   border-bottom: 2px solid red; 
+table#cartList {border-collapse: collapse;   border-top: 2px solid #ff0000;   border-bottom: 2px solid red; 
       width: 100%; margin-bottom: 30px; line-height: 2; border:1px solid #c0c0c0;}
 table#cartList th, td {   border-bottom: 1px dotted #333;  text-align: center; }   
 table#cartList tr, td {  text-align: center; }  
@@ -122,24 +122,26 @@ table#cartList tr, td {  text-align: center; }
 .qna_view_table tbody tr:nth-child(5) td {padding-left:0;}
 
 
+.h21 {margin: 10px 0; text-align: center; background: none;}
+.tr1 {background:  #fcf7f7;}
+.h31    {padding-top: 20px;
+    padding-bottom: 20px;}
+.title1 { height: 30px; background: white;}
+.reply1 { height: 30px; background: white; }
+.cancel1 {padding-top: 20px;
+    padding-bottom: 20px;}
+.button23 {padding-top: 20px;
+    padding-bottom: 20px; margin-left: 830px;}
+.reply22 {border: 1px solid #ddd;}
+.reply23 {border: 1px solid #ddd;}
 
+.write1 {padding-top: 20px;
+    padding-bottom: 20px;}
 
+.write2 {height: 25px; background: white; width: 150px;}
+.write3 {height: 30px; background: white; width: 510px; font-size:110%}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.write4 {height: 400px; background: white; width: 510px; font-size:130%}
 
 
 
