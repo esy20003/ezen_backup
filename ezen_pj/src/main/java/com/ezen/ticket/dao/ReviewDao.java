@@ -170,8 +170,8 @@ public class ReviewDao {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rseq);
 			rs = pstmt.executeQuery();
-			ReviewReplyVO rvo = new ReviewReplyVO();
 			while(rs.next() ) {
+				ReviewReplyVO rvo = new ReviewReplyVO();
 				rvo.setRepseq(rs.getInt("repseq"));
 				rvo.setRseq(rs.getInt("rseq"));
 				//			rvo.setId(rs.getString("id"));
