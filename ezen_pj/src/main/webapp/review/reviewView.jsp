@@ -63,16 +63,8 @@
 						<td style="line-height:30px;" align="left">&nbsp;${ reply.replycontent }</td>
 						<td style="line-height:30px;">
 							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReply&replynum=${ reply.repseq }&replyrseq=${ reviewVO.rseq }'">
+								<input type="button" value="삭제" onclick="location.href='ticket.do?command=reviewReply&repseq=${ reply.repseq }&rseq=${ reviewVO.rseq }'">
 							</c:if>
-<<<<<<< HEAD
-							
-							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="수정" onclick="go_rep_edit(${ reviewVO.rseq } , ${ reply.repseq })">
-							</c:if>
-=======
->>>>>>> parent of addeb2b (Merge pull request #190 from chojeajun/lsj)
-							&nbsp;
 							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 						</td>
 					</tr>
@@ -80,10 +72,9 @@
 			</table>
 			<table>
 			<tr>
-				<th width="100">작성자</th>
-				<th width="100">작성일</th>
-				<th>내용</th>
-				<th width="100">추가</th>
+				<th style="width:60%;">작성자</th>
+				<th style="width:60%;">작성일</th>
+				<th style="width:60%;">내용</th>
 			</tr>
 			<tr align="center">
 				<td>${ loginUser.id }<input type="hidden" name="id" value="${ loginUser.id }"></td>
