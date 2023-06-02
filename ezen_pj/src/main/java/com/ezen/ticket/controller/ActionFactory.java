@@ -56,8 +56,11 @@ import com.ezen.ticket.controller.action.review.ReviewEditAction;
 import com.ezen.ticket.controller.action.review.ReviewEditFormAction;
 import com.ezen.ticket.controller.action.review.ReviewListAction;
 import com.ezen.ticket.controller.action.review.ReviewReplyAction;
+<<<<<<< HEAD
 import com.ezen.ticket.controller.action.review.ReviewReplyDeleteAction;
 import com.ezen.ticket.controller.action.review.ReviewReplyEditFormAction;
+=======
+>>>>>>> parent of addeb2b (Merge pull request #190 from chojeajun/lsj)
 import com.ezen.ticket.controller.action.review.ReviewViewAction;
 import com.ezen.ticket.controller.action.review.ReviewViewNoCountAction;
 import com.ezen.ticket.controller.action.review.ReviewWriteAction;
@@ -150,8 +153,11 @@ public class ActionFactory {
 		// review 댓글
 		else if(command.equals("reviewReply")) ac = new ReviewReplyAction();
 		else if(command.equals("reviewViewNoCount")) ac = new ReviewViewNoCountAction();
+<<<<<<< HEAD
 		else if(command.equals("reviewReplyDelete")) ac = new ReviewReplyDeleteAction();
 		else if(command.equals("reviewReplyEditForm")) ac = new ReviewReplyEditFormAction();
+=======
+>>>>>>> parent of addeb2b (Merge pull request #190 from chojeajun/lsj)
 		
 		
 		// cart
