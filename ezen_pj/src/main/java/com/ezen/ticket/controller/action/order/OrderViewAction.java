@@ -29,6 +29,23 @@ public class OrderViewAction implements Action {
 			ArrayList<OrderVO> list=new ArrayList<OrderVO>();
 			list=odao.getOrderList(mvo.getMseq());
 			
+			//여러개 중에 같은 oseq인 애들을 처리하는 부분
+			int count=0;
+			if(list.size()!=1) {
+				for(int i=1; i<=list.size();i++) {
+					if(list.get(i).getOseq()==list.get(i-1).getOseq()) {
+						count++;
+						ArrayList<Integer> oseq=new ArrayList<Integer>();
+						ArrayList<Integer> countList=new ArrayList<Integer>();//count 어케저장함
+						for(int j=0; j<oseq.size();j++) {
+							if(oseq.get(j)!=oseq.get(j-1)) {
+							oseq.add(list.get(i-1).getOseq());
+						}
+						list.remove(i);
+					}
+				}else {count=0;}
+			}
+			request.setAttribute("count", count);
 			request.setAttribute("orderList", list);
 			
 		}
