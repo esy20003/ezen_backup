@@ -87,7 +87,7 @@
 			<div class="rev_btn_box btn_box" style="float: left">
 				<input type="button" value="메인으로" class="cancel" onClick="location.href='ticket.do?command=index'">
 			</div>
-			
+			 
 			<!--  리뷰 수정box -->
 			<div id="buttons" class="rev_btn_box btn_box" style="float: right">
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=reviewList'">
