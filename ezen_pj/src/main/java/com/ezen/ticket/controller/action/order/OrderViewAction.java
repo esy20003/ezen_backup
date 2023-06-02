@@ -26,27 +26,36 @@ public class OrderViewAction implements Action {
 			url = "ticket.do?command=loginForm";
 		}else {
 			OrderDao odao=OrderDao.getInstance();
-			ArrayList<OrderVO> list=new ArrayList<OrderVO>();
-			list=odao.getOrderList(mvo.getMseq());
+			ArrayList<OrderVO> orderList=new ArrayList<OrderVO>();
 			
-			//여러개 중에 같은 oseq인 애들을 처리하는 부분
-			int count=0;
-			if(list.size()!=1) {
-				for(int i=1; i<=list.size();i++) {
-					if(list.get(i).getOseq()==list.get(i-1).getOseq()) {
-						count++;
-						ArrayList<Integer> oseq=new ArrayList<Integer>();
-						ArrayList<Integer> countList=new ArrayList<Integer>();//count 어케저장함
-						for(int j=0; j<oseq.size();j++) {
-							if(oseq.get(j)!=oseq.get(j-1)) {
-							oseq.add(list.get(i-1).getOseq());
+			ArrayList<Integer> oseqList=new ArrayList<Integer>();
+			oseqList=odao.getOrderListOseq(mvo.getMseq());		//orders에 있는 oseq들 안겹치게 한개씩만 가져옴
+			
+			ArrayList<OrderVO> orderListByOseq=new ArrayList<OrderVO>();
+			if(oseqList.size()!=0) {
+				for(Integer oseq: oseqList) {
+					
+					orderListByOseq=odao.getOrderList(oseq);
+						
+					OrderVO firstProduct=orderListByOseq.get(0);//첫번째 제품 백업
+					int listsize=orderListByOseq.size();
+					
+					int totalPrice = 0;
+			    		for( OrderVO ovo : orderListByOseq) {
+			    			totalPrice += ovo.getContent_price()* ovo.getQuantity()+ovo.getCom_price();
+						firstProduct.setTotalPrice(totalPrice);
+						if(orderListByOseq.size()>1) {
+						firstProduct.setOrderTitle(firstProduct.getTitle()+" 외 "+(orderListByOseq.size()-1)+"건");
+						}else {
+							firstProduct.setOrderTitle(firstProduct.getTitle());
 						}
-						list.remove(i);
-					}
-				}else {count=0;}
+			    		}
+			    		orderList.add(firstProduct);
+				}
 			}
-			request.setAttribute("count", count);
-			request.setAttribute("orderList", list);
+			
+			
+			request.setAttribute("orderList", orderList);
 			
 		}
 		request.getRequestDispatcher(url).forward(request, response);

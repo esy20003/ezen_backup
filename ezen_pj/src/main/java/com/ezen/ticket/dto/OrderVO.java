@@ -25,9 +25,23 @@ public class OrderVO {
 	private int quantity;
 	private char result;
 	private Timestamp odindate; //이건 주문상세내역 날짜
+	private int totalPrice;
+	private String orderTitle;
 	
 	
 	
+	public String getOrderTitle() {
+		return orderTitle;
+	}
+	public void setOrderTitle(String orderTitle) {
+		this.orderTitle = orderTitle;
+	}
+	public int getTotalPrice() {
+		return totalPrice;
+	}
+	public void setTotalPrice(int totalPrice) {
+		this.totalPrice = totalPrice;
+	}
 	public String getLocationName() {
 		return locationName;
 	}

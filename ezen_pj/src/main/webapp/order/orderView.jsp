@@ -15,15 +15,24 @@
 				<td>가격</td>
 				<td>주문 날짜</td>
 			</tr>
-			<c:forEach items="${orderList}" var="ol">
-				<tr>
-					<td>${ol.oseq}</td>
-					<td>${ol.title}</td>
-					<td>${ol.content_price*ol.quantity+ol.com_price}</td>
-					<td><fmt:formatDate value="${ol.oindate}" pattern="yyyy-MM-dd" /></td>
-					<td><input type="button" value="주문 상세 보기" onclick="location.href='ticket.do?command=orderDetail&oseq='+${ol.oseq}" /></td>
-				</tr>
-			</c:forEach>
+			<c:choose>
+				<c:when test="${orderList.size()==0}">
+					<tr>
+						<td>주문 내역 없음</td>
+					</tr>
+				</c:when>
+				<c:otherwise>
+					<c:forEach items="${orderList}" var="ol">
+						<tr>
+							<td>${ol.oseq}</td>
+							<td>${ol.orderTitle}</td>
+							<td>${ol.totalPrice}</td>
+							<td><fmt:formatDate value="${ol.oindate}" pattern="yyyy-MM-dd" /></td>
+							<td><input type="button" value="주문 상세 보기" onclick="location.href='ticket.do?command=orderDetail&oseq='+${ol.oseq}" /></td>
+						</tr>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 			</table>
 	</div>
 </section>

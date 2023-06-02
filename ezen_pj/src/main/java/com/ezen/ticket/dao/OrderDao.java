@@ -64,20 +64,20 @@ public class OrderDao {
 		
 	}
 
-	public ArrayList<OrderVO> getOrderList(int mseq) {
+	public ArrayList<OrderVO> getOrderList(int oseq) {
 		ArrayList<OrderVO> list=new ArrayList<OrderVO>();
 		OrderVO ovo=null;
 		con=Dbman.getConnection();
-		String sql="select * from order_view where mseq=?";
+		String sql="select * from order_view where oseq=?";
 		try {
 			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, mseq);
+			pstmt.setInt(1, oseq);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				ovo=new OrderVO();
 				ovo.setOindate(rs.getTimestamp("indate"));
-				ovo.setOseq(rs.getInt("oseq"));
-				ovo.setMseq(mseq);
+				ovo.setOseq(oseq);
+				ovo.setMseq(rs.getInt("mseq"));
 				ovo.setTitle(rs.getString("title"));
 				ovo.setCseq(rs.getInt("cseq"));
 				ovo.setContent_price(rs.getInt("content_price"));
@@ -124,6 +124,26 @@ public class OrderDao {
 			e.printStackTrace();
 		}finally {Dbman.close(con, pstmt, rs);}
 		return list;
+	}
+
+	
+	
+	public ArrayList<Integer> getOrderListOseq(int mseq) {
+		//orders에 있는 oseq들 안겹치게 한개씩만 가져옴
+		ArrayList<Integer> oseqList=new ArrayList<Integer>();
+		String sql="select distinct oseq from orders where mseq=? order by oseq desc";
+		
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,  mseq);
+			rs = pstmt.executeQuery();
+			while( rs.next() ) {
+				oseqList.add(  rs.getInt("oseq")  );
+			}
+		} catch (SQLException e) {   e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs);   }
+		return oseqList;	
 	}
 
 

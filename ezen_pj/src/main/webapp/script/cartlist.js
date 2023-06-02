@@ -54,46 +54,54 @@ function go_cart_order() {
 
 function go_cart_update() {
 
-	sessionStorage.removeItem('selectedCseq');
-	sessionStorage.removeItem('selectedDate');
-	sessionStorage.removeItem('selectedTime');
-	sessionStorage.removeItem('selectedArea');
-	sessionStorage.removeItem('selectedQuantity');
+sessionStorage.removeItem('selectedCseq');
+   sessionStorage.removeItem('selectedDate');
+   sessionStorage.removeItem('selectedTime');
+   sessionStorage.removeItem('selectedArea');
+   sessionStorage.removeItem('selectedQuantity');
 
-	var count = 0;
-	if (document.frm.cartseq.checked == true) {
-		count++;
-		var cseq = document.frm.cseq.value;
-		var date = document.frm.contentdate.value;
-		var time = document.frm.contenttime.value;
-		var area = document.frm.area.value;
-		var quantity = document.frm.quantity.value;
-	}
+   var count = 0;
+   if (document.frm.cartseq.length == undefined) {
+      // 체크박스가 한 개인 경우
+      if (document.frm.cartseq.checked == true){
+         count++;
+      var cseq = document.frm.cseq.value;
+      var date = document.frm.contentdate.value;
+      var time = document.frm.contenttime.value;
+      var area = document.frm.area.value;
+      var quantity = document.frm.quantity.value;
+   } else {
+      for (var i = 0; i < document.frm.cartseq.length; i++) {
+         if (document.frm.cartseq[i].checked == true) {
+            count++;
+            var cseq = document.frm.cseq[i].value;
+            var date = document.frm.contentdate[i].value;
+            var time = document.frm.contenttime[i].value;
+            var area = document.frm.area[i].value;
+            var quantity = document.frm.quantity[i].value;
+         }
+      }
+   }
 
 
-	sessionStorage.setItem('selectedCseq', cseq);
-	sessionStorage.setItem('selectedDate', date);
-	sessionStorage.setItem('selectedTime', time);
-	sessionStorage.setItem('selectedArea', area);
-	sessionStorage.setItem('selectedQuantity', quantity);
 
-	if (count == 0) {
-		alert('수정할 항목을 선택하세요');
-	} else if (count >= 2) {
-		alert('수정할 항목은 하나만 선택이 가능합니다');
-	} else {
+   sessionStorage.setItem('selectedCseq', cseq);
+   sessionStorage.setItem('selectedDate', date);
+   sessionStorage.setItem('selectedTime', time);
+   sessionStorage.setItem('selectedArea', area);
+   sessionStorage.setItem('selectedQuantity', quantity);
 
-		document.frm.action = "ticket.do?command=applySelectCommissioner&cseq=" + cseq + "&date=" + date + "&time=" + time + "&area=" + area + "&quantity=" + quantity;
-		document.frm.submit();
-	}
+   if (count == 0) {
+      alert('수정할 항목을 선택하세요');
+   } else if (count >= 2) {
+      alert('수정할 항목은 하나만 선택이 가능합니다');
+   } else {
+
+      document.frm.action = "ticket.do?command=applySelectCommissioner&cseq=" + cseq + "&date=" + date + "&time=" + time + "&area=" + area + "&quantity=" + quantity;
+      document.frm.submit();
+   }
 }
 
 /* 수량, 대리인 수정하기 버튼 */
 
-function go_cart_detailUpdate() {
-	var quantity = document.frmm.quantity.value();
-	var defuty = document.frmm.defuty.value();
-
-	document.frm.action = "ticket.do?command=cartDetailUpdate&quantity=" + quantity + "&defuty=" + defuty;
-	document.frm.submit();
 }
