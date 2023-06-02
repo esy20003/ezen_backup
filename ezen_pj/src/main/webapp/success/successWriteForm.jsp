@@ -9,7 +9,7 @@
 			<form name="formm" method="post" class="review_form review_write" enctype="multipart/form-data">
 				<fieldset>
 					<legend></legend>
-					<table id="successList">
+					<table id="reviewList">
 						<tr>
 							<th>제목</th>
 							<td>
