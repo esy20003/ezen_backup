@@ -33,19 +33,25 @@ public class ApplyContentSelectAction implements Action {
 			ContentDao cdao=ContentDao.getInstance();
 			
 			if(request.getParameter("contentDate")!=null) {
-				String contentDateTimestp=request.getParameter("contentDate");
-				String contentDate=contentDateTimestp.substring(0, 10);
+				System.out.println("contendDate:"+request.getParameter("contentDate"));
+				String contentDate=request.getParameter("contentDate").substring(0, 10);
+				contentDate=contentDate.replace("-", "");
+				System.out.println("contentDate:"+contentDate);
+				
 				int category=Integer.parseInt(request.getParameter("category"));
+				System.out.println("category:" + category);
 				list = cdao.selectContent(category);
 				
 				int cseq=Integer.parseInt(request.getParameter("cseq"));
-				int locationNum=Integer.parseInt(request.getParameter("locationNum"));
 				
 				list2=cdao.selectFromContentByTitle(cseq);
+				int locationNum=list2.get(0).getLocationNum();
+				System.out.println("locationNum:"+locationNum);
+
 				list3=cdao.selectFromContentTimeByTitle(cseq);
 				list4=cdao.selectFromLocationViewByTitle(cseq);
-				list5=cdao.selectFromContentAreaByTitle(cseq);
-				list6=cdao.selectTimeByDate(contentDate);
+				list5=cdao.selectFromContentAreaByTitle(locationNum);
+				list6=cdao.selectTimeByDate(cseq, contentDate);
 				
 				request.setAttribute("category", category);
 				
@@ -56,18 +62,18 @@ public class ApplyContentSelectAction implements Action {
 				request.setAttribute("contentAreaList", list5);
 				request.setAttribute("contentTimeList", list6);
 			}else {
-				
 			
 			int category=Integer.parseInt(request.getParameter("category"));
 			list = cdao.selectContent(category);
 			
 			int cseq=Integer.parseInt(request.getParameter("cseq"));
 			int locationNum=Integer.parseInt(request.getParameter("locationNum"));
-			
+			System.out.println("locationNum:"+locationNum);
+
 			list2=cdao.selectFromContentByTitle(cseq);
 			list3=cdao.selectFromContentTimeByTitle(cseq);
 			list4=cdao.selectFromLocationViewByTitle(cseq);
-			list5=cdao.selectFromContentAreaByTitle(cseq);
+			list5=cdao.selectFromContentAreaByTitle(locationNum);
 			
 			request.setAttribute("category", category);
 
