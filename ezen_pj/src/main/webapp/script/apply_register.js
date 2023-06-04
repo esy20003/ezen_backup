@@ -158,7 +158,7 @@ function insertCart(){
 		}else{
 		url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
 		}
-	var opt = "toolbar=no, menubar=no, resizable=no, width=600, height=250, scrollbars=no";
+	var opt = "toolbar=no, menubar=no, resizable=no, width=448, height=400, scrollbars=no";
 	window.open(url, "InsertCart", opt);
 	}
 }
