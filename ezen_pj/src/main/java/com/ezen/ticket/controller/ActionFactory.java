@@ -2,6 +2,10 @@ package com.ezen.ticket.controller;
 
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.IndexAction;
+import com.ezen.ticket.controller.action.admin.AdminAction;
+import com.ezen.ticket.controller.action.admin.AdminLoginAction;
+import com.ezen.ticket.controller.action.admin.AdminMemberListAction;
+import com.ezen.ticket.controller.action.admin.AdminProductListAction;
 import com.ezen.ticket.controller.action.anr.ApplyAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
 import com.ezen.ticket.controller.action.anr.ApplyCartAction;
@@ -184,6 +188,14 @@ public class ActionFactory {
 		else if(command.equals("successReplyDelete")) ac = new SuccessReplyDeleteAction();
 		
 		//System.out.println("33 "+ command);
+		
+		// 관리자 
+		else if(command.equals("admin")) ac = new AdminAction();
+		else if(command.equals("adminLogin")) ac = new AdminLoginAction();
+		else if(command.equals("adminProductList")) ac = new AdminProductListAction();
+		
+		// 임시추가
+		else if(command.equals("adminMemberList")) ac = new AdminMemberListAction();
 		return ac;
 	}
 

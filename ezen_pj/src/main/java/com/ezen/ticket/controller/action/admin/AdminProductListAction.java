@@ -22,7 +22,7 @@ public class AdminProductListAction implements Action {
 		if(avo == null) {
 			url = "ticket.do?command=admin";
 		}else {
-			
+			url = "admin/adminProductList.jsp";
 		}
 		
 		request.getRequestDispatcher(url).forward(request, response);

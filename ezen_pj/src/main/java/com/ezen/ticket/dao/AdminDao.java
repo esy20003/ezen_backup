@@ -4,9 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import com.ezen.ticket.dto.AdminVO;
+import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.util.Dbman;
+import com.ezen.ticket.util.Paging;
 
 public class AdminDao {
 
@@ -46,5 +49,71 @@ public class AdminDao {
 		}
 
 		return avo;
+	}
+
+	
+	
+	
+	
+	
+	// 회원리스트 
+	public int getAllCount(String tablename, String fieldname, String key) {
+		int count = 0;
+		String sql ="select count(*) as cnt from " + tablename 
+				+ " where " +  fieldname  + " like '%'||?||'%' ";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			rs = pstmt.executeQuery();
+			if(rs.next() ) {
+				count = rs.getInt("cnt");
+			}
+			
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {	Dbman.close(con, pstmt, rs);
+		}
+		
+		return count;
+	}
+
+
+
+
+
+	// 회원리스트
+	public ArrayList<MemberVO> selectMember(Paging paging, String key) {
+		ArrayList<MemberVO> list = new ArrayList<MemberVO>();
+		String sql ="select * from ( "
+				+ " select * from ( "
+				+ " select rownum as rn, m.* from ( "
+				+ "  (select * from member where name like '%'||?||'%' order by indate desc) m ) "
+				+ " ) where rn >= ? "
+				+ " ) where rn <= ? ";
+		con = Dbman.getConnection();
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			pstmt.setInt(2, paging.getStartNum());
+			pstmt.setInt(3, paging.getEndNum());
+			rs = pstmt.executeQuery();
+			while(rs.next() ) {
+				MemberVO mvo = new MemberVO();
+				mvo.setId(rs.getString("id"));
+				mvo.setPwd(rs.getString("pwd"));
+				mvo.setName(rs.getString("name"));
+				mvo.setNickname(rs.getString("nickname"));
+				mvo.setGender(rs.getInt("gender"));
+				mvo.setEmail(rs.getString("email"));
+				mvo.setZip_num(rs.getString("zip_num"));
+				mvo.setAddress1(rs.getString("address1"));
+				mvo.setPhone(rs.getString("phone"));
+				mvo.setUseyn(rs.getString("useyn").charAt(0));
+				mvo.setIndate(rs.getTimestamp("indate"));
+				list.add(mvo);
+			} 
+		} catch (SQLException e) {e.printStackTrace();
+		} finally {Dbman.close(con, pstmt, rs);}
+		return list;
 	}
 }

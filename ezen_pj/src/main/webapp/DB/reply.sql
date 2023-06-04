@@ -13,7 +13,7 @@ insert into review_reply(repseq, mseq, rseq, replycontent) values(review_reply_r
 insert into review_reply(repseq, mseq, rseq, replycontent) values(review_reply_repseq.nextVal ,8 , 9, '테스트7' );
 insert into review_reply(repseq, mseq, rseq, replycontent) values(review_reply_repseq.nextVal ,9 , 1, '테스트8' );
 
-alter table review_reply add userid varchar2(20);
+select * from review_reply_member;
 
 
 
