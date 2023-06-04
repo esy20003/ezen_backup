@@ -18,6 +18,7 @@
 <link rel="stylesheet" href="css/main.css?ver=1" />
 <link rel="stylesheet" href="css/cartlist.css?ver=1" />
 <link rel="stylesheet" href="css/contentDetail.css?ver1"/>
+<link rel="stylesheet" href="css/order.css?ver1"/>
 
 <!-- <script src="script/bootstrap.min.js"></script> -->
 <script src="script/jquery-3.7.0.min.js"></script>
