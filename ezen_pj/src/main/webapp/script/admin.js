@@ -18,7 +18,7 @@ function workerCheck() {
 /* 회원리스트 검색 */
 function go_search(comm) {
 	alert("123");
-	if(document.frm.key.value == "") {
+	if(document.frm.key_name.value == "") {
 		alert("검색어를 입력하세요");
 		return;
 	} 
@@ -31,7 +31,7 @@ function go_search(comm) {
 /* 회원리스트 전체보기 */
 function go_total(comm) {
 	alert("aaa");
-	document.frm.key.value = "";
+	document.frm.key_name.value = "";
 	document.frm.action = "ticket.do?command=" + comm + "&page=1";
 	document.frm.submit();
 }

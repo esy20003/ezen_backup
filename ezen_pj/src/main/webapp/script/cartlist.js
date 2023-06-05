@@ -19,7 +19,7 @@ function go_cart_delete() {
 	} else {
 		document.frm.action = "ticket.do?command=cartDelete";
 		document.frm.submit();
-		// jsp 파일에 있는 체크된  checkbox 들의 value들(cseq 값들)이 배열로 전송됩니다.
+		// jsp 파일에 있는 체크된  checkbox 들의 value들(cartSeq 값들)이 배열로 전송됩니다.
 	}
 
 }
@@ -43,9 +43,13 @@ function go_cart_order() {
 	if (count == 0) {
 		alert('주문할 항목을 선택하세요');
 	} else {
+		var bool = confirm('정말로 주문하시겠습니까?');
+		if( bool ){
 		document.frm.action = "ticket.do?command=cartDetail";
 		document.frm.submit();
-		// jsp 파일에 있는 체크된  checkbox 들의 value들(cseq 값들)이 배열로 전송됩니다.
+		// jsp 파일에 있는 체크된  checkbox 들의 value들(cartSeq 값들)이 배열로 전송됩니다.
+		}
+		
 	}
 
 }
