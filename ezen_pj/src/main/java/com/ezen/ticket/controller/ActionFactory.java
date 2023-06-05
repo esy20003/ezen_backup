@@ -185,7 +185,8 @@ public class ActionFactory {
 		else if(command.equals("successView")) ac = new SuccessViewAction();
 		else if(command.equals("successWriteForm")) ac = new SuccessWriteFormAction();
 		else if(command.equals("successWrite")) ac = new SuccessWriteAction();
-		else if(command.equals("successEditForm")) ac = new SuccessEditFormAction();
+		else if(command.equals
+				("successEditForm")) ac = new SuccessEditFormAction();
 		else if(command.equals("successEdit")) ac = new SuccessEditAction();
 		else if(command.equals("successDelete")) ac = new SuccessDeleteAction();
 		

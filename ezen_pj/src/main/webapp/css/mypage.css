@@ -202,7 +202,6 @@
 }
 
 #mypage_box #mypageactionFrm #mypagefield input {
-    height: 44px;
     width: 250px;
     /* border: none; */
     background: white;
@@ -211,5 +210,5 @@
     border: 1px solid black;
     border-left: none;
     line-height: 50px;
-    margin: 7px 0px;
+    height: 50px;
 }
