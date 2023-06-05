@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<% response.sendRedirect("ticket.do?command=index"); %>
+<% response.sendRedirect("ticket.do?command=index"); %> 
 
 
 </body> 
