@@ -110,6 +110,7 @@ $(function(){
                         <li><a href="ticket.do?command=contract">회원가입</a></li>
                  		<li><a href="ticket.do?command=cartList">장바구니</a></li>
                         <li><a href="ticket.do?command=qnaList">1:1 문의하기</a></li>
+                        <li><a href="ticket.do?command=admin">admin</a>
                      </c:when>
                      <c:otherwise>
                         <li>${ loginUser.name }(${ loginUser.id })</li>
