@@ -7,6 +7,7 @@ import com.ezen.ticket.controller.action.admin.AdminLoginAction;
 
 import com.ezen.ticket.controller.action.admin.AdminLoginFormAction;
 import com.ezen.ticket.controller.action.admin.AdminQnaListAction;
+import com.ezen.ticket.controller.action.admin.AdminQnaReplyAction;
 import com.ezen.ticket.controller.action.admin.AdminQnaViewAction;
 
 import com.ezen.ticket.controller.action.admin.AdminProductListAction;
@@ -195,14 +196,15 @@ public class ActionFactory {
 		
 		//admin
 		else if(command.equals("admin")) ac = new AdminAction();
-
 		else if(command.equals("adminLoginForm")) ac = new AdminLoginFormAction();
+		else if(command.equals("adminLogin")) ac = new AdminLoginAction();
+
+		else if(command.equals("adminProductList")) ac = new AdminProductListAction();
 
 		else if(command.equals("adminQnaList")) ac = new AdminQnaListAction();
 		else if(command.equals("adminQnaView")) ac = new AdminQnaViewAction();
+		else if(command.equals("adminQnaReply")) ac = new AdminQnaReplyAction();
 
-		else if(command.equals("adminLogin")) ac = new AdminLoginAction();
-		else if(command.equals("adminProductList")) ac = new AdminProductListAction();
 
 		
 		//System.out.println("33 "+ command);

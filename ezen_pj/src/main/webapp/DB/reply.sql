@@ -21,7 +21,7 @@ select * from success_reply_member;
 
 
 
-
+select * from adminQna_reply;
 
 
 

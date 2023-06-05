@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.dao.QnaDao;
 import com.ezen.ticket.dto.QnaVO;
-import com.ezen.ticket.dto.ReplyVO;
+import com.ezen.ticket.dto.AdminQnaReplyVO;
 
 public class QnaViewNoCountAction implements Action {
 
