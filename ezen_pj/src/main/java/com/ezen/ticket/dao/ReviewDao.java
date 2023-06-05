@@ -223,14 +223,14 @@ public class ReviewDao {
 		} catch (SQLException e) {e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
 		}
-
+		
 	}
 	// 리뷰 삭제 시 해당 리뷰 댓글도 삭제
 	public void deleteReplyByrseq(int rseq) {
 
 		con = Dbman.getConnection();
 		String sql ="delete review_reply where rseq =?";
-
+		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, rseq);

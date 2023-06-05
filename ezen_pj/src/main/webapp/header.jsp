@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ticket Shop</title>
 
-<!-- <link rel="stylesheet" href="css/bootstrap.min.css" /> -->
+ <link rel="stylesheet" href="css/bootstrap.min.css" /> 
 
 <link rel="stylesheet" href="css/ticketing.css">
 <link rel="stylesheet" href="css/apply.css?ver=1" />
@@ -19,7 +19,7 @@
 <link rel="stylesheet" href="css/cartlist.css?ver=1" />
 <link rel="stylesheet" href="css/contentDetail.css?ver1"/>
 
-<!-- <script src="script/bootstrap.min.js"></script> -->
+<script src="script/bootstrap.min.js"></script> 
 <script src="script/jquery-3.7.0.min.js"></script>
 <script src="script/main.js"></script>
 <script src="script/member.js"></script>
@@ -153,3 +153,4 @@ $(function(){
             </div>
          </div>
       </header>
+      
