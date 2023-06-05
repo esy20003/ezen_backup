@@ -8,6 +8,6 @@
 <body>
 
 <% response.sendRedirect("ticket.do?command=index"); %>
-
+   
 </body>
 </html>
