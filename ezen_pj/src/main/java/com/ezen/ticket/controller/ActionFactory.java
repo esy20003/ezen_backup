@@ -2,6 +2,9 @@ package com.ezen.ticket.controller;
 
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.controller.action.IndexAction;
+import com.ezen.ticket.controller.action.admin.AdminAction;
+import com.ezen.ticket.controller.action.admin.AdminLoginAction;
+import com.ezen.ticket.controller.action.admin.AdminProductListAction;
 import com.ezen.ticket.controller.action.anr.ApplyAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
 import com.ezen.ticket.controller.action.anr.ApplyCartAction;
@@ -178,10 +181,16 @@ public class ActionFactory {
 		else if(command.equals("successEditForm")) ac = new SuccessEditFormAction();
 		else if(command.equals("successEdit")) ac = new SuccessEditAction();
 		else if(command.equals("successDelete")) ac = new SuccessDeleteAction();
+		
 		//success 댓글
 		else if(command.equals("successReply")) ac = new SuccessReplyAction();
 		else if(command.equals("successViewNoCount")) ac = new SuccessViewNoCountAction();
 		else if(command.equals("successReplyDelete")) ac = new SuccessReplyDeleteAction();
+		
+		//admin
+		else if(command.equals("admin")) ac = new AdminAction();
+		else if(command.equals("adminLogin")) ac = new AdminLoginAction();
+		else if(command.equals("adminProductList")) ac = new AdminProductListAction();
 		
 		//System.out.println("33 "+ command);
 		return ac;
