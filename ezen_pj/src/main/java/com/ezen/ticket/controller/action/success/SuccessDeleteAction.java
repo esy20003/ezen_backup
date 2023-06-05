@@ -16,8 +16,8 @@ public class SuccessDeleteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int sseq = Integer.parseInt(request.getParameter("sseq"));
-		System.out.println(sseq);
+		int sucseq = Integer.parseInt(request.getParameter("sucseq"));
+		System.out.println(sucseq);
 		String url ="ticket.do?command=successList";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
@@ -25,11 +25,11 @@ public class SuccessDeleteAction implements Action {
 			url = "ticket.do?command=loginForm";
 		} else {
 			//int sseq = Integer.parseInt(request.getParameter("sseq"));
-			System.out.println("들어오냐?" + sseq);
+			System.out.println("들어오냐?" + sucseq);
 			SuccessDao sdao = SuccessDao.getInstance();
-			sdao.deleteSuccess(sseq);
+			sdao.deleteSuccess(sucseq);
 			// 리뷰를 삭제하면 리뷰에 달린 댓글도 같이 삭제
-			sdao.deleteReplyBysseq(sseq);
+			sdao.deleteReplyBysseq(sucseq);
 			
 		}
 		request.getRequestDispatcher(url).forward(request, response);
