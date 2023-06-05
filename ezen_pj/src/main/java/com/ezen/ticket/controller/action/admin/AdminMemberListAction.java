@@ -19,13 +19,13 @@ public class AdminMemberListAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url ="admin/memberList.jsp";
+		String url ="admin/adminMemberList.jsp";
 		HttpSession session = request.getSession();
 		AdminVO avo  = (AdminVO)session.getAttribute("loginAdmin");
 		if(avo == null) {
 			url ="ticket.do?command=admin";
 		} else {
-			// 다른 메뉴리스트 클릭시 세션 전달된 파라미터삭제
+			
 			if(request.getParameter("start") != null) {
 				session.removeAttribute("page");
 				session.removeAttribute("key");
@@ -42,7 +42,7 @@ public class AdminMemberListAction implements Action {
 			} else {
 				paging.setPage(1);
 			} 
-			String key ="";
+			String key =""; // 검색단어
 			if(request.getParameter("key") != null) {
 				key = request.getParameter("key");
 				session.setAttribute("key", key);
