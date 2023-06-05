@@ -30,6 +30,8 @@ public class ReviewReplyAction implements Action {
 		rvo.setId(request.getParameter("id"));
 		System.out.println("전달된 작성자 id =>"  + id);
 		
+		System.out.println("작성 내용은? =" +  request.getParameter("reply"));
+		
 		rvo.setReplycontent(request.getParameter("reply"));
 		rvo.setRseq(rseq);
 		System.out.println(mvo.getMseq());
