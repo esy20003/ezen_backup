@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file ="../header.jsp"%>
-<%@ include file="sub_image_menu.jsp"%>
 
 <article>
 
@@ -12,12 +11,12 @@
 	<tr><th>번호</th><th>제목</th><th>등록일</th><th>작성자</th><th>답변여부</th><th>조회수</th></tr>
 	<c:forEach items="${qnaList}" var="QnaVO">
 		<tr><td>${QnaVO.qseq}</td>
-		<td><a href="ticket.do?command=qnaView&qseq=${QnaVO.qseq}">${QnaVO.title}</a>
+		<td><a href="ticket.do?command=adminQnaView&qseq=${QnaVO.qseq}">${QnaVO.title}</a>
 		<td><fmt:formatDate value="${QnaVO.indate}" type="date"/></td>
 		<td>${QnaVO.id}</td>
 		<td><c:choose>
-			<c:when test="${QnaVO.repyn=='N' }">답변예정</c:when>
-			<c:when test="${QnaVO.repyn=='Y' }">답변완료</c:when>
+			<c:when test="${QnaVO.repyn=='N' }">N</c:when>
+			<c:when test="${QnaVO.repyn=='Y' }">Y</c:when>
 		</c:choose>
 		<td>${QnaVO.readcount}</td>
 		
