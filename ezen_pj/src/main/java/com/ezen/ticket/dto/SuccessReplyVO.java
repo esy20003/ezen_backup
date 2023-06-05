@@ -9,8 +9,15 @@ public class SuccessReplyVO {
 	private int mseq; // 멤버번호 
 	private String id;
 	private String replycontent;
+	private String successcontent;
 	private Timestamp writedate;
 	
+	public String getSuccesscontent() {
+		return successcontent;
+	}
+	public void setSuccesscontent(String successcontent) {
+		this.successcontent = successcontent;
+	}
 	public int getSrseq() {
 		return srseq;
 	}

@@ -178,6 +178,7 @@ public class CartDao {
 	}
 
 	public int insertCart(int mseq, int cseq, String date, String time, String area, int mseq2, String quantity) {
+
 		int result = 0;
 		CartVO cvo = null;
 		String sql = "insert into cart(cartseq,mseq, cseq, contentDate,contentTime,locationNum,area, mseq2, quantity) values(cart_cartseq.nextVal,?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?,?)";
@@ -186,7 +187,6 @@ public class CartDao {
 		CartDao cdao = CartDao.getInstance();
 		ArrayList<ContentVO> forLocationNum = cdao.selectContent(cseq);
 		int locationNum = forLocationNum.get(0).getLocationNum();// locationNum 얻음
-
 		con = Dbman.getConnection();
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -293,6 +293,42 @@ public class CartDao {
 			Dbman.close(con, pstmt, rs);
 		}
 		return defutyList;
+	}
+
+	public int hoonSelectCart(int cseq, String date, String time, String area, String quantity) {
+		int result = 0;
+		con = Dbman.getConnection();
+		String sql = "select * from cart where cseq = ? and contentdate = ? and contenttime = ? and area = ? and quantity = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cseq);
+			pstmt.setString(2, date);
+			pstmt.setString(3, time);
+			pstmt.setString(4, area);
+			pstmt.setString(5, quantity);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		return result;
+	}
+
+	public int hoonUpdateCart(int mseq, int cseq, String date, String time, String area, String quantity, int mseq2) {
+		int result = 0;
+		con = Dbman.getConnection();
+		String sql = "update cart set mseq2 = ? where mseq = ? and cseq = ? and date = ? and time = ? and area = ? and quantity = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, mseq2);
+			pstmt.setInt(2, mseq);
+			pstmt.setInt(3, cseq);
+			pstmt.setString(4, date);
+			pstmt.setString(5, time);
+			pstmt.setString(6, area);
+			pstmt.setString(7, quantity);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) { e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		return result;
 	}
 
 }
