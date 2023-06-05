@@ -98,7 +98,7 @@
 			<!--  리뷰 수정box -->
 			<div id="buttons" class="rev_btn_box btn_box" style="float: right">
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=successList'">
-				<c:if test="${ successVO.id == loginUser.id }">
+				<c:if test="${SuccessVO.id == loginUser.id }">
 					<input type="button" value="수정하기" class="review_update_btn" onclick="go_supd('${ successVO.sucseq}')">
 				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 글만 수정할  수수 있게 버튼을표시  -->
 			</div>

@@ -12,7 +12,6 @@
 					<th>제목</th>
 					<th>작성자</th>
 					<th>등록일</th>
-					<th>답변 여부</th>
 				</tr>
 				<c:forEach items="${successList }" var="successVO">
 					<tr>
@@ -25,12 +24,6 @@
 							<fmt:parseDate var="indateStr" value="${successVO.indate}" pattern="yyyy-MM-dd" />
 							<fmt:formatDate var="indate" value="${indateStr}" pattern="yyyy-MM-dd" />
 							${indate}
-						</td>
-						<td>
-							<c:choose>
-								<c:when test="${successVO.repyn==N }">no</c:when>
-								<c:when test="${successVO.repyn==Y }">yes</c:when>
-							</c:choose>
 						</td>
 					</tr>
 				</c:forEach>
