@@ -166,4 +166,32 @@ div.css1{width:50px;}
 .totprice{padding-right:10px;width:160px; text-align: right; font-size: 2em; font-weight: bold;color: #CA0000;}
 
 
+/* applyFinalPage.jsp */
+.resultForm{width:100%;}
+.resultForm section{width:1200px;margin:0 auto;}
+.resultForm h1{text-align: center; color:black; font-family: 'Noto Sans KR', sans-serif;}
+.resultForm .button2Box{text-align: center;}
+.resultForm .button2{font-weight:bold; background:#FFE3E3;font-size: 0.9em;border-radius: 15px;cursor: pointer; width:180px; height:40px; margin-left:10px;margin-right:10px;}
+.resultForm .button2:first-child {background:#d70000; color:white;}
+
+
+
+
 /* register의 어떤 jsp의 css */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

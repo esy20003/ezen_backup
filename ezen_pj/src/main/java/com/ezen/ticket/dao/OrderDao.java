@@ -105,6 +105,7 @@ public class OrderDao {
 			while(rs.next()) {
 				ovo=new OrderVO();
 				ovo.setOdseq(rs.getInt("odseq"));
+				ovo.setOseq(oseq);
 				ovo.setOdindate(rs.getTimestamp("indate"));
 				ovo.setTitle(rs.getString("title"));
 				ovo.setArtist(rs.getString("artist"));
