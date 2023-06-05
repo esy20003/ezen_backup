@@ -62,6 +62,7 @@ public class AdminMemberListAction implements Action {
 			request.setAttribute("key", key);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
+
 		
 
 	}

@@ -3,15 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/admin/sub_menu.jsp"%>
-<%@ include file="header.jsp" %>
+<%@ include file="/admin/header.jsp" %>
+
 <article class="mbl_box">
 	<h1>회원리스트</h1>
 	<form name="frm" method="post">
 			<div class="search_box">
 				<h2 class="search_name">회원 이름으로 검색</h2>
 				<input type="text" name="key" value="${ key3 }">
-				<input class="btn" type="button" value="검색" onclick="go_search('adminMemberList')">
-				<input class="btn"  type="button" value="전체보기" onclick="go_total('adminMemberList')">
+				<input class="btn_search" type="button" value="검색" onclick="go_search('adminMemberList')">
+				<input class="btn_total"  type="button" value="전체보기" onclick="go_total('adminMemberList')">
 			</div>				
 	<table id="memberList">
 		<tr>
@@ -55,4 +56,4 @@
 </article>
 
 
-<%@ include file="footer.jsp" %>
+<%@ include file="/admin/footer.jsp" %>

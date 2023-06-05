@@ -12,3 +12,26 @@ function workerCheck() {
 	}
 	return true;
 }
+
+
+
+/* 회원리스트 검색 */
+function go_search(comm) {
+	alert("123");
+	if(document.frm.key.value == "") {
+		alert("검색어를 입력하세요");
+		return;
+	} 
+	var url ="ticket.do?command=" + comm + "&page=1"; // 검색어로 검색한 결과의 1페이지로 이동
+	document.frm.action = url;
+	document.frm.submit();
+}
+
+
+/* 회원리스트 전체보기 */
+function go_total(comm) {
+	alert("aaa");
+	document.frm.key.value = "";
+	document.frm.action = "ticket.do?command=" + comm + "&page=1";
+	document.frm.submit();
+}

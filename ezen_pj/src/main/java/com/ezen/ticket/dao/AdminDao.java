@@ -68,7 +68,6 @@ public class AdminDao {
 			} catch (SQLException e) {e.printStackTrace();
 			} finally {	Dbman.close(con, pstmt, rs);
 			}
-			
 			return count;
 		}
 
