@@ -154,7 +154,7 @@ function insertCart(){
 	var url;
 		if(sessionStorage.getItem('selectedCom')!=null){
 		var mseq2=Number(sessionStorage.getItem('selectedCom'));
-		url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2='+mseq2;
+		url='ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity+'&mseq2='+mseq2 ;
 		}else{
 		url = 'ticket.do?command=applyCart&cseq='+cseq+'&date='+date+'&time='+time+'&area='+area+'&quantity='+quantity;
 		}

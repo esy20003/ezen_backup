@@ -15,6 +15,7 @@
 					<tr align="center">
 						<td colspan="2">
 							<input class="btn" type="submit" value="로그인" onclick="return workerCheck();"/>
+							<input class="btn" value="홈으로" onclick="location.href='ticket.do?command=index'"/>
 							<br/><br/><h4 style="color:red">${ msg }</h4></td></tr>
 				</table>
 			</form>

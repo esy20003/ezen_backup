@@ -33,10 +33,11 @@ public class ApplyCartAction implements Action {
 			String time=request.getParameter("time");
 			String area=request.getParameter("area");
 			String quantity=request.getParameter("quantity");
+			
 			int result=0;
 			if(request.getParameter("mseq2")!=null) {
 				int mseq2=Integer.parseInt(request.getParameter("mseq2"));
-				result=cdao.insertCart(mseq,cseq,date,time,area,mseq2,quantity);
+				result=cdao.insertCart(mseq,cseq,date,time,area,mseq2,quantity, index);
 				System.out.println("대리인 선택했어욤 대리인번호:"+mseq2);
 			}else {
 				result=cdao.insertCartMseq2Null(mseq,cseq,date,time,area,quantity);

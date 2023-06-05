@@ -177,37 +177,60 @@ public class CartDao {
 
 	}
 
-	public int insertCart(int mseq, int cseq, String date, String time, String area, int mseq2, String quantity) {
-		int result = 0;
-		CartVO cvo = null;
-		String sql = "insert into cart(cartseq,mseq, cseq, contentDate,contentTime,locationNum,area, mseq2, quantity) values(cart_cartseq.nextVal,?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?,?)";
+	public int insertCart(int mseq, int cseq, String date, String time, String area, int mseq2, String quantity,
+			int index) {
+		if (index == 1) {
+			int result = 0;
+			con = Dbman.getConnection();
+			String sql = "update cart set mseq2 = ? where cseq = ? and date = '?' and time = '?' and area = '?' and quantity = '?' ";
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, mseq);
+				pstmt.setInt(2, cseq);
+				pstmt.setString(3, date);
+				pstmt.setString(4, time);
+				pstmt.setString(5, area);
+				pstmt.setString(6, quantity);
+				result = pstmt.executeUpdate();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				Dbman.close(con, pstmt, rs);
+			}
+			return result;
+		} else {
+			int result = 0;
+			CartVO cvo = null;
+			String sql = "insert into cart(cartseq,mseq, cseq, contentDate,contentTime,locationNum,area, mseq2, quantity) values(cart_cartseq.nextVal,?,?,to_date(?,'yyyy-mm-dd'),?,?,?,?,?)";
 
-		// 여긴 이제 locationNum얻으려고하는 거
-		CartDao cdao = CartDao.getInstance();
-		ArrayList<ContentVO> forLocationNum = cdao.selectContent(cseq);
-		int locationNum = forLocationNum.get(0).getLocationNum();// locationNum 얻음
+			// 여긴 이제 locationNum얻으려고하는 거
+			CartDao cdao = CartDao.getInstance();
+			ArrayList<ContentVO> forLocationNum = cdao.selectContent(cseq);
+			int locationNum = forLocationNum.get(0).getLocationNum();// locationNum 얻음
 
-		con = Dbman.getConnection();
-		try {
-			pstmt = con.prepareStatement(sql);
-			cvo = new CartVO();
-			pstmt.setInt(1, mseq);
-			pstmt.setInt(2, cseq);
-			pstmt.setString(3, date);
-			pstmt.setString(4, time);
-			pstmt.setInt(5, locationNum);
-			pstmt.setString(6, area);
-			pstmt.setInt(7, mseq2);
-			pstmt.setString(8, quantity);
-			result = pstmt.executeUpdate();
-		} catch (SQLIntegrityConstraintViolationException e) {
-			return 3;
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			Dbman.close(con, pstmt, rs);
+			con = Dbman.getConnection();
+			try {
+				pstmt = con.prepareStatement(sql);
+				cvo = new CartVO();
+				pstmt.setInt(1, mseq);
+				pstmt.setInt(2, cseq);
+				pstmt.setString(3, date);
+				pstmt.setString(4, time);
+				pstmt.setInt(5, locationNum);
+				pstmt.setString(6, area);
+				pstmt.setInt(7, mseq2);
+				pstmt.setString(8, quantity);
+				result = pstmt.executeUpdate();
+			} catch (SQLIntegrityConstraintViolationException e) {
+				return 3;
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				Dbman.close(con, pstmt, rs);
+			}
+			return result;
 		}
-		return result;
+
 	}
 
 	public int insertCartMseq2Null(int mseq, int cseq, String date, String time, String area, String quantity) {

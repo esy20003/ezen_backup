@@ -9,7 +9,6 @@
 	<form method="post" action="ticket.do" name="loginFrm">
 		<input type="hidden" name="command" value="login">
 		<fieldset>
-		<legend></legend>
 		<div class="login_wrap" >
 			<div class="id_input_box">
 				<input type="text" name="id" class="id_input"  maxlength="20" placeholder="아이디">
