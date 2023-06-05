@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezen.ticket.dto.QnaVO;
-import com.ezen.ticket.dto.ReplyVO;
+import com.ezen.ticket.dto.AdminQnaReplyVO;
 import com.ezen.ticket.util.Dbman;
 import com.ezen.ticket.util.Paging;
 
@@ -81,7 +81,7 @@ public class QnaDao {
 				qvo.setTitle(rs.getString("title"));
 				qvo.setContent(rs.getString("content"));
 				qvo.setIndate(rs.getTimestamp("indate"));
-				
+				qvo.setReadcount(rs.getInt("readCount"));
 			}
 		} catch (SQLException var8) {
 			var8.printStackTrace();
@@ -159,67 +159,7 @@ public class QnaDao {
 		
 }
 
-	public ArrayList<ReplyVO> selectReply(int qseq) {
-		ArrayList<ReplyVO> list = new ArrayList();
-		con = Dbman.getConnection();
-		String sql = "select * from reply where qnanum=? order by replynum desc";
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, qseq);
-			rs = pstmt.executeQuery();
-
-			while (this.rs.next()) {
-				ReplyVO qvo = new ReplyVO();
-				qvo.setReplynum(rs.getInt("replynum"));
-				qvo.setQnanum(rs.getInt("qnanum"));
-				qvo.setId(rs.getString("id"));
-				qvo.setIndate(rs.getTimestamp("indate"));
-				qvo.setContent(rs.getNString("content"));
-				list.add(qvo);
-			}
-		} catch (SQLException var8) {
-			var8.printStackTrace();
-		} finally {
-			Dbman.close(con, pstmt, rs);
-		}
-
-		return list;
-	}
-	
-	public void deleteReply(String reply) {
-		String sql = "delete from reply where reply=?";
-		this.con = Dbman.getConnection();
-
-		try {
-			this.pstmt = this.con.prepareStatement(sql);
-			this.pstmt.setInt(1, Integer.parseInt(reply));
-			this.pstmt.executeUpdate();
-		} catch (SQLException var7) {
-			var7.printStackTrace();
-		} finally {
-			Dbman.close(this.con, this.pstmt, this.rs);
-		}
-
-	}
-
-	public void insertReply(ReplyVO rvo) {
-		String sql = "insert into reply( replynum, qnanum, id, content )  values( reply_seq.nextVal, ? , ? , ? )";
-		con = Dbman.getConnection();
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, rvo.getQnanum());
-			pstmt.setString(2, rvo.getId());
-			pstmt.setString(3, rvo.getContent());
-			pstmt.executeUpdate();
-		} catch (SQLException var7) {
-			var7.printStackTrace();
-		} finally {
-			Dbman.close(con, pstmt, rs);
-		}
-
-	}
 
 	public void plusOneReadcount(int qseq) {
 		
@@ -252,6 +192,36 @@ public class QnaDao {
 		
 		return count;	
 	}
+
+	public AdminQnaReplyVO getQnaReply(int qseq) {
+		AdminQnaReplyVO aqvo=null;
+		con=Dbman.getConnection();
+		String sql="select * from adminQna_reply where qseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			rs=pstmt.executeQuery();
+			if(rs.next()) {
+				aqvo=new AdminQnaReplyVO();
+				aqvo.setQseq(qseq);
+				aqvo.setQrseq(rs.getInt("qrseq"));
+				aqvo.setQnaContent(rs.getString("qnaContent"));
+				aqvo.setWriteDate(rs.getTimestamp("writeDate"));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+			
+		}finally {Dbman.close(con, pstmt, rs);}
+		
+		return aqvo;
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }
 	
