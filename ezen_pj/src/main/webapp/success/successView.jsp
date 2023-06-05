@@ -7,7 +7,7 @@
 		<h3>고객님들의 성공 후기를 상세히 볼 수 있는 게시판 입니다.</h3>
 		<form name="rev_formm" method="get" class="review_form" action="ticket.do">
 
-			<input type="hidden" name="command" value="reviewReply">
+			<input type="hidden" name="command" value="successReply">
 			<input type="hidden" name="rseq" value="${ SuccessVO.sucseq }">
 			
 			<table class="review_view_table">
@@ -68,11 +68,7 @@
 						<td style="line-height:30px;" align="left">&nbsp;${ reply.replycontent }</td>
 						<td class="btn_del" style="line-height:0;">
 							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="삭제" onclick="location.href='ticket.do?command=successReplyDelete&scseq=${ reply.scseq }&sseq=${ SuccessVO.sseq }'">
-							</c:if>
-							
-							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="수정" onclick="location.href='ticket.do?command=successReplyEditForm&scseq=${ reply.scpseq }&sseq=${ SuccessVO.sseq }'">
+								<input type="button" value="삭제" onclick="location.href='ticket.do?command=successReplyDelete&srseq=${ reply.srseq }&sseq=${ SuccessVO.sseq }'">
 							</c:if>
 							&nbsp;
 							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->

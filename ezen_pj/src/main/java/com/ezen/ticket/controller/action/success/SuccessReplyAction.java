@@ -22,14 +22,15 @@ public class SuccessReplyAction implements Action {
 		
 		SuccessReplyVO svo = new SuccessReplyVO();
 		//댓글 추가할 리뷰의 번호
-		int sseq = Integer.parseInt(request.getParameter("sseq"));
+		int sseq = Integer.parseInt(request.getParameter("rseq"));
 		String id = request.getParameter("id");
 		System.out.println("sseq = >" + sseq); // 번호 가져와지는거 확인함
 		svo.setId(request.getParameter("id"));
 		System.out.println("전달된 작성자 id =>"  + id);
 		
 		svo.setReplycontent(request.getParameter("reply"));
-		svo.setSseq(sseq);
+		System.out.println( "내용 = " + request.getParameter("reply"));
+		svo.setSucseq(sseq);
 		System.out.println(mvo.getMseq());
 		//svo.setMseq(mvo.getMseq());
 		

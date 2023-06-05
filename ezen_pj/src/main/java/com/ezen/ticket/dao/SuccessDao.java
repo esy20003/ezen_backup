@@ -120,7 +120,7 @@ public class SuccessDao {
 	public ArrayList<SuccessReplyVO> selectReply(int sucseq) {
 		ArrayList<SuccessReplyVO> list = new ArrayList<SuccessReplyVO>();
 		con = Dbman.getConnection();
-		String sql ="select * from success_reply_member where sucseq =? order by scseq desc";
+		String sql ="select * from success_reply_member where sucseq =? order by srseq desc";
 		//String sql ="select R.*, M.id from success_reply R, member M where R.mseq = M.mseq (select * from success_reply where sucseq=?)";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -128,8 +128,8 @@ public class SuccessDao {
 			rs = pstmt.executeQuery();
 			while(rs.next() ) {
 				SuccessReplyVO svo = new SuccessReplyVO();
-				svo.setScseq(rs.getInt("scseq"));
-				svo.setSseq(rs.getInt("sseq"));
+				svo.setSrseq(rs.getInt("srseq"));
+				svo.setSucseq(rs.getInt("sucseq"));
 				//			rvo.setId(rs.getString("id"));
 				svo.setMseq(rs.getInt("mseq"));
 				svo.setReplycontent(rs.getString("replycontent"));
@@ -224,16 +224,16 @@ public class SuccessDao {
 
 	public void insertReply(SuccessReplyVO svo) {
 		//댓글번호 //리뷰번호 //멤버번호 
-				String sql ="insert into success_reply(scseq, sseq , mseq, replycontent) values("
+				String sql ="insert into success_reply(srseq, sucseq , mseq, successcontent) values("
 						+ " reply_seq.nextVal, ?, ? ,?)";
 
 				con = Dbman.getConnection();
 				try {
-					System.out.println("insertReply" + svo.getSseq());
+					System.out.println("insertReply" + svo.getSucseq());
 					System.out.println("insertReply" +  svo.getMseq());
 					System.out.println("insertReply" + svo.getReplycontent());
 					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, svo.getSseq());
+					pstmt.setInt(1, svo.getSucseq());
 					pstmt.setInt(2, svo.getMseq());
 					pstmt.setString(3, svo.getReplycontent());
 
@@ -257,12 +257,12 @@ public class SuccessDao {
 		} finally {Dbman.close(con, pstmt, rs);}
 	}
 
-	public void deleteReviewReply(int scseq) {
+	public void deleteReviewReply(int srseq) {
 		con = Dbman.getConnection();
-		String sql ="delete from success_reply where scseq=?";
+		String sql ="delete from success_reply where srseq=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, scseq);
+			pstmt.setInt(1, srseq);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {e.printStackTrace();
