@@ -21,7 +21,7 @@ public class SuccessViewAction implements Action {
 		
 		String url = "success/successView.jsp";
 		int sucseq = Integer.parseInt(request.getParameter("sucseq"));
-		System.out.println(sucseq);
+		System.out.println("받아온 sucseq" + sucseq);
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
 		if(mvo == null) {

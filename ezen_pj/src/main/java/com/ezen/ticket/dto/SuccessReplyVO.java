@@ -4,18 +4,18 @@ import java.sql.Timestamp;
 
 public class SuccessReplyVO {
 	
-	private int scseq; // success_board번호
+	private int srseq; // success_board번호
 	private int mseq; // member_sequence/ 번호
 	private int sseq; // 댓글번호
 	private String id;
 	private String replycontent;
 	private Timestamp writedate;
 	
-	public int getScseq() {
-		return scseq;
+	public int getSrseq() {
+		return srseq;
 	}
-	public void setScseq(int scseq) {
-		this.scseq = scseq;
+	public void setSrseq(int srseq) {
+		this.srseq = srseq;
 	}
 	public int getMseq() {
 		return mseq;

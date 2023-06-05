@@ -123,7 +123,8 @@ create or replace view review_reply_member as select r.*, m.id from review_reply
 
 commit
 select * from review_reply_member;
-
+select * from success_reply;
+select * from success_reply_member;
 
 -- success_reply , member view
 -- member테이블과 success_reply 테이블에서 mseq 가 일치하면 

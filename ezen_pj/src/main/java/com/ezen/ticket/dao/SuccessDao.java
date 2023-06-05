@@ -120,7 +120,7 @@ public class SuccessDao {
 	public ArrayList<SuccessReplyVO> selectReply(int sucseq) {
 		ArrayList<SuccessReplyVO> list = new ArrayList<SuccessReplyVO>();
 		con = Dbman.getConnection();
-		String sql ="select * from success_reply_member where sucseq =? order by scseq desc";
+		String sql ="select * from success_reply_member where sucseq =? order by srseq desc";
 		//String sql ="select R.*, M.id from success_reply R, member M where R.mseq = M.mseq (select * from success_reply where sucseq=?)";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -128,7 +128,7 @@ public class SuccessDao {
 			rs = pstmt.executeQuery();
 			while(rs.next() ) {
 				SuccessReplyVO svo = new SuccessReplyVO();
-				svo.setScseq(rs.getInt("scseq"));
+				svo.setSrseq(rs.getInt("srseq"));
 				svo.setSseq(rs.getInt("sseq"));
 				//			rvo.setId(rs.getString("id"));
 				svo.setMseq(rs.getInt("mseq"));
@@ -224,7 +224,7 @@ public class SuccessDao {
 
 	public void insertReply(SuccessReplyVO svo) {
 		//댓글번호 //리뷰번호 //멤버번호 
-				String sql ="insert into success_reply(scseq, sseq , mseq, replycontent) values("
+				String sql ="insert into success_reply(srseq, sseq , mseq, replycontent) values("
 						+ " reply_seq.nextVal, ?, ? ,?)";
 
 				con = Dbman.getConnection();
@@ -257,12 +257,12 @@ public class SuccessDao {
 		} finally {Dbman.close(con, pstmt, rs);}
 	}
 
-	public void deleteReviewReply(int scseq) {
+	public void deleteReviewReply(int srseq) {
 		con = Dbman.getConnection();
-		String sql ="delete from success_reply where scseq=?";
+		String sql ="delete from success_reply where srseq=?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, scseq);
+			pstmt.setInt(1, srseq);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {e.printStackTrace();
