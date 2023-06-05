@@ -16,22 +16,21 @@ public class CartDeleteAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String [] cseqArr = request.getParameterValues("cartseq");
+
+		String[] cartSeqArr = request.getParameterValues("cartseq");
 		HttpSession session = request.getSession();
-		MemberVO mvo = (MemberVO)session.getAttribute("loginUser");
-		if(mvo == null) {
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if (mvo == null) {
 			String url = "member/login.jsp";
 			request.getRequestDispatcher(url).forward(request, response);
-		}else {
+		} else {
 			CartDao cdao = CartDao.getInstance();
-			for( String cseq : cseqArr )
-				cdao.deleteCart( Integer.parseInt(cseq), mvo );
-			
+			for (String cartSeq : cartSeqArr)
+				cdao.deleteCart(Integer.parseInt(cartSeq));
+
 			response.sendRedirect("ticket.do?command=cartList");
 		}
-		
-		
+
 	}
 
 }

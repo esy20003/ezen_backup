@@ -1,5 +1,6 @@
 package com.ezen.ticket.dao;
 
+import java.io.Reader;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,6 +41,7 @@ public class CartDao {
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
 				cartVO = new CartVO();
+				cartVO.setCartseq(rs.getInt("cartseq"));
 				cartVO.setMseq(rs.getInt("mseq"));
 				cartVO.setCseq(rs.getInt("cseq"));
 				cartVO.setContentdate(rs.getTimestamp("contentdate"));
@@ -91,14 +93,13 @@ public class CartDao {
 		return buycartlist;
 	}
 
-	public void deleteCart(int cseq, MemberVO mvo) {
+	public void deleteCart(int cartSeq) {
 
 		con = Dbman.getConnection();
-		String sql = "delete from cart where mseq = ? and cseq = ?";
+		String sql = "delete from cart where cartseq = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, mvo.getMseq());
-			pstmt.setInt(2, cseq);
+			pstmt.setInt(1, cartSeq);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -298,7 +299,7 @@ public class CartDao {
 	public int hoonSelectCart(int cseq, String date, String time, String area, String quantity) {
 		int result = 0;
 		con = Dbman.getConnection();
-		String sql = "select * from cart where cseq = ? and contentdate = ? and contenttime = ? and area = ? and quantity = ?";
+		String sql = "select * from cart where cseq = ? and contentdate = ? and contenttime = ? and area = ? and quantity = ? and buyyn = 'N'";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, cseq);
@@ -307,15 +308,18 @@ public class CartDao {
 			pstmt.setString(4, area);
 			pstmt.setString(5, quantity);
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs); }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 		return result;
 	}
 
 	public int hoonUpdateCart(int mseq, int cseq, String date, String time, String area, String quantity, int mseq2) {
 		int result = 0;
 		con = Dbman.getConnection();
-		String sql = "update cart set mseq2 = ? where mseq = ? and cseq = ? and date = ? and time = ? and area = ? and quantity = ?";
+		String sql = "update cart set mseq2 = ? where mseq = ? and cseq = ? and contentdate = ? and contenttime = ? and area = ? and quantity = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, mseq2);
@@ -326,9 +330,28 @@ public class CartDao {
 			pstmt.setString(6, area);
 			pstmt.setString(7, quantity);
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs); }
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
 		return result;
+	}
+
+	public void hoonUpdateCart(int cartseq) {
+
+		con = Dbman.getConnection();
+		String sql = "update cart set buyyn = 'Y' where cartseq = ?";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, cartseq);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			Dbman.close(con, pstmt, rs);
+		}
+
 	}
 
 }
