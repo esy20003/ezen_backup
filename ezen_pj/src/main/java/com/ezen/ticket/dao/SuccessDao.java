@@ -132,7 +132,7 @@ public class SuccessDao {
 				svo.setSucseq(rs.getInt("sucseq"));
 				//			rvo.setId(rs.getString("id"));
 				svo.setMseq(rs.getInt("mseq"));
-				svo.setReplycontent(rs.getString("replycontent"));
+				svo.setSuccesscontent(rs.getString("successcontent"));
 				svo.setWritedate(rs.getTimestamp("writedate"));
 				svo.setId(rs.getString("id"));
 
