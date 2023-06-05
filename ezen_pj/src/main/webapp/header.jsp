@@ -26,6 +26,7 @@
 <script src="script/cartlist.js"></script>
 <script src="script/apply_register.js"></script>
 <script src="script/review.js"></script>
+<script src="script/success.js"></script>
 <script src="script/contentDetail.js"></script>
 <link rel="stylesheet" href="css/mypage.css?ver=1" />
 

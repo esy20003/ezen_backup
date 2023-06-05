@@ -129,7 +129,7 @@ public class SuccessDao {
 			while(rs.next() ) {
 				SuccessReplyVO svo = new SuccessReplyVO();
 				svo.setSrseq(rs.getInt("srseq"));
-				svo.setSseq(rs.getInt("sseq"));
+				svo.setSucseq(rs.getInt("sucseq"));
 				//			rvo.setId(rs.getString("id"));
 				svo.setMseq(rs.getInt("mseq"));
 				svo.setReplycontent(rs.getString("replycontent"));
@@ -224,16 +224,16 @@ public class SuccessDao {
 
 	public void insertReply(SuccessReplyVO svo) {
 		//댓글번호 //리뷰번호 //멤버번호 
-				String sql ="insert into success_reply(srseq, sseq , mseq, replycontent) values("
+				String sql ="insert into success_reply(srseq, sucseq , mseq, successcontent) values("
 						+ " reply_seq.nextVal, ?, ? ,?)";
 
 				con = Dbman.getConnection();
 				try {
-					System.out.println("insertReply" + svo.getSseq());
+					System.out.println("insertReply" + svo.getSucseq());
 					System.out.println("insertReply" +  svo.getMseq());
 					System.out.println("insertReply" + svo.getReplycontent());
 					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, svo.getSseq());
+					pstmt.setInt(1, svo.getSucseq());
 					pstmt.setInt(2, svo.getMseq());
 					pstmt.setString(3, svo.getReplycontent());
 

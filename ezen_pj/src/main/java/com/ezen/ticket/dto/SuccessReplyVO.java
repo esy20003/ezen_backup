@@ -4,9 +4,9 @@ import java.sql.Timestamp;
 
 public class SuccessReplyVO {
 	
-	private int srseq; // success_board번호
-	private int mseq; // member_sequence/ 번호
-	private int sseq; // 댓글번호
+	private int sucseq;  // 성공후기 번호 
+	private int srseq; // 댓글번호
+	private int mseq; // 멤버번호 
 	private String id;
 	private String replycontent;
 	private Timestamp writedate;
@@ -23,11 +23,11 @@ public class SuccessReplyVO {
 	public void setMseq(int mseq) {
 		this.mseq = mseq;
 	}
-	public int getSseq() {
-		return sseq;
+	public int getSucseq() {
+		return sucseq;
 	}
-	public void setSseq(int sseq) {
-		this.sseq = sseq;
+	public void setSucseq(int sucseq) {
+		this.sucseq = sucseq;
 	}
 	public String getId() {
 		return id;

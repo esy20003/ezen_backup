@@ -15,7 +15,9 @@ insert into review_reply(repseq, mseq, rseq, replycontent) values(review_reply_r
 
 alter table review_reply add userid varchar2(20);
 
-
+select * from success_board;
+select* from success_reply;
+select * from success_reply_member;
 
 
 
