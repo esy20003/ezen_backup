@@ -28,7 +28,7 @@ public class SuccessDeleteAction implements Action {
 			System.out.println("들어오냐?" + sseq);
 			SuccessDao sdao = SuccessDao.getInstance();
 			sdao.deleteSuccess(sseq);
-			// 리뷰를 삭제하면 리뷸에 달린 댓글도 같이 삭제
+			// 리뷰를 삭제하면 리뷰에 달린 댓글도 같이 삭제
 			sdao.deleteReplyBysseq(sseq);
 			
 		}
