@@ -30,9 +30,9 @@ public class Member_Grade_View_Dao {
 			String sql = "select * from member_grade_view where cmseq=?";
 			try {
 				
-				for(int sseq = 0; sseq < 2; sseq++) {
+				for(int sseq = 0; sseq < size; sseq++) {
 					pstmt = con.prepareStatement(sql);
-					pstmt.setInt(1, list.get(0).getMseq2());
+					pstmt.setInt(1, list.get(sseq).getMseq2());
 					rs = pstmt.executeQuery();
 					if(rs.next()) {
 						mgvVO = new Member_Grade_View_VO();

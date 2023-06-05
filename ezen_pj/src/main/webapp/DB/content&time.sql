@@ -1,6 +1,32 @@
 select * from CONTENT order by cseq;
+select * from CONTENTTime order by cseq;
+select * from content order by category asc
 --category==>콘서트=1, 뮤지컬=2, 스포츠=3, 페스티벌=4, 전시/행사=5
 --콘서트 데이터 추가
+
+update content set locationNum=6 where cseq=8;
+update content set tDateTime='20230609110000' where cseq=1;
+update content set tDateTime='20230523140000' where cseq=2;
+update content set tDateTime='20230510113000' where cseq=3;
+update content set tDateTime='20230509000000' where cseq=4;
+update content set tDateTime='20230517120000' where cseq=5;
+update content set tDateTime='20230511100000' where cseq=6;
+update content set tDateTime='20230601130000' where cseq=7;
+update content set tDateTime='20230505150000' where cseq=8;
+update content set tDateTime='20230511110000' where cseq=9;
+update content set tDateTime='20230423160000' where cseq=10;
+update content set tDateTime='20230427110000' where cseq=11;
+update content set tDateTime='20230427110000' where cseq=12;
+update content set tDateTime='20230427110000' where cseq=13;
+update content set tDateTime='20230421120000' where cseq=14;
+update content set tDateTime='20230426150000' where cseq=15;
+update content set tDateTime='20230503140000' where cseq=16;
+update content set tDateTime='20230601000000' where cseq=17;
+update content set tDateTime='20230601000000' where cseq=18;
+
+select*from content;
+
+
 
 UPDATE content SET title= '2023 김기태 전국투어 콘서트 '||CHR(091)||'위로'||CHR(093)||'' WHERE cseq=1;
 UPDATE content SET content= '김기태만의 짙고 울림있는 감성으로 여러분의 마음을 위로하며 가슴 깊은 곳 위로의 메세지를 전할 2023 김기태 전국투어 콘서트 '||CHR(091)||'위로'||CHR(093)||'' 
@@ -17,6 +43,7 @@ UPDATE content SET content= 'Tone'||CHR(038)||'Music Festival 2023' WHERE cseq=1
 
 delete from content where cseq=21;
 
+alter table content add tDateTime varchar2(100) default '0';
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
 values(content_cseq.nextVal, '2023 김기태 전국투어 콘서트 '||CHR(091)||'위로'||CHR(093)||'', 8, '김기태',
@@ -46,7 +73,7 @@ values(content_cseq.nextVal, '2023 폴 아웃 보이(Fall Out Boy) 내한공연'
 '세계적인 락밴드 폴 아웃 보이(Fall Out Boy)의 최초 내한 콘서트!',1, '8세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(content_cseq.nextVal, '2023 테일러 스위프트(Taylor Swift) 내한공연',12,'테일러 스위프트(Taylor Swift)',
+values(content_cseq.nextVal, '2023 테일러 스위프트(Taylor Swift) 내한공연',4,'테일러 스위프트(Taylor Swift)',
 '테일러 스위프트, 13년만의 내한공연! 
 21세기의 음악 산업 그 자체, 싱어송라이터 테일러 스위프트가 오는 8월 서울을 찾는다',1, '8세 이상');
 
@@ -55,18 +82,18 @@ values(content_cseq.nextVal, '2023 테일러 스위프트(Taylor Swift) 내한�
 
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'백작'||CHR(062)||'', 14, '이승현 외','무패의 군신으로 불리는 백작. 
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'백작'||CHR(062)||'', 6, '이승현 외','무패의 군신으로 불리는 백작. 
 인간들을 상대로 밤에만 전투를 하고, 새벽이 되면 적장이 가장 사랑하는 사람을 인질로 잡아 포에나리성으로 퇴각한다. 
 백작에게 인질로 잡힌 적장의 아들 V. 태양을 가린 커튼 아래 빛의 세계와 밤의 세계가 교차한다. 기록되지 않은 포에나리 성주의 전설',2, '만 12세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'더 테일 에이프릴 풀스'||CHR(062)||'', 15, '최석진 외',
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'더 테일 에이프릴 풀스'||CHR(062)||'', 7, '최석진 외',
 '2022년 초연 흥행 돌풍, 예매처 관람 평점 9.7로 매진 신화 기록!
 아름다운 무대, 감각적 미장센으로 관객이 가장 기다려온 뮤지컬
 완벽한 호흡을 선보인 배우들과 함께 다시 돌아왔다!',2, '만 14세 이상');
 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY, AGE)
-values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'빠리빵집'||CHR(062)||'', 9, '고훈정 외',
+values(CONTENT_CSEQ.nextVal, '뮤지컬 '||CHR(060)||'빠리빵집'||CHR(062)||'', 15, '고훈정 외',
 '그리움이 만든 기적, 지금 여기 우리',2, '만 7세 이상');
 
 
@@ -76,7 +103,7 @@ values(CONTENT_CSEQ.nextVal, '두산 베어스', 10, '두산 베어스','두산 
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY)
 values(CONTENT_CSEQ.nextVal, '키움 히어로즈', 12, '키움 히어로즈','키움 히어로즈 고척스카이돔 홈경기입니다.',3);
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY)
-values(CONTENT_CSEQ.nextVal, '삼성 라이온즈', 10, '삼성 라이온즈','삼성 라이온즈 삼성 라이온즈파크 홈경기입니다.',3);
+values(CONTENT_CSEQ.nextVal, '삼성 라이온즈', 13, '삼성 라이온즈','삼성 라이온즈 삼성 라이온즈파크 홈경기입니다.',3);
 insert into content (CSEQ, TITLE, locationNum,ARTIST,content,CATEGORY)
 values(CONTENT_CSEQ.nextVal, '수원삼성블루윙즈', 11, '수원삼성블루윙즈','수원삼성블루윙즈 수원월드컵경기장 홈경기입니다.',3);
 

@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class CartVO {
 	
+	private int cartseq;
 	private int mseq;
 	private int cseq;
 	private Timestamp contentdate;
@@ -15,6 +16,13 @@ public class CartVO {
 	private Timestamp indate;
 	private char buyyn;
 	
+	
+	public int getCartseq() {
+		return cartseq;
+	}
+	public void setCartseq(int cartseq) {
+		this.cartseq = cartseq;
+	}
 	public int getMseq2() {
 		return mseq2;
 	}

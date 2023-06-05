@@ -1,0 +1,18 @@
+header.jsp 관리자 로그인 임시추가
+
+액션팩토리 admin 임시추가
+
+productlist에  submenu list 임시로 붙여넣기 
+
+어드민 멤버리스트 임시추가
+
+admin 폴더 내부 memberlist.jsp 파일추가 
+
+admin 폴더에 padging 폴더 임시추가
+
+CHAR 타입과 STRING 타입을 비교하려니 
+
+오류가 나서 
+
+jstl 의 fn 라이브러리를 가져와서 
+비교해서 띄운다 
