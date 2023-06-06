@@ -44,6 +44,7 @@ public class QnaDao {
 				qvo.setIndate(rs.getTimestamp("indate"));
 				qvo.setReply(rs.getString("reply"));
 				qvo.setRepyn(rs.getString("repyn"));
+				qvo.setReadcount(rs.getInt("readcount"));
 				list.add(qvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
@@ -69,8 +70,13 @@ public class QnaDao {
 	public QnaVO getQna(int qseq) {
 		QnaVO qvo = new QnaVO();
 		con = Dbman.getConnection();
-		String sql = "select * from qna_board where qseq=?";
+		String sql = "update qna_board set readcount = readcount+1 where qseq=?";
 		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			pstmt.executeUpdate();
+
+			sql = "select * from qna_board where qseq=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qseq);
 			rs = pstmt.executeQuery();
@@ -161,22 +167,6 @@ public class QnaDao {
 
 
 
-	public void plusOneReadcount(int qseq) {
-		
-		con = Dbman.getConnection();
-		String sql = "update qna_board set readcount = readcount+1 where qseq=?";
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, qseq);
-			pstmt.executeUpdate();
-		} catch (SQLException var7) {
-			var7.printStackTrace();
-		} finally {
-			Dbman.close(con, pstmt, rs);
-		}
-
-	}
 	
 	public int getReplycnt(int qseq) {
 		int count=0;
@@ -275,6 +265,31 @@ public class QnaDao {
 		}finally {Dbman.close(con, pstmt, rs);}
 		
 		return result;
+	}
+
+	public QnaVO getQnaNoCount(int qseq) {
+		QnaVO qvo = new QnaVO();
+		con = Dbman.getConnection();
+		String sql = "select * from qna_board where qseq=?";
+		try {
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, qseq);
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
+			qvo.setQseq(rs.getInt("qseq"));
+			qvo.setPwd(rs.getString("pwd"));
+			qvo.setId(rs.getString("id"));
+			qvo.setTitle(rs.getString("title"));
+			qvo.setContent(rs.getString("content"));
+			qvo.setIndate(rs.getTimestamp("indate"));
+			qvo.setReadcount(rs.getInt("readCount"));
+		}
+	} catch (SQLException var8) {
+		var8.printStackTrace();
+	} finally {
+		Dbman.close(con, pstmt, rs);
+	}
+	return qvo;
 	}
 
 

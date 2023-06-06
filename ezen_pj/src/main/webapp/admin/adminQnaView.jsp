@@ -34,17 +34,9 @@
 			
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	
-				<table>
+				<table class="adminReplyList">
 					<tr>
-						<th>문의 답글</th>
-					</tr>
-	
-					<tr align="center">
-						<td>관리자<input type="hidden" name="adminId" value="${loginAdmin.id}"></td>
-						<td>
-							<input type="text" name="reply" style="width:800px;height:50px;" >
-						</td>
-						<td><input type="submit" value="답글 작성" onClick="return reply_check();"></td>
+						<th class="a">문의 답글</th>
 					</tr>
 
 					<tr align="center" class="qnaReplyList">
@@ -61,6 +53,15 @@
 						</c:otherwise>
 					</c:choose>
 					</tr>
+	
+					<tr align="center">
+						<td>관리자<input type="hidden" name="adminId" value="${loginAdmin.id}"></td>
+						<td>
+							<input type="text" name="reply" style="width:800px;height:50px;" >
+						</td>
+						<td><input type="submit" value="답글 작성" onClick="return reply_check();"></td>
+					</tr>
+
 				</table>
 	
 		
