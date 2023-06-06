@@ -243,14 +243,14 @@ public class SuccessDao {
 
 			}
 	// 리뷰 삭제 시 해당 리뷰 댓글도 삭제
-	public void deleteReplyBysseq(int sucseq) {
+	public void deleteReplyBysseq(int sseq) {
 		
 		con = Dbman.getConnection();
-		String sql ="delete success_reply where srseq =?";
+		String sql ="delete success_reply where sseq =?";
 		
 		try {
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, sucseq);
+			pstmt.setInt(1, sseq);
 			pstmt.executeUpdate();
 			
 		} catch (SQLException e) {e.printStackTrace();

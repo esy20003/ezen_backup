@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" href="admin/css/admin.css"/>
 <script src="script/bootstrap.min.js"></script>
-<script src="script/admin.js"></script>
+<script src="../script/admin.js"></script>
 </head>
 
 <body>

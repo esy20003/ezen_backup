@@ -173,7 +173,7 @@ CREATE TABLE cart
 	quantity number(5,0) default 1,
 	indate date DEFAULT sysdate,
 	buyyn char DEFAULT 'N',
-	PRIMARY KEY (cartseq, mseq, cseq, contentDate, contentTime, locationNum, area)
+	PRIMARY KEY (cartseq, mseq, cseq, contentDate, contentTime, locationNum, area, mseq2)
 );
 
 

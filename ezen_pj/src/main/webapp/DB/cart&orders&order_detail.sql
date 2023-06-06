@@ -1,6 +1,6 @@
 --장바구니
 
-select * from cart order by cartseq asc;
+select * from cart;
 select * from member
 
 delete from CART;
@@ -9,7 +9,7 @@ select * from member_grade_view where cmseq=0;
 select * from order_view
 
 alter table cart drop primary key;
-alter table cart add PRIMARY KEY (cartseq, mseq, cseq, contentDate, contentTime, locationNum, area);
+alter table cart add PRIMARY KEY (cartseq, mseq, cseq, contentDate, contentTime, locationNum, area, mseq2);
 
 insert into cart(cartseq, mseq, cseq, CONTENTDATE,contentTime, locationNum, area) 
 values(cart_cartseq.nextVal,7,11, to_date('20230528','yyyy-mm-dd'),'14:00',12,'테이블석');
