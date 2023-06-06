@@ -34,7 +34,7 @@ public class QnaCheckPassAction implements Action {
 		} else if( qvo.getPwd().equals(pwd) ) {	// 둘이 같다면, checkSuccess.jsp 로 이동
 			url = "qna/checkSuccess.jsp";
 			HttpSession session = request.getSession();
-			session.setAttribute("pwd", "N");
+			session.setAttribute("pwd", "N"); //이건 뭐지??
 		} else {
 			request.setAttribute("message", "비밀번호가 틀렸습니다.");
 			url = "qna/qnaCheckPass.jsp"; // 비번 입력하는곳으로 되돌아 갑니다
