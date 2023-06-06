@@ -68,24 +68,3 @@ values(order_detail_odseq.nextVal,4,4,1,8,to_date('20230709','yyyy-mm-dd'),'17:0
 insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
 values(order_detail_odseq.nextVal,4,4,1,8,to_date('20230709','yyyy-mm-dd'),'17:00','전석',10);
 
-
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,24,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',10);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,25,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',1);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,26,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',1);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,27,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',2);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,28,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',10);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,29,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',3);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,30,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',4);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,31,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',5);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,32,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',6);
-insert into order_detail(odseq,oseq,mseq,cseq,locationNum,contentDate,contentTime,area,mseq2) 
-values(order_detail_odseq.nextVal,33,11,10,8,to_date('20230527','yyyy-mm-dd'),'14:00','오렌지석',7);

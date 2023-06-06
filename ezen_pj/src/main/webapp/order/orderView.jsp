@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="../header.jsp" %>
 
-<form name="frm" action="ticket.do" method="post" class="form">
+<form name="frm" action="ticket.do" method="post" class="formOrder">
 
 
 <section>
