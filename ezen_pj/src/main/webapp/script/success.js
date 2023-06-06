@@ -14,8 +14,7 @@ function success_chk() {
  
  // 수정 버튼 클릭  // 수정 폼으로 이동
 function go_supd(sucseq) {
-	console.log("받아온 수정 후기번호" + sucseq)
-	var url = "ticket.do?command=successEditForm&sucseq=" + sucseq;
+	var url = "ticket.do?command=successEditForm&sucseq=" + sucseq
 	location.href = url
 }
  

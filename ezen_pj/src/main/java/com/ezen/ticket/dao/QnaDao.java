@@ -215,7 +215,69 @@ public class QnaDao {
 		
 		return aqvo;
 	}
-	
+
+	public int insertQnaReply(int qseq, String id, String replyContent) {
+		int result=0;
+		con=Dbman.getConnection();
+		String sql="insert into adminQna_reply(qrseq,qseq,id,qnaContent) "
+				+ "values(adminQna_reply_qrseq.nextVal,?,?,?)";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			pstmt.setString(2, id);
+			pstmt.setString(3, replyContent);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return result;
+	}
+
+	public int updateQnaRepNtoY(int qseq) {
+		int result=0;
+		con=Dbman.getConnection();
+		String sql="update qna_board set repyn='Y' where qseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		
+		return result;
+	}
+
+	public int deleteQnaReply(int qrseq) {
+		int result=0;
+		con=Dbman.getConnection();
+		String sql="delete from adminQna_reply where qrseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qrseq);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return result;
+	}
+
+	public int updateQnaRepYtoN(int qseq) {
+		int result=0;
+		con=Dbman.getConnection();
+		String sql="update qna_board set repyn='N' where qseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		
+		return result;
+	}
+
+
 	
 	
 	

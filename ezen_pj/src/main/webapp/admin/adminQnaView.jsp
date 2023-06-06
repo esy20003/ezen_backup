@@ -15,7 +15,7 @@
 
 <form action="ticket.do" method="get" name="frm_reply">
 	<input type="hidden" name="command" value="adminQnaReply" /> 
-	<input type="hidden" name="qnanum" value="${QnaVO.qseq}" />
+	<input type="hidden" name="qseq" value="${QnaVO.qseq}" />
 	<input type="hidden" name="adminId" value="${loginAdmin.id}" />
 	<article>
 	<h2> 고객 게시판 </h2> <br><br> <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3><br><br>
@@ -49,15 +49,15 @@
 
 					<tr align="center" class="qnaReplyList">
 					<c:choose>
-						<c:when test="${empty aqvo.qnaContent}">
+						<c:when test="${empty qnaReplyVO}">
 						</c:when>
 						<c:otherwise>
-						<td>관리자</td>
-						<td><fmt:formatDate value="${aqvo.writeDate}" pattern="MM/dd HH:mm" /></td>
-						<td align="left">&nbsp;${aqvo.qnaContent}</td>
-						<td>
-							<input type="button" value="삭제"	 onClick = "location.href='ticket.do?command=deleteQnaReply&replynum=${qnaReplyVO.qrseq}'">
-						</td>
+							<td>관리자</td>
+							<td><fmt:formatDate value="${qnaReplyVO.writeDate}" pattern="MM/dd HH:mm" /></td>
+							<td align="left">&nbsp;${qnaReplyVO.qnaContent}</td>
+							<td>
+								<input type="button" value="삭제"	 onClick = "location.href='ticket.do?command=adminQnaReplyDelete&qseq=${QnaVO.qseq}&qrseq=${qnaReplyVO.qrseq}'">
+							</td>
 						</c:otherwise>
 					</c:choose>
 					</tr>
@@ -66,7 +66,7 @@
 		
 			<div class="clear"></div>
 	<div id="buttons" style="float:right">
-		<input type="button" value="메인화면으로 돌아가기" class="cancel" style="color:black" onclick="location.href='ticket.do?command=index'">
+		<input type="button" value="목록으로" class="cancel" style="color:black;" onclick="location.href='ticket.do?command=adminQnaList'">
 	</div>
 	</article>
 </form>

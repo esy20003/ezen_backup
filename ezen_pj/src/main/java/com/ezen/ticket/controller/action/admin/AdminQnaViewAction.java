@@ -1,7 +1,6 @@
 package com.ezen.ticket.controller.action.admin;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +31,7 @@ public class AdminQnaViewAction implements Action {
 			
 			AdminQnaReplyVO aqvo=qdao.getQnaReply(qseq);
 
-			request.setAttribute("qnaVO", qvo);
+			request.setAttribute("QnaVO", qvo);
 			request.setAttribute("qnaReplyVO", aqvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
