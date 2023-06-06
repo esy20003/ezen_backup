@@ -26,7 +26,7 @@ public class AdminQnaViewAction implements Action {
 		}else {
 			int qseq=Integer.parseInt(request.getParameter("qseq"));
 			QnaDao qdao=QnaDao.getInstance();//이미 생성된 메서드를 이용
-			QnaVO qvo=qdao.getQna(qseq);
+			QnaVO qvo=qdao.getQnaNoCount(qseq);
 			System.out.println("qvo 출력 "+qvo.getQseq()+" "+qvo.getContent());
 			
 			AdminQnaReplyVO aqvo=qdao.getQnaReply(qseq);
