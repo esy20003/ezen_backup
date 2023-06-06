@@ -261,7 +261,7 @@ CREATE TABLE order_detail
 	locationNum number(5) NOT NULL,
 	contentDate date NOT NULL,
 	contentTime varchar2(10) NOT NULL,
-	area varchar2(10) NOT NULL,
+	area varchar2(100) NOT NULL,
 	-- 매칭된 대리인 회원번호
 	mseq2 number(5) NOT NULL,
 	quantity number(5,0) DEFAULT 1,
