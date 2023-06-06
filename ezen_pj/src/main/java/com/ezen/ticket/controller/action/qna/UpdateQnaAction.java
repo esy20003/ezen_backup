@@ -43,9 +43,9 @@ public class UpdateQnaAction implements Action {
 
 		
 		if(multi.getFilesystemName("newFile")==null)
-			qvo.setImgfilename(multi.getParameter("oldFile"));
+			qvo.setImage(multi.getParameter("oldFile"));
 		else
-			qvo.setImgfilename(multi.getFilesystemName("newFile"));
+			qvo.setImage(multi.getFilesystemName("newFile"));
 		
 		qdao.updateQna( qvo );
 		String url  = "ticket.do?command=qnaViewNoCount&qseq=" + qvo.getQseq();

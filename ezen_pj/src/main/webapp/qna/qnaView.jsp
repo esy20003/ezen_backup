@@ -25,8 +25,17 @@
 	<tr><th>조회수</th><td>${QnaVO.readcount}</td></tr>
 	<tr><th>질문내용</th>
 	<td align="left" style="text-align:left;font-size:100%; box-sizing: border-box; resize: none; padding:10px;">
-	<pre>${QnaVO.content}</pre></td>
-	<td>${QnaVO.imgfilename}</td></tr>
+	<pre>${QnaVO.content}</pre></td></tr>
+	<c:choose>
+	<c:when test="${empty QnaVO.image }">
+	</c:when>
+	<c:otherwise>
+	<tr><th>이미지</th>
+	<td align="left" style=" color: white;"><img src="./images/${QnaVO.image }" style="width:200px; "></td>
+	</tr>
+	</c:otherwise>
+	</c:choose>
+	
 	
 </table>
 	<input type="button" value="돌아가기"

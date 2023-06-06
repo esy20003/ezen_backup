@@ -88,7 +88,7 @@ public class QnaDao {
 				qvo.setContent(rs.getString("content"));
 				qvo.setIndate(rs.getTimestamp("indate"));
 				qvo.setReadcount(rs.getInt("readCount"));
-				qvo.setImgfilename(rs.getString("imgfilename"));
+				qvo.setImage(rs.getString("image"));
 
 			}
 		} catch (SQLException var8) {
@@ -102,8 +102,8 @@ public class QnaDao {
 	public void insertQna(QnaVO qvo) {
 		
 		con = Dbman.getConnection();
-		String sql = "insert into qna_board( qseq, id, title, content, mseq, pwd) "
-				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?, ?)";
+		String sql = "insert into qna_board( qseq, id, title, content, mseq, pwd,image) "
+				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?, ?,?)";
 		try {
 			
 			pstmt = con.prepareStatement(sql);
@@ -112,6 +112,7 @@ public class QnaDao {
 			pstmt.setString(3, qvo.getContent());
 			pstmt.setInt(4, qvo.getMseq());
 			pstmt.setString(5, qvo.getPwd());
+			pstmt.setString(6, qvo.getImage());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
@@ -138,7 +139,7 @@ public class QnaDao {
 
 
 	public void updateQna(QnaVO qvo) {
-		String sql = "update qna_board set id=?, pwd=?, title=?, content=? where qseq=? ";
+		String sql = "update qna_board set id=?, pwd=?, title=?, content=? , image=? where qseq=? ";
 		this.con = Dbman.getConnection();
 
 		try {
@@ -147,7 +148,9 @@ public class QnaDao {
 			this.pstmt.setString(2, qvo.getPwd());
 			this.pstmt.setString(3, qvo.getTitle());
 			this.pstmt.setString(4, qvo.getContent());
-			this.pstmt.setInt(5, qvo.getQseq());
+			this.pstmt.setString(5, qvo.getImage());
+			this.pstmt.setInt(6, qvo.getQseq());
+			
 			this.pstmt.executeUpdate();
 		} catch (SQLException var7) {
 			var7.printStackTrace();
@@ -275,7 +278,7 @@ public class QnaDao {
 			qvo.setContent(rs.getString("content"));
 			qvo.setIndate(rs.getTimestamp("indate"));
 			qvo.setReadcount(rs.getInt("readCount"));
-			qvo.setImgfilename(rs.getString("imgfilename"));
+			qvo.setImage(rs.getString("image"));
 		}
 	} catch (SQLException var8) {
 		var8.printStackTrace();

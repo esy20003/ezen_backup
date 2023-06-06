@@ -31,22 +31,23 @@
 		<tr><th>제목</th>
 			<td><input type="text" value="${qna.title}" size="70" name="title">*</td></tr>
 		<tr><th>내용</th>
-			<td><textarea cols="70" rows="15" name="content">${qna.content}</textarea>*</td></tr>
+			<td><textarea cols="70" rows="15" name="content">${qna.content}</textarea>*</td>
+			
 		
 		 <tr>
 			<th>이미지</th>
 			<td>
 			<c:choose>
 			
-			<c:when test="${empty QnaVO.imgfilename}">
+			<c:when test="${empty qna.image}">
 			</c:when>
 			<c:otherwise>
-			<img src="images/${QnaVO.imgfilename}" height="80">
+			<img src="./images/${qna.image }" height="80">
 			</c:otherwise>
 			
 			</c:choose> &nbsp;&nbsp;
 			<input type="file" name="newFile"/>
-			<input type="hidden" name="oldFile" value="${QnaVO.imgfilename}">
+			<input type="hidden" name="oldFile" value="${qna.image}">
 			</td>
 		</tr>
 	
