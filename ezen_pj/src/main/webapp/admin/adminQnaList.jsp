@@ -25,7 +25,7 @@
 </table>
 <div class="clear"></div>
 <div id="paging" style="font-weight:bold; text-align: center;">
-	<c:url var="action" value="ticket.do?command=qnaList"/>
+	<c:url var="action" value="ticket.do?command=adminQnaList"/>
 	
 	<c:if test="${paging.prev}">
 		<a href="${action}&page=${paging.beginPage-1}">◀</a> &nbsp;
