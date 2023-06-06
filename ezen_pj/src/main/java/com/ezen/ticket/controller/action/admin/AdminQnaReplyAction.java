@@ -31,7 +31,7 @@ public class AdminQnaReplyAction implements Action {
 				System.out.println("qna답글 추가 실패ㅠ");
 			}else {
 				System.out.println("qna답글 추가 성공~!~!!!!");
-				result=qdao.updateQnaRepYN(qseq);
+				result=qdao.updateQnaRepNtoY(qseq);
 				if(result==1) {
 					System.out.println("답변상태 업데이트 완!");
 				}else {

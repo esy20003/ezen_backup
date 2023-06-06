@@ -233,7 +233,7 @@ public class QnaDao {
 		return result;
 	}
 
-	public int updateQnaRepYN(int qseq) {
+	public int updateQnaRepNtoY(int qseq) {
 		int result=0;
 		con=Dbman.getConnection();
 		String sql="update qna_board set repyn='Y' where qseq=?";
@@ -261,7 +261,23 @@ public class QnaDao {
 		}finally {Dbman.close(con, pstmt, rs);}
 		return result;
 	}
-	
+
+	public int updateQnaRepYtoN(int qseq) {
+		int result=0;
+		con=Dbman.getConnection();
+		String sql="update qna_board set repyn='N' where qseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			result=pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		
+		return result;
+	}
+
+
 	
 	
 	

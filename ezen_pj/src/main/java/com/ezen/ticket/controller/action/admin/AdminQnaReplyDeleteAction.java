@@ -21,6 +21,13 @@ public class AdminQnaReplyDeleteAction implements Action {
 		int result=qdao.deleteQnaReply(qrseq);
 		if(result==1) {
 			System.out.println("qna 답글 삭제 성공");
+			result=0;
+			result=qdao.updateQnaRepYtoN(qseq);
+			if(result==1) {
+				System.out.println("답변상태 업데이트 완!");
+			}else {
+				System.out.println("답변상태 업뎃 안됨ㅠ");
+			}
 		}else {
 			System.out.println("qna답글 삭제 실패ㅠㅠㅠ");
 		}
