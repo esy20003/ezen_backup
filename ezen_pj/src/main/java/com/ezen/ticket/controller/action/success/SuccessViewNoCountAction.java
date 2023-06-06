@@ -18,8 +18,8 @@ public class SuccessViewNoCountAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int num = Integer.parseInt(request.getParameter("sucseq"));
-		System.out.println("sucseq  가 받아지냐 ?" +  num); // 받아지는것 확인함
+		int num = Integer.parseInt(request.getParameter("sseq"));
+		System.out.println("sseq  가 받아지냐 ?" +  num); // 받아지는것 확인함
 		
 		SuccessDao sdao = SuccessDao.getInstance();
 		
@@ -30,6 +30,7 @@ public class SuccessViewNoCountAction implements Action {
 		request.setAttribute("SuccessVO", svo); // 파라미터전달
 		
 		System.out.println("댓글 리스트 = >" +  list.size());
+		
 		RequestDispatcher dp = request.getRequestDispatcher("success/successView.jsp");
 		dp.forward(request, response);
 

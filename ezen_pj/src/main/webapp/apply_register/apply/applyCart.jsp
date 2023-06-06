@@ -10,7 +10,7 @@
 <style type="text/css">
 .xans-product-basketadd { position:fixed; top:50%; left:50%; z-index:1000; width:450px; margin:-210px 0 0 -226px; }
 .xans-product-basketadd h1 { height:35px; padding:0 35px 0 19px; color:#fff; font-size:14px; line-height:35px; background:#495164; }
-.xans-product-basketadd .content { padding:185px 20px 65px; border-right:1px solid #757575; border-left:1px solid #757575; text-align:center; background:#fff url("http://img.echosting.cafe24.com/skin/base_ko_KR/product/bg_add_basket.gif") no-repeat 50% 68px; }
+.xans-product-basketadd .content { padding:160px 20px 65px; border-right:1px solid #757575; border-left:1px solid #757575; text-align:center; background:#fff url("http://img.echosting.cafe24.com/skin/base_ko_KR/product/bg_add_basket.gif") no-repeat 50% 68px; }
 .xans-product-basketadd .content p { font-weight:bold; color:#2e2e2e; }
 .xans-product-basketadd .btnArea { padding:9px 0; border:1px solid #757575; border-top:1px solid #d7d5d5; text-align:center; background:#fbfafa; cursor: pointer;}
 .xans-product-basketadd .btnArea img:first-child { margin:0 1px 0 0; }

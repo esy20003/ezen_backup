@@ -32,10 +32,10 @@ public class AdminQnaViewAction implements Action {
 			
 			AdminQnaReplyVO aqvo=qdao.getQnaReply(qseq);
 
-			request.setAttribute("qnaVO", qvo);
+			request.setAttribute("QnaVO", qvo);
 			request.setAttribute("qnaReplyVO", aqvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
-//dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+
 }

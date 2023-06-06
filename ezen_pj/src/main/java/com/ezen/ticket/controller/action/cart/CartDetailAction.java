@@ -18,24 +18,29 @@ public class CartDetailAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		// 장바구니에서 주문하기 눌러서 넘어갈 페이지
 		
+		// 장바구니에서 주문하기 눌러서 넘어갈 페이지
+		String url = "cart/cartDetail.jsp";
 		HttpSession session = request.getSession();
 		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
-
-		if (mvo == null) {
-			String url = "member/login.jsp";
-			request.getRequestDispatcher(url).forward(request, response);
-		} else {
-			String[] cartSeqArr = request.getParameterValues("cartseq");
-			CartDao cdao = CartDao.getInstance();
-			for (String cartSeq : cartSeqArr) {
-				cdao.hoonUpdateCart(Integer.parseInt(cartSeq));
-			}
-		}
-		response.sendRedirect("ticket.do?command=cartList");
 		
+		
+		if(mvo == null) {
+			url = "member/login.jsp";
+		}else {
+			String [] cseqArr = request.getParameterValues("cartseq");
+			CartDao cdao = CartDao.getInstance();
+			ArrayList<CartVO> cartList = new ArrayList<CartVO>();
+			ArrayList<ContentVO> contentList = new ArrayList<ContentVO>();
+			for(String cseq : cseqArr) {
+				cartList = cdao.selectCart(Integer.parseInt(cseq), mvo);
+				contentList = cdao.selectContent(Integer.parseInt(cseq));
+			}
+			request.setAttribute("order", cartList);
+			request.setAttribute("content", contentList);
+		}
+		
+		request.getRequestDispatcher(url).forward(request, response);
 
 	}
 
