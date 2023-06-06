@@ -37,5 +37,5 @@ public class AdminQnaViewAction implements Action {
 		}
 		request.getRequestDispatcher(url).forward(request, response);
 	}
-
+//dddddddddddddddddddddddddddddddddddddddddddddddddddddddd
 }
