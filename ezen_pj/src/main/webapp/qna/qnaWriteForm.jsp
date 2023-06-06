@@ -6,14 +6,13 @@
 <article>
 <h2> 고객 게시판 </h2>
 <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3>
-<form name="formm" method="post" action="ticket.do">
-	<input type="hidden" name="command" value="qnaWrite">
+<form name="formm" method="post" action="ticket.do?command=qnaWrite" enctype="multipart/form-data">
 	
 	<fieldset>
 		<legend>Board Info</legend>
 		<label>Title</label> <input type="text" name="title" size="70"><br>
 		<label>Content</label> <textarea rows="10" cols="80" name="content"></textarea><br>
-		<label>Image</label> <input type="image" name="image" size="60"><br>
+		<label>Image</label> <input type="file" name="image"><br>
 		
 	</fieldset>
 	

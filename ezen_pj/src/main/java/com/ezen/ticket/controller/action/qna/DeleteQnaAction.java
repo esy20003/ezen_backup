@@ -17,8 +17,19 @@ public class DeleteQnaAction implements Action {
 		
 		int qseq = Integer.parseInt(request.getParameter("qseq"));
 		QnaDao qdao = QnaDao.getInstance();
-		qdao.deleteQna(qseq);
-		qdao.deleteReplyByQnanum(qseq);
+		int result=qdao.deleteQna(qseq);
+		if(result==1) {
+			System.out.println("qna 글 지우기 성공");
+			result=0;
+			result=qdao.deleteQnaReplyByQseq(qseq);
+			if(result==1) {
+				System.out.println("qna 답변도 지움!");
+			}else {
+				System.out.println("답변 지우기는 실패ㅠ");
+			}
+		}else {
+			System.out.println("qna 글 지우기 실패ㅠ");
+		}
 		String url = "ticket.do?command=qnaList";
 		RequestDispatcher dp = request.getRequestDispatcher(url);
 		dp.forward(request, response);

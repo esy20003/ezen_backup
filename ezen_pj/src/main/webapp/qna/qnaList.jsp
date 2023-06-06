@@ -16,8 +16,8 @@
 		<td><fmt:formatDate value="${QnaVO.indate}" type="date"/></td>
 		<td>${QnaVO.id}</td>
 		<td><c:choose>
-			<c:when test="${QnaVO.repyn=='N' }">답변예정</c:when>
-			<c:when test="${QnaVO.repyn=='Y' }">답변완료</c:when>
+			<c:when test="${QnaVO.repyn=='N' }"><div class="repn">답변예정</div></c:when>
+			<c:when test="${QnaVO.repyn=='Y' }"><div class="repy">답변완료</div></c:when>
 		</c:choose>
 		<td>${QnaVO.readcount}</td>
 		

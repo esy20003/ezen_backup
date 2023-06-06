@@ -44,6 +44,7 @@ public class QnaDao {
 				qvo.setIndate(rs.getTimestamp("indate"));
 				qvo.setReply(rs.getString("reply"));
 				qvo.setRepyn(rs.getString("repyn"));
+				qvo.setReadcount(rs.getInt("readcount"));
 				list.add(qvo);
 			}
 		} catch (SQLException e) { e.printStackTrace();
@@ -69,8 +70,13 @@ public class QnaDao {
 	public QnaVO getQna(int qseq) {
 		QnaVO qvo = new QnaVO();
 		con = Dbman.getConnection();
-		String sql = "select * from qna_board where qseq=?";
+		String sql = "update qna_board set readcount = readcount+1 where qseq=?";
 		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			pstmt.executeUpdate();
+
+			sql = "select * from qna_board where qseq=?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qseq);
 			rs = pstmt.executeQuery();
@@ -82,6 +88,8 @@ public class QnaDao {
 				qvo.setContent(rs.getString("content"));
 				qvo.setIndate(rs.getTimestamp("indate"));
 				qvo.setReadcount(rs.getInt("readCount"));
+				qvo.setImage(rs.getString("image"));
+
 			}
 		} catch (SQLException var8) {
 			var8.printStackTrace();
@@ -94,8 +102,8 @@ public class QnaDao {
 	public void insertQna(QnaVO qvo) {
 		
 		con = Dbman.getConnection();
-		String sql = "insert into qna_board( qseq, id, title, content, mseq, pwd) "
-				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?, ?)";
+		String sql = "insert into qna_board( qseq, id, title, content, mseq, pwd,image) "
+				+ " values( qna_board_qseq.nextVal, ?, ?, ?, ?, ?,?)";
 		try {
 			
 			pstmt = con.prepareStatement(sql);
@@ -104,6 +112,7 @@ public class QnaDao {
 			pstmt.setString(3, qvo.getContent());
 			pstmt.setInt(4, qvo.getMseq());
 			pstmt.setString(5, qvo.getPwd());
+			pstmt.setString(6, qvo.getImage());
 			pstmt.executeUpdate();
 		} catch (SQLException e) { e.printStackTrace();
 		} finally { Dbman.close(con, pstmt, rs);
@@ -111,36 +120,26 @@ public class QnaDao {
 	
 	}
 
-	public void deleteQna(int qseq) {
+	public int deleteQna(int qseq) {
+		int result=0;
 		con = Dbman.getConnection();
 		String sql = "delete from qna_board where qseq=?";
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, qseq);
-			pstmt.executeUpdate();
+			result=pstmt.executeUpdate();
+			System.out.println(result);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			Dbman.close(con, pstmt, rs);
 		}
-
+		return result;
 	}
 
-	public void deleteReplyByQnanum(int qseq) {
-		String sql = "delete from reply where qnanum=?";
-		con = Dbman.getConnection();
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt( 1,  qseq );
-			pstmt.executeUpdate();
-		} catch (SQLException e) { e.printStackTrace();
-		} finally { Dbman.close(con, pstmt, rs);  }	
-	
-		
-	}
 
 	public void updateQna(QnaVO qvo) {
-		String sql = "update qna_board set id=?, pwd=?, title=?, content=? where qseq=? ";
+		String sql = "update qna_board set id=?, pwd=?, title=?, content=? , image=? where qseq=? ";
 		this.con = Dbman.getConnection();
 
 		try {
@@ -149,7 +148,9 @@ public class QnaDao {
 			this.pstmt.setString(2, qvo.getPwd());
 			this.pstmt.setString(3, qvo.getTitle());
 			this.pstmt.setString(4, qvo.getContent());
-			this.pstmt.setInt(5, qvo.getQseq());
+			this.pstmt.setString(5, qvo.getImage());
+			this.pstmt.setInt(6, qvo.getQseq());
+			
 			this.pstmt.executeUpdate();
 		} catch (SQLException var7) {
 			var7.printStackTrace();
@@ -161,22 +162,6 @@ public class QnaDao {
 
 
 
-	public void plusOneReadcount(int qseq) {
-		
-		con = Dbman.getConnection();
-		String sql = "update qna_board set readcount = readcount+1 where qseq=?";
-
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, qseq);
-			pstmt.executeUpdate();
-		} catch (SQLException var7) {
-			var7.printStackTrace();
-		} finally {
-			Dbman.close(con, pstmt, rs);
-		}
-
-	}
 	
 	public int getReplycnt(int qseq) {
 		int count=0;
@@ -275,6 +260,47 @@ public class QnaDao {
 		}finally {Dbman.close(con, pstmt, rs);}
 		
 		return result;
+	}
+
+	public QnaVO getQnaNoCount(int qseq) {
+		QnaVO qvo = new QnaVO();
+		con = Dbman.getConnection();
+		String sql = "select * from qna_board where qseq=?";
+		try {
+		pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, qseq);
+		rs = pstmt.executeQuery();
+		if (rs.next()) {
+			qvo.setQseq(rs.getInt("qseq"));
+			qvo.setPwd(rs.getString("pwd"));
+			qvo.setId(rs.getString("id"));
+			qvo.setTitle(rs.getString("title"));
+			qvo.setContent(rs.getString("content"));
+			qvo.setIndate(rs.getTimestamp("indate"));
+			qvo.setReadcount(rs.getInt("readCount"));
+			qvo.setImage(rs.getString("image"));
+		}
+	} catch (SQLException var8) {
+		var8.printStackTrace();
+	} finally {
+		Dbman.close(con, pstmt, rs);
+	}
+	return qvo;
+	}
+
+	public int deleteQnaReplyByQseq(int qseq) {
+		int result=0;
+		con=Dbman.getConnection();
+		String sql="delete from adminQna_reply where qseq=?";
+		try {
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, qseq);
+			result=pstmt.executeUpdate();
+			System.out.println(result);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {Dbman.close(con, pstmt, rs);}
+		return result;		
 	}
 
 
