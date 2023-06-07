@@ -17,7 +17,7 @@
 		<td>${QnaVO.id}</td>
 		<td><c:choose>
 			<c:when test="${QnaVO.repyn=='N' }"><div class="repn">답변예정</div></c:when>
-			<c:when test="${QnaVO.repyn=='Y' }"><div class="repy">답변완료</div></c:when>
+			<c:when test="${QnaVO.repyn=='Y' }"><div class="repy" style="font-weight:bold;">답변완료</div></c:when>
 		</c:choose>
 		<td>${QnaVO.readcount}</td>
 		

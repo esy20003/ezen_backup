@@ -14,7 +14,7 @@ public class AdminQnaReplyDeleteAction implements Action {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		int qseq=Integer.parseInt(request.getParameter("qseq"));
-		String url="ticket.do?command=adminQnaView&qseq="+qseq;
+		String url="ticket.do?command=adminQnaView&qseq="+qseq+"";
 		int qrseq=Integer.parseInt(request.getParameter("qrseq"));
 		
 		QnaDao qdao=QnaDao.getInstance();

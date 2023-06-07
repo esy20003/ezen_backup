@@ -58,9 +58,9 @@
 					</tr>
 		
 					<tr align="center" class="qnaReplyList">
-							<td>관리자</td>
-							<td align="left">&nbsp;${qnaReplyVO.qnaContent}</td>
-							<td><fmt:formatDate value="${qnaReplyVO.writeDate}" pattern="MM/dd HH:mm" /></td>
+							<th  class="th1">관리자</th>
+							<td align="left"class="td2">&nbsp;${qnaReplyVO.qnaContent}</td>
+							<td class="td3"><fmt:formatDate value="${qnaReplyVO.writeDate}" pattern="MM/dd HH:mm" /></td>
 					</tr>
 					</c:otherwise>
 				</c:choose>
