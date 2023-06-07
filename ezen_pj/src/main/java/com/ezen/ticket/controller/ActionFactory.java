@@ -29,6 +29,7 @@ import com.ezen.ticket.controller.action.cart.CartUpdateAction;
 import com.ezen.ticket.controller.action.content.ConcertFormAction;
 import com.ezen.ticket.controller.action.content.ContentDetailAction;
 import com.ezen.ticket.controller.action.content.ContentFormAction;
+import com.ezen.ticket.controller.action.content.ContentSearchAction;
 import com.ezen.ticket.controller.action.content.ExhibitionFormAction;
 import com.ezen.ticket.controller.action.content.FestivalFormAction;
 import com.ezen.ticket.controller.action.content.MusicalFormAction;
@@ -103,6 +104,7 @@ public class ActionFactory {
 		else if(command.equals("festivalForm")) ac = new FestivalFormAction();
 		else if(command.equals("exhibitionForm")) ac = new ExhibitionFormAction();
 		else if(command.equals("contentDetail")) ac = new ContentDetailAction();
+		else if(command.equals("contentSearch")) ac = new ContentSearchAction();
 		
 		//qna
 

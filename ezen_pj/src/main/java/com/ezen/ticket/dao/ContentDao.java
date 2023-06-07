@@ -327,6 +327,22 @@ public class ContentDao {
 		} finally { Dbman.close(con, pstmt, rs); }
 		return content;
 	}
+
+	public ArrayList<ContnetVO> contentSearch(String key) {
+		con = Dbman.getConnection();
+		String sql = "select cseq from content where title like '%?%'";
+		try {
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, key);
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				cseq = rs.getInt("cseq");
+			}
+		} catch (SQLException e) {	e.printStackTrace();
+		} finally { Dbman.close(con, pstmt, rs); }
+		
+		return cseq;
+	}
 	
 }
 
