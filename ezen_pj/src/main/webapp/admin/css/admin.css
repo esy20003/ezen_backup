@@ -74,3 +74,29 @@ body {min-width:1700px; height:100%;}
 .search_box input[type="text"] {height:40px;}
 .btn_search {height:40px; border:1px solid #444; background: none; border-radius:10px;}
 .btn_total {height:40px; border:1px solid #444; background: none; border-radius:10px;}
+
+
+
+
+
+
+
+/*  상품리스트  */
+.pro_box {    width: 1200px;
+    border: 1px solid #ddd;
+    margin: 50px auto 50px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

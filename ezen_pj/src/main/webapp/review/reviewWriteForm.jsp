@@ -19,7 +19,7 @@
 						<tr>
 							<th>내용</th>
 							<td>
-								<textarea rows="25" cols="" name="content"></textarea>
+								<textarea rows="10" cols="" name="content"></textarea>
 							</td>
 						</tr>
 						<tr>
