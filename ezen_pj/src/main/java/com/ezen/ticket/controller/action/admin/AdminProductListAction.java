@@ -43,7 +43,7 @@ public class AdminProductListAction implements Action {
 			} else {
 				paging.setPage(1);
 			}
-
+			
 			String key = "";
 			if (request.getParameter("key") != null) {
 				// 검색할 단어가 같이 전달되었다면

@@ -7,6 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<style type="text/css">
+
+/*  admin qna table css  */
+#adminReplyList table tr th  {width:15%;} 
+
+</style>
 <title>Ticket Shop</title>
 
 <link rel="stylesheet" href="/css/qna.css">
@@ -21,10 +27,10 @@
 	<h2> 고객 게시판 </h2> <br><br> <h3> 고객님의 질문에 대해서 운영자가 1:1 답변을 드립니다. </h3><br><br>
 	
 	<table class="qna_view_table">
-		<tr><th>번호</th><td width="500" style="text-align:left; ">${QnaVO.qseq}</td></tr>
-		<tr><th>제목</th><td width="500" style="text-align:left; ">${QnaVO.title}</td></tr>
-		<tr><th>작성자</th><td align="left" style="text-align:left; font-size:115%;"><pre>&nbsp;&nbsp;${QnaVO.id}</pre></td></tr>
-		<tr><th>등록일</th><td align="left" style="text-align:left;">
+		<tr><th>번호</th><td width="80%" style="text-align:left; ">${QnaVO.qseq}</td></tr>
+		<tr><th>제목</th><td width="80%" style="text-align:left; ">${QnaVO.title}</td></tr>
+		<tr><th>작성자</th><td width="80%" align="left" style="text-align:left; font-size:115%;"><pre>&nbsp;&nbsp;${QnaVO.id}</pre></td></tr>
+		<tr><th>등록일</th><td width="80%" align="left" style="text-align:left;">
 		<fmt:formatDate value="${QnaVO.indate}" type="date"/></td></tr>
 		<tr><th>조회수</th><td>${QnaVO.readcount}</td></tr>
 		<tr><th>질문내용</th>
@@ -43,11 +49,10 @@
 			
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	
-				<table class="adminReplyList">
-					<tr style="border_bottom:2px solid black;">
-						<th class="a">문의 답글</th>
+				<table class="adminReplyList" id="adminReplyList">
+					<tr style="border-bottom:1px solid #444;">
+						<th class="a" style="display: inline-block; width:150px; ">문의 답글</th>
 					</tr>
-
 					<tr align="center" class="qnaReplyList">
 					<c:choose>
 						<c:when test="${empty qnaReplyVO}">
