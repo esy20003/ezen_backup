@@ -9,7 +9,7 @@
 	<div class="panel">
 		<c:forEach items="${ exhibition }" end="3" var="exhibitionVO">
 			<div id="item">
-				<a href="ticket.do?command=contentDetail&cseq=${ exhibition.cseq }">
+				<a href="ticket.do?command=contentDetail&cseq=${ exhibitionVO.cseq }">
 					<img src="${ exhibitionVO.image }" />
 				</a>
 				<h1 style="line-height: 30px; height: 90px;">${ exhibitionVO.title }</h1>
@@ -23,7 +23,7 @@
 		<c:forEach items="${ exhibition }" begin="4" end="7"
 			var="exhibitionVO">
 			<div id="item">
-				<a href="ticket.do?command=contentDetail&cseq=${ exhibition.cseq }">
+				<a href="ticket.do?command=contentDetail&cseq=${ exhibitionVO.cseq }">
 					<img src="${ exhibitionVO.image }" />
 				</a>
 				<h1 style="line-height: 30px; height: 90px;">${ exhibitionVO.title }</h1>
