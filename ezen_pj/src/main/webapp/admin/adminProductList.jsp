@@ -19,39 +19,36 @@
 		</table>
 	</form>
 
-	<table id="productList">
+	<table id="productList" style="width:100%;">
 		<tr>
 			<th>번호</th>
 			<th>타이틀</th>
-			<th>미정</th>
 			<th>아티스트</th>
-			<th>이미지</th>
-			<th>상세보기</th>
+			<th>장소</th>
 			<th>카테고리</th>
-			<th>관람등급</th>
 			<th>베스트</th>
-			<th>TDATETIME</th>
+			<th></th>
 		</tr>
-		<c:forEach items="${ productList }" var="productVO">
+		<c:forEach items="${ productList1 }" var="productVO1">
 			<tr>
-				<td style="text-align: left; padding-left: 50px;">${ productVO.cseq }</td>
-				<td>
-					<a onclick="go_detail('${ productVO.cseq }')">${ productVO.title }</a>
-				</td>
-				<td ${ productVO.atrist }></td>
-				<td ${ productVO.image }></td>
-				<td><textarea rows="" cols="">${ productVO.content }</textarea></td>
-				<td></td>
-				<td></td>
+				<td style="text-align: left; padding-left: 50px;">${ productVO1.cseq }</td>
+				<td>${ productVO1.title }</td>
+				<td> ${ productVO1.artist }></td>
+				
 			</tr>
 		</c:forEach>
 	</table>
 	<br> <br>
 	<jsp:include page="/admin/paging/page.jsp">
-		<jsp:param name="command" value="shop.do?command=adminProductList" />
+		<jsp:param name="command" value="ticket.do?command=adminProductList" />
 	</jsp:include>
 	<!-- jsp:param 으로 필요한 내용을 전달하고 완성된 페이지를 include 합니다 -->
 </article>
+
+
+<%-- 				<td>${ productVO.category}</td> --%>
+<%-- 				<td>${ productVO.bestyn }</td> --%>
+<%-- 				<td><textarea rows="" cols="">${ productVO.content }</textarea></td> <!-- 클릭시 해당 상세보기로 이동 --> --%>
 
 
 <!-- 	<h3>도착을 했습니다~~~</h3> -->
