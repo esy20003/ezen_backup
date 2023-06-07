@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ include file="../header.jsp"%>
+<%@ include file="header.jsp"%>
+<%@ include file="/admin/sub_menu.jsp"%>
 <div class="review_img_box"></div>
 <div id="review_box">
 	<div class="review_content">
@@ -60,4 +61,4 @@
 
 
 
-<%@ include file="../footer.jsp"%>
+<%@ include file="footer.jsp"%>
