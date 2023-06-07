@@ -58,8 +58,8 @@
 						<c:when test="${empty qnaReplyVO}">
 						</c:when>
 						<c:otherwise>
-							<th>관리자</th>
-							<td align="left">&nbsp;${qnaReplyVO.qnaContent}</td>
+							<td>관리자</td>
+							<td style="text-align:left;" width="700">&nbsp;${qnaReplyVO.qnaContent}</td>
 							<td><fmt:formatDate value="${qnaReplyVO.writeDate}" pattern="MM/dd HH:mm" /></td>
 							<td>
 								<input type="button" value="삭제"	 onClick = "location.href='ticket.do?command=adminQnaReplyDelete&qseq=${QnaVO.qseq}&qrseq=${qnaReplyVO.qrseq}'">
@@ -73,6 +73,7 @@
 						<td>
 							<input type="text" name="reply" style="width:800px;height:50px;" >
 						</td>
+						<td></td>
 						<td><input type="submit" value="답글 작성" onClick="return reply_check();"></td>
 					</tr>
 

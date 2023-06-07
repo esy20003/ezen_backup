@@ -12,12 +12,13 @@
 					<th>제목</th>
 					<th>작성자</th>
 					<th>등록일</th>
+					<th>관리</th>
 				</tr>
 				<c:forEach items="${successList }" var="successVO">
 					<tr>
 						<td>${successVO.sucseq }</td>
 						<td width="30%">
-							<a href="ticket.do?command=successView&sucseq=${ successVO.sucseq }">${successVO.title}</a>
+							<a href="ticket.do?command=adminSuccessView&sucseq=${ successVO.sucseq }">${successVO.title}</a>
 						</td>
 						<td>${ successVO.id}</td>
 						<td>
@@ -25,12 +26,15 @@
 							<fmt:formatDate var="indate" value="${indateStr}" pattern="yyyy-MM-dd" />
 							${indate}
 						</td>
+						<td>
+							<input type="button" value="삭제" onclick="location.href='ticket.do?command=adminSuccessListDelete'">
+						</td>
 					</tr>
 				</c:forEach>
 			</table>
 			<div class="clear"></div>
 			<div id="paging" style="font-size: 120%; font-weight: bold;">
-				<c:url var="action" value="ticket.do?command=successList" />
+				<c:url var="action" value="ticket.do?command=adminSuccessList" />
 				<c:if test="${paging.prev}">
 					<a href="${action }&page=${paging.beginPage-1}">◀</a>&nbsp;</c:if>
 				<c:forEach begin="${paging.beginPage }" end="${paging.endPage }" var="index">
@@ -46,11 +50,7 @@
 			<div class="clear"></div>
 			<br>
 			<div class="rev_btn_box btn_box" style="float: left">
-				<input type="button" value="메인으로" class="cancel" onclick="location.href='ticket.do?command=index'">
-			</div>
-			<!--  버튼 위치 좌우로 수정 -->
-			<div id="buttons" class="rev_btn_box btn_box" style="float: right">
-				<input type="button" value="글쓰기" class="submit" onclick="location.href='ticket.do?command=successWriteForm'">
+				<input type="button" value="메인으로" class="cancel" onclick="location.href='ticket.do?command=adminProductList'">
 			</div>
 			<div class="clear"></div>
 			<br>
