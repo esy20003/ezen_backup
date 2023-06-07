@@ -4,12 +4,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ include file="/admin/sub_menu.jsp"%>
 <%@ include file="header.jsp" %>
+<script src="./script/admin.js"></script>
 <article class="mbl_box">
 	<h1>회원리스트</h1>
 	<form name="frm" method="post">
 			<div class="search_box">
 				<h2 class="search_name">회원 이름으로 검색</h2>
-				<input type="text" name="key" value="${ key3 }">
+				<input type="text" name="key_name" value="${ key3 }">
 				<input class="btn" type="button" value="검색" onclick="go_search('adminMemberList')">
 				<input class="btn"  type="button" value="전체보기" onclick="go_total('adminMemberList')">
 			</div>				

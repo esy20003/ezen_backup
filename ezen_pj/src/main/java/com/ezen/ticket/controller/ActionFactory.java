@@ -195,7 +195,8 @@ public class ActionFactory {
 		else if(command.equals("admin")) ac = new AdminAction();
 		else if(command.equals("adminLoginForm")) ac = new AdminLoginFormAction();
 		else if(command.equals("adminLogin")) ac = new AdminLoginAction();
-
+		
+		// 상품 리스트 조회 
 		else if(command.equals("adminProductList")) ac = new AdminProductListAction();
 		
 
