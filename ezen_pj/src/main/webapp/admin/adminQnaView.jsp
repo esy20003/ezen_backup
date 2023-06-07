@@ -44,7 +44,7 @@
 	<c:set var="now" value="<%=new java.util.Date()%>" />
 	
 				<table class="adminReplyList">
-					<tr>
+					<tr style="border_bottom:2px solid black;">
 						<th class="a">문의 답글</th>
 					</tr>
 
@@ -54,7 +54,7 @@
 						</c:when>
 						<c:otherwise>
 							<td>관리자</td>
-							<td align="left">&nbsp;${qnaReplyVO.qnaContent}</td>
+							<td style="text-align:left;" width="700">&nbsp;${qnaReplyVO.qnaContent}</td>
 							<td><fmt:formatDate value="${qnaReplyVO.writeDate}" pattern="MM/dd HH:mm" /></td>
 							<td>
 								<input type="button" value="삭제"	 onClick = "location.href='ticket.do?command=adminQnaReplyDelete&qseq=${QnaVO.qseq}&qrseq=${qnaReplyVO.qrseq}'">
@@ -68,6 +68,7 @@
 						<td>
 							<input type="text" name="reply" style="width:800px;height:50px;" >
 						</td>
+						<td></td>
 						<td><input type="submit" value="답글 작성" onClick="return reply_check();"></td>
 					</tr>
 
