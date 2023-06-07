@@ -13,26 +13,29 @@ import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.dao.QnaDao;
 import com.ezen.ticket.dto.QnaVO;
 import com.ezen.ticket.dto.AdminQnaReplyVO;
+import com.ezen.ticket.dto.MemberVO;
 
 public class QnaViewNoCountAction implements Action {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		String url = "qna/qnaView.jsp";
 		int qseq = Integer.parseInt(request.getParameter("qseq"));
-		QnaDao qdao = QnaDao.getInstance();
-		qdao.plusOneReadcount( qseq ); //조회수 증가 메서드 호출
-		
-		//ArrayList<ReplyVO> list = qdao.selectReply(qseq);
-		//request.setAttribute("list", list);
-		
-		QnaVO qvo = qdao.getQna(qseq);
-		request.setAttribute("QnaVO", qvo);
-		
 		HttpSession session = request.getSession();
-		session.removeAttribute("pwd");
-		
-		RequestDispatcher rd = request.getRequestDispatcher("qna/qnaView.jsp");
-		rd.forward(request, response);
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
+		if (mvo == null) {
+			url = "ticket.do?command=loginForm";
+		} else {
+			QnaDao qdao = QnaDao.getInstance();
+			QnaVO qvo = qdao.getQnaNoCount(qseq);
+			
+			AdminQnaReplyVO aqvo=qdao.getQnaReply(qseq);
+			
+			request.setAttribute("QnaVO", qvo);
+			request.setAttribute("qnaReplyVO", aqvo);
+		}
+
+		request.getRequestDispatcher(url).forward(request, response);
 	}
 }

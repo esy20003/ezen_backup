@@ -20,7 +20,7 @@ select* from success_reply;
 select * from success_reply_member;
 
 
-
+select * from QNA_BOARD;
 select * from adminQna_reply;
 
 

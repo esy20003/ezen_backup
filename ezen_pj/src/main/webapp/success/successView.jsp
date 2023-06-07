@@ -5,10 +5,10 @@
 	<div class="review_content">
 		<h2 class="review_title">성공 후기 게시판</h2>
 		<h3>고객님들의 성공 후기를 상세히 볼 수 있는 게시판 입니다.</h3>
-		<form name="rev_formm" method="post" class="review_form" action="ticket.do">
+		<form name="rev_formm" method="get" class="review_form" action="ticket.do">
 
 			<input type="hidden" name="command" value="successReply">
-			<input type="hidden" name="sucseq" value="${ SuccessVO.sucseq }">
+			<input type="hidden" name="rseq" value="${ SuccessVO.sucseq }">
 			
 			<table class="review_view_table">
 			
@@ -98,8 +98,8 @@
 			<!--  리뷰 수정box -->
 			<div id="buttons" class="rev_btn_box btn_box" style="float: right">
 				<input type="button" value="목록보기" class="submit" onClick="location.href='ticket.do?command=successList'">
-				<c:if test="${SuccessVO.id == loginUser.id }">
-					<input type="button" value="수정하기" class="review_update_btn" onclick="go_supd('${ SuccessVO.sucseq}')">
+				<c:if test="${ successVO.id == loginUser.id }">
+					<input type="button" value="수정하기" class="review_update_btn" onclick="go_supd('${ successVO.sucseq}')">
 				</c:if>&nbsp; <!-- 로그인 한 유저가 쓴 글만 수정할  수수 있게 버튼을표시  -->
 			</div>
 

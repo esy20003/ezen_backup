@@ -13,14 +13,12 @@ body {min-width:1700px; height:100%;}
     background: #eee;
     border:1px solid #444;
 }
-#sub_menu h1 {font-size:30px; text-align: center;}
+#sub_menu h1 {font-size:30px;}
 #sub_menu ul {
 	list-style: none;
 	padding:0;
 	margin:0;
-
 }
-
 
 
 #sub_menu ul li a {
@@ -32,8 +30,6 @@ body {min-width:1700px; height:100%;}
  	text-decoration:none;
  	font-size:18px;
  	color:#444;
- 	padding-left:20px;
- 	text-align: left;
 }
 #sub_menu ul li a:hover {color:#ff8383;}
 
@@ -63,7 +59,6 @@ body {min-width:1700px; height:100%;}
 }
 
 #memberList tr {
-	border-bottom:1px solid #ddd;
 	height: 40px;
 }
 
@@ -85,18 +80,4 @@ body {min-width:1700px; height:100%;}
 .pro_box {    width: 1200px;
     border: 1px solid #ddd;
     margin: 50px auto 50px;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

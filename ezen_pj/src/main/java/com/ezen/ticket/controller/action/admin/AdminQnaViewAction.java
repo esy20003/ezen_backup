@@ -1,7 +1,6 @@
 package com.ezen.ticket.controller.action.admin;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -27,12 +26,12 @@ public class AdminQnaViewAction implements Action {
 		}else {
 			int qseq=Integer.parseInt(request.getParameter("qseq"));
 			QnaDao qdao=QnaDao.getInstance();//이미 생성된 메서드를 이용
-			QnaVO qvo=qdao.getQna(qseq);
+			QnaVO qvo=qdao.getQnaNoCount(qseq);
 			System.out.println("qvo 출력 "+qvo.getQseq()+" "+qvo.getContent());
 			
 			AdminQnaReplyVO aqvo=qdao.getQnaReply(qseq);
 
-			request.setAttribute("qnaVO", qvo);
+			request.setAttribute("QnaVO", qvo);
 			request.setAttribute("qnaReplyVO", aqvo);
 		}
 		request.getRequestDispatcher(url).forward(request, response);

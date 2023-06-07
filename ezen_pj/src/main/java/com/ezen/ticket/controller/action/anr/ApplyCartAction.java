@@ -34,16 +34,14 @@ public class ApplyCartAction implements Action {
 			String area = request.getParameter("area");
 			String quantity = request.getParameter("quantity");
 			int result = 0;
-			result = cdao.hoonSelectCart(cseq, date, time, area, quantity);
-			System.out.println("result=" + result);
+			result = cdao.hoonSelectCart(cseq, date, time, area,quantity); 
+			System.out.println(result);
 
-			if (result != 0) {
+			/*if (result == 1) {
 				result = 0;
-				System.out.println("result=" + result);
 				int mseq2 = Integer.parseInt(request.getParameter("mseq2"));
 				result = cdao.hoonUpdateCart(mseq, cseq, date, time, area, quantity, mseq2);
-				System.out.println("result=" + result);
-			} else {
+			} else {*/
 				if (request.getParameter("mseq2") != null) {
 					int mseq2 = Integer.parseInt(request.getParameter("mseq2"));
 					result = cdao.insertCart(mseq, cseq, date, time, area, mseq2, quantity);
@@ -52,7 +50,7 @@ public class ApplyCartAction implements Action {
 					result = cdao.insertCartMseq2Null(mseq, cseq, date, time, area, quantity);
 					System.out.println("대리인 선택안함!");
 				}
-			}
+				/* } */
 			System.out.println(result);
 			if (result == 1) {
 				System.out.println("카트에 넣기 성공!");

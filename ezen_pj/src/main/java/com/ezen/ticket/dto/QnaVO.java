@@ -15,10 +15,16 @@ public class QnaVO {
 	private String repyn;
 	private Timestamp indate;
 	private String num;
-	private String imgfilename;
+	private String image;
 	private int readcount;
 	
 	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getNum() {
 		return num;
 	}
@@ -84,12 +90,6 @@ public class QnaVO {
 	}
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
-	}
-	public String getImgfilename() {
-		return imgfilename;
-	}
-	public void setImgfilename(String imgfilename) {
-		this.imgfilename = imgfilename;
 	}
 	public int getReadcount() {
 		return readcount;
