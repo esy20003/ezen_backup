@@ -27,7 +27,7 @@
 							${indate}
 						</td>
 						<td>
-							<input type="button" value="삭제" onclick="location.href='ticket.do?command=adminSuccessListDelete'">
+							<input type="button" value="삭제" onclick="location.href='ticket.do?command=adminSuccessListDelete&sucseq=${ successVO.sucseq }'">
 						</td>
 					</tr>
 				</c:forEach>

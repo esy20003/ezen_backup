@@ -67,11 +67,8 @@
 						<td style="line-height:30px; border-right:1px solid #ddd; border-left:1px solid #ddd;" ><fmt:formatDate value="${ reply.writedate }" pattern="MM/dd HH:mm" /></td>
 						<td style="line-height:30px;" align="left">&nbsp;${ reply.successcontent }</td>
 						<td class="btn_del" style="line-height:1;">
-							<c:if test="${ reply.id == loginUser.id }">
-								<input type="button" value="삭제" onclick="location.href='ticket.do?command=successReplyDelete&srseq=${ reply.srseq }&sucseq=${ SuccessVO.sucseq }'">
-							</c:if>
+							<input type="button" value="삭제" onclick="location.href='ticket.do?command=adminSuccessReplyDelete&srseq=${ reply.srseq }&sucseq=${ SuccessVO.sucseq }'">
 							&nbsp;
-							<!-- 로그인 한 유저가 쓴 댓글만 삭제할 수 있게 버튼을표시  -->
 						</td>
 					</tr>
 				</c:forEach>
