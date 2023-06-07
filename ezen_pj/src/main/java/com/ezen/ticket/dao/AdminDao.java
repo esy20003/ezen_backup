@@ -119,7 +119,7 @@ public class AdminDao {
 			String sql ="select * from ( "
 					+ " select * from ( "
 					+ " select rownum as rn, c.* from ( "
-					+ "  (select * from content_loc_seat_view where title like '%'||?||'%' order by cseq desc) c ) "
+					+ "  (select distinct title, cseq, artist, locationName from content_loc_seat_view where title like '%'||?||'%' order by cseq desc) c ) "
 					+ " ) where rn >= ? "
 					+ " ) where rn <= ? ";
 			
@@ -134,7 +134,8 @@ public class AdminDao {
 					cvo.setCseq(rs.getInt("cseq"));
 					cvo.setTitle(rs.getString("title"));
 					cvo.setArtist(rs.getString("artist"));
-					cvo.setLocationName(rs.getString("locationname"));
+					cvo.setLocationName(rs.getString("locationName"));
+					System.out.println(rs.getString("locationName"));
 					list.add(cvo);
 				}
 				
@@ -145,9 +146,33 @@ public class AdminDao {
 		}
 		
 		// 상품 리스트
-//		public ArrayList<ContentVO> adminProductList2(Paging paging, String key) {
-//					
-//			return null;
-//		}
+		public ArrayList<ContentVO> adminProductList2(Paging paging, String key) {
+			ArrayList<ContentVO> list = new ArrayList<ContentVO>();
+			con = Dbman.getConnection();
+			String sql ="select * from ( "
+					+ " select * from ( "
+					+ " select rownum as rn, c.* from ( "
+					+ "  (select * from content where title like '%'||?||'%' order by cseq desc) c ) "
+					+ " ) where rn >= ? "
+					+ " ) where rn <= ? ";
+			
+			try {
+				pstmt = con.prepareStatement(sql);
+				pstmt.setString(1, key);
+				pstmt.setInt(2, paging.getStartNum());
+				pstmt.setInt(3, paging.getEndNum());
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					ContentVO cvo = new ContentVO();
+					cvo.setCategory(rs.getInt("category"));
+					cvo.setBestyn(rs.getString("bestyn").charAt(0));
+					list.add(cvo);
+				}
+				
+			} catch (SQLException e) {e.printStackTrace();
+			} finally {Dbman.close(con, pstmt, rs);
+			}
+			return list;
+		}
 		
 }

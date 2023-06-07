@@ -27,16 +27,20 @@
 			<th>장소</th>
 			<th>카테고리</th>
 			<th>베스트</th>
-			<th></th>
 		</tr>
 		<c:forEach items="${ productList1 }" var="productVO1">
 			<tr>
 				<td style="text-align: left; padding-left: 50px;">${ productVO1.cseq }</td>
 				<td>${ productVO1.title }</td>
 				<td> ${ productVO1.artist }></td>
-				
+				<td>${ productVO1.locationName }</td>
 			</tr>
 		</c:forEach>
+		<c:forEach items="${ productList2 }" var="productVO2">
+			<td>${ productVO2.category }</td>
+			<td>${ productVO2.bestyn }</td>
+		</c:forEach>
+		
 	</table>
 	<br> <br>
 	<jsp:include page="/admin/paging/page.jsp">
