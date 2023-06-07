@@ -9,6 +9,7 @@ import com.ezen.ticket.controller.action.admin.AdminMemberListAction;
 import com.ezen.ticket.controller.action.admin.AdminProductListAction;
 import com.ezen.ticket.controller.action.admin.AdminQnaListAction;
 import com.ezen.ticket.controller.action.admin.AdminQnaReplyAction;
+import com.ezen.ticket.controller.action.admin.AdminQnaReplyDeleteAction;
 import com.ezen.ticket.controller.action.admin.AdminQnaViewAction;
 import com.ezen.ticket.controller.action.anr.ApplyAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
@@ -46,9 +47,7 @@ import com.ezen.ticket.controller.action.mypage.MyRegisteredAction;
 import com.ezen.ticket.controller.action.mypage.MypageAction;
 import com.ezen.ticket.controller.action.order.OrderDetailAction;
 import com.ezen.ticket.controller.action.order.OrderViewAction;
-import com.ezen.ticket.controller.action.qna.AddReplyAction;
 import com.ezen.ticket.controller.action.qna.DeleteQnaAction;
-import com.ezen.ticket.controller.action.qna.DeleteReplyAction;
 import com.ezen.ticket.controller.action.qna.QnaCheckPassAction;
 import com.ezen.ticket.controller.action.qna.QnaListAction;
 import com.ezen.ticket.controller.action.qna.QnaPassFormAction;
@@ -107,17 +106,14 @@ public class ActionFactory {
 
 		else if(command.equals("qnaList")) ac = new QnaListAction();
 		else if (command.equals("qnaView")) ac = new QnaViewAction();
+		else if( command.equals("qnaViewNoCount") ) ac = new QnaViewNoCountAction();
 		else if (command.equals("qnaWriteForm")) ac = new QnaWriteFormAction();
 		else if (command.equals("qnaWrite")) ac = new QnaWriteAction();
-
 		else if (command.equals("deleteqna")) ac = new DeleteQnaAction();
-		else if (command.equals("updateqna")) ac = new UpdateQnaAction();
 		else if (command.equals("updateqnaForm")) ac = new UpdateQnaFormAction();
-		else if( command.equals("qnaViewNoCount") ) ac = new QnaViewNoCountAction();
+		else if (command.equals("updateqna")) ac = new UpdateQnaAction();
 		else if( command.equals("qnaPassForm") ) ac = new QnaPassFormAction();
 		else if( command.equals("qnaCheckPass") ) ac = new QnaCheckPassAction();
-		else if( command.equals("deleteReply") ) ac = new DeleteReplyAction();
-		else if( command.equals("AddReply") ) ac = new AddReplyAction();
 		
 		
 		//anr
@@ -200,9 +196,13 @@ public class ActionFactory {
 
 		else if(command.equals("adminProductList")) ac = new AdminProductListAction();
 
+		//admin qna reply
 		else if(command.equals("adminQnaList")) ac = new AdminQnaListAction();
 		else if(command.equals("adminQnaView")) ac = new AdminQnaViewAction();
 		else if(command.equals("adminQnaReply")) ac = new AdminQnaReplyAction();
+		else if(command.equals("adminQnaReplyDelete")) ac = new AdminQnaReplyDeleteAction();
+
+
 		
 		//  admin member List
 		else if(command.equals("adminMemberList")) ac = new AdminMemberListAction();

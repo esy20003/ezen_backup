@@ -28,21 +28,19 @@ function review_write() {
 
 
 //  리뷰수정 버튼 클릭  // 수정 폼으로 이동
-
 function go_upd(rseq) {
-	console.log("받아온 리뷰수정번호" +rseq);
 	var url = "ticket.do?command=reviewEditForm&rseq=" + rseq
 	location.href = url
 }
 
 // 리뷰 댓글수정 수정 팝업? 
-//function go_rep_edit(rseq, repseq) {
-//	console.log( "리뷰번호" + rseq);
-//	console.log("댓글번호" + repseq);
-//	var url ="ticket.do?command=reviewReplyEditForm&rseq="  + rseq;
-//	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=300";
-//	window.open(url, opt );
-//}
+function go_rep_edit(rseq, repseq) {
+	console.log( "리뷰번호" + rseq);
+	console.log("댓글번호" + repseq);
+	var url ="ticket.do?command=reviewReplyEditForm&rseq="  + rseq;
+	var opt = "toolbar=no, menubar=no, scrollbars=no, resizable=no, width=500, height=300";
+	window.open(url, opt );
+}
 
 
 //function checkPass(boardnum, popupWinName) {

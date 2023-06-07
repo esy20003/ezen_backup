@@ -4,5 +4,4 @@
 
 	<h3>도착을 했습니다~~~</h3>
 
-	<input type="button" value="1:1 문의하기" onclick="location.href='ticket.do?command=adminQnaList'">
 <%@ include file="footer.jsp" %>

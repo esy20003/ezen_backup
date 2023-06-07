@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ezen.ticket.controller.action.Action;
 import com.ezen.ticket.dao.QnaDao;
+import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.dto.QnaVO;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
@@ -24,14 +25,16 @@ public class UpdateQnaAction implements Action {
 		QnaVO qvo = new QnaVO();
 		
 		HttpSession session = request.getSession();
+		MemberVO mvo = (MemberVO) session.getAttribute("loginUser");
 		ServletContext context = session.getServletContext();
-		String path = context.getRealPath("images/qna");
+		String path = context.getRealPath("images");
 		
 		MultipartRequest multi = new MultipartRequest(
 				request,path,20*1024*1024,"UTF-8",new DefaultFileRenamePolicy()
 		);
 
 		qvo.setQseq(Integer.parseInt(multi.getParameter("qseq")));
+		qvo.setMseq(mvo.getMseq());
 		qvo.setId(multi.getParameter("id"));
 		qvo.setPwd(multi.getParameter("pwd"));
 		qvo.setTitle(multi.getParameter("title"));
@@ -40,9 +43,9 @@ public class UpdateQnaAction implements Action {
 
 		
 		if(multi.getFilesystemName("newFile")==null)
-			qvo.setImgfilename(multi.getParameter("oldFile"));
+			qvo.setImage(multi.getParameter("oldFile"));
 		else
-			qvo.setImgfilename(multi.getFilesystemName("newFile"));
+			qvo.setImage(multi.getFilesystemName("newFile"));
 		
 		qdao.updateQna( qvo );
 		String url  = "ticket.do?command=qnaViewNoCount&qseq=" + qvo.getQseq();
