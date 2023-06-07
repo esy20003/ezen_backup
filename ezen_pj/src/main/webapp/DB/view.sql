@@ -134,9 +134,35 @@ create or replace view success_reply_member as select s.*, m.id from success_rep
 commit
 select * from success_reply_member;
 
+create or replace view product_all_content_view as select c.* , p.category, bestyn from content_loc_seat_view c, content p where c.cseq = p.cseq;
+
+select * from content_loc_seat_view;
+select* from content;
+select * from product_all_content_view;
+commit;
+
+select * from content_loc_seat_view;
+select * from content;
 
 
+select distinct cseq, title, artist from product_all_content_view where title like '%브루노%' order by cseq desc;
 
+select * from content;
+select count(*) from content;
 
+ select rownum as rn, c.* from (
+  (select distinct cseq, title, artist from product_all_content_view where title like '%브루노%' order by cseq desc) c );
+  
+  select count(*) from (
+	 select * from (
+	 select rownum as rn, c.* from (
+	  (select cseq, title, artist from product_all_content_view group by cseq, title, artist  order by cseq desc
+      ) c )));
 
+ 
+ select distinct cseq, title, artist from product_all_content_view where title like '%||||%' order by cseq desc;
+
+select cseq, title, artist from product_all_content_view group by cseq, title, artist
+order by cseq desc
+      ;
 
