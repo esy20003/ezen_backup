@@ -12,7 +12,10 @@ import com.ezen.ticket.controller.action.admin.AdminQnaReplyAction;
 import com.ezen.ticket.controller.action.admin.AdminQnaReplyDeleteAction;
 import com.ezen.ticket.controller.action.admin.AdminQnaViewAction;
 import com.ezen.ticket.controller.action.admin.AdminSuccessListAction;
+import com.ezen.ticket.controller.action.admin.AdminSuccessListDeleteAction;
+import com.ezen.ticket.controller.action.admin.AdminSuccessReplyDeleteAction;
 import com.ezen.ticket.controller.action.admin.AdminSuccessViewAction;
+import com.ezen.ticket.controller.action.admin.AdminSuccessViewNoCountAction;
 import com.ezen.ticket.controller.action.anr.ApplyAction;
 import com.ezen.ticket.controller.action.anr.ApplyAndRegisterAction;
 import com.ezen.ticket.controller.action.anr.ApplyCartAction;
@@ -215,7 +218,9 @@ public class ActionFactory {
 		// admin success List
 		else if(command.equals("adminSuccessList")) ac = new AdminSuccessListAction();
 		else if(command.equals("adminSuccessView")) ac = new AdminSuccessViewAction();
-		
+		else if(command.equals("adminSuccessListDelete")) ac = new AdminSuccessListDeleteAction();
+		else if(command.equals("adminSuccessReplyDelete")) ac = new AdminSuccessReplyDeleteAction();
+		else if(command.equals("adminSuccessViewNoCount")) ac = new AdminSuccessViewNoCountAction();
 		
 		//System.out.println("33 "+ command);
 		return ac;
