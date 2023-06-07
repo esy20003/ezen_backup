@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.ezen.ticket.dto.AdminVO;
+import com.ezen.ticket.dto.ContentVO;
 import com.ezen.ticket.dto.MemberVO;
 import com.ezen.ticket.util.Dbman;
 import com.ezen.ticket.util.Paging;
@@ -108,5 +109,14 @@ public class AdminDao {
 			} catch (SQLException e) {e.printStackTrace();
 			} finally {Dbman.close(con, pstmt, rs);}
 			return list;
+		}
+		
+		
+		// 상품 리스트
+		public ArrayList<ContentVO> adminProductList(Paging paging, String key) {
+			
+			
+			
+			return null;
 		}
 }
